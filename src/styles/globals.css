@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .circles {
+    margin-top: 18rem;
+  }
+
+  .heroButton {
+    @apply w-48 py-2 border border-zinc-800 rounded-full uppercase text-sm tracking-widest text-zinc-500 transition-all hover:border-[#f90]/60 hover:text-[#f90]/60 z-50;
+  }
+}
+
+/* background for site is bg-zinc-930: "#070708", */
+:root {
+  --track-scroll: hsla(240, 7%, 10%, 1);
+  --track-hover: hsla(240, 7%, 20%, 1);
+  --thumb-scroll: hsla(240, 7%, 20%, 1);
+  --thumb-hover: hsla(240, 7%, 35%, 1);
+  --body-bg: #070708;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 6px;
+}
+
+::-webkit-scrollbar:hover {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--track-scroll);
+  border-radius: 100vw;
+  margin-block: 0.5em;
+}
+
+::-webkit-scrollbar-track:hover {
+  background-color: var(--track-hover);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--thumb-scroll);
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--thumb-hover);
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--body-bg);
+}
+
+body {
+  scrollbar-color: var(--thumb-scroll) var(--track-scroll);
+  scrollbar-width: auto;
+}

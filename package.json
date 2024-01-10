@@ -9,9 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@biomejs/biome": "^1.4",
+    "framer-motion": "^10.17",
+    "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.4"
+    "react-simple-typewriter": "^5.0.1",
+    "react-social-icons": "^6.7",
+    "sharp": "^0.33.1"
   },
   "devDependencies": {
     "typescript": "^5",
