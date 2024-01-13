@@ -5,6 +5,7 @@ import { Cursor, useTypewriter } from "react-simple-typewriter"
 import BackgroundCircles from "./BackgroundCircles"
 import Image from "next/image"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import tomPicture from "/public/tom-chill-center-400.webp"
 
 type Props = {};
@@ -19,7 +20,17 @@ export default function Hero({ }: Props) {
   });
   return (
     // <section id="hero" className="flex items-center min-h-[100vh] w-full md:px-9 z-0 m-0 border border-red-700">
-    <div className="w-full flex flex-col items-center justify-start text-center overflow-visible">
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+      }}
+      transition={{
+        duration: 1.5,
+      }}
+      className="w-full flex flex-col items-center justify-start text-center overflow-visible" >
       <BackgroundCircles />
       <div className="relative w-44 sm:w-72 h-44 sm:h-72 border border-gray-700 rounded-full overflow-hidden mb-8">
         <Image
@@ -54,7 +65,7 @@ export default function Hero({ }: Props) {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
     // </section >
   );
 }
