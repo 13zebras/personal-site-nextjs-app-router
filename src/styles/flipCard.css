@@ -14,7 +14,7 @@
 
 .flip:hover .flip-content {
   transform: rotateY(180deg);
-  transition: transform 0.3s;
+  transition: transform 0.5s;
 }
 
 .flip-front,

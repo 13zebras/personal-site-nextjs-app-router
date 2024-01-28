@@ -7,6 +7,7 @@ import Portfolio from "@/components/Portfolio";
 import WorkExperience from "@/components/WorkExperience";
 
 export default function Home() {
+
   return (
     <div className="flex justify-center">
       <Header />

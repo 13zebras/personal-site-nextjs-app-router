@@ -1,4 +1,6 @@
 
+//https://collection.cloudinary.com/do82ekomg/c19c6be280bb81e5a9634d6e1cc62a88
+//https://res.cloudinary.com/do82ekomg/cldPublicId/upload/v1706404499/site-screenshots/floating-apes-home_lqprfr.jpg
 
 export function getAllProjects() {
   return [
@@ -7,8 +9,9 @@ export function getAllProjects() {
       url: "https://example.com",
       summary: "We pride ourselves not only to our power shifts but our power to aggregate.",
       thumbnail: "https://placehold.co/300x300/550000/FFDDCC/png",
-      image: "https://placehold.co/500x800/550000/FFDDCC/png",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      cldPublicId: "site-screenshots/floating-apes-home",
+      // cldPublicId: "https://placehold.co/500x800/550000/FFDDCC/png",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
       stack: "React, Chakra-UI, Solana",
     },
     {
@@ -16,17 +19,17 @@ export function getAllProjects() {
       url: "0",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
       thumbnail: "React, Recoil, Nextjs, Sass",
-      image: "summary line 1",
-      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is usually considered an amazing achievement. Without niches, you will lack experiences..",
+      cldPublicId: "site-screenshots/pet-solciety-home",
+      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
       stack: "React, Chakra-UI, Solana",
     },
     {
-      name: "Xara City",
+      name: "BOS Shop",
       url: "0",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
       thumbnail: "React, Recoil, Nextjs, Sass",
-      image: "summary line 1",
-      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is usually considered an amazing achievement. Without niches, you will lack experiences..",
+      cldPublicId: "site-screenshots/bos-shop-home",
+      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
       stack: "React, Chakra-UI, Solana",
     },
     {
@@ -34,8 +37,8 @@ export function getAllProjects() {
       url: "0",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
       thumbnail: "React, Recoil, Nextjs, Sass",
-      image: "summary line 1",
-      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is usually considered an amazing achievement. Without niches, you will lack experiences..",
+      cldPublicId: "site-screenshots/alder-mages-home",
+      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is.",
       stack: "React, Chakra-UI, Solana",
     },
     {
@@ -43,17 +46,17 @@ export function getAllProjects() {
       url: "0",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
       thumbnail: "React, Recoil, Nextjs, Sass",
-      image: "summary line 1",
-      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is usually considered an amazing achievement. Without niches, you will lack experiences..",
+      cldPublicId: "site-screenshots/doggos-home",
+      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is.",
       stack: "React, Chakra-UI, Solana",
     },
     {
-      name: "Solid.js Clock",
+      name: "Jikan Crypto Dashboard",
       url: "0",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
       thumbnail: "React, Recoil, Nextjs, Sass",
-      image: "summary line 1",
-      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is usually considered an amazing achievement. Without niches, you will lack experiences..",
+      cldPublicId: "site-screenshots/jikan-dashboard",
+      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
       stack: "React, Chakra-UI, Solana",
     },
   ];

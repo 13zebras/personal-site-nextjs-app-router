@@ -10,7 +10,7 @@ export interface IProject {
   url: string,
   summary: string,
   thumbnail: string,
-  image: string,
+  cldPublicId: string,
   description: string,
   stack: string,
 }
@@ -41,7 +41,7 @@ export default function Portfolio() {
         className="flex flex-col justify-center mx-auto items-center w-full px-0 gap-x-12"
       >
 
-        <h3 className="py-8 uppercase text-zinc-500 font-mono text-2xl tracking-widexl z-30">portfolio</h3>
+        <h3 className="pb-16 uppercase text-zinc-500 font-mono text-2xl tracking-widexl z-30">portfolio & projects</h3>
         <div className=" w-[90%] flex justify-center flex-wrap gap-10 z-30">
           {projects.map((project: IProject) => (
             <FlipCard key={project.name} {...project} />
