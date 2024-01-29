@@ -3,21 +3,26 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Portfolio from "@/components/Portfolio";
+import { Project } from "@/types/projects-types";
+// import { ProjectsContext } from "@/state/ProjectsContext";
 // import Skills from "@/components/Skills";
 import WorkExperience from "@/components/WorkExperience";
+import { getAllProjects } from "@/utils/projects";
 
 export default function Home() {
-
+  const projects: Project[] = getAllProjects()
+  console.log('>>> projects in PAGE', projects)
   return (
     <div className="flex justify-center">
       <Header />
       <main className="flex flex-col justify-start items-center gap-y-[30vh] text-white 
       w-full overflow-scroll">
+        {/* <ProjectsContext.Provider value={[]}> */}
         <section id="hero" className="flex items-center min-h-[100vh] w-full md:px-9 z-0 m-0">
           <Hero />
         </section>
         <section id="portfolio" className="flex items-center min-h-[100vh] w-full md:px-9 relative">
-          <Portfolio />
+          <Portfolio projects={projects} />
         </section>
         <section id="workExperience" className="flex items-center min-h-[100vh] h-full w-full md:px-9 mt-20">
           <WorkExperience />
@@ -26,6 +31,7 @@ export default function Home() {
           <About />
         </section>
         <Footer />
+        {/* </ProjectsContext.Provider> */}
       </main>
     </div>
   )
