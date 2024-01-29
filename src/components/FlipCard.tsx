@@ -4,6 +4,7 @@ import '@/styles/flipCard.css'
 
 import { auto, color } from "@cloudinary/url-gen/qualifiers/background";
 import { autoGravity, compass } from "@cloudinary/url-gen/qualifiers/gravity";
+import { useEffect, useState } from "react";
 
 import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from "@cloudinary/url-gen";
@@ -11,22 +12,28 @@ import Modal from "./Modal";
 import { Project } from '@/types/projects-types';
 import { createPortal } from 'react-dom';
 import { fillPad } from "@cloudinary/url-gen/actions/resize";
-import { useState } from "react";
 
 export default function FlipCard(props: Project) {
   // console.log('props', props)
   const [showModal, setShowModal] = useState(false);
+  const [portfolioDiv, setPortfolioDiv] = useState<HTMLElement | null>(null);
+  useEffect(() => {
+    const portfolioEl = document.getElementById('portfolio')
+    setPortfolioDiv(portfolioEl)
+  }, [])
 
-  const portfolioDiv = document.getElementById('portfolio')
+  console.log('>>>> portfolioDiv', portfolioDiv)
 
   const handleOpenClick = () => {
     // console.log('Openclicked')
     setShowModal(true)
+
     document.body.style.overflow = 'hidden';
     document.body.ontouchstart = (e) => {
       e.preventDefault();
     }
   }
+
 
   const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
   const frontImage = cld.image(props.cldPublicId)
