@@ -50,7 +50,7 @@ export default function FlipCard(props: Project) {
   return (
     <div className="flip w-[350px] h-[300px]">
       <div className="flip-content w-full h-full">
-        <div className="flip-front absolute w-full h-full bg-neutral-920 border border-stone-600 rounded-md p-[20px] flex flex-col items-center justify-start gap-6">
+        <div className="flip-front absolute w-full h-full bg-neutral-920 border border-neutral-600 rounded-md p-[20px] flex flex-col items-center justify-start gap-6">
           <div className="w-full relative">
             <AdvancedImage cldImg={frontImage} />
           </div>
@@ -59,7 +59,7 @@ export default function FlipCard(props: Project) {
             {props.name}
           </h4>
         </div>
-        <div className="flip-back absolute w-full h-full bg-slate-900 border border-slate-600 rounded-md p-8 flex flex-col items-center justify-start gap-6 text-left">
+        <div className="flip-back absolute w-full h-full bg-slate-920 border border-slate-600 rounded-md p-8 flex flex-col items-center justify-start gap-6 text-left">
           {props.summary}
           <button onClick={handleOpenClick} className='w-40 h-10 bg-slate-700 hover:bg-slate-600 text-neutral-100 rounded-lg border border-slate-500'>Learn More...</button>
           {showModal && portfolioDiv !== null && createPortal(

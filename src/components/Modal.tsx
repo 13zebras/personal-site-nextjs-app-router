@@ -1,4 +1,5 @@
 import { AdvancedImage, placeholder, responsive } from '@cloudinary/react';
+import { useEffect, useState } from "react";
 
 import { Cloudinary } from "@cloudinary/url-gen";
 import { Project } from '@/types/projects-types';
@@ -10,6 +11,7 @@ type ModalType = {
 }
 
 export default function Modal(props: ModalType) {
+  const [calcHeight, setCalcHeight] = useState(0)
   console.log('>>> modal props', props)
   const project = props.project
   const handleCloseClick = () => {
@@ -21,6 +23,23 @@ export default function Modal(props: ModalType) {
 
   const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
   const fullImage = cld.image(publicIdCld)
+
+  useEffect(() => {
+    const updateHeight = () => {
+      const cldDiv = document.getElementById('cldDiv')
+      if (cldDiv) {
+        const clientWidth = cldDiv.clientWidth
+        const aspectRatio = 1000 / 1788
+        const newHeight = Math.floor(clientWidth * aspectRatio) - 1
+        setCalcHeight(newHeight)
+      }
+    }
+    updateHeight()
+    window.addEventListener('resize', updateHeight)
+    return () => window.removeEventListener('resize', updateHeight)
+  })
+
+  const cldSkeletonStyle = `${calcHeight}px`
 
   return (
 
@@ -41,9 +60,10 @@ export default function Modal(props: ModalType) {
           y: 0,
           scale: 1,
           opacity: 1,
-        }} className="w-[90%] h-[90%] p-16 bg-zinc-900 rounded-xl overscroll-none flex flex-col justify-start items-center gap-y-16 relative">
-        <div className="w-[100%] h-[70%] flex justify-center items-start">
-          <AdvancedImage cldImg={fullImage} plugins={[responsive({ steps: 200 }), placeholder({ mode: 'blur' })]} className="max-h-[100%]" />
+        }} className="w-[90%] h-[90%] p-16 bg-gray-920 rounded-xl overscroll-none flex flex-col justify-start items-center gap-y-16 relative border border-gray-800">
+        <div id="cldDiv" className="w-[100%] h-[70%] flex justify-center items-start relative" >
+          <div className="animate-pulse absolute top-0 w-[99%] bg-gray-700 rounded-md" style={{ height: cldSkeletonStyle }} />
+          <AdvancedImage cldImg={fullImage} plugins={[responsive({ steps: 200 }), placeholder({ mode: 'blur' })]} className="max-h-[100%] z-50 border border-gray-800 " />
         </div>
         <div className="max-w-[70%] flex flex-col justify-start items-start gap-y-8">
           <div className="text-xl">{project.description}</div>

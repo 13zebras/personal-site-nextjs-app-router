@@ -1,25 +1,22 @@
 'use client'
 
+import { AdvancedImage, placeholder, responsive } from '@cloudinary/react';
+
 import BackgroundCircles from './BackgroundCircles'
-import Image from 'next/image'
+import { Cloudinary } from "@cloudinary/url-gen";
 import Link from 'next/link'
-// import { Cursor, useTypewriter } from "react-simple-typewriter"
 import { Typewriter } from 'react-simple-typewriter'
 import { motion } from 'framer-motion'
-import tomPicture from '/public/tom-chill-center-400.webp'
 
 export default function Hero() {
-  // const [text] = useTypewriter({
-  //   words: ["Hi! I'm Tom Stine", "<React Next.js TypeScript />", "{Problem solver, life-long Learner}"],
-  //   loop: true,
-  //   typeSpeed: 100,
-  //   deleteSpeed: 30,
-  //   delaySpeed: 1800,
-  // });
-  const typeWriterWords = ['Hi! I\'m Tom Stine', '<React Next.js TS Node.js />', '{Constantly learning - next is Rust!}']
+  const typeWriterWords = ['Hi! I\'m Tom Stine', '<React Next.js TS Node.js />', '{Coding and drinking tea!}']
+
+  const publicIdTom = 'portfolio/tom-chill-center' //publicIdCld
+  const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
+  const fullImage = cld.image(publicIdTom)
 
   return (
-    // <section id="hero" className="flex items-center min-h-[100vh] w-full md:px-9 z-0 m-0 border border-red-700">
+
     <motion.div
       initial={{
         opacity: 0,
@@ -34,12 +31,7 @@ export default function Hero() {
     >
       <BackgroundCircles />
       <div className="relative w-44 sm:w-72 h-44 sm:h-72 border border-gray-700 rounded-full overflow-hidden mb-8">
-        <Image
-          src={tomPicture}
-          alt="Tom Stine"
-          fill
-          style={{ objectFit: 'cover' }}
-        />
+        <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
       </div>
       <div className="z-20">
         <h2 className="text-md sm:text-lg md:text-2xl font-mono uppercase text-zinc-500 pb-4 sm:pb-6 md:pb-7 tracking-[6px] sm:tracking-[10px]">Full Stack Developer</h2>
@@ -54,8 +46,6 @@ export default function Hero() {
             deleteSpeed={30}
             delaySpeed={1800}
           />
-          {/* <span className="mr-1">{text}</span>
-          <Cursor cursorColor="#FF0022" /> */}
         </h3>
         <div className="pt-8 sm:pt-7 flex flex-row flex-wrap justify-center items-center gap-x-4">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -77,6 +67,5 @@ export default function Hero() {
         </div>
       </div>
     </motion.div>
-    // </section >
   )
 }

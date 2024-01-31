@@ -17,6 +17,22 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+.skeleton {
+  background: linear-gradient(90deg, #383944, #33343f, #383944, #31323d, #383944);
+  background-size: 200%;
+  animation: skeleton 2s ease-in-out infinite;
+}
+
+@keyframes skeleton {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: -200% 0%;
+  }
+}
+
 /* background for site is bg-zinc-950: "#070708", */
 
 

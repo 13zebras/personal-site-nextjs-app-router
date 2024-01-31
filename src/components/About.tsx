@@ -1,13 +1,17 @@
 'use client'
 
-import Image from 'next/image'
+import { AdvancedImage, placeholder, responsive } from '@cloudinary/react';
+
+import { Cloudinary } from "@cloudinary/url-gen";
 import Link from "next/link"
 import { motion } from 'framer-motion'
-import tomPicture from "/public/tom-chill-center-400.webp"
 
 type Props = {};
 
 export default function About({ }: Props) {
+  const publicIdTom = 'portfolio/tom-chill-center' //publicIdCld
+  const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
+  const fullImage = cld.image(publicIdTom)
   return (
     // <section id="about" className="w-full md:px-9">
     <div className="h-[100vh] relative flex flex-col justify-start lg:justify-center mx-auto items-center max-w-7xl pt-[86px] lg:pt-8 px-0 gap-x-16 gap-y-4 lg:gap-y-24">
@@ -28,13 +32,7 @@ export default function About({ }: Props) {
           viewport={{ once: false }}
           className="w-40 h-40 xs:w-52 xs:h-52 sm:w-60 sm:h-60 lg:w-[320px] lg:h-[400px] xl:w-[400px] xl:h-[400px] p-0 border-zinc-800 rounded-full lg:rounded-lg relative display:block "
         >
-          <Image
-            src={tomPicture}
-            alt="Tom Stine"
-            fill
-            sizes="100%"
-            className="border-4 border-zinc-800 rounded-full lg:rounded-lg"
-          />
+          <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
 
         </motion.div>
 
