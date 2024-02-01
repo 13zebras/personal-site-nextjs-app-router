@@ -1,18 +1,18 @@
 
-export function getAllProjects() {
-  console.log('>>>> getAllProjects **********************************')
+export function getMainProjects() {
+  console.log('>>>> getMainProjects **********************************')
   return [
     {
-      name: "Doggos",
-      url: "0",
-      summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
+      name: "Doggos NFTs",
+      url: "https://www.doggos.dog",
+      summary: "Doggos is a successful NFT project on Solana with a strong community. I reworked much of the CSS and layout of HTML to make a fixed desktop design more mobile responsive.",
       cldPublicId: "portfolio/doggos-home",
       description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is.",
       stack: "React, Next.js, Chakra-UI, Solana",
     },
     {
       name: "Our Trans Kids DAO",
-      url: "https://transkidsdao.13z.dev/",
+      url: "https://transkidsdao.13z.dev",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
       cldPublicId: "portfolio/transkidsdao",
       description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
@@ -20,7 +20,7 @@ export function getAllProjects() {
     },
     {
       name: "Floating Apes Affiliation",
-      url: "https://floating-apes-staking.vercel.app/",
+      url: "https://floating-apes-staking.vercel.app",
       summary: "The Floating Apes NFT project needed staking, raffle, and other services. ",
       cldPublicId: "portfolio/floating-apes",
       description: "The Floating Apes NFT project needed staking, raffle, and other services. Lucky Dog Studios provided all these services via a variety of websites.",
@@ -28,7 +28,7 @@ export function getAllProjects() {
     },
     {
       name: "Pet SolSociety",
-      url: "0",
+      url: "https://pet-solciety-staking.vercel.app",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
       cldPublicId: "portfolio/pet-solciety",
       description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
@@ -36,7 +36,7 @@ export function getAllProjects() {
     },
     {
       name: "BOS Shop",
-      url: "0",
+      url: "https://bos-store.vercel.app",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
       cldPublicId: "portfolio/bos-shop",
       description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
@@ -50,9 +50,23 @@ export function getAllProjects() {
       description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
       stack: "React, Next.js, Recoil, Sass",
     },
+  ];
+}
+
+export function getAllProjects() {
+  console.log('>>>> getAllProjects **********************************')
+
+  const secondaryProjects = [
     {
+      name: "Smoke Heads NFTs",
+      url: "https://smoke-heads-staking.vercel.app",
+      summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
+      cldPublicId: "portfolio/smoke-heads",
+      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is.",
+      stack: "React, Next.js, Chakra-UI, Solana",
+    }, {
       name: "AFI Movies NFTs",
-      url: "https://solportal.13z.dev/",
+      url: "https://solportal.13z.dev",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
       cldPublicId: "portfolio/afimoviesnfts",
       description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is.",
@@ -60,7 +74,7 @@ export function getAllProjects() {
     },
     {
       name: "Alder Mages",
-      url: "0",
+      url: "https://staking.aldermages.dev",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
       cldPublicId: "portfolio/alder-mages",
       description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is.",
@@ -68,11 +82,12 @@ export function getAllProjects() {
     },
     {
       name: "Jikan Crypto Dashboard",
-      url: "0",
+      url: "https://jikan-dashboard.vercel.app",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
       cldPublicId: "portfolio/jikan-dashboard",
       description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
       stack: "React, Next.js, Chakra-UI, Solana",
     },
-  ];
+  ]
+  return getMainProjects().concat(secondaryProjects);
 }

@@ -6,9 +6,7 @@ import { Cloudinary } from "@cloudinary/url-gen";
 import Link from "next/link"
 import { motion } from 'framer-motion'
 
-type Props = {};
-
-export default function About({ }: Props) {
+export default function About() {
   const publicIdTom = 'portfolio/tom-chill-center' //publicIdCld
   const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
   const fullImage = cld.image(publicIdTom)

@@ -12,9 +12,10 @@ import Modal from "./Modal";
 import { Project } from '@/types/projects-types';
 import { createPortal } from 'react-dom';
 import { fillPad } from "@cloudinary/url-gen/actions/resize";
+import { motion } from "framer-motion"
 
-export default function FlipCard(props: Project) {
-  // console.log('props', props)
+export default function FlipCardMotion(props: Project) {
+  // console.log('>>> flip card motion')
   const [showModal, setShowModal] = useState(false);
   const [portfolioDiv, setPortfolioDiv] = useState<HTMLElement | null>(null);
   useEffect(() => {
@@ -22,7 +23,7 @@ export default function FlipCard(props: Project) {
     setPortfolioDiv(portfolioEl)
   }, [])
 
-  console.log('>>>> portfolioDiv', portfolioDiv)
+  // console.log('>>>> portfolioDiv', portfolioDiv)
 
   const handleOpenClick = () => {
     // console.log('Openclicked')
@@ -33,7 +34,11 @@ export default function FlipCard(props: Project) {
       e.preventDefault();
     }
   }
+  const iX = Math.floor(Math.random() * 801) - 400
+  const iY = Math.floor(Math.random() * 801) - 400
+  const iScale = parseFloat((Math.random() * 0.4 + 0.1).toFixed(2))
 
+  console.log('>>> iX, iY, iScale', iX, iY, iScale)
 
   const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
   const frontImage = cld.image(props.cldPublicId)
@@ -48,9 +53,25 @@ export default function FlipCard(props: Project) {
   // const project = props.project
   // console.log('props.name', props.name)
   return (
-    <div className="flip w-[350px] h-[300px]">
+    <motion.div
+      initial={{
+        x: iX,
+        y: iY,
+        scale: iScale,
+        opacity: 0,
+      }}
+      animate={{
+        x: 0,
+        y: 0,
+        scale: 1,
+        opacity: 1,
+      }}
+      transition={{
+        duration: 3.0,
+      }}
+      className="flip w-[350px] h-[300px]">
       <div className="flip-content w-full h-full">
-        <div className="flip-front absolute w-full h-full bg-neutral-920 border border-neutral-600 rounded-md p-[20px] flex flex-col items-center justify-start gap-6">
+        <div className="flip-front absolute w-full h-full bg-neutral-920 border border-neutral-700 rounded-md p-[20px] flex flex-col items-center justify-start gap-6">
           <div className="w-full relative">
             <AdvancedImage cldImg={frontImage} />
           </div>
@@ -67,7 +88,7 @@ export default function FlipCard(props: Project) {
           )}
         </div>
       </div>
-    </div >
+    </motion.div >
   )
 
 

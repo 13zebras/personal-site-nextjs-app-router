@@ -9,12 +9,16 @@
   }
 
   .heroButton {
-    @apply w-48 py-2 border border-zinc-800 rounded-full uppercase text-sm tracking-widest text-zinc-500 transition-all hover:border-[#f90]/60 hover:text-[#f90]/60 z-50;
+    @apply w-48 py-2 border border-zinc-800 rounded-full uppercase text-sm tracking-widest text-zinc-400 transition-all hover:border-[#f90]/60 hover:text-[#f90]/60 z-50;
   }
 }
 
 body {
   -webkit-overflow-scrolling: touch;
+}
+
+.allMaxWidth {
+  @apply w-full max-w-7xl;
 }
 
 .skeleton {

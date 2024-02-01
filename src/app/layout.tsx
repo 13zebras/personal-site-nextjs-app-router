@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body id="body" className="bg-zinc-950 ">{children}</body>
+      <body id="body" className="bg-zinc-950 flex justify-center">{children}</body>
     </html>
   )
 }

@@ -49,9 +49,6 @@ export default function Hero() {
         </h3>
         <div className="pt-8 sm:pt-7 flex flex-row flex-wrap justify-center items-center gap-x-4">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            {/* <Link href="#skills">
-              <button className="heroButton">Skills</button>
-            </Link> */}
             <Link href="#portfolio">
               <button className="heroButton">Portfolio</button>
             </Link>
