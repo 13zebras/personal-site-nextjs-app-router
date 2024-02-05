@@ -20,10 +20,10 @@ export default function Header() {
         {/* <SocialIcon url="https://github.com/13zebras" fgColor="gray" bgColor="transparent" style={{ width: 40 }} />
         <SocialIcon url="https://www.linkedin.com/in/tom-stine-13-zebras/" fgColor="gray" bgColor="transparent" style={{ width: 40 }} /> */}
         <Link href="https://github.com/13zebras" className="ml-4" target="_blank" rel="noopener noreferrer">
-          < Icon icon="mdi:github" height={40} className="text-zinc-400 hover:text-zinc-200" />
+          <Icon icon="mdi:github" height={40} className="text-zinc-400 hover:text-zinc-200" />
         </Link>
         <Link href="https://www.linkedin.com/in/tom-stine-13-zebras/" className="ml-4" target="_blank" rel="noopener noreferrer">
-          < Icon icon="mdi:linkedin" height={40} className="text-zinc-400 hover:text-zinc-200" />
+          <Icon icon="mdi:linkedin" height={40} className="text-zinc-400 hover:text-zinc-200" />
         </Link>
 
       </div>
@@ -49,7 +49,7 @@ export default function Header() {
         })}
       </div>
       <Link href="/contact" className="flex flex-row justify-end items-center cursor-pointer w-48 text-zinc-400 hover:text-zinc-200" target="_blank" rel="noopener noreferrer">
-        < Icon icon="mdi:email-outline" height={30} className=" mt-1 mr-2 hover:text-zinc-200" />
+        <Icon icon="mdi:email-outline" height={30} className="mt-1 mr-2 hover:text-zinc-200" />
         <span className="pt-2 text-md uppercase tracking-wider hover:underline">Get in touch!</span>
       </Link>
 

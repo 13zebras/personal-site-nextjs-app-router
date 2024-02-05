@@ -16,11 +16,11 @@ export default function WorkExperience() {
 
       <div className="AllMaxWidth flex flex-col justify-center items-center px-0 gap-x-12 pt-32">
         {/* <div className="w-full h-12 border border-zinc-800"></div> */}
-        <h3 className="pb-16 uppercase text-zinc-500 font-mono text-2xl tracking-widexl z-30">full portfolio & all projects</h3>
+        <h1 className="pb-16 uppercase text-zinc-500 font-mono text-2xl tracking-widexl z-30">work experience</h1>
         <div className=" w-[90%] flex justify-center flex-wrap gap-10 z-30">
-          {allProjects.map((project: Project) => (
+          {/* {allProjects.map((project: Project) => (
             <FlipCardMotion key={project.name} {...project} />
-          ))}
+          ))} */}
         </div>
         <Link href="/#portfolio" className="mt-16 w-[320px] h-12 bg-slate-900 text-xl text-slate-100 rounded-2xl border-2 border-slate-600 hover:bg-slate-800 active:bg-slate-700 flex justify-center items-center">Return Home...</Link>
         {/* <ReturnButton /> */}

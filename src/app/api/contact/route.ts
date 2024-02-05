@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     secure: true,
     auth: {
       user: process.env.FASTMAIL_EMAIL,
-      pass: process.env.FASTMAIL_PASSWORD,
+      pass: process.env.FASTMAIL_PASSWORDX,
     },
   });
 

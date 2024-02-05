@@ -42,6 +42,9 @@ const config: Config = {
         neutral: {
           920: '#0d0d0d',
         },
+        red: {
+          550: '#ff0022',
+        }
       },
       animation: {
         'ping-15': 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
