@@ -15,7 +15,7 @@ export default function ContactForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-  const [success, setSuccess] = useState<'success' | 'fail' | undefined>('success')
+  const [success, setSuccess] = useState<'success' | 'fail' | undefined>(undefined)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
