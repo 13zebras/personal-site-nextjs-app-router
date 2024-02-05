@@ -4,8 +4,6 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
-import { SocialIcon } from "react-social-icons";
-import { motion } from "framer-motion"
 
 export default function Header() {
 
