@@ -23,7 +23,7 @@ export default function Portfolio({ projects }: Props) {
           // y: 100,
           // rotateX: -90,
           scale: 0.9,
-          opacity: 0.5,
+          // opacity: 0,
         }}
         transition={{
           duration: 1.0,
@@ -32,9 +32,9 @@ export default function Portfolio({ projects }: Props) {
           // y: 0,
           // rotateX: 0,
           scale: 1,
-          opacity: 1,
+          // opacity: 1,
         }}
-        className="allMaxWidth flex flex-col justify-center mx-auto items-center w-full px-0 gap-x-12"
+        className="AllMaxWidth flex flex-col justify-center mx-auto items-center w-full px-0 gap-x-12"
       >
 
         <h3 className="pb-16 uppercase text-zinc-500 font-mono text-2xl tracking-widexl z-30">portfolio & projects</h3>

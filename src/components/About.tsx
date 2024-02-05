@@ -12,27 +12,27 @@ export default function About() {
   const fullImage = cld.image(publicIdTom)
   return (
     // <section id="about" className="w-full md:px-9">
-    <div className="h-[100vh] relative flex flex-col justify-start lg:justify-center mx-auto items-center max-w-7xl pt-[86px] lg:pt-8 px-0 gap-x-16 gap-y-4 lg:gap-y-24">
+    <motion.div
+      initial={{
+        scale: 0.8,
+        opacity: 0,
+      }}
+      transition={{
+        duration: 1.2,
+      }}
+      whileInView={{
+        scale: 1,
+        opacity: 1,
+      }}
+      className="relative flex flex-col justify-start lg:justify-center mx-auto items-center gap-x-16 gap-y-4 lg:gap-y-20">
       <h3 className="h-[32px] uppercase text-zinc-500 font-mono text-2xl tracking-widexl">who is tom stine?</h3>
       <div className="w-[80%] sm:w-[70%] lg:w-[85%] flex flex-col lg:flex-row justify-start lg:justify-center mx-auto items-center lg:items-start gap-x-10 gap-y-6 lg:gap-y-0">
-        <motion.div
-          initial={{
-            x: -400,
-            opacity: 0,
-          }}
-          transition={{
-            duration: 1.2,
-          }}
-          whileInView={{
-            x: 0,
-            opacity: 1,
-          }}
-          viewport={{ once: false }}
+        <div
           className="w-40 h-40 xs:w-52 xs:h-52 sm:w-60 sm:h-60 lg:w-[320px] lg:h-[400px] xl:w-[400px] xl:h-[400px] p-0 border-zinc-800 rounded-full lg:rounded-lg relative display:block "
         >
           <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
 
-        </motion.div>
+        </div>
 
         <div className="mb-0 px-0 text-center lg:text-left max-w-[560px] lg:max-w-[clamp(510px,58%,600px)]">
           {/* <div className="-mb-32 xs:-mb-20 sm:mb-0 px-0 md:px-4 "> */}
@@ -45,7 +45,8 @@ export default function About() {
 
         </div>
       </div>
-    </div>
+    </motion.div>
+
     // </section>
   );
 }

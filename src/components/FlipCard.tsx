@@ -2,14 +2,14 @@
 
 import '@/styles/flipCard.css'
 
-import { auto, color } from "@cloudinary/url-gen/qualifiers/background";
-import { autoGravity, compass } from "@cloudinary/url-gen/qualifiers/gravity";
 import { useEffect, useState } from "react";
 
 import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from "@cloudinary/url-gen";
 import Modal from "./Modal";
 import { Project } from '@/types/projects-types';
+import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
+import { color } from "@cloudinary/url-gen/qualifiers/background";
 import { createPortal } from 'react-dom';
 import { fillPad } from "@cloudinary/url-gen/actions/resize";
 
@@ -48,9 +48,9 @@ export default function FlipCard(props: Project) {
   // const project = props.project
   // console.log('props.name', props.name)
   return (
-    <div className="flip w-[350px] h-[300px]">
-      <div className="flip-content w-full h-full">
-        <div className="flip-front absolute w-full h-full bg-neutral-920 border border-neutral-600 rounded-md p-[20px] flex flex-col items-center justify-start gap-6">
+    <div className="FlipContainer w-[350px] h-[300px]">
+      <div className="FlipContent w-full h-full">
+        <div className="FlipFront absolute w-full h-full bg-neutral-920 border border-neutral-600 rounded-md p-[20px] flex flex-col items-center justify-start gap-6">
           <div className="w-full relative">
             <AdvancedImage cldImg={frontImage} />
           </div>
@@ -59,7 +59,7 @@ export default function FlipCard(props: Project) {
             {props.name}
           </h4>
         </div>
-        <div className="flip-back absolute w-full h-full bg-slate-920 border border-slate-600 rounded-md p-8 flex flex-col items-center justify-start gap-6 text-left">
+        <div className="FlipBack absolute w-full h-full bg-slate-920 border border-slate-600 rounded-md p-8 flex flex-col items-center justify-start gap-6 text-left">
           {props.summary}
           <button onClick={handleOpenClick} className='w-40 h-10 bg-slate-700 hover:bg-slate-600 text-neutral-100 rounded-lg border border-slate-500'>Learn More...</button>
           {showModal && portfolioDiv !== null && createPortal(
@@ -76,11 +76,11 @@ export default function FlipCard(props: Project) {
 
 
 {/* <div class="flip">
-  <div class="flip-content">
-    <div class="flip-front">
+  <div class="FlipContent">
+    <div class="FlipFront">
       <img src="https://www.fillmurray.com/150/150" />
     </div>
-    <div class="flip-back">
+    <div class="FlipBack">
       <strong>BILL MURRAY</strong>
     </div>
   </div>

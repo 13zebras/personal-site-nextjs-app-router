@@ -8,24 +8,25 @@ import { Project } from "@/types/projects-types";
 import WorkExperience from "@/components/WorkExperience";
 import { getMainProjects } from "@/utils/projects";
 
+// todo - need mobile styling and breakpoints
+
 export default function Home() {
   const projects: Project[] = getMainProjects()
   console.log('>>> projects in page.tsx', projects)
   return (
-    <div className="flex justify-center w-screen scroll-smooth">
+    <div className="flex justify-center w-screen">
       <Header />
-      <main className="flex flex-col justify-start items-center text-white gap-y-[10vh] w-full overflow-scroll">
-        <section id="hero" className="allMaxWidth flex items-center min-h-[100vh] w-full md:px-9 z-0 m-0">
+      <main className="flex flex-col items-center text-white w-full">
+        <section id="hero" className="flex items-center w-full min-h-screen md:px-9 z-0 m-0">
           <Hero />
         </section>
-        <section id="portfolio" className="flex items-center min-h-[100vh] w-full md:px-9 relative">
-
+        {/* <section id="portfolio" className="flex items-center w-full md:px-9 relative min-h-screen">
           <Portfolio projects={projects} />
-        </section>
-        <section id="workExperience" className="allMaxWidth flex items-center min-h-[100vh] h-full w-full md:px-9 mt-20">
+        </section> */}
+        {/* <section id="workExperience" className="AllMaxWidth flex items-center  w-full md:px-9 mt-20 min-h-screen">
           <WorkExperience />
-        </section>
-        <section id="about" className="allMaxWidth flex items-center h-[70vh] w-full md:px-9">
+        </section> */}
+        <section id="about" className="AllMaxWidth flex items-center min-h-screen w-full md:px-9">
           <About />
         </section>
         <Footer />

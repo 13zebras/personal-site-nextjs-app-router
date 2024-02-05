@@ -45,8 +45,8 @@ const config: Config = {
       },
       animation: {
         'ping-15': 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
-        'ping-30': 'ping-30 3s cubic-bezier(0, 0, 0.2, 1) infinite',
         'ping-40': 'ping-40 4s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'ping-35': 'ping-35 3.5s cubic-bezier(0, 0, 0.2, 1) infinite',
       },
       keyframes: {
         'ping-20': {
@@ -55,9 +55,15 @@ const config: Config = {
             opacity: '0',
           },
         },
+        'ping-35': {
+          '75%, 100%': {
+            transform: 'scale(3.5)',
+            opacity: '0',
+          },
+        },
         'ping-40': {
           '75%, 100%': {
-            transform: 'scale(4.5)',
+            transform: 'scale(4.0)',
             opacity: '0',
           },
         },

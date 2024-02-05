@@ -1,3 +1,6 @@
+// todo need to complete all the projects
+// todo need to add cli projects
+// todo remove unneed fields from JSON
 
 export function getMainProjects() {
   console.log('>>>> getMainProjects **********************************')
