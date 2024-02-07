@@ -3,49 +3,12 @@
 @tailwind utilities;
 
 
-@layer components {
-  .circles {
-    margin-top: 323px;
-  }
-
-  .HeroButton {
-    @apply w-48 py-2 rounded-full uppercase text-sm tracking-widest transition-all hover:border-zinc-500 border border-zinc-700 text-zinc-400 hover:text-zinc-300 z-50;
-  }
-
-  .HeaderLink {
-    @apply py-4 uppercase text-sm tracking-widest transition-all text-zinc-400 hover:text-zinc-200;
-  }
-}
+@layer components {}
 
 body {
   -webkit-overflow-scrolling: touch;
 }
 
-.AllMaxWidth {
-  @apply w-full max-w-7xl;
-}
-
-
-/***********************************
- *** Skeleton CSS -- Unused ***
-
-.Skeleton {
-  background: linear-gradient(90deg, #383944, #33343f, #383944, #31323d, #383944);
-  background-size: 200%;
-  animation: skeleton 2s ease-in-out infinite;
-}
-
-@keyframes skeleton {
-  from {
-    background-position: 0% 0%;
-  }
-
-  to {
-    background-position: -200% 0%;
-  }
-}
-
-**********************************/
 
 
 /***********************************

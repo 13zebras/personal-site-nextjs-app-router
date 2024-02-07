@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from "@cloudinary/url-gen";
-import Modal from "./Modal";
+import Modal from "../Modal";
 import { Project } from '@/types/projects-types';
 import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
 import { color } from "@cloudinary/url-gen/qualifiers/background";

@@ -34,10 +34,10 @@ export default function Portfolio({ projects }: Props) {
           scale: 1,
           // opacity: 1,
         }}
-        className="AllMaxWidth flex flex-col justify-center mx-auto items-center w-full px-0 gap-x-12"
+        className="w-full max-w-7xl flex flex-col justify-center mx-auto items-center px-0 gap-x-12"
       >
 
-        <h3 className="pb-16 uppercase text-zinc-500 font-mono text-2xl tracking-widexl z-30">portfolio & projects</h3>
+        <h3 className="pb-16 uppercase text-zinc-500 font-mono text-2xl tracking-wide6 z-30">portfolio & projects</h3>
         <div className=" w-[90%] flex justify-center flex-wrap gap-10 z-30">
           {projects.map((project: Project) => (
             <FlipCard key={project.name} {...project} />

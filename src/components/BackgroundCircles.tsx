@@ -1,32 +1,27 @@
 // 'use client'
 
-// import { motion } from "framer-motion"
+function BackgroundCircles({ imageSize }: { imageSize: number }) {
 
-function BackgroundCircles() {
+  const maxRings = [200, 440, 560, 680]
+  const maxImage = 320
+  // if (imageSize <= 280) {
+  //   ringSizes = [200, 440, 560, 680]
+  // }
+
+  const ringSizes = maxRings.map((x) => {
+    return x * (imageSize / maxImage)
+  })
+  const ringTop = ringSizes.map((y) => {
+    return (imageSize - y) / 2
+  })
   return (
-    // <motion.div
-    //   initial={{
-    //     opacity: 0,
-    //   }}
-    //   animate={{
-    //     opacity: [0.1, 0.2, 0.4, 0.8, 0.1, 1.0],
-    //     // scale: [1, 2, 2, 3, 1],
-    //     // borderRadius: ["20%", "20%", "50%", "80%", "20%"],
-    //   }}
-    //   transition={{
-    //     duration: 5,
-    //   }}
-    <div
-      className="relative flex justify-center items-center z-0"
-    >
-      <div className="circles absolute border border-gray-800 rounded-full h-[200px] w-[200px] animate-ping-35" />
-      <div className="circles absolute border border-cyan-950/90 rounded-full h-[420px] w-[420px] animate-pulse" />
-      <div className="circles absolute border border-lime-950/90 rounded-full h-[520px] w-[520px] animate-pulse" />
-      <div className="circles absolute border border-red-950/90 rounded-full h-[620px] w-[620px] animate-pulse" />
-      {/* <div className="circles absolute border-2 border-[#ff0099] rounded-full h-[340px] w-[340px]" /> */}
-      {/* <div className="absolute border border-neutral-800 rounded-full h-[800px] w-[800px] mt-52 animate-ping" /> */}
-      {/* </motion.div> */}
-    </div>
+    <>
+      <div style={{ top: ringTop[0], width: ringSizes[0], height: ringSizes[0] }} className="absolute border border-gray-700/70 rounded-full animate-ping-45 z-0" />
+      <div style={{ top: ringTop[1], width: ringSizes[1], height: ringSizes[1] }} className="absolute border border-cyan-900/60 rounded-full animate-pulse-25" />
+      <div style={{ top: ringTop[2], width: ringSizes[2], height: ringSizes[2] }} className="absolute border border-lime-900/50 rounded-full animate-pulse-35" />
+      <div style={{ top: ringTop[3], width: ringSizes[3], height: ringSizes[3] }} className="absolute border border-red-900/50 rounded-full animate-pulse-30" />
+    </>
+    // </div>
   );
 }
 

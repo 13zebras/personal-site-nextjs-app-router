@@ -2,6 +2,7 @@
 
 import '@/styles/flipCard.css'
 
+import { fill, fillPad } from "@cloudinary/url-gen/actions/resize";
 import { useEffect, useLayoutEffect, useState } from "react";
 
 import { AdvancedImage } from '@cloudinary/react';
@@ -9,9 +10,9 @@ import { Cloudinary } from "@cloudinary/url-gen";
 import Modal from "./Modal";
 import { Project } from '@/types/projects-types';
 import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
+import { byRadius } from "@cloudinary/url-gen/actions/roundCorners";
 import { color } from "@cloudinary/url-gen/qualifiers/background";
 import { createPortal } from 'react-dom';
-import { fillPad } from "@cloudinary/url-gen/actions/resize";
 import { motion } from "framer-motion"
 
 export default function FlipCardMotion(props: Project) {
@@ -46,8 +47,8 @@ export default function FlipCardMotion(props: Project) {
   const frontImage = cld.image(props.cldPublicId)
   frontImage.resize(
     fillPad()
-      .width(350)
-      .height(210)
+      .width(300)
+      .height(180)
       .gravity(autoGravity())
       // .gravity(compass('north'))
       .background(color('#0d0d0d'))
@@ -72,9 +73,9 @@ export default function FlipCardMotion(props: Project) {
         duration: 3.0,
         delay: 0.2,
       }}
-      className="FlipContainer w-[350px] h-[300px]">
+      className="FlipContainer w-[320px] h-[300px]">
       <div className="FlipContent w-full h-full">
-        <div className="FlipFront absolute w-full h-full bg-neutral-920 border border-neutral-700 rounded-md p-[20px] flex flex-col items-center justify-start gap-6">
+        <div className="FlipFront absolute w-full h-full bg-neutral-920 border border-neutral-700 rounded-md p-3 flex flex-col items-center justify-start gap-6">
           <div className="w-full relative">
             <AdvancedImage cldImg={frontImage} />
           </div>

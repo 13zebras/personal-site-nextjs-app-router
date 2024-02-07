@@ -51,8 +51,8 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center py-40">
-      <h1 className="pb-24 uppercase text-zinc-400 font-mono text-2xl tracking-widexl z-30">contact tom stine</h1 >
+    <div className="flex flex-col justify-center items-center pt-32 pb-16">
+      <h1 className="pb-16 uppercase text-zinc-400 font-mono text-2xl tracking-wide6 z-30">contact tom stine</h1 >
       {/* <form action={create} className="flex flex-col gap-y-16 mb-32">
           <input type="text" name="subject" />
           <button type="submit" className="bg-green-800 text-zinc-300 text-xl rounded-2xl py-2">Submit</button>
@@ -72,7 +72,7 @@ export default function ContactForm() {
               name="fullName"
               placeholder='full name'
               onChange={(e) => { setName(e.target.value) }}
-              className='w-full rounded-md border border-gray-600 bg-gray-900 py-3 px-6 text-lg text-gray-200 outline-none focus:border-pink-800 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-md'
+              className='w-full rounded-md border border-gray-600 bg-gray-900 py-3 px-6 text-lg text-gray-200 outline-none focus:border-pink-800 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
 
             />
           </div>
@@ -88,7 +88,7 @@ export default function ContactForm() {
               name="email"
               placeholder='fredwilma@example.com'
               onChange={(e) => { setEmail(e.target.value) }}
-              className='w-full rounded-md border border-gray-600 bg-gray-900 py-3 px-6 text-lg text-gray-200 outline-none focus:border-pink-800 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-md'
+              className='w-full rounded-md border border-gray-600 bg-gray-900 py-3 px-6 text-lg text-gray-200 outline-none focus:border-pink-800 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
             />
           </div>
           <div className=''>
@@ -103,11 +103,11 @@ export default function ContactForm() {
               name="message"
               placeholder='type your message'
               onChange={(e) => { setMessage(e.target.value) }}
-              className='w-full rounded-md border border-gray-600 bg-gray-900 py-3 px-6 text-lg text-gray-200 outline-none focus:border-pink-800 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-md'
+              className='w-full rounded-md border border-gray-600 bg-gray-900 py-3 px-6 text-lg text-gray-200 outline-none focus:border-pink-800 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
             ></textarea>
           </div>
           <div>
-            <button type="submit" onClick={(e) => { handleSubmit(e) }} className='w-full rounded-xl bg-violet-900 hover:bg-violet-800  border-2 border-violet-700 active:border-violet-400 py-4 text-2xl font-bold hover:text-white text-gray-100 tracking-wider outline-none'>
+            <button type="submit" onClick={(e) => { handleSubmit(e) }} className='w-full rounded-xl bg-violet-900 hover:bg-violet-800  border-2 border-violet-700 active:border-violet-400 py-4 text-2xl font-bold hover:text-white text-gray-100 tracking-wide1 outline-none'>
               Submit
             </button>
           </div>

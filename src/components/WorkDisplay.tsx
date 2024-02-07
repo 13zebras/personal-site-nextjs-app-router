@@ -22,7 +22,7 @@ export default function WorkDisplay(props: WorkData) {
       <h4 className="text-2xl font-light">{props.title}</h4>
       <p className="text-xl font-bold mt-1">{props.employer}</p>
       {/* <div className="flex space-x-2 my-2">O O O O</div> */}
-      <p className="text-md uppercase py-2 text-gray-400">{props.dates}</p>
+      <p className="text-base uppercase py-2 text-gray-400">{props.dates}</p>
       <ul className="list-disc space-y-2 ml-5 text-lg w-[90%]">
         <li>{props.stack}</li>
         <li>{props.summary1}</li>

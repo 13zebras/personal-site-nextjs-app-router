@@ -20,10 +20,11 @@ const config: Config = {
       tighter: '-0.05em',
       tight: '-0.025em',
       normal: '0',
-      wide: '0.05em',
-      wider: '0.1em',
-      widest: '0.25em',
-      widexl: '0.60em',
+      wide0: '0.05em',
+      wide1: '0.1em',
+      wide2: '0.25em',
+      wide3: '0.35em',
+      wide6: '0.60em',
     },
     extend: {
       colors: {
@@ -47,14 +48,18 @@ const config: Config = {
         }
       },
       animation: {
-        'ping-15': 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
-        'ping-40': 'ping-40 4s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'ping-25': 'ping-25 6s cubic-bezier(0, 0, 0.2, 1) infinite',
         'ping-35': 'ping-35 3.5s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'ping-40': 'ping-40 4s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'ping-45': 'ping-45 4s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'pulse-25': 'pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-30': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-35': 'pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
-        'ping-20': {
+        'ping-25': {
           '75%, 100%': {
-            transform: 'scale(4)',
+            transform: 'scale(1.9)',
             opacity: '0',
           },
         },
@@ -68,6 +73,12 @@ const config: Config = {
           '75%, 100%': {
             transform: 'scale(4.0)',
             opacity: '0',
+          },
+        },
+        'ping-45': {
+          '85%, 100%': {
+            transform: 'scale(4.5)',
+            opacity: '0.3',
           },
         },
       },
