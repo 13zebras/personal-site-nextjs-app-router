@@ -8,7 +8,6 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      'xxs': '360px',
       'xs': '480px',
       'sm': '640px',
       'md': '768px',
@@ -45,6 +44,16 @@ const config: Config = {
         },
         red: {
           550: '#ff0022',
+        },
+        pulse: {
+          cyan: '#00576d',
+          cyan2: '#008090',
+          lime: '#2d5600',
+          lime2: '#60aa00',
+          red: '#66001a',
+          red2: '#b60032',
+          gray: '#152230',
+          gray2: '#283544',
         }
       },
       animation: {
@@ -52,9 +61,11 @@ const config: Config = {
         'ping-35': 'ping-35 3.5s cubic-bezier(0, 0, 0.2, 1) infinite',
         'ping-40': 'ping-40 4s cubic-bezier(0, 0, 0.2, 1) infinite',
         'ping-45': 'ping-45 4s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'ping-4is': 'ping-4is 4s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'ping-4isR': 'ping-4isR 4.5s cubic-bezier(0, 0, 0.2, 1) infinite',
         'pulse-25': 'pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'pulse-30': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'pulse-35': 'pulse 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-31': 'pulse 3.1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-37': 'pulse 3.7s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         'ping-25': {
@@ -72,12 +83,38 @@ const config: Config = {
         'ping-40': {
           '75%, 100%': {
             transform: 'scale(4.0)',
-            opacity: '0',
+            opacity: '0.3',
           },
         },
         'ping-45': {
           '85%, 100%': {
             transform: 'scale(4.5)',
+            opacity: '0.3',
+          },
+        },
+        'ping-4is': {
+          '85%, 100%': {
+            transform: 'scale(2.5)',
+            opacity: '0.3',
+          },
+        },
+        'ping-4isR': {
+          '0%': {
+            transform: 'scale(0.3)',
+            opacity: '1.0',
+          },
+          '40%': {
+            opacity: '1.0',
+          },
+          '60%': {
+            opacity: '0.8',
+          },
+          '85%': {
+            transform: 'scale(1)',
+            opacity: '0.7',
+          },
+          '100% ': {
+            transform: 'scale(1)',
             opacity: '0.3',
           },
         },
