@@ -11,7 +11,7 @@ function BackgroundCircles({ imageSize, viewportWidth }: Props) {
 
   let ringGap = 40
   if (viewportWidth > 850) {
-    ringGap = 120
+    ringGap = 100
   } else if (viewportWidth >= ringBreak) {
     ringGap = 120 * (viewportWidth / 980)
   } else {
@@ -36,10 +36,10 @@ function BackgroundCircles({ imageSize, viewportWidth }: Props) {
 
   return (
     <>
-      <div style={{ top: ringTop[0], width: ringSizes[0], height: ringSizes[0] }} className="absolute border border-pulse-cyan rounded-full animate-pulse-25 hidden xs:block" />
-      <div style={{ top: ringTop[1], width: ringSizes[1], height: ringSizes[1] }} className="absolute border border-pulse-lime rounded-full animate-pulse-37" />
-      <div style={{ top: ringTop[2], width: ringSizes[2], height: ringSizes[2] }} className="absolute border border-pulse-red rounded-full animate-pulse-31" />
-      <div style={{ top: ringTop[3], width: ringSizes[3], height: ringSizes[3] }} className="absolute border-[4px] border-pulse-gray rounded-full animate-ping-4isR z-0" />
+      <div style={{ top: ringTop[0], width: ringSizes[0], height: ringSizes[0] }} className="absolute border border-pulse-cyan2 rounded-full animate-pulse-25 hidden xs:block" />
+      <div style={{ top: ringTop[1], width: ringSizes[1], height: ringSizes[1] }} className="absolute border border-pulse-lime2 rounded-full animate-pulse-37" />
+      <div style={{ top: ringTop[2], width: ringSizes[2], height: ringSizes[2] }} className="absolute border border-pulse-red2 rounded-full animate-pulse-31" />
+      <div style={{ top: ringTop[3], width: ringSizes[3], height: ringSizes[3] }} className="absolute border-[4px] border-pulse-gray2 rounded-full animate-ping-4isR z-0" />
     </>
     // <>
     //   <div style={{ top: ringTop[0], width: ringSizes[0], height: ringSizes[0] }} className="absolute border border-pulse-cyan2 rounded-full animate-pulse-25" />

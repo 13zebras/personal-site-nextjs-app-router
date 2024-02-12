@@ -32,8 +32,8 @@ export default function Footer() {
   }
 
   return (
-    <footer id="footer" className="fixed bottom-0 w-full py-2 bg-zinc-950 z-20">
-      <div className="flex justify-center items-center">
+    <footer id="footer" className="fixed bottom-0 w-full z-20 bg-gray-800">
+      <div className="flex justify-center items-center h-[50px]">
         <span className="text-xl text-[#c04] font-mono mr-3">{`${breakPoint}`}</span>
         <span className="text-base text-gray-500 font-mono">
           {`${viewportWidth}vw  ${viewportHeight}vh`}

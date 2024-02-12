@@ -21,8 +21,10 @@ const config: Config = {
       normal: '0',
       wide0: '0.05em',
       wide1: '0.1em',
-      wide2: '0.25em',
+      wide15: '0.15em',
+      wide2: '0.2em',
       wide3: '0.35em',
+      wide4: '0.4em',
       wide6: '0.60em',
     },
     extend: {
@@ -47,19 +49,20 @@ const config: Config = {
         },
         pulse: {
           cyan: '#00576d',
-          cyan2: '#008090',
-          lime: '#2d5600',
+          cyan2: '#00a0b0',
+          lime: '#234b00',
           lime2: '#60aa00',
-          red: '#66001a',
+          red: '#560015',
           red2: '#b60032',
-          gray: '#152230',
+          gray: '#111c26',
           gray2: '#283544',
         }
       },
       animation: {
+        'ping-0': 'ping-0 6s cubic-bezier(0, 0, 0.2, 1) infinite',
         'ping-25': 'ping-25 6s cubic-bezier(0, 0, 0.2, 1) infinite',
-        'ping-35': 'ping-35 3.5s cubic-bezier(0, 0, 0.2, 1) infinite',
-        'ping-40': 'ping-40 4s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'ping-35': 'ping-35 5s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'ping-40': 'ping-40 5s cubic-bezier(0, 0, 0.2, 1) infinite',
         'ping-45': 'ping-45 4s cubic-bezier(0, 0, 0.2, 1) infinite',
         'ping-4is': 'ping-4is 4s cubic-bezier(0, 0, 0.2, 1) infinite',
         'ping-4isR': 'ping-4isR 4.5s cubic-bezier(0, 0, 0.2, 1) infinite',
@@ -68,6 +71,12 @@ const config: Config = {
         'pulse-37': 'pulse 3.7s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
+        'ping-0': {
+          '85%, 100%': {
+            transform: 'scale(4.5)',
+            opacity: '0',
+          },
+        },
         'ping-25': {
           '75%, 100%': {
             transform: 'scale(1.9)',
@@ -75,15 +84,15 @@ const config: Config = {
           },
         },
         'ping-35': {
-          '75%, 100%': {
+          '85%, 100%': {
             transform: 'scale(3.5)',
             opacity: '0',
           },
         },
         'ping-40': {
-          '75%, 100%': {
-            transform: 'scale(4.0)',
-            opacity: '0.3',
+          '85%, 100%': {
+            transform: 'scale(4.5)',
+            opacity: '0',
           },
         },
         'ping-45': {
@@ -101,21 +110,21 @@ const config: Config = {
         'ping-4isR': {
           '0%': {
             transform: 'scale(0.3)',
-            opacity: '1.0',
+            opacity: '0.8',
           },
           '40%': {
             opacity: '1.0',
           },
           '60%': {
-            opacity: '0.8',
+            opacity: '0.6',
           },
           '85%': {
             transform: 'scale(1)',
-            opacity: '0.7',
+            opacity: '0.1',
           },
           '100% ': {
             transform: 'scale(1)',
-            opacity: '0.3',
+            opacity: '0',
           },
         },
       },

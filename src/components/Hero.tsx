@@ -3,13 +3,15 @@
 import { AdvancedImage, placeholder, responsive } from '@cloudinary/react';
 import { useEffect, useState } from 'react';
 
-import BackgroundCircles from './BackgroundCircles'
+import BackgroundCircles from './BackgroundCircles3'
 import { Cloudinary } from "@cloudinary/url-gen";
 import { Typewriter } from 'react-simple-typewriter'
 import { motion } from 'framer-motion'
 
 export default function Hero() {
   const [viewportWidth, setViewportWidth] = useState(0)
+  const [viewportHeight, setViewportHeight] = useState(0)
+  const [heroHeight, setHeroHeight] = useState(0)
 
   const typeWriterWords = ['<React, Next.js />', '[TypeScript, Node.js]', 'style: exquisite', '() => superior']
   // const typeWriterWords = ['Hi! I\'m Tom Stine', '<React Next.js TS Node.js />', '{Coding and drinking tea!}']
@@ -19,22 +21,95 @@ export default function Hero() {
   const fullImage = cld.image(publicIdTom)
 
   useEffect(() => {
-    const updateWidth = () => {
+    const updateWindowDimensions = () => {
+      const headerFooter = 100
       setViewportWidth(window.innerWidth)
+      setViewportHeight(window.innerHeight)
+      setHeroHeight(window.innerHeight - headerFooter)
     }
-    updateWidth()
-    window.addEventListener('resize', updateWidth)
-    return () => window.removeEventListener('resize', updateWidth)
+    updateWindowDimensions()
+    window.addEventListener('resize', updateWindowDimensions)
+    return () => window.removeEventListener('resize', updateWindowDimensions)
   })
 
-  // console.log('>>>> viewportWidth', viewportWidth)
+  const heroOffset = 0.05
+  const effectiveHeroHeight = Math.round(heroHeight * (1 - 2 * heroOffset))
 
-  let imageSize = 220
-  if (viewportWidth >= 768) {
+  console.log('>>> viewportWidth', viewportWidth)
+  console.log('>>> heroHeight', heroHeight)
+  console.log('>>> effectiveHeroHeight', effectiveHeroHeight)
+
+  const smallestViewport = Math.min(viewportWidth, effectiveHeroHeight)
+
+  let imageSize = 200
+  if (smallestViewport >= 640) {
     imageSize = 320
-  } else if (viewportWidth >= 420) {
-    imageSize = Math.round(viewportWidth * 0.2778 + 106.67)
+  } else if (smallestViewport >= 400) {
+    imageSize = Math.round(smallestViewport * 0.5)
   }
+
+
+  // let imageSize = 200
+  // if (viewportWidth >= 640) {
+  //   imageSize = 320
+  // } else if (viewportWidth >= 400) {
+  //   imageSize = Math.round(viewportWidth * 0.5)
+  // }
+
+
+  const heroTextMarginTop = 20
+  const heroTextHeight = 160
+
+  const heroImageTop = Math.round((effectiveHeroHeight - imageSize) / 2)
+  // const heroImageTop = Math.round((heroHeight * 0.45) - (imageSize * 0.50))
+  const paddingTopOuter = heroImageTop
+
+  const totalHeroElementHeight = paddingTopOuter + imageSize + heroTextMarginTop + heroTextHeight
+
+  console.log('>>> totalHeroElementHeight', totalHeroElementHeight)
+  console.log('>>> heroImageTop', heroImageTop)
+
+  // ***  RING CALCS  *****************************************
+
+  let ringOuterPadding = 0
+
+  if (smallestViewport > 800) {
+    ringOuterPadding = 30
+  } else if (smallestViewport > 480) {
+    ringOuterPadding = Math.round((smallestViewport - 480) / 10)
+  }
+
+  const maxRingGap = 120
+
+  let ringGap = Math.round((smallestViewport - ringOuterPadding - imageSize) / 3)
+
+  if (ringGap > maxRingGap) {
+    ringGap = maxRingGap
+  }
+
+  let ringSizes: Array<number> = []
+
+  const ring0pinScale = 4.0
+  const maxRing0 = (imageSize + ringGap * 3)
+
+  if (smallestViewport - ringOuterPadding > maxRing0) {
+    ringSizes[0] = Math.round(maxRing0 / ring0pinScale)
+  } else {
+    ringSizes[0] = Math.round((smallestViewport - ringOuterPadding) / ring0pinScale)
+  }
+
+  for (let i = 1; i < 3; i++) {
+    ringSizes[i] = Math.round(imageSize + ringGap * i)
+  }
+
+  const ringTops = ringSizes.map((y) => {
+    return (imageSize - y) / 2
+  })
+
+  console.log('>>> ringGap', ringGap)
+  console.log('>>> ringSizes', ringSizes)
+  console.log('>>> ringTops', ringTops)
+  console.log('>>> ringOuterPadding', ringOuterPadding)
 
   return (
 
@@ -49,17 +124,19 @@ export default function Hero() {
       }}
       transition={{
         duration: 0.9,
-      }}
-      className="w-full flex flex-col items-center justify-center text-center relative mt-28">
-      <BackgroundCircles imageSize={imageSize} viewportWidth={viewportWidth} />
-      <div style={{ width: imageSize, height: imageSize }} className="relative border border-gray-700 rounded-full overflow-hidden">
-        <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
+      }} style={{ paddingTop: paddingTopOuter }}
+      className="w-full flex flex-col items-center justify-start text-center h-full">
+      <div className="relative border border-green-900 w-full flex flex-col items-center justify-center">
+        <BackgroundCircles ringTops={ringTops} ringSizes={ringSizes} />
+        {/* <BackgroundCircles imageSize={imageSize} viewportWidth={viewportWidth} viewportHeight={viewportHeight} /> */}
+        <div style={{ width: imageSize, height: imageSize }} className="relative border border-gray-700 rounded-full overflow-hidden">
+          <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
+        </div>
       </div>
-
-      <div className="z-20 flex flex-col items-center mt-10 md:mt-12 w-full">
-        <h1 className="mb-6 lg:mb-8 text-[1.4rem] sm:text-[1.65rem] md:text-[2rem] lg:text-[2.25rem] font-mono uppercase text-zinc-200 tracking-[6px] sm:tracking-wide3">Tom Stine</h1>
-        <h2 className="mb-6 md:mb-8 lg:mb-12 text-base sm:text-[1.15rem] md:text-[1.25rem] font-mono uppercase text-zinc-500 tracking-wide1 md:tracking-wide2">Full Stack Developer</h2>
-        <h3 className="w-11/12 h-16 text-[1.15rem] sm:text-[1.25rem] md:text-[1.4rem] lg:text-[1.88rem] tracking-wide1 font-sans sm:font-mono text-zinc-400">
+      <div id="heroText" style={{ marginTop: heroTextMarginTop, height: heroTextHeight }} className="z-20 flex flex-col items-center justify-center w-full border border-pink-950">
+        <h1 className="mb-[8px] text-[1.65rem] md:text-[2rem] lg:text-[2.25rem] font-mono font-bold uppercase text-zinc-200 tracking-wide2 sm:tracking-wide3">Tom Stine</h1>
+        <h2 className="mb-[16px] text-base sm:text-[1.15rem] md:text-[1.25rem] font-mono uppercase text-zinc-500 tracking-wide1 md:tracking-wide15">Full Stack Developer</h2>
+        <h3 className="w-11/12 text-[1.15rem] sm:text-[1.25rem] md:text-[1.3rem] lg:text-[1.5rem] tracking-wide1 font-sans sm:font-mono text-zinc-400">
           <Typewriter
             words={typeWriterWords}
             loop={false}

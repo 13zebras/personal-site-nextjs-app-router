@@ -7,9 +7,9 @@ import Hero from "@/components/Hero";
 export default function Home() {
 
   return (
-    <div className="w-full max-w-7xl flex flex-col items-center justify-center px-8">
+    <div className="w-screen max-w-7xl flex flex-col items-center justify-center px-8">
       <Header />
-      <main className="flex justify-center items-center w-full min-h-screen md:px-9 z-0 m-0">
+      <main className="flex flex-col justify-center items-center w-full z-0 h-screen py-[60px]">
         <Hero />
       </main>
       <Footer />
