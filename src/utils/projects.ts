@@ -2,8 +2,8 @@
 // todo need to add cli projects
 // todo remove unneed fields from JSON
 
-export function getMainProjects() {
-  console.log('>>>> getMainProjects **********************************')
+export function getAllProjects() {
+  console.log('>>>> getAllProjects **********************************')
   return [
     {
       name: "Doggos NFTs",
@@ -53,13 +53,6 @@ export function getMainProjects() {
       description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
       stack: "React, Next.js, Recoil, Sass",
     },
-  ];
-}
-
-export function getAllProjects() {
-  console.log('>>>> getAllProjects **********************************')
-
-  const secondaryProjects = [
     {
       name: "Smoke Heads NFTs",
       url: "https://smoke-heads-staking.vercel.app",
@@ -92,5 +85,4 @@ export function getAllProjects() {
       stack: "React, Next.js, Chakra-UI, Solana",
     },
   ]
-  return getMainProjects().concat(secondaryProjects);
 }

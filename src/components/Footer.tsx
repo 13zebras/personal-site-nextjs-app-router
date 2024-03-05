@@ -27,14 +27,16 @@ export default function Footer() {
     breakPoint = 'md'
   } else if (viewportWidth >= 640) {
     breakPoint = 'sm'
-  } else {
+  } else if (viewportWidth >= 480) {
     breakPoint = 'xs'
+  } else {
+    breakPoint = 'xxs'
   }
 
   return (
-    <footer id="footer" className="fixed bottom-0 w-full z-50 bg-gray-800">
-      <div className="flex justify-center items-center h-[70px]">
-        <span className="text-xl text-[#c04] font-mono mr-3">{`${breakPoint}`}</span>
+    <footer id="footer" className="fixed bottom-0 w-full z-50 bg-gray-900">
+      <div className="flex justify-center items-center h-[50px]">
+        <span className="text-lg text-[#c04] font-mono mr-4">{`${breakPoint}`}</span>
         <span className="text-base text-gray-500 font-mono">
           {`${viewportWidth}vw  ${viewportHeight}vh`}
         </span>

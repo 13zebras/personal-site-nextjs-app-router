@@ -37,15 +37,13 @@ export default function Hero() {
     return () => window.removeEventListener('resize', updateWindowDimensions)
   }, [])
 
-  const heroOffset = 0
-  const effectiveHeroHeight = Math.round(heroHeight * (1 - 2 * heroOffset))
+  // const heroOffset = 0
+  // const effectiveHeroHeight = Math.round(heroHeight * (1 - 2 * heroOffset))
 
-  console.log('>>> viewportWidth', viewportWidth)
-  console.log('>>> viewportHeight', viewportHeight)
-  console.log('>>> heroHeight', heroHeight)
-  console.log('>>> effectiveHeroHeight', effectiveHeroHeight)
 
-  const smallestViewport = Math.min(viewportWidth, effectiveHeroHeight)
+
+  const smallestViewport = Math.min(viewportWidth, heroHeight)
+  // const smallestViewport = Math.min(viewportWidth, effectiveHeroHeight)
 
   let imageSize = 200
   if (smallestViewport >= 640) {
@@ -74,12 +72,18 @@ export default function Hero() {
   const totalHeroElementHeight = imageSize + heroTextMarginTop + heroTextHeight
   // const totalHeroElementHeight = paddingTopOuter + imageSize + heroTextMarginTop + heroTextHeight
 
-  const heroImageTop = Math.round((effectiveHeroHeight - totalHeroElementHeight) / 2)
+  let heroOffset = 0
+  if (viewportHeight < 850) {
+    heroOffset = 40
+  } else if (viewportHeight < 900) {
+    heroOffset = 25
+  }
+
+
+  const heroImageTop = Math.round((heroHeight - totalHeroElementHeight) / 2) + heroOffset
 
   // const paddingTopOuter = 0
   const paddingTopOuter = heroImageTop
-  console.log('>>> totalHeroElementHeight', totalHeroElementHeight)
-  console.log('>>> heroImageTop', heroImageTop)
 
   // **********************************************************
   // ***  RING CALCS  *****************************************
@@ -93,7 +97,7 @@ export default function Hero() {
     ringOuterPadding = Math.round((smallestViewport - 480) / 10)
   }
 
-  const maxRingGap = 120
+  const maxRingGap = 100
 
   let ringGap = Math.round((smallestViewport - ringOuterPadding - imageSize) / 3)
 
@@ -120,12 +124,20 @@ export default function Hero() {
     return (imageSize - y) / 2
   })
 
-  console.log('>>> maxRing0', maxRing0)
-  console.log('>>> ringGap', ringGap)
-  console.log('>>> ringSizes', ringSizes)
-  console.log('>>> ringTops', ringTops)
-  console.log('>>> ringOuterPadding', ringOuterPadding)
-  console.log('>>> ***** ***** ***** ***** *****\n\n\n')
+  // console.log('>>> maxRing0', maxRing0)
+  // console.log('>>> ringGap', ringGap)
+  // console.log('>>> ringSizes', ringSizes)
+  // console.log('>>> ringTops', ringTops)
+  // console.log('>>> ringOuterPadding', ringOuterPadding)
+
+  // console.log('>>> viewportWidth', viewportWidth)
+  // console.log('>>> viewportHeight', viewportHeight)
+  // console.log('>>> heroHeight', heroHeight)
+  // console.log('>>> smallestViewport', smallestViewport)
+  // console.log('>>> totalHeroElementHeight', totalHeroElementHeight)
+  // console.log('>>> heroImageTop', heroImageTop)
+  // console.log('>>> paddingTopOuter', paddingTopOuter)
+  // console.log('>>> ***** ***** ***** ***** *****\n\n\n')
 
   return (
 

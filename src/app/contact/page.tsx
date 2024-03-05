@@ -5,10 +5,14 @@ import Header from "@/components/Header";
 export default function Contact() {
   return (
     <div className="w-full max-w-7xl flex flex-col justify-center items-center" >
-      <div className="w-full flex justify-center bg-zinc-950 z-50">
+      <div className="w-full flex justify-center">
         <Header />
       </div>
-      <ContactForm />
+      <main className="flex flex-col justify-start items-center px-0 gap-x-12 pt-28 pb-16">
+        <h1 className="pb-16 uppercase text-zinc-400 font-mono text-xl tracking-wide6 z-30">contact tom stine</h1 >
+        <ContactForm />
+      </main>
+
       <Footer />
     </div>
   );
