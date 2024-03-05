@@ -73,7 +73,7 @@ const config: Config = {
       keyframes: {
         'ping-0': {
           '85%, 100%': {
-            transform: 'scale(4.5)',
+            transform: 'scale(4.2)',
             opacity: '0',
           },
         },

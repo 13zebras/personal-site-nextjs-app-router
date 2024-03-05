@@ -73,7 +73,7 @@ export default function FlipCardMotion(props: Project) {
         duration: 3.0,
         delay: 0.2,
       }}
-      className="FlipContainer w-[320px] h-[300px]">
+      className="FlipContainer w-[300px] h-[300px]">
       <div className="FlipContent w-full h-full">
         <div className="FlipFront absolute w-full h-full bg-neutral-920 border border-neutral-700 rounded-md p-3 flex flex-col items-center justify-start gap-6">
           <div className="w-full relative">

@@ -12,8 +12,8 @@ export default function Header() {
   const allPaths = ["home", "projects", "experience", "about", "contact"]
 
   return (
-    <header className="w-full max-w-7xl px-6 lg:px-8 fixed top-0 pt-0 flex flex-row justify-center items-center gap-x-4 sm:gap-x-6 md:gap-x-10 lg:gap-x-12 cursor-pointer z-50 bg-gray-800 h-[50px]">
-      <div className="hidden md:flex flex-row justify-start items-center gap-x-[12px] text-[1.5rem] lg:text-[1.7rem]">
+    <header className="bg-zinc-950 h-[70px] w-full max-w-5xl px-6 md:px-12 fixed top-0 pt-2 pb-2 flex flex-row justify-between items-center gap-x-4 sm:gap-x-6 md:gap-x-10 lg:gap-x-12 cursor-pointer z-50">
+      <div className="hidden md:flex flex-row justify-start items-center gap-x-[12px] text-[1.3rem] lg:text-[1.5rem]">
         <Link href="https://github.com/13zebras" className="" target="_blank" rel="noopener noreferrer">
           <Icon icon="mdi:github" className="text-zinc-400 hover:text-zinc-200" />
         </Link>
@@ -41,7 +41,7 @@ export default function Header() {
         }
       })}
 
-      <Icon icon="mdi:hamburger-menu" className="text-zinc-400 hover:text-zinc-200 text-[1.6rem] md:hidden" />
+      <Icon icon="mdi:hamburger-menu" className="text-zinc-400 hover:text-zinc-200 text-[1.5rem] md:hidden" />
 
     </header>
   );

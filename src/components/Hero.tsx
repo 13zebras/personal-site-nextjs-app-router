@@ -1,7 +1,7 @@
 'use client'
 
 import { AdvancedImage, placeholder, responsive } from '@cloudinary/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import BackgroundCircles from './BackgroundCircles3'
 import { Cloudinary } from "@cloudinary/url-gen";
@@ -9,9 +9,11 @@ import { Typewriter } from 'react-simple-typewriter'
 import { motion } from 'framer-motion'
 
 export default function Hero() {
+  const heroRef = useRef<HTMLDivElement>(null)
   const [viewportWidth, setViewportWidth] = useState(0)
   const [viewportHeight, setViewportHeight] = useState(0)
   const [heroHeight, setHeroHeight] = useState(0)
+
 
   const typeWriterWords = ['<React, Next.js />', '[TypeScript, Node.js]', 'style: exquisite', '() => superior']
   // const typeWriterWords = ['Hi! I\'m Tom Stine', '<React Next.js TS Node.js />', '{Coding and drinking tea!}']
@@ -21,21 +23,25 @@ export default function Hero() {
   const fullImage = cld.image(publicIdTom)
 
   useEffect(() => {
+    if (heroRef.current) {
+      setHeroHeight(heroRef.current.clientHeight);
+    }
     const updateWindowDimensions = () => {
-      const headerFooter = 100
+      // const headerFooter = 100
       setViewportWidth(window.innerWidth)
       setViewportHeight(window.innerHeight)
-      setHeroHeight(window.innerHeight - headerFooter)
+      // setHeroHeight(window.innerHeight - headerFooter)
     }
     updateWindowDimensions()
     window.addEventListener('resize', updateWindowDimensions)
     return () => window.removeEventListener('resize', updateWindowDimensions)
-  })
+  }, [])
 
-  const heroOffset = 0.05
+  const heroOffset = 0
   const effectiveHeroHeight = Math.round(heroHeight * (1 - 2 * heroOffset))
 
   console.log('>>> viewportWidth', viewportWidth)
+  console.log('>>> viewportHeight', viewportHeight)
   console.log('>>> heroHeight', heroHeight)
   console.log('>>> effectiveHeroHeight', effectiveHeroHeight)
 
@@ -60,16 +66,24 @@ export default function Hero() {
   const heroTextMarginTop = 20
   const heroTextHeight = 160
 
-  const heroImageTop = Math.round((effectiveHeroHeight - imageSize) / 2)
+
+  // const heroImageTop = Math.round((effectiveHeroHeight - imageSize) / 2)
   // const heroImageTop = Math.round((heroHeight * 0.45) - (imageSize * 0.50))
+
+
+  const totalHeroElementHeight = imageSize + heroTextMarginTop + heroTextHeight
+  // const totalHeroElementHeight = paddingTopOuter + imageSize + heroTextMarginTop + heroTextHeight
+
+  const heroImageTop = Math.round((effectiveHeroHeight - totalHeroElementHeight) / 2)
+
+  // const paddingTopOuter = 0
   const paddingTopOuter = heroImageTop
-
-  const totalHeroElementHeight = paddingTopOuter + imageSize + heroTextMarginTop + heroTextHeight
-
   console.log('>>> totalHeroElementHeight', totalHeroElementHeight)
   console.log('>>> heroImageTop', heroImageTop)
 
+  // **********************************************************
   // ***  RING CALCS  *****************************************
+  // **********************************************************
 
   let ringOuterPadding = 0
 
@@ -106,10 +120,12 @@ export default function Hero() {
     return (imageSize - y) / 2
   })
 
+  console.log('>>> maxRing0', maxRing0)
   console.log('>>> ringGap', ringGap)
   console.log('>>> ringSizes', ringSizes)
   console.log('>>> ringTops', ringTops)
   console.log('>>> ringOuterPadding', ringOuterPadding)
+  console.log('>>> ***** ***** ***** ***** *****\n\n\n')
 
   return (
 
@@ -124,16 +140,16 @@ export default function Hero() {
       }}
       transition={{
         duration: 0.9,
-      }} style={{ paddingTop: paddingTopOuter }}
+      }} ref={heroRef} style={{ paddingTop: paddingTopOuter }}
       className="w-full flex flex-col items-center justify-start text-center h-full">
-      <div className="relative border border-green-900 w-full flex flex-col items-center justify-center">
+      <div className="relative w-full flex flex-col items-center justify-center">
         <BackgroundCircles ringTops={ringTops} ringSizes={ringSizes} />
         {/* <BackgroundCircles imageSize={imageSize} viewportWidth={viewportWidth} viewportHeight={viewportHeight} /> */}
         <div style={{ width: imageSize, height: imageSize }} className="relative border border-gray-700 rounded-full overflow-hidden">
           <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
         </div>
       </div>
-      <div id="heroText" style={{ marginTop: heroTextMarginTop, height: heroTextHeight }} className="z-20 flex flex-col items-center justify-center w-full border border-pink-950">
+      <div id="heroText" style={{ marginTop: heroTextMarginTop, height: heroTextHeight }} className="z-20 flex flex-col items-center justify-center w-full">
         <h1 className="mb-[8px] text-[1.65rem] md:text-[2rem] lg:text-[2.25rem] font-mono font-bold uppercase text-zinc-200 tracking-wide2 sm:tracking-wide3">Tom Stine</h1>
         <h2 className="mb-[16px] text-base sm:text-[1.15rem] md:text-[1.25rem] font-mono uppercase text-zinc-500 tracking-wide1 md:tracking-wide15">Full Stack Developer</h2>
         <h3 className="w-11/12 text-[1.15rem] sm:text-[1.25rem] md:text-[1.3rem] lg:text-[1.5rem] tracking-wide1 font-sans sm:font-mono text-zinc-400">

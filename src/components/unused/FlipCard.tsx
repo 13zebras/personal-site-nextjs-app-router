@@ -34,7 +34,6 @@ export default function FlipCard(props: Project) {
     }
   }
 
-
   const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
   const frontImage = cld.image(props.cldPublicId)
   frontImage.resize(
