@@ -74,7 +74,7 @@ export default function AboutMotion() {
         scale: 1,
         opacity: 1,
       }} id="aboutMotion" className="flex flex-col md:block justify-start lg:justify-center items-center" >
-      <div style={{ width: imageSize, height: imageSize }} className="border border-gray-700 rounded-full xs:rounded-2xl overflow-hidden mb-6 md:rounded-xl md:float-right md:ml-8 md:mb-4 md:mr-2">
+      <div style={{ width: imageSize }} className="aspect-square border-2 border-neutral-400 rounded-full xs:rounded-none overflow-hidden mb-6 md:float-right md:ml-8 md:mb-4 md:mr-2">
         <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
       </div>
 

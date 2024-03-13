@@ -3,7 +3,7 @@
 // todo remove unneed fields from JSON
 
 export function getAllProjects() {
-  console.log('>>>> getAllProjects **********************************')
+  // console.log('>>>> getAllProjects **********************************')
   return [
     {
       name: "Doggos NFTs",

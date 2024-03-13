@@ -8,7 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@biomejs/biome": "^1.5.3",
     "@cloudinary/react": "^1.11.2",
     "@cloudinary/url-gen": "^1.16.0",
     "framer-motion": "^10.17",

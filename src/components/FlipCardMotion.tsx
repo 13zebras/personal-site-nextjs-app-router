@@ -15,37 +15,25 @@ import { createPortal } from 'react-dom';
 import { motion } from "framer-motion"
 
 type FlipCardProps = {
+  index: number,
   name: string,
   url: string,
   summary: string,
   cldPublicId: string,
   description: string,
   stack: string,
-  index: number
 }
 
-const FlipCardMotion: React.FC<FlipCardProps> = ({ index, ...project }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [portfolioDiv, setPortfolioDiv] = useState<HTMLElement | null>(null);
-  // const projectData = { ...project }
-
-  // console.log('>>> projectData', projectData)
-  // console.log('>>> projectData.name', projectData.name)
-
-  useEffect(() => {
-    const portfolioEl = document.getElementById('portfolio')
-    setPortfolioDiv(portfolioEl)
-  }, [])
-
-  // console.log('>>>> portfolioDiv', portfolioDiv)
+export default function FlipCardMotion({ index, ...project }: FlipCardProps) {
+  const [showModal, setShowModal] = useState(false)
 
   const handleOpenClick = () => {
-    // console.log('Openclicked')
+    console.log('>>>> Openclicked')
     setShowModal(true)
 
     document.body.style.overflow = 'hidden';
     document.body.ontouchstart = (e) => {
-      e.preventDefault();
+      e.preventDefault()
     }
   }
 
@@ -54,16 +42,16 @@ const FlipCardMotion: React.FC<FlipCardProps> = ({ index, ...project }) => {
   let xSign = -1
   let ySign = -1
   if (random2 < 0.50) {
-    xSign = 1;
+    xSign = 1
   }
   if (random1 < 0.50 && index > 3) {
-    ySign = 1;
+    ySign = 1
   }
   const iX = Math.trunc(random1 * xSign * 600)
   const iY = Math.trunc(random2 * ySign * 500)
   const iScale = parseFloat((Math.random() * 0.4 + 0.1).toFixed(2))
 
-  console.log('>>> index, iX, iY, iScale', index, iX, iY, iScale)
+  // console.log('>>> index, iX, iY, iScale', index, iX, iY, iScale)
   // console.log('>>>> motionValues', motionValues)
 
   const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
@@ -110,8 +98,8 @@ const FlipCardMotion: React.FC<FlipCardProps> = ({ index, ...project }) => {
         <div className="FlipBack absolute w-full h-full bg-slate-920 border border-slate-600 rounded-md p-8 flex flex-col items-center justify-start gap-6 text-left">
           {project.summary}
           <button onClick={handleOpenClick} className='w-40 h-10 bg-slate-700 hover:bg-slate-600 text-neutral-100 rounded-lg border border-slate-500'>Learn More...</button>
-          {showModal && portfolioDiv !== null && createPortal(
-            <Modal project={project} onClose={() => setShowModal(false)} />, portfolioDiv
+          {showModal && createPortal(
+            <Modal project={project} onClose={() => setShowModal(false)} />, document.body
           )}
         </div>
       </div>
@@ -119,15 +107,56 @@ const FlipCardMotion: React.FC<FlipCardProps> = ({ index, ...project }) => {
   )
 }
 
-export default FlipCardMotion
 
-{/* <div class="flip">
-  <div class="FlipContent">
-    <div class="FlipFront">
-      <img src="https://www.fillmurray.com/150/150" />
-    </div>
-    <div class="FlipBack">
-      <strong>BILL MURRAY</strong>
-    </div>
-  </div>
-</div> */}
+/************************************************************
+
+
+HOW TO USE CSS ONLY FOR ANIMATIONS IN FLIPCARD:
+
+To use a variable in CSS animations with a value set by JavaScript, you can take advantage of CSS custom properties (also known as CSS variables). Here's how you can achieve this:
+
+1. Define a CSS custom property in your stylesheet:
+
+:root {
+  --distanceUp: 0;    // Default value
+}
+
+.animated-div {
+  animation: moveUp 1s ease-in-out infinite alternate;
+}
+
+@keyframes moveUp {
+  100% {
+    transform: translateY(var(--distanceUp));
+  }
+}
+
+2. In your JavaScript code, you can update the value of the `--distanceUp` custom property using the `style.setProperty()` method:
+
+const animatedDiv=document.querySelector('.animated-div');
+const distanceUp='-300px'; // or any other value you want
+animatedDiv.style.setProperty('--distanceUp', distanceUp);
+
+This code selects the element with the class `animated-div` and sets the value of the `--distanceUp` custom property to `-300px`. You can also use JavaScript to update the custom property value dynamically, allowing you to change the animation behavior on the fly. 
+
+let distanceUp='-300px';
+
+function updateAnimation() {
+  const animatedDiv=document.querySelector('.animated-div');
+  animatedDiv.style.setProperty('--distanceUp', distanceUp);
+}
+
+// Update the animation initially
+updateAnimation();
+
+// Change the distanceUp value after a certain time
+setTimeout(()=> {
+    distanceUp='-500px';
+    updateAnimation();
+  }, 2000); // Change the animation after 2 seconds
+
+In this example, the animation will initially use the value `-300px` for the `--distanceUp` custom property. After 2 seconds, the value will be updated to `-500px`, changing the animation behavior. Custom properties provide a powerful way to control CSS values from JavaScript, enabling dynamic and responsive animations based on user interactions, data updates, or other conditions in your application.
+
+
+
+************************************************************/

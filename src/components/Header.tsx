@@ -3,54 +3,82 @@
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useState } from 'react'
 
 export default function Header() {
-  let routePath = usePathname()
-  const allPaths = ["home", "portfolio", "experience", "about"]
-  const isContact = routePath === "/contact"
-  const isHome = routePath === "/"
-  const bgHeader = isHome ? "" : "bg-zinc-950"
-
-  console.log(">>> routePath", routePath)
-  console.log(">>> isContact", isContact)
-  console.log(">>> isHome", isHome)
-  console.log(">>> bgHeader", bgHeader)
+  const [isNavOpen, setIsNavOpen] = useState(false) // initiate isNavOpen state with false
+  const routePath = usePathname()
+  const allPaths = ["home", "portfolio", "experience", "about", "contact"]
+  // const isHome = routePath === "/"
 
   return (
-    <header className={`${bgHeader} animate-fade-in h-[60px] w-full max-w-7xl px-4 sm:px-8 md:px-12 fixed top-0 flex flex-row justify-between sm:justify-center items-center sm:gap-x-12 md:gap-x-16 lg:gap-x-20 cursor-pointer z-50`}>
-      <div className="w-[26px] xs:w-[60px] flex flex-row justify-center items-center gap-x-[8px] sm:gap-x-[12px] text-[1.3rem] md:text-[1.5rem]">
-        <Link href="https://github.com/13zebras" className="hidden xs:block" target="_blank" rel="noopener noreferrer">
-          <Icon icon="mdi:github" className="text-zinc-400 hover:text-zinc-200" />
-        </Link>
-        <Link href="https://www.linkedin.com/in/tom-stine-13-zebras/" className="hidden xs:block" target="_blank" rel="noopener noreferrer">
-          <Icon icon="mdi:linkedin" className="text-zinc-400 hover:text-zinc-200" />
-        </Link>
-        <Icon icon="mdi:hamburger-menu" className="block xs:hidden text-zinc-400 hover:text-zinc-200 text-[1.4rem]" />
-      </div>
+    <header className="fixed top-0 flex justify-center cursor-pointer z-30 w-full md:bg-zinc-950/100">
 
-      {allPaths.map((pathName: string) => {
-        // console.log(">>> pathName", pathName);
-        // const path = isHome ? "/" : `/${pathName}`
-        let path = `/${pathName}`
-        if (pathName === "home") {
-          path = "/"
-        }
-        // console.log(">>> path", path);
-        if (path !== routePath) {
-          return (
-            <Link href={path} key={pathName} className="hidden xs:block uppercase text-sm md:text-base sm:tracking-wide1 transition-all text-zinc-400 hover:text-zinc-200 hover:underline">{pathName}</Link>
-          )
-          // } else {
-          //   return (
-          //     <span key={pathName} className="uppercase text-sm lg:text-base tracking-wide1 transition-all text-zinc-400 underline">{pathName}</span>
-          //   )
-          // }
-        }
-      })}
-      {!isContact && (
-        <Link href="/contact" key="contact" className="hidden xs:block uppercase text-sm md:text-base sm:tracking-wide1 transition-all text-zinc-400 hover:text-zinc-200 hover:underline">contact</Link>
-      )}
+      {/*** MOBILE HEADER **********************************/}
+      <section className="MOBILE md:hidden flex flex-row justify-start items-center w-full text-zinc-400 relative px-6 py-2">
+        <Icon icon="mdi:hamburger-menu" className="hover:text-zinc-200 text-[1.4rem]" onClick={() => setIsNavOpen((prev) => !prev)} />
+        <div style={{ display: isNavOpen ? 'flex' : 'none' }} className="absolute top-0 left-0 w-full h-screen pb-16 pt-4 flex flex-col justify-evenly items-center text-base bg-zinc-950/95 backdrop-blur-sm z-50">
+          <div className="absolute top-0 right-0 p-8" onClick={() => setIsNavOpen(false)}>
+            <Icon icon="mdi:close-thick" className="text-2xl" />
+          </div>
+          {allPaths.map((pathName: string) => {
+            // console.log(">>> pathName", pathName);
+            // const path = isHome ? "/" : `/${pathName}`
+            let path = `/${pathName}`
+            if (pathName === "home") {
+              path = "/"
+            }
+            // console.log(">>> path", path);
+            if (path !== routePath) {
+              return (
+                <Link href={path} key={pathName} className="uppercase tracking-wide1 transition-all hover:text-zinc-200">{pathName}</Link>
+              )
+            } else {
+              return (
+                <span key={pathName} className="uppercase tracking-wide1 text-zinc-450 underline">{pathName}</span>
+              )
+            }
+          })}
 
+          <Link href="https://github.com/13zebras" className="hover:text-zinc-200 tracking-wide1 uppercase transition-all" target="_blank" rel="noopener noreferrer">
+            <Icon icon="mdi:github" className="mr-2 mb-1 text-xl inline" />Github
+          </Link>
+          <Link href="https://www.linkedin.com/in/tom-stine-13-zebras/" className="hover:text-zinc-200 tracking-wide1 uppercase transition-all" target="_blank" rel="noopener noreferrer">
+            <Icon icon="mdi:linkedin" className="mr-2 mb-1 text-xl inline" />LinkedIn
+          </Link>
+        </div>
+      </section>
+
+      {/*** DESKTOP HEADER **********************************/}
+      <section className="DESKTOP animate-fade-in hidden md:flex flex-row justify-between items-center h-[60px] w-full max-w-3xl px-6 text-zinc-400">
+        <div className="w-[60px] flex flex-row justify-center items-center gap-x-4 text-[1.3rem]">
+          <Link href="https://github.com/13zebras" className="" target="_blank" rel="noopener noreferrer">
+            <Icon icon="mdi:github" className="hover:text-gray-300" />
+          </Link>
+          <Link href="https://www.linkedin.com/in/tom-stine-13-zebras/" className="hidden xs:block" target="_blank" rel="noopener noreferrer">
+            <Icon icon="mdi:linkedin" className="hover:text-gray-300" />
+          </Link>
+        </div>
+
+        {allPaths.map((pathName: string) => {
+          // console.log(">>> pathName", pathName);
+          // const path = isHome ? "/" : `/${pathName}`
+          let path = `/${pathName}`
+          if (pathName === "home") {
+            path = "/"
+          }
+          console.log(">>> path", path);
+          if (path !== routePath) {
+            return (
+              <Link href={path} key={pathName} className="uppercase text-sm tracking-wide0 transition-all hover:text-gray-300 hover:underline">{pathName}</Link>
+            )
+          } else {
+            return (
+              <span key={pathName} className="uppercase tracking-wide0 text-sm text-zinc-450 hover:text-zinc-600 underline">{pathName}</span>
+            )
+          }
+        })}
+      </section>
     </header>
   );
 }
