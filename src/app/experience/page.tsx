@@ -10,7 +10,7 @@ export default function Experience() {
 
       <main className="flex flex-col justify-center items-center px-0 gap-x-12 pt-28 pb-16">
         {/* <div className="w-full h-12 border border-zinc-800"></div> */}
-        <h1 className="pb-16 uppercase text-zinc-500 font-mono text-xl tracking-wide6">work experience</h1>
+        <h1 className="pb-16 uppercase text-zinc-400 font-mono text-2xl tracking-wide6">experience</h1>
         <WorkExperience />
       </main>
 

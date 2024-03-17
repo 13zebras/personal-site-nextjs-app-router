@@ -2,29 +2,19 @@
 
 import '@/styles/flipCard.css'
 
-import { fill, fillPad } from "@cloudinary/url-gen/actions/resize";
-import { useEffect, useState } from "react";
-
 import { AdvancedImage } from '@cloudinary/react';
 import { Cloudinary } from "@cloudinary/url-gen";
 import Modal from "./Modal";
+import { Project } from '@/types/projectTypes';
 import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
-import { byRadius } from "@cloudinary/url-gen/actions/roundCorners";
+// import { byRadius } from "@cloudinary/url-gen/actions/roundCorners";
 import { color } from "@cloudinary/url-gen/qualifiers/background";
 import { createPortal } from 'react-dom';
+import { fillPad } from "@cloudinary/url-gen/actions/resize";
 import { motion } from "framer-motion"
+import { useState } from "react";
 
-type FlipCardProps = {
-  index: number,
-  name: string,
-  url: string,
-  summary: string,
-  cldPublicId: string,
-  description: string,
-  stack: string,
-}
-
-export default function FlipCardMotion({ index, ...project }: FlipCardProps) {
+export default function FlipCard({ index, ...project }: Project) {
   const [showModal, setShowModal] = useState(false)
 
   const handleOpenClick = () => {
@@ -58,14 +48,15 @@ export default function FlipCardMotion({ index, ...project }: FlipCardProps) {
   const frontImage = cld.image(project.cldPublicId)
   frontImage.resize(
     fillPad()
-      .width(300)
-      .height(180)
+      .width(252)
+      .height(142)
       .gravity(autoGravity())
       // .gravity(compass('north'))
       .background(color('#0d0d0d'))
   )
-  // const project = project.project
-  // console.log('project.name', project.name)
+
+  const projectName = { __html: project.name }
+
   return (
     <motion.div
       initial={{
@@ -81,23 +72,22 @@ export default function FlipCardMotion({ index, ...project }: FlipCardProps) {
         opacity: 1,
       }}
       transition={{
-        duration: 3.0,
+        duration: 0.4,
         delay: 0.2,
       }}
-      className="FlipContainer w-[280px] h-[300px]">
+      className="FlipContainer w-[260px] h-[250px]">
       <div className="FlipContent w-full h-full">
-        <div className="FlipFront absolute w-full h-full bg-neutral-920 border border-neutral-700 rounded-md p-3 flex flex-col items-center justify-start gap-6">
-          <div className="w-full relative">
+        <div className="FlipFront absolute w-full h-full bg-neutral-920 border border-neutral-700 rounded-md p-3 flex flex-col items-center justify-start gap-y-2">
+          <div className="w-full relative border border-neutral-900">
             <AdvancedImage cldImg={frontImage} />
           </div>
 
-          <h4 className="text-lg font-semibold text-center text-gray-200 px-2">
-            {project.name}
-          </h4>
+          <div className="w-full h-20 px-4 flex justify-center items-center text-center text-lg leading-snug font-semibold text-zinc-200" dangerouslySetInnerHTML={projectName} />
+
         </div>
-        <div className="FlipBack absolute w-full h-full bg-slate-920 border border-slate-600 rounded-md p-8 flex flex-col items-center justify-start gap-6 text-left">
+        <div className="FlipBack absolute w-full h-full bg-slate-920 border border-slate-600 rounded-md p-8 flex flex-col items-center justify-start gap-4 text-left text-sm text-zinc-300">
           {project.summary}
-          <button onClick={handleOpenClick} className='w-40 h-10 bg-slate-700 hover:bg-slate-600 text-neutral-100 rounded-lg border border-slate-500'>Learn More...</button>
+          <button onClick={handleOpenClick} className='fixed bottom-5 w-40 min-h-7 bg-slate-800 hover:bg-slate-700 active:bg-slate-700 text-zinc-200 active:text-zinc-100 text-sm rounded-xl border border-slate-500 active:border-sky-500'>Learn More...</button>
           {showModal && createPortal(
             <Modal project={project} onClose={() => setShowModal(false)} />, document.body
           )}

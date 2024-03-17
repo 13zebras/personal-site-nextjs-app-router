@@ -63,7 +63,7 @@ export default function ContactForm() {
           <div className=''>
             <label
               htmlFor='fullName'
-              className='mb-3 block text-md text-gray-300'
+              className='mb-3 block text-base text-gray-300'
             >
               Your Full Name:
             </label>
@@ -72,14 +72,14 @@ export default function ContactForm() {
               name="fullName"
               placeholder='full name'
               onChange={(e) => { setName(e.target.value) }}
-              className='w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-md text-gray-200 outline-none focus:border-pink-800 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
+              className='w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-pink-800 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
 
             />
           </div>
           <div className=''>
             <label
               htmlFor='email'
-              className='mb-3 block text-md text-gray-300'
+              className='mb-3 block text-base text-gray-300'
             >
               Your Email Address:
             </label>
@@ -88,13 +88,13 @@ export default function ContactForm() {
               name="email"
               placeholder='fredwilma@example.com'
               onChange={(e) => { setEmail(e.target.value) }}
-              className='w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-md text-gray-200 outline-none focus:border-pink-800 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
+              className='w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-pink-800 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
             />
           </div>
           <div className=''>
             <label
               htmlFor='message'
-              className='mb-3 block text-md text-gray-300'
+              className='mb-3 block text-base text-gray-300'
             >
               Your Message:
             </label>
@@ -103,7 +103,7 @@ export default function ContactForm() {
               name="message"
               placeholder='type your message'
               onChange={(e) => { setMessage(e.target.value) }}
-              className='w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-md text-gray-200 outline-none focus:border-pink-800 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
+              className='w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-pink-800 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
             ></textarea>
           </div>
           <div>

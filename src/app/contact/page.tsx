@@ -9,7 +9,7 @@ export default function Contact() {
         <Header />
       </div>
       <main className="flex flex-col justify-start items-center px-0 gap-x-12 pt-28 pb-16">
-        <h1 className="pb-16 uppercase text-zinc-400 font-mono text-xl tracking-wide6 z-30">contact tom stine</h1 >
+        <h1 className="pb-16 uppercase text-zinc-400 font-mono text-2xl tracking-wide6 z-30">contact tom</h1 >
         <ContactForm />
       </main>
 

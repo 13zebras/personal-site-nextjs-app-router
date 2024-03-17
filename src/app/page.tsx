@@ -7,11 +7,6 @@ import Hero from "@/components/Hero";
 export default function Home() {
 
   return (
-    <main className="w-screen flex flex-col items-center justify-center h-screen z-0">
-      {/* <Header /> */}
-
-      <Hero />
-      <Footer />
-    </main>
+    <Hero />
   )
 }

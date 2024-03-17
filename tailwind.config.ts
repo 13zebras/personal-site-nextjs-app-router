@@ -28,6 +28,10 @@ const config: Config = {
       wide6: '0.60em',
     },
     extend: {
+      fontSize: {
+        'xxs': '0.65rem',
+        'md': '0.94rem',
+      },
       colors: {
         slate: {
           920: '#0a1224',
@@ -44,7 +48,7 @@ const config: Config = {
           959: '#070709/95',
         },
         neutral: {
-          920: '#0d0d0d',
+          920: '#101010',
         },
         red: {
           550: '#ff0022',
@@ -58,15 +62,17 @@ const config: Config = {
       },
       animation: {
         'ping-0': 'ping-0 5s cubic-bezier(0, 0, 0.2, 1) infinite',
-        'pulse-1': 'pulse-1 3.2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'pulse-2': 'pulse-2 4.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'fade-in': 'fade-in 1s ease-in 0s',
+        'pulse-1': 'pulse-1 2.9s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-2': 'pulse-2 4.3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'fade-in-10': 'fade-in 1s ease-in 0s',
+        'fade-in-05': 'fade-in 0.5s ease-in 0s',
+        'fade-in-025': 'fade-in 0.25s ease-in 0s',
       },
       keyframes: {
         'ping-0': {
           '0%': {
             transform: 'scale(1)',
-            opacity: '0.6',
+            opacity: '0.35',
           },
           '90%, 100%': {
             transform: 'scale(4.2)',
@@ -75,18 +81,18 @@ const config: Config = {
         },
         'pulse-1': {
           '0%, 100%': {
-            opacity: '0.5',
+            opacity: '0.3',
           },
           '50%': {
-            opacity: '0.2',
+            opacity: '0.1',
           },
         },
         'pulse-2': {
           '0%, 100%': {
-            opacity: '0.5',
+            opacity: '0.3',
           },
           '50%': {
-            opacity: '0.2',
+            opacity: '0.05',
           },
         },
         'fade-in': {

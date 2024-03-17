@@ -78,7 +78,7 @@ export default function AboutMotion() {
         <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
       </div>
 
-      <div className="text-left text-base sm:text-md text-zinc-200 px-2 sm:px-4 md:px-0">
+      <div className="text-left text-base sm:text-base text-zinc-200 px-2 sm:px-4 md:px-0">
         <p className="pb-4">
           In order to assess the 3rd generation blockchain’s ability to whiteboard without lessening our aptitude to disintermediate. Helping marketers serve unmatched cross-phase personalized experiences at every step of the pudding is in the industry, but our one-to-one, customer-defined, robust C2C2C M&A and user-proof use. Our infinitely reconfigurable feature set is unmatched in the industry, but our strategic angel investors and user-proof configuration is usually considered an amazing achievement.</p>
         {/* <div className={!showMore ? 'block' : 'hidden'}>

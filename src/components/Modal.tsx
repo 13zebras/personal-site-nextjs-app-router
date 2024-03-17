@@ -1,9 +1,10 @@
 import { AdvancedImage, placeholder, responsive } from '@cloudinary/react';
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Cloudinary } from "@cloudinary/url-gen";
+// import { FlipCardProps } from '@/components/FlipCard';
 import Link from "next/link"
-import { Project } from '@/types/projects-types';
+import { Project } from '@/types/projectTypes';
 import { motion } from "framer-motion"
 
 type ModalType = {
@@ -12,8 +13,10 @@ type ModalType = {
 }
 
 export default function Modal(props: ModalType) {
-  const [calcHeight, setCalcHeight] = useState(0)
-  console.log('>>> %cmodal props', "color:red", props)
+  const [cldHeight, setCldHeight] = useState(0)
+  const cldRef = useRef<HTMLDivElement>(null)
+
+  // console.log('>>> %cmodal props', "color:red", props)
   const project = props.project
   const handleCloseClick = () => {
     props.onClose()
@@ -27,29 +30,29 @@ export default function Modal(props: ModalType) {
 
   useEffect(() => {
     const updateHeight = () => {
-      const cldDiv = document.getElementById('cldDiv')
-      if (cldDiv) {
-        const clientWidth = cldDiv.clientWidth
+      // const cldDiv = document.getElementById('cldDiv')
+      if (cldRef.current) {
+        const cldWidth = cldRef.current.clientWidth
+        console.log('>>> %ccldDiv cldWidth', "color:red", cldWidth)
         const aspectRatio = 1000 / 1788
-        const newHeight = Math.floor(clientWidth * aspectRatio) - 1
-        setCalcHeight(newHeight)
+        const newHeight = Math.floor(cldWidth * aspectRatio) - 1
+        setCldHeight(newHeight)
       }
     }
     updateHeight()
     window.addEventListener('resize', updateHeight)
     return () => window.removeEventListener('resize', updateHeight)
-  })
+  }, [])
 
-  const cldSkeletonStyle = `${calcHeight}px`
+  const projectName = { __html: project.name }
 
   return (
 
     <div onClick={handleCloseClick} className="w-[100vw] h-[100vh] fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex justify-center items-center overscroll-none">
       <motion.div
         initial={{
-          // x: -300,
-          y: 200,
-          opacity: 0.1,
+          y: -200,
+          opacity: 0.2,
           scale: 0.3,
         }}
         transition={{
@@ -61,24 +64,37 @@ export default function Modal(props: ModalType) {
           y: 0,
           opacity: 1,
           scale: 1,
-        }} className="w-[80%] h-[90%] p-12 bg-gray-920 rounded-lg overscroll-none flex flex-col justify-start items-center gap-y-12 relative border border-gray-800">
-        <div id="cldDiv" className="aspect-[1788/1000] h-[50%] flex justify-center items-start relative" >
-          <div className="animate-pulse absolute top-0 w-[99%] bg-zinc-800" style={{ height: cldSkeletonStyle }} />
-          <AdvancedImage cldImg={fullImage} plugins={[responsive({ steps: 200 })]} className="max-h-[100%] z-50 border border-neutral-500" />
+        }} className="w-[90%] max-w-3xl h-[90%] p-6 sm:p-8 md:p-12 bg-gray-920 rounded-xl overscroll-none flex flex-col justify-start items-center gap-y-8 relative border-2 border-gray-800">
+        <div id="cldDiv" ref={cldRef} className="w-full aspect-[1788/1000] max-h-[50%] flex justify-center items-start relative" >
+          <div className="animate-pulse absolute top-0 w-[99%] bg-zinc-800" style={{ height: cldHeight }} />
+          <AdvancedImage cldImg={fullImage} className="max-h-[100%] z-50 border border-neutral-500" />
           {/* <AdvancedImage cldImg={fullImage} plugins={[responsive({ steps: 200 }), placeholder({ mode: 'blur' })]} className="max-h-[100%] z-50 border border-gray-800 " /> */}
         </div>
-        <div className="max-w-[80%] flex flex-col justify-start items-center">
-          <h1 className="pb-6 uppercase text-zinc-400 font-mono text-2xl tracking-wide4">{project.name}</h1>
-          <div className="w-full flex flex-col justify-start items-start gap-y-4 text-zinc-400 text-md">
-            <div className="text-zinc-300">{project.description}</div>
-            <div className="font-bold">Tech Stack:<span className="ml-4 font-light font-mono text-zinc-300">{project.stack}</span></div>
-            <div className="font-bold">Link:
-              <Link href={project.url} className="text-zinc-300 font-light ml-3 p-1 hover:text-zinc-100 hover:bg-gray-800 rounded font-mono">{project.url}</Link>
-              <div className="mt-2 block italic text-xs text-zinc-500">(3rd party websites / older links may no longer be active)</div>
+        <div className="max-w-[95%] flex flex-col justify-start items-center">
+
+          <div className="flex justify-center items-center text-center pb-6 uppercase text-zinc-400 font-mono text-2xl tracking-wide4" dangerouslySetInnerHTML={projectName} />
+          <div className="w-full flex flex-col justify-start items-start gap-y-4 text-zinc-300 text-md">
+
+            <div className="text-sm text-zinc-300 mb-[2vh]">
+              <p className="pb-2">{project.summary}</p>
+              <p>{project.description}</p>
             </div>
+
+            <div className="font-normal">Tech Stack:<span className="ml-4 font-mono text-zinc-300">{project.stack}</span></div>
+
+            {project.githubUrl && <div className="font-normal">Github:
+              <Link href={project.githubUrl} className="ml-4 text-sky-300 font-mono hover:text-sky-400 hover:underline  active:text-sky-200">{project.githubUrl}</Link>
+            </div>}
+
+            {project.url && <div className="font-normal">Site Link:
+              <Link href={project.url} className="ml-4 text-sky-300 font-mono hover:text-sky-400 hover:underline  active:text-sky-200">{project.url}</Link>
+              <div className="mt-1 block italic text-xs text-zinc-450">Note: 3rd party websites / older links may no longer be active</div>
+            </div>}
+
           </div>
         </div>
-        <button onClick={handleCloseClick} className="w-40 h-8 bg-zinc-700 hover:bg-zinc-600 text-white text-md rounded-xl absolute bottom-8 border border-zinc-500" >Close</button>
+
+        <button onClick={handleCloseClick} className="w-36 h-7 bg-gray-800 hover:bg-gray-600 active:bg-slate-500 text-zinc-300 active:text-zinc-100 text-sm rounded-xl absolute bottom-6 border border-gray-500" >Close</button>
       </motion.div>
     </div>
   )

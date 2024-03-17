@@ -1,29 +1,28 @@
-import FlipCardMotion from "@/components/FlipCardMotion";
+import FlipCard from "@/components/FlipCard";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Link from "next/link";
-import { Project } from "@/types/projects-types";
+import { MdiGithub } from "@/utils/icons";
+import { Project } from "@/types/projectTypes";
 import { getAllProjects } from "@/utils/projects";
 
 export default function Portfolio() {
-  console.log('>>> portfolio.tsx started')
   const allProjects: Project[] = getAllProjects()
-  // console.log('>>> allProjects in allprojects page.tsx', allProjects)
 
   return (
-    <div className="w-full max-w-7xl px-8 sm:px-12 flex flex-col justify-start items-center text-white pt-20 md:pt-28 pb-12">
+    <div className="overflow-x-hidden w-full max-w-7xl px-8 md:px-12 flex flex-col justify-start items-center pt-16 md:pt-24 pb-20">
       <Header />
-
-      <main className="flex flex-col justify-start items-center px-0 border border-red-950">
-        {/* <div className="w-full h-12 border border-zinc-800"></div> */}
-        <h1 className="pb-16 text-center uppercase text-zinc-500 font-mono text-xl tracking-wide6 z-10">portfolio</h1>
+      <main className="flex flex-col justify-start items-center px-0">
+        <h1 className="pb-12 text-center uppercase text-zinc-400 font-mono text-2xl tracking-wide6 z-10">portfolio</h1>
         <div className="w-full flex justify-center flex-wrap gap-8 z-20">
           {allProjects.map((project: Project, index) => (
-            <FlipCardMotion key={project.name} index={index} {...project} />
+            <FlipCard key={project.name} index={index} {...project} />
           ))}
         </div>
-        <Link href="/#portfolio" className="mt-16 w-[320px] h-12 bg-slate-900 text-xl text-slate-100 rounded-2xl border-2 border-slate-600 hover:bg-slate-800 active:bg-slate-700 flex justify-center items-center">Return Home...</Link>
-
+        <Link href="https://github.com/13zebras?tab=repositories" className="mt-16 py-[7px] w-[250px] flex justify-center items-center gap-x-2 bg-zinc-900 hover:bg-zinc-800 active:bg-zinc-800 text-zinc-300 hover:text-zinc-200 active:text-zinc-100 text-sm rounded-2xl border border-zinc-600 hover:border-zinc-500 active:border-sky-500">
+          <MdiGithub />
+          Github Repositories
+        </Link>
       </main>
       <Footer />
     </div>
