@@ -1,6 +1,6 @@
 'use client'
 
-import WorkDisplay from "./WorkDisplay";
+import WorkCard from "./WorkCard";
 import { getAllWork } from "@/utils/work";
 import { motion } from "framer-motion"
 
@@ -12,6 +12,7 @@ export type WorkData = {
   summary1: string,
   summary2: string,
   summary3: string,
+  index?: number
 };
 
 export default function WorkExperience() {
@@ -19,23 +20,25 @@ export default function WorkExperience() {
 
   return (
 
-    <motion.div
+    <motion.main
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
-      className="flex flex-col justify-start lg:justify-center items-center w-full"
-    >
+      transition={{ duration: 1 }}
+      className="flex flex-col justify-center items-center px-0 gap-x-12 pt-16 md:pt-28 pb-20">
 
-      <div className="w-full flex flex-wrap justify-center gap-10">
-        {allWork.map((work: WorkData) => {
+      <h1 className="pb-16 uppercase text-zinc-400 font-mono text-2xl tracking-wide6">experience</h1>
+
+      <div className="w-full max-w-5xl flex flex-wrap justify-center gap-10 px-4 xs:px-6 md:px-8">
+        {allWork.map((work: WorkData, index: number) => {
           return (
-            <WorkDisplay
+            <WorkCard
               key={`${work.employer}-${work.dates}`}
               {...work}
+              index={index}
             />
           );
         })}
       </div>
-    </motion.div>
+    </motion.main>
   );
 }

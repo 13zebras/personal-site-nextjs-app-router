@@ -34,8 +34,8 @@ export default function Footer() {
   }
 
   return (
-    <footer id="footer" className="fixed bottom-0 w-full h-10 z-30 bg-zinc-950">
-      <div className="flex justify-start items-center h-10 px-6">
+    <footer id="footer" className="fixed bottom-0 w-full h-12 z-30 bg-zinc-950">
+      <div className="flex justify-start items-center h-12 px-6">
         <span className="text-sm text-gray-400 font-mono">
           {`${viewportWidth}vw  ${viewportHeight}vh`}
         </span>

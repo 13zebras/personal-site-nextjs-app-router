@@ -10,7 +10,7 @@ export default function Portfolio() {
   const allProjects: Project[] = getAllProjects()
 
   return (
-    <div className="overflow-x-hidden w-full max-w-7xl px-8 md:px-12 flex flex-col justify-start items-center pt-16 md:pt-24 pb-20">
+    <div className="overflow-x-hidden w-full max-w-7xl px-8 md:px-12 flex flex-col justify-start items-center pt-16 md:pt-28 pb-20">
       <Header />
       <main className="flex flex-col justify-start items-center px-0">
         <h1 className="pb-12 text-center uppercase text-zinc-400 font-mono text-2xl tracking-wide6 z-10">portfolio</h1>

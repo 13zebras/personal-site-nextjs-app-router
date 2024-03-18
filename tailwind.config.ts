@@ -34,6 +34,9 @@ const config: Config = {
       },
       colors: {
         slate: {
+          800: '#1e293b',
+          850: '#151c32',
+          900: '#0f172a',
           920: '#0a1224',
         },
         gray: {

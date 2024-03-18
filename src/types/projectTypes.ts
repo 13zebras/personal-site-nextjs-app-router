@@ -8,3 +8,8 @@ export interface Project {
   stack: string,
   githubUrl: string,
 }
+
+export interface headerPaths {
+  name: string,
+  path: string
+}

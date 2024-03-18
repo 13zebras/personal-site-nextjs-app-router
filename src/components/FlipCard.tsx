@@ -17,6 +17,8 @@ import { useState } from "react";
 export default function FlipCard({ index, ...project }: Project) {
   const [showModal, setShowModal] = useState(false)
 
+  if (index === undefined) return
+
   const handleOpenClick = () => {
     console.log('>>>> Openclicked')
     setShowModal(true)

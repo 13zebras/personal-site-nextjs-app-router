@@ -3,7 +3,15 @@
 @tailwind utilities;
 
 
-@layer components {}
+@layer components {
+  .w-workCard-500 {
+    width: min(90%, 550px)
+  }
+
+  .w-workCard-400 {
+    width: min(90%, 400px)
+  }
+}
 
 body {
   -webkit-overflow-scrolling: touch;

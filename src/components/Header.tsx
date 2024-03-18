@@ -2,6 +2,7 @@
 
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
+import getHeaderPaths from '@/utils/header-paths';
 import { motion } from "framer-motion"
 import { usePathname } from 'next/navigation';
 import { useState } from 'react'
@@ -14,8 +15,9 @@ const variants = {
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false)
   const routePath = usePathname()
-  const allPaths = ["home", "portfolio", "experience", "about tom", "contact"]
+  // const allPaths = ["home", "portfolio", "experience", "about tom", "contact"]
 
+  const allHeaderPaths = getHeaderPaths()
   // const openStyles = { display: 'flex' }
   // const closedStyles = { display: 'none' }
 
@@ -34,7 +36,18 @@ export default function Header() {
           <div className="absolute top-0 right-0 p-7" onClick={() => setIsNavOpen(false)}>
             <Icon icon="mdi:close-thick" className="text-3xl text-zinc-400 hover:text-zinc-200 active:text-zinc-100" />
           </div>
-          {allPaths.map((pathName: string) => {
+          {allHeaderPaths.map(({ name, path }) => {
+            if (path !== routePath) {
+              return (
+                <Link href={path} key={name} className="uppercase tracking-wide1 hover:text-zinc-200 active:text-zinc-100 active:underline">{name}</Link>
+              )
+            } else {
+              return (
+                <span key={name} className="uppercase tracking-wide1 text-zinc-500">{path}</span>
+              )
+            }
+          })}
+          {/* {allPaths.map((pathName: string) => {
             let path = `/${pathName}`
             if (pathName === "home") {
               path = "/"
@@ -51,7 +64,7 @@ export default function Header() {
                 <span key={pathName} className="uppercase tracking-wide1 text-zinc-500">{pathName}</span>
               )
             }
-          })}
+          })} */}
 
           <Link href="https://github.com/13zebras" className="hover:text-zinc-200 active:text-zinc-100 active:underline tracking-wide1 uppercase" target="_blank" rel="noopener noreferrer">
             <Icon icon="mdi:github" className="mr-2 mb-1 text-xl inline" />Github
@@ -73,7 +86,18 @@ export default function Header() {
           </Link>
         </div>
 
-        {allPaths.map((pathName: string) => {
+        {allHeaderPaths.map(({ name, path }) => {
+          if (name !== routePath) {
+            return (
+              <Link href={path} key={name} className="uppercase text-sm tracking-wide0 hover:text-gray-200 active:text-zinc-100 active:underline">{name}</Link>
+            )
+          } else {
+            return (
+              <span key={name} className="uppercase tracking-wide0 text-sm text-zinc-450 hover:text-zinc-600 underline">{name}</span>
+            )
+          }
+        })}
+        {/* {allPaths.map((pathName: string) => {
           let path = `/${pathName}`
           if (pathName === "home") {
             path = "/"
@@ -90,7 +114,7 @@ export default function Header() {
               <span key={pathName} className="uppercase tracking-wide0 text-sm text-zinc-450 hover:text-zinc-600 underline">{pathName}</span>
             )
           }
-        })}
+        })} */}
       </section>
     </header>
   );

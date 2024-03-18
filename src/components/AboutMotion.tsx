@@ -10,42 +10,29 @@ import { motion } from 'framer-motion'
 export default function AboutMotion() {
   // const [showMore, setShowMore] = useState(false)
   const [viewportWidth, setViewportWidth] = useState(0)
-  const [viewportHeight, setViewportHeight] = useState(0)
+  // const [viewportHeight, setViewportHeight] = useState(0)
   const publicIdTom = 'portfolio/tom-chill-center' //publicIdCld
   const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
   const fullImage = cld.image(publicIdTom)
 
-
   useEffect(() => {
     const updateWindowDimensions = () => {
-      // const headerFooter = 100
       setViewportWidth(window.innerWidth)
-      setViewportHeight(window.innerHeight)
-      // setHeroHeight(window.innerHeight - headerFooter)
+      // setViewportHeight(window.innerHeight)
     }
     updateWindowDimensions()
     window.addEventListener('resize', updateWindowDimensions)
     return () => window.removeEventListener('resize', updateWindowDimensions)
   }, [])
 
-  const smallestViewport = Math.min(viewportWidth, viewportHeight)
-  // const smallestViewport = Math.min(viewportWidth, effectiveHeroHeight)
-
-  // let imageSize = 200
-  // if (smallestViewport >= 640) {
-  //   imageSize = 360
-  // } else if (smallestViewport >= 400) {
-  //   imageSize = Math.round(smallestViewport * 0.5)
-  // }
-
-  let imageSize = 360
-  if (viewportWidth > 768) {
-    const viewportScaled = viewportWidth * 0.4
+  let imageSize = 320
+  if (viewportWidth >= 768) {
+    const viewportScaled = viewportWidth * 0.35
     if (viewportScaled < imageSize) {
       imageSize = viewportScaled
     }
   } else if (viewportWidth > 500) {
-    imageSize = 380
+    imageSize = 340
   } else if (viewportWidth > 450) {
     imageSize = viewportWidth * 0.75
   } else if (viewportWidth > 400) {
@@ -55,12 +42,6 @@ export default function AboutMotion() {
   }
 
 
-  // const handleMoreClick = () => {
-  //   setShowMore(true)
-  // }
-  // const handleLessClick = () => {
-  //   setShowMore(false)
-  // }
   return (
     <motion.div
       initial={{
@@ -73,31 +54,22 @@ export default function AboutMotion() {
       whileInView={{
         scale: 1,
         opacity: 1,
-      }} id="aboutMotion" className="flex flex-col md:block justify-start lg:justify-center items-center" >
-      <div style={{ width: imageSize }} className="aspect-square border-2 border-neutral-400 rounded-full xs:rounded-none overflow-hidden mb-6 md:float-right md:ml-8 md:mb-4 md:mr-2">
+      }} id="aboutMotion" className="flex flex-col md:block justify-start lg:justify-center items-center px-2 sm:px-4 md:px-4" >
+      <div style={{ width: imageSize }} className="aspect-square border-2 border-neutral-400 rounded-full md:rounded-lg overflow-hidden mb-6 md:float-right md:ml-8 md:mb-4 md:mr-2">
         <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
       </div>
 
-      <div className="text-left text-base sm:text-base text-zinc-200 px-2 sm:px-4 md:px-0">
+      <div className="text-left text-base sm:text-base text-zinc-200">
         <p className="pb-4">
-          In order to assess the 3rd generation blockchain’s ability to whiteboard without lessening our aptitude to disintermediate. Helping marketers serve unmatched cross-phase personalized experiences at every step of the pudding is in the industry, but our one-to-one, customer-defined, robust C2C2C M&A and user-proof use. Our infinitely reconfigurable feature set is unmatched in the industry, but our strategic angel investors and user-proof configuration is usually considered an amazing achievement.</p>
-        {/* <div className={!showMore ? 'block' : 'hidden'}>
-            <button onClick={handleMoreClick} className="text-blue-500 hover:text-sky-500 hover:underline decoration-sky-500 font-bold text-lg  mt-3">Read More</button>
-          </div> */}
-        {/* <div className={showMore ? 'block' : 'hidden'}> */}
-        <p className="pb-4">
-          The United States shall guarantee to every State shall be composed of two Senators from each State, chosen by the Eleventh Amendment. The House of Representatives shall be on Oath or Affirmation. This Constitution, and the Congress may by Law, and paid out of the Treasury of the Party to whom such Service or Labour, but shall be necessary and proper for carrying into Execution the foregoing Powers, and all such Laws shall be a Member or Members from two thirds of the Senate may propose or concur with Amendments as on other Bills. If any Bill shall be entered on the credit of the United States, except in Cases of Rebellion or Invasion the public Safety may require it.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </p>
         <p className="pb-4">
-          Imagine a combination of HTTP and AJAX. Helping marketers serve unmatched cross-phase personalized experiences at every step of the pudding is in the eating' not only to our content but our granular integrated, value-added convergence and easy operation is invariably considered a remarkable achievement taking into account this month's financial state of things! If all of this sounds astonishing to you, that's because it is! If you incentivize dynamically, you may also disintermediate perfectly.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Offendit eleifend moderatius ex vix, quem odio mazim et qui, purto expetendis cotidieque quo cu, veri persius vituperata ei nec. His an amet petentium voluptatibus, modo malis error nec no. Pri posse graeco definitiones cu, id eam populo quaestio adipiscing, usu quod malorum te.
         </p>
-        {/* <button onClick={handleLessClick} className="text-blue-500 hover:text-sky-500 hover:underline decoration-sky-500 font-bold text-lg mt-3">Read Less</button> */}
-        {/* </div> */}
+        <p className="pb-4">
+          Lacus vestibulum sed arcu non odio. Enim sed faucibus turpis in. Consequat id porta nibh venenatis cras. Orci ac auctor augue mauris augue neque gravida in. Turpis massa tincidunt dui ut ornare lectus sit. Scelerisque mauris pellentesque pulvinar pellentesque habitant. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Cursus vitae congue mauris rhoncus aenean vel elit scelerisque. Nisi porta lorem mollis aliquam. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus. Turpis egestas pretium aenean pharetra.
+        </p>
       </div>
     </motion.div>
   );
 }
-
-
-
-

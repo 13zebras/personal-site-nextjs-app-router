@@ -8,7 +8,7 @@ export default function Contact() {
       <div className="w-full flex justify-center">
         <Header />
       </div>
-      <main className="flex flex-col justify-start items-center px-0 gap-x-12 pt-28 pb-16">
+      <main className="flex flex-col justify-start items-center px-0 gap-x-12 pt-16 md:pt-28 pb-20">
         <h1 className="pb-16 uppercase text-zinc-400 font-mono text-2xl tracking-wide6 z-30">contact tom</h1 >
         <ContactForm />
       </main>

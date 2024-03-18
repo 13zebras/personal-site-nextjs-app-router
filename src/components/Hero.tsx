@@ -3,7 +3,7 @@
 import { AdvancedImage, placeholder } from '@cloudinary/react';
 import { useEffect, useRef, useState } from 'react';
 
-import BackgroundCircles from './BackgroundCircles3'
+import BackgroundCircles from './BackgroundCircles'
 import { Cloudinary } from "@cloudinary/url-gen";
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
