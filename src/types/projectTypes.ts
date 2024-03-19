@@ -9,7 +9,18 @@ export interface Project {
   githubUrl: string,
 }
 
-export interface headerPaths {
+export interface HeaderPaths {
   name: string,
   path: string
 }
+
+export type WorkData = {
+  title: string,
+  employer: string,
+  dates: string,
+  stack: string,
+  summary1: string,
+  summary2: string,
+  summary3: string,
+  index?: number
+};

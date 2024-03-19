@@ -1,18 +1,23 @@
+// PORTFOLIO PAGE
+
 import FlipCard from "@/components/FlipCard";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import Link from "next/link";
 import { MdiGithub } from "@/utils/icons";
+
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import { Project } from "@/types/projectTypes";
 import { getAllProjects } from "@/utils/projects";
+import Portfolio from "@/components/Portfolio";
 
-export default function Portfolio() {
+export default function PortfolioPage() {
   const allProjects: Project[] = getAllProjects()
 
   return (
-    <div className="overflow-x-hidden w-full max-w-7xl px-8 md:px-12 flex flex-col justify-start items-center pt-16 md:pt-28 pb-20">
+    <div className="w-full max-w-7xl flex flex-col justify-center items-center" >
       <Header />
-      <main className="flex flex-col justify-start items-center px-0">
+      <Portfolio allProjects={allProjects} />
+      {/* <main className="flex flex-col justify-start items-center px-0">
         <h1 className="pb-12 text-center uppercase text-zinc-400 font-mono text-2xl tracking-wide6 z-10">portfolio</h1>
         <div className="w-full flex justify-center flex-wrap gap-8 z-20">
           {allProjects.map((project: Project, index) => (
@@ -23,7 +28,7 @@ export default function Portfolio() {
           <MdiGithub />
           Github Repositories
         </Link>
-      </main>
+      </main> */}
       <Footer />
     </div>
   )

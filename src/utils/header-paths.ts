@@ -1,5 +1,6 @@
+import { HeaderPaths } from "@/types/projectTypes";
 
-export default function getHeaderPaths() {
+export default function getHeaderPaths(): HeaderPaths[] {
   // console.log('>>>> getHeaderPaths **********************************')
   return [
     {

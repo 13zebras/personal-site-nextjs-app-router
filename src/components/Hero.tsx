@@ -16,7 +16,8 @@ export default function Hero() {
   const [viewportWidth, setViewportWidth] = useState(0)
   const [viewportHeight, setViewportHeight] = useState(0)
 
-  const typeWriterWords = ['<React, Next.js />', '[TypeScript, Node.js]', 'style: exquisite;', '() => magnifique']
+  const typeWriterWords = ['<React, Next.js />', '{TypeScript, Node.js}', 'style: exceptional;']
+  // const typeWriterWords = ['<React, Next.js />', '{TypeScript, Node.js}', 'style: exceptional;', '() => performant']
 
   const publicIdTom = 'portfolio/tom-chill-center' //publicIdCld
   const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
@@ -60,7 +61,7 @@ export default function Hero() {
 
   let heroLinksHeight = 100
   if (viewportWidth < 480) {
-    viewportHeight < vhBreakPoint ? heroLinksHeight = 170 : heroLinksHeight = 187
+    viewportHeight < vhBreakPoint ? heroLinksHeight = 165 : heroLinksHeight = 187
   }
 
   const totalHeroHeight = imageSize + heroMainTextHeight + heroLinksHeight
@@ -159,15 +160,15 @@ export default function Hero() {
       {/*** HERO IMAGE SECTION **********************************/}
       <section id="heroImage" className="relative w-full flex flex-col items-center justify-center">
         <BackgroundCircles ringTops={ringTops} ringSizes={ringSizes} />
-        <div style={{ width: imageSize }} className="relative aspect-square border-2 border-neutral-500 rounded-full overflow-hidden">
+        <div style={{ width: imageSize }} className="relative aspect-square border-2 border-neutral-600 rounded-full overflow-hidden">
           <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
         </div>
       </section>
       {/*** HERO TEXT SECTION **********************************/}
-      <section id="heroMainText" style={{ height: heroMainTextHeight, minHeight: heroMainTextHeight }} ref={heroTextRef} className="pb-2 xs:pb-4 xl:pt-6 xl:pb-12 z-20 flex flex-col items-center justify-center w-full">
-        <h1 className="mb-[8px] text-[1.45rem] sm:text-[1.65rem] md:text-[2rem] lg:text-[2.25rem] font-mono font-bold uppercase text-zinc-300 tracking-wide3 sm:tracking-wide3">Tom Stine</h1>
-        <h2 className="mb-[16px] text-base sm:text-[1.15rem] md:text-[1.25rem] font-mono uppercase text-zinc-500 tracking-wide1 md:tracking-wide15">Full Stack Developer</h2>
-        <h3 className="text-[1.15rem] sm:text-[1.25rem] md:text-[1.3rem] lg:text-[1.5rem] tracking-wide1 font-sans sm:font-mono text-zinc-400">
+      <section id="heroMainText" style={{ height: heroMainTextHeight, minHeight: heroMainTextHeight }} ref={heroTextRef} className="pb-0 xs:pb-4 xl:pt-6 xl:pb-12 z-20 flex flex-col items-center justify-center w-full">
+        <h1 className="mb-[8px] text-[1.55rem] sm:text-[1.65rem] md:text-[2rem] lg:text-[2.25rem] font-mono font-bold uppercase text-zinc-300 tracking-wide4">Tom Stine</h1>
+        <h2 className="mb-[16px] text-base sm:text-[1.15rem] md:text-[1.25rem] font-mono uppercase text-zinc-450 tracking-wide1 md:tracking-wide15">Full Stack Developer</h2>
+        <h3 className="text-[1.15rem] sm:text-[1.25rem] md:text-[1.3rem] lg:text-[1.5rem] tracking-wide0 xs:tracking-wide1 font-mono sm:font-mono text-zinc-350">
           <Typewriter
             words={typeWriterWords}
             loop={false}

@@ -40,9 +40,16 @@ const config: Config = {
           920: '#0a1224',
         },
         gray: {
+          800: '#1f2937',
+          850: '#19222e',
+          900: '#111827',
           920: '#080b18',
         },
         zinc: {
+          300: "#d4d4d8",
+          350: "#b7b7bb",
+          370: "#b1b1b8",
+          400: "#a1a1aa",
           450: '#8a8a93',
           850: '#202024',
           910: '#131316',
@@ -75,7 +82,7 @@ const config: Config = {
         'ping-0': {
           '0%': {
             transform: 'scale(1)',
-            opacity: '0.35',
+            opacity: '0.4',
           },
           '90%, 100%': {
             transform: 'scale(4.2)',
@@ -84,7 +91,7 @@ const config: Config = {
         },
         'pulse-1': {
           '0%, 100%': {
-            opacity: '0.3',
+            opacity: '0.4',
           },
           '50%': {
             opacity: '0.1',
@@ -92,10 +99,10 @@ const config: Config = {
         },
         'pulse-2': {
           '0%, 100%': {
-            opacity: '0.3',
+            opacity: '0.4',
           },
           '50%': {
-            opacity: '0.05',
+            opacity: '0.1',
           },
         },
         'fade-in': {

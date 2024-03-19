@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
     secure: true,
     auth: {
       user: process.env.FASTMAIL_EMAIL,
-      pass: process.env.FASTMAIL_PASSWORDX,
+      pass: process.env.FASTMAIL_PASSWORD_______REMOVE_ME__XXXXXXXXXXXXXX,
     },
   });
 
@@ -44,10 +44,12 @@ export async function POST(request: NextRequest) {
 
   try {
     await sendMailPromise();
-    console.log('>>>> sendMailPromise returned')
+    console.log('>>>> sendMailPromise returned\n****************\n\n')
+
     return NextResponse.json({ message: 'Email sent' });
   } catch (err) {
-    console.log('>>>> sendMailPromise error', err)
+    console.log('>>>> sendMailPromise error', err, '\n****************\n\n')
+
     return NextResponse.json({ error: err }, { status: 500 });
   }
 }

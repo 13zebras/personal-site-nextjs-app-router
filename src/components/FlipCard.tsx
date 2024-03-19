@@ -20,9 +20,7 @@ export default function FlipCard({ index, ...project }: Project) {
   if (index === undefined) return
 
   const handleOpenClick = () => {
-    console.log('>>>> Openclicked')
     setShowModal(true)
-
     document.body.style.overflow = 'hidden';
     document.body.ontouchstart = (e) => {
       e.preventDefault()
@@ -74,8 +72,8 @@ export default function FlipCard({ index, ...project }: Project) {
         opacity: 1,
       }}
       transition={{
-        duration: 0.4,
-        delay: 0.2,
+        duration: 2,
+        delay: 0.1,
       }}
       className="FlipContainer w-[260px] h-[250px]">
       <div className="FlipContent w-full h-full">
@@ -98,57 +96,3 @@ export default function FlipCard({ index, ...project }: Project) {
     </motion.div >
   )
 }
-
-
-/************************************************************
-
-
-HOW TO USE CSS ONLY FOR ANIMATIONS IN FLIPCARD:
-
-To use a variable in CSS animations with a value set by JavaScript, you can take advantage of CSS custom properties (also known as CSS variables). Here's how you can achieve this:
-
-1. Define a CSS custom property in your stylesheet:
-
-:root {
-  --distanceUp: 0;    // Default value
-}
-
-.animated-div {
-  animation: moveUp 1s ease-in-out infinite alternate;
-}
-
-@keyframes moveUp {
-  100% {
-    transform: translateY(var(--distanceUp));
-  }
-}
-
-2. In your JavaScript code, you can update the value of the `--distanceUp` custom property using the `style.setProperty()` method:
-
-const animatedDiv=document.querySelector('.animated-div');
-const distanceUp='-300px'; // or any other value you want
-animatedDiv.style.setProperty('--distanceUp', distanceUp);
-
-This code selects the element with the class `animated-div` and sets the value of the `--distanceUp` custom property to `-300px`. You can also use JavaScript to update the custom property value dynamically, allowing you to change the animation behavior on the fly. 
-
-let distanceUp='-300px';
-
-function updateAnimation() {
-  const animatedDiv=document.querySelector('.animated-div');
-  animatedDiv.style.setProperty('--distanceUp', distanceUp);
-}
-
-// Update the animation initially
-updateAnimation();
-
-// Change the distanceUp value after a certain time
-setTimeout(()=> {
-    distanceUp='-500px';
-    updateAnimation();
-  }, 2000); // Change the animation after 2 seconds
-
-In this example, the animation will initially use the value `-300px` for the `--distanceUp` custom property. After 2 seconds, the value will be updated to `-500px`, changing the animation behavior. Custom properties provide a powerful way to control CSS values from JavaScript, enabling dynamic and responsive animations based on user interactions, data updates, or other conditions in your application.
-
-
-
-************************************************************/

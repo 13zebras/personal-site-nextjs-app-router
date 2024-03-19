@@ -34,12 +34,12 @@ export default function Footer() {
   }
 
   return (
-    <footer id="footer" className="fixed bottom-0 w-full h-12 z-30 bg-zinc-950">
-      <div className="flex justify-start items-center h-12 px-6">
-        <span className="text-sm text-gray-400 font-mono">
+    <footer id="footer" className="fixed bottom-0 w-full h-10 sm:h-12 z-30 bg-zinc-950">
+      <div className="text-gray-500 text-sm font-mono flex justify-start items-end h-10 sm:h-12 p-1">
+        <span className="">
           {`${viewportWidth}vw  ${viewportHeight}vh`}
         </span>
-        <span className="text-base text-[#c02] font-mono ml-4">{`${breakPoint}`}</span>
+        <span className="ml-2">{`${breakPoint}`}</span>
       </div>
     </footer>
   );

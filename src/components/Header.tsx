@@ -6,6 +6,7 @@ import getHeaderPaths from '@/utils/header-paths';
 import { motion } from "framer-motion"
 import { usePathname } from 'next/navigation';
 import { useState } from 'react'
+import { HeaderPaths } from "@/types/projectTypes";
 
 const variants = {
   open: { opacity: 1, x: 0 },
@@ -17,7 +18,7 @@ export default function Header() {
   const routePath = usePathname()
   // const allPaths = ["home", "portfolio", "experience", "about tom", "contact"]
 
-  const allHeaderPaths = getHeaderPaths()
+  const allHeaderPaths: HeaderPaths[] = getHeaderPaths()
   // const openStyles = { display: 'flex' }
   // const closedStyles = { display: 'none' }
 
@@ -25,16 +26,16 @@ export default function Header() {
     <header className="fixed top-0 flex justify-center cursor-pointer z-30 w-full bg-zinc-950">
 
       {/*** MOBILE HEADER **********************************/}
-      <section className="MOBILE md:hidden flex flex-row justify-start items-center w-full text-zinc-400 relative px-5 py-3">
+      <section className="MOBILE md:hidden flex flex-row justify-start items-center w-full text-zinc-400 relative px-5 h-14">
         <Icon icon="mdi:hamburger-menu" className="hover:text-zinc-200 active:text-zinc-100 text-2xl" onClick={() => setIsNavOpen((prev) => !prev)} />
         <motion.div
           animate={isNavOpen ? "open" : "closed"}
           variants={variants}
           transition={{ duration: 0.25 }}
-          className="absolute top-0 left-0 w-full h-screen pb-[8vh] pt-[4vh] flex flex-col justify-evenly items-center text-lg bg-zinc-950/95 backdrop-blur-sm z-50"
+          className="opacity-0 absolute top-0 left-0 w-full h-screen pb-[8vh] pt-[4vh] flex flex-col justify-evenly items-center text-lg bg-zinc-950/95 backdrop-blur-sm z-50"
         >
           <div className="absolute top-0 right-0 p-7" onClick={() => setIsNavOpen(false)}>
-            <Icon icon="mdi:close-thick" className="text-3xl text-zinc-400 hover:text-zinc-200 active:text-zinc-100" />
+            <Icon icon="mdi:close-thick" className="text-2xl text-zinc-400 hover:text-zinc-200 active:text-zinc-100" />
           </div>
           {allHeaderPaths.map(({ name, path }) => {
             if (path !== routePath) {
@@ -43,7 +44,7 @@ export default function Header() {
               )
             } else {
               return (
-                <span key={name} className="uppercase tracking-wide1 text-zinc-500">{path}</span>
+                <span key={name} className="uppercase tracking-wide1 text-zinc-500">{name}</span>
               )
             }
           })}

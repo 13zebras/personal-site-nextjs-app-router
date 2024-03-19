@@ -5,11 +5,26 @@
 
 @layer components {
   .w-workCard-500 {
-    width: min(90%, 550px)
+    width: min(90%, 500px)
   }
 
   .w-workCard-400 {
-    width: min(90%, 400px)
+    width: min(45%, 450px)
+  }
+
+  .p-main-s {
+    padding-top: 3.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .p-main-m {
+    padding-top: max(7rem, 10vh);
+    padding-bottom: 5rem;
+  }
+
+  .p-main-l {
+    padding-top: max(7rem, 14vh);
+    padding-bottom: 5rem;
   }
 }
 
