@@ -1,8 +1,6 @@
 'use client'
 
 import WorkCard from "./WorkCard"
-import EducationCard from "./EducationCard";
-// import { getAllWork } from "@/utils/work";
 import { motion } from "framer-motion"
 import { WorkData } from "@/types/allTypes";
 
