@@ -90,7 +90,7 @@ export default function ContactForm() {
           <div className='w-full'>
             <label
               htmlFor='fullName'
-              className='mb-3 block text-base text-gray-300'
+              className='mb-2 block text-sm text-gray-300'
             >
               Your Full Name:
             </label>
@@ -103,14 +103,13 @@ export default function ContactForm() {
                 setName(e.target.value)
                 handleInputChange()
               }}
-              className='w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-pink-900 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
-
+              className='contactInput'
             />
           </div>
           <div className='w-full'>
             <label
               htmlFor='email'
-              className='mb-3 block text-base text-gray-300'
+              className='mb-2 block text-sm text-gray-300'
             >
               Your Email Address:
             </label>
@@ -118,18 +117,18 @@ export default function ContactForm() {
               ref={emailRef}
               type='email'
               name="email"
-              placeholder='fredwilma@example.com'
+              placeholder='fred@flintstone.xyz'
               onChange={(e) => {
                 setEmail(e.target.value)
                 handleInputChange()
               }}
-              className='w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-pink-900 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
+              className='contactInput'
             />
           </div>
           <div className='w-full'>
             <label
               htmlFor='message'
-              className='mb-3 block text-base text-gray-300'
+              className='mb-2 block text-sm text-gray-300'
             >
               Your Message:
             </label>
@@ -137,13 +136,13 @@ export default function ContactForm() {
               ref={textareaRef}
               rows={6}
               name="message"
-              placeholder='type your message'
+              placeholder='type your message here'
               onChange={(e) => {
                 setMessage(e.target.value)
                 handleInputChange()
               }}
-              className='w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-pink-900 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
-            ></textarea>
+              className='contactInput'
+            />
           </div>
           <div className='w-full flex justify-center'>
             <button
@@ -151,7 +150,7 @@ export default function ContactForm() {
               type="submit"
               onClick={(e) => { handleSubmit(e) }}
               disabled={isFormDisabled}
-              className='w-full rounded-xl bg-violet-900 hover:bg-violet-800 active:bg-violet-900 border border-violet-700 ring-1 ring-violet-800 active:ring-offset-2 active:ring-offset-violet-700 py-1 text-lg font-bold text-zinc-200 tracking-wide1 outline-none disabled:bg-gray-900/70 disabled:text-gray-600 disabled:border-gray-900/60 disabled:ring-transparent'>
+              className='w-full buttonMain h-10 text-lg font-bold tracking-wide1 disabled:text-zinc-800 disabled:border-zinc-900'>
               Submit
             </button>
           </div>
@@ -167,3 +166,6 @@ export default function ContactForm() {
     </motion.main>
   );
 }
+
+
+// rounded-xl bg-violet-900 hover:bg-violet-800 active:bg-violet-900 border border-violet-700 ring-1 ring-violet-800 active:ring-offset-2 active:ring-offset-violet-700 py-1 text-lg font-bold text-zinc-200 tracking-wide1 outline-none

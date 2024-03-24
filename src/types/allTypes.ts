@@ -18,9 +18,9 @@ export type WorkData = {
   title: string,
   employer: string,
   dates: string,
-  stack: string,
+  detailsType: string,
+  details: string,
   summary1: string,
   summary2: string,
-  summary3: string,
   index?: number
 };

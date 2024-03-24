@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Cloudinary } from "@cloudinary/url-gen";
 // import { FlipCardProps } from '@/components/FlipCard';
 import Link from "next/link"
-import { Project } from '@/types/projectTypes';
+import { Project } from '@/types/allTypes';
 import { motion } from "framer-motion"
 
 type ModalType = {
@@ -67,7 +67,7 @@ export default function Modal(props: ModalType) {
         }} className="w-[90%] max-w-3xl h-[90%] p-6 sm:p-8 md:p-12 bg-gray-920 rounded-xl overscroll-none flex flex-col justify-start items-center gap-y-8 relative border-2 border-gray-800">
         <div id="cldDiv" ref={cldRef} className="w-full aspect-[1788/1000] max-h-[50%] flex justify-center items-start relative" >
           <div className="animate-pulse absolute top-0 w-[99%] bg-zinc-800" style={{ height: cldHeight }} />
-          <AdvancedImage cldImg={fullImage} className="max-h-[100%] z-50 border border-neutral-500" />
+          <AdvancedImage cldImg={fullImage} className="max-h-[100%] z-50 border-2 border-gray-900  rounded-lg" />
           {/* <AdvancedImage cldImg={fullImage} plugins={[responsive({ steps: 200 }), placeholder({ mode: 'blur' })]} className="max-h-[100%] z-50 border border-gray-800 " /> */}
         </div>
         <div className="max-w-[95%] flex flex-col justify-start items-center">

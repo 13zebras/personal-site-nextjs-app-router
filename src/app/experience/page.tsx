@@ -1,7 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import WorkExperience from "@/components/WorkExperience";
-import { WorkData } from "@/types/projectTypes";
+import { WorkData } from "@/types/allTypes";
 import { getAllWork } from "@/utils/work";
 
 export default function ExperiencePage() {

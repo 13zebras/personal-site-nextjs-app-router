@@ -72,9 +72,9 @@ const config: Config = {
       },
       animation: {
         'ping-0': 'ping-0 5s cubic-bezier(0, 0, 0.2, 1) infinite',
-        'pulse-1': 'pulse-1 2.9s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'pulse-2': 'pulse-2 4.3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'fade-in-10': 'fade-in 1s ease-in 0s',
+        'pulse-1': 'pulse-1 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse-2': 'pulse-2 4.9s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'fade-in-10': 'fade-in 1s ease-in 0s 1',
         'fade-in-05': 'fade-in 0.5s ease-in 0s',
         'fade-in-025': 'fade-in 0.25s ease-in 0s',
       },
@@ -91,15 +91,15 @@ const config: Config = {
         },
         'pulse-1': {
           '0%, 100%': {
-            opacity: '0.4',
+            opacity: '0.3',
           },
           '50%': {
-            opacity: '0.1',
+            opacity: '0.05',
           },
         },
         'pulse-2': {
           '0%, 100%': {
-            opacity: '0.4',
+            opacity: '0.3',
           },
           '50%': {
             opacity: '0.1',

@@ -1,4 +1,4 @@
-import AboutMotion from "@/components/AboutMotion";
+import About from "@/components/About";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <div className="w-full max-w-7xl flex flex-col justify-center items-center" >
       <Header />
-      <AboutMotion />
+      <About />
       <Footer />
     </div>
   )

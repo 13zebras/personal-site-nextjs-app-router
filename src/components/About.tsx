@@ -7,7 +7,7 @@ import { Cloudinary } from "@cloudinary/url-gen";
 // import Link from "next/link"
 import { motion } from 'framer-motion'
 
-export default function AboutMotion() {
+export default function About() {
   // const [showMore, setShowMore] = useState(false)
   const [viewportWidth, setViewportWidth] = useState(0)
   // const [viewportHeight, setViewportHeight] = useState(0)

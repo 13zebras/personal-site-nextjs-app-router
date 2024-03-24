@@ -61,7 +61,7 @@ export default function Hero() {
 
   let heroLinksHeight = 100
   if (viewportWidth < 480) {
-    viewportHeight < vhBreakPoint ? heroLinksHeight = 165 : heroLinksHeight = 187
+    viewportHeight < vhBreakPoint ? heroLinksHeight = 170 : heroLinksHeight = 187
   }
 
   const totalHeroHeight = imageSize + heroMainTextHeight + heroLinksHeight
@@ -119,6 +119,7 @@ export default function Hero() {
   let heroImageTop = Math.round((viewportHeight - totalHeroHeight) / 2)
   heroImageTop = Math.max((ringGap / 2 + ringTops[0]), heroImageTop)
 
+  const moveY = viewportHeight / 2
   // let mainPadding = 'pb-1'
   // if (viewportHeight < vhBreakPoint) {
   //   mainPadding = 'pb-8'
@@ -146,15 +147,23 @@ export default function Hero() {
 
     <motion.div
       initial={{
-        scale: 0.2,
+        scale: 1,
         opacity: 0,
+        y: 400,
+        rotateX: 360,
+        rotateY: 360,
+        rotateZ: 360,
       }}
-      whileInView={{
+      animate={{
         scale: 1,
         opacity: 1,
+        y: 0,
+        rotateX: 0,
+        rotateY: 0,
+        rotateZ: 0,
       }}
       transition={{
-        duration: 0.9,
+        duration: 5,
       }} style={{ paddingTop: heroImageTop }}
       className={`overflow-y-auto overflow-x-hidden w-screen flex flex-col items-center justify-start text-center h-screen max-w-7xl px-8 pb-6`}>
       {/*** HERO IMAGE SECTION **********************************/}
@@ -188,12 +197,12 @@ export default function Hero() {
           <Link href="/about" className="hover:text-zinc-300 hover:underline">about</Link>
           <Link href="/experience" className="hover:text-zinc-300 hover:underline">experience</Link>
         </div>
-        <div id="iconLinks" className="flex justify-center gap-x-12 text-[2.2rem] tracking-wide2">
-          <Link href="https://github.com/13zebras" target="_blank" rel="noopener noreferrer">
-            <Icon icon="mdi:github" className="hover:text-zinc-300 pt-[2px]" />
-          </Link>
+        <div id="iconLinks" className="flex justify-center gap-x-14 text-[36px] tracking-wide2">
           <Link href="https://www.linkedin.com/in/tom-stine-13-zebras/" target="_blank" rel="noopener noreferrer">
             <Icon icon="mdi:linkedin" className="hover:text-zinc-300 pt-[2px]" />
+          </Link>
+          <Link href="https://github.com/13zebras" target="_blank" rel="noopener noreferrer">
+            <Icon icon="mdi:github" className="hover:text-zinc-300 pt-[2px]" />
           </Link>
           <Link href="/contact" >
             <Icon icon="mdi:envelope-outline" className="hover:text-zinc-300" />

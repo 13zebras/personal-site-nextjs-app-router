@@ -6,7 +6,7 @@ import { MdiGithub } from "@/utils/icons";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { Project } from "@/types/projectTypes";
+import { Project } from "@/types/allTypes";
 import { getAllProjects } from "@/utils/projects";
 import Portfolio from "@/components/Portfolio";
 

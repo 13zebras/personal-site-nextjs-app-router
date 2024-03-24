@@ -14,7 +14,7 @@
 
   .p-main-s {
     padding-top: 3.5rem;
-    padding-bottom: 2rem;
+    padding-bottom: 3.5rem;
   }
 
   .p-main-m {
@@ -26,12 +26,42 @@
     padding-top: max(7rem, 14vh);
     padding-bottom: 5rem;
   }
+
+  .buttonMain {
+    @apply flex justify-center items-center gap-x-2 text-zinc-300 hover:text-zinc-200 active:text-zinc-100 text-sm rounded-2xl border-2 border-zinc-600 hover:border-zinc-400 active:border-sky-500
+  }
+
+  .contactInput {
+    @apply w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-teal-800 focus:shadow-md placeholder:text-zinc-500 placeholder:italic placeholder:text-base
+  }
 }
 
 body {
   -webkit-overflow-scrolling: touch;
 }
 
+.FlipContainer {
+  perspective: 1200px;
+}
+
+.FlipContent {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.FlipContainer:hover .FlipContent {
+  transform: rotateY(180deg);
+  transition: transform 0.5s 0.2s;
+}
+
+.FlipFront,
+.FlipBack {
+  backface-visibility: hidden;
+}
+
+.FlipBack {
+  transform: rotateY(180deg);
+}
 
 
 /***********************************
