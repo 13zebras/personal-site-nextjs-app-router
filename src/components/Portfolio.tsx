@@ -4,7 +4,6 @@ import FlipCard from "@/components/FlipCard";
 import { motion } from "framer-motion"
 import Link from "next/link";
 import { Icon } from '@iconify/react';
-// import { MdiGithub } from "@/utils/icons";
 import { Project } from "@/types/allTypes";
 
 interface ProjectProps {
