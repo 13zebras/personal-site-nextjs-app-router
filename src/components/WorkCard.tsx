@@ -6,19 +6,25 @@ import { motion } from "framer-motion"
 export default function WorkCard({ index, ...props }: WorkData) {
 
   if (index === undefined) return
-  let xSign = 1
-  if (index % 2 === 0) {
-    xSign = -1
-  }
-  const iX = Math.trunc(xSign * 1000)
-  const delayFactor = Math.trunc(index / 2)
-  // console.log('>>> index, iX, delayFactor', index, iX, delayFactor)
+  // let xSign = 1
+  // if (index % 2 === 0) {
+  //   xSign = -1
+  // }
+  // const iX = Math.trunc(xSign * 1000)
+  // const iX = 1500 * (index % 2 === 0 ? -1 : 1)
+  // const iX = 0
+  // const delayFactor = Math.trunc(index / 2)
+  // const rotateDeg = 360 * (Math.random() < 0.5 ? -1 : 1)
+
+  const delayTime = parseFloat((Math.random() * 3).toFixed(2))
+  const durationTime = parseFloat((Math.random() * 2 + 0.5).toFixed(2))
+  // console.log('>>> index, durationTime, delayTime, rotateDeg', index, durationTime, delayTime, rotateDeg)
 
   return (
     <motion.div
-      initial={{ x: iX }}
-      animate={{ x: 0 }}
-      transition={{ duration: 1.3, delay: 0.5 * delayFactor }}
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: durationTime, delay: delayTime }}
       className="w-workCard-500 md:w-workCard-400 px-8 py-6 rounded-xl flex flex-col justify-start items-start flex-shrink-0 text-gray-300 bg-gray-850 cursor-pointer overflow-hidden">
 
       <h2 className="text-[1.05rem] font-bold">{props.employer}</h2>

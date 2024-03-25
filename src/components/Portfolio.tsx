@@ -25,12 +25,12 @@ const Portfolio: React.FC<ProjectProps> = ({ allProjects }) => {
         initial={{ x: 1000 }}
         animate={{ x: 0 }}
         transition={{ delay: 4, type: "spring", stiffness: 100 }}
-        className="mt-10 sm:mt-12 mb-4 sm:mb-0 py-[5px] w-[220px] buttonMain"
+        className="mt-10 sm:mt-12 mb-4 sm:mb-0 py-[5px] w-[220px] buttonMain text-base"
       >
         <Link href="https://github.com/13zebras?tab=repositories" >
           <Icon icon="mdi:github" className="mr-2 text-xl inline mb-[2px]" />
           Github
-          <Icon icon="heroicons-outline:external-link" className="ml-1 text-sm inline mb-[2px]" />
+          <Icon icon="heroicons-outline:external-link" className="ml-1 text-sm inline mb-[2px] opacity-70" />
         </Link>
       </motion.button>
     </main>

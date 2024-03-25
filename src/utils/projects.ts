@@ -1,6 +1,3 @@
-// todo need to complete all the projects
-// todo need to add cli projects
-// todo remove unneed fields from JSON
 
 export function getAllProjects() {
   // console.log('>>>> getAllProjects **********************************')
@@ -14,25 +11,6 @@ export function getAllProjects() {
       stack: "React, Next.js, TypeScript, TailwindCSS, Framer Motion, Cloudinary",
       githubUrl: "https://github.com/13zebras/personal-site-nextjs-app-router",
     },
-
-    {
-      name: "Our Trans Kids DAO",
-      url: "",
-      summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
-      cldPublicId: "portfolio/transkidsdao",
-      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
-      stack: "React, Next.js, Recoil, Sass",
-      githubUrl: "https://github.com/13zebras/transkids-dao-3rdweb",
-    },
-    {
-      name: "Renaissance Shade Solana NFTs",
-      url: "",
-      summary: "Renaissance Shade, an NFT collection built on Solana devnet.",
-      cldPublicId: "portfolio/renaissance-shade",
-      description: "The Floating Apes NFT project needed staking, raffle, and other services. Lucky Dog Studios provided all these services via a variety of websites.",
-      stack: "React, Next.js, Chakra-UI, Solana",
-      githubUrl: "https://github.com/13zebras/solana-nft-renaissance-shade",
-    },
     {
       name: "Bass Pro Shops Outdoor Fund",
       url: "https://basspro.com/cart",
@@ -40,33 +18,6 @@ export function getAllProjects() {
       cldPublicId: "portfolio/basspro-odf",
       description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
       stack: "React, Next.js, Recoil, Sass",
-      githubUrl: "",
-    },
-    {
-      name: "AFI Movies NFTs",
-      url: "https://solportal.13z.dev",
-      summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
-      cldPublicId: "portfolio/afimoviesnfts",
-      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is.",
-      stack: "React, Next.js, Chakra-UI, Solana",
-      githubUrl: "https://github.com/13zebras/solana-gif-portal",
-    },
-    {
-      name: "LoveLang NFT Collection",
-      url: "",
-      summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
-      cldPublicId: "portfolio/lovelang-nfts",
-      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
-      stack: "React, Next.js, Chakra-UI, Solana",
-      githubUrl: "https://github.com/13zebras/lovelang-nft-collection-polygon",
-    },
-    {
-      name: "BOS Shop",
-      url: "https://bos-store.vercel.app",
-      summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
-      cldPublicId: "portfolio/bos-shop",
-      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
-      stack: "React, Next.js, Chakra-UI, Solana",
       githubUrl: "",
     },
     {
@@ -79,13 +30,13 @@ export function getAllProjects() {
       githubUrl: "",
     },
     {
-      name: "Laugh Portal Solidity",
-      url: "",
+      name: "BOS Shop",
+      url: "https://bos-store.vercel.app",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
-      cldPublicId: "portfolio/laughportal",
+      cldPublicId: "portfolio/bos-shop",
       description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
       stack: "React, Next.js, Chakra-UI, Solana",
-      githubUrl: "https://github.com/13zebras/laughportal-solidity",
+      githubUrl: "",
     },
     {
       name: "Floating Apes Affiliation",
@@ -140,6 +91,51 @@ export function getAllProjects() {
       description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
       stack: "React, Next.js, Chakra-UI, Solana",
       githubUrl: "",
+    },
+    {
+      name: "AFI Movies NFTs",
+      url: "https://solportal.13z.dev",
+      summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
+      cldPublicId: "portfolio/afimoviesnfts",
+      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration is.",
+      stack: "React, Next.js, Chakra-UI, Solana",
+      githubUrl: "https://github.com/13zebras/solana-gif-portal",
+    },
+    {
+      name: "Our Trans Kids DAO",
+      url: "",
+      summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
+      cldPublicId: "portfolio/transkidsdao",
+      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
+      stack: "React, Next.js, Recoil, Sass",
+      githubUrl: "https://github.com/13zebras/transkids-dao-3rdweb",
+    },
+    {
+      name: "Renaissance Shade Solana NFTs",
+      url: "",
+      summary: "Renaissance Shade, an NFT collection built on Solana devnet.",
+      cldPublicId: "portfolio/renaissance-shade",
+      description: "The Floating Apes NFT project needed staking, raffle, and other services. Lucky Dog Studios provided all these services via a variety of websites.",
+      stack: "React, Next.js, Chakra-UI, Solana",
+      githubUrl: "https://github.com/13zebras/solana-nft-renaissance-shade",
+    },
+    {
+      name: "LoveLang NFT Collection",
+      url: "",
+      summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
+      cldPublicId: "portfolio/lovelang-nfts",
+      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
+      stack: "React, Next.js, Chakra-UI, Solana",
+      githubUrl: "https://github.com/13zebras/lovelang-nft-collection-polygon",
+    },
+    {
+      name: "Laugh Portal Solidity",
+      url: "",
+      summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
+      cldPublicId: "portfolio/laughportal",
+      description: "We apply the proverb 'A rolling stone gathers no moss' not only to our power shifts but our strategic angel investors and user-proof configuration.",
+      stack: "React, Next.js, Chakra-UI, Solana",
+      githubUrl: "https://github.com/13zebras/laughportal-solidity",
     }
   ]
 }
