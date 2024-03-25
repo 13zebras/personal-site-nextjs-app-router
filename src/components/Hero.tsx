@@ -139,7 +139,7 @@ export default function Hero() {
   return (
 
     <main style={{ paddingTop: heroImageTop }}
-      className={`overflow-hidden w-screen flex flex-col items-center justify-start text-center h-screen max-w-7xl px-8 pb-6`}>
+      className={`overflow-hidden w-screen flex flex-col items-center justify-start text-center h-screen px-8 pb-6`}>
       {/*** HERO IMAGE SECTION **********************************/}
       <motion.section
         initial={{
