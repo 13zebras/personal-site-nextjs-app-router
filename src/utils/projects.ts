@@ -34,7 +34,7 @@ export function getAllProjects() {
       githubUrl: "https://github.com/13zebras/solana-nft-renaissance-shade",
     },
     {
-      name: "Bass Pro Shops<br/>Outdoor Fund",
+      name: "Bass Pro Shops Outdoor Fund",
       url: "https://basspro.com/cart",
       summary: "Dicit dicant quaestio pri eu, no principes persecuti liberavisse sit.",
       cldPublicId: "portfolio/basspro-odf",

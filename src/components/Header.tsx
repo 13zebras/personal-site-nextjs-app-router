@@ -33,7 +33,7 @@ export default function Header() {
           animate={isNavOpen ? "open" : "closed"}
           variants={variants}
           transition={{ duration: 0.25 }}
-          className="opacity-0 absolute top-0 left-0 w-full h-screen pb-[8vh] pt-[4vh] flex flex-col justify-evenly items-center text-lg bg-black/90 backdrop-blur-sm z-50 font-bold tracking-wide2"
+          className="opacity-0 absolute top-0 left-0 w-full h-screen pb-[8vh] pt-[4vh] flex flex-col justify-evenly items-center text-lg bg-black/95 backdrop-blur-sm z-50 font-bold tracking-wide2"
         >
           <div className="absolute top-0 right-0 p-7" onClick={() => setIsNavOpen(false)}>
             <Icon icon="mdi:close-thick" className="text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-500" />

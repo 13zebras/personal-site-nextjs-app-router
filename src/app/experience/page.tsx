@@ -7,7 +7,7 @@ import { getAllWork } from "@/utils/work";
 export default function ExperiencePage() {
   const allWork: WorkData[] = getAllWork();
   return (
-    <div className="w-full max-w-7xl flex flex-col justify-center items-center" >
+    <div className="bg-zinc-950 w-full max-w-7xl flex flex-col justify-center items-center" >
       <Header />
       <WorkExperience allWork={allWork} />
       <Footer />

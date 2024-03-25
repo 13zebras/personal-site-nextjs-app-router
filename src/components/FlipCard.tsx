@@ -43,12 +43,12 @@ function FlipCard({ index, ...project }: Project) {
     const rY = Math.trunc(random2 * 270 + 180) * (random1 < 0.5 ? -1 : 1)
     const rZ = Math.trunc(random3 * 270 + 180) * (random2 < 0.5 ? -1 : 1)
 
-    const iTime = parseFloat((random1 * 3 + 2.0).toFixed(2))
+    const iTime = parseFloat((random1 * 2 + 2.0).toFixed(2))
 
     return [iX, iY, iScale, rX, rY, rZ, iTime]
   }, [index])
 
-  console.log('>>>motionValues:', index, motionValues)
+  // console.log('>>>motionValues:', index, motionValues)
 
   const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
   const frontImage = cld.image(project.cldPublicId)
@@ -61,7 +61,7 @@ function FlipCard({ index, ...project }: Project) {
       .background(color('#0d0d0d'))
   )
 
-  const projectName = { __html: project.name }
+  // const projectName = { __html: project.name }
 
   return (
     <motion.div
@@ -89,17 +89,17 @@ function FlipCard({ index, ...project }: Project) {
       }}
       className="FlipContainer w-[280px] h-[230px] xs:w-[200px] xs:h-[220px]">
       <div className="FlipContent w-full h-full">
-        <div className="FlipFront absolute w-full h-full bg-neutral-920 border border-neutral-700 rounded-md p-3 flex flex-col items-center justify-start gap-y-2">
-          <div className="w-full relative border border-neutral-900">
+        <div className="FlipFront absolute w-full h-full bg-zinc-920 border-2 border-neutral-700 rounded-lg p-3 flex flex-col items-center justify-start gap-y-3">
+          <div className="w-full relative border border-zinc-900">
             <AdvancedImage cldImg={frontImage} />
           </div>
 
-          <div className="w-full h-20 px-4 flex justify-center items-center text-center text-lg leading-snug font-semibold text-zinc-200" dangerouslySetInnerHTML={projectName} />
+          <div className="w-full h-20 px-8 xs:px-1 flex justify-center items-center text-center text-lg xs:text-base leading-snug font-semibold text-zinc-200">{project.name}</div>
 
         </div>
-        <div className="FlipBack absolute w-full h-full bg-slate-920 border border-slate-600 rounded-md p-5 flex flex-col items-center justify-start gap-4 text-left text-sm text-zinc-300">
+        <div className="FlipBack absolute w-full h-full bg-slate-920 border-2 border-slate-600 rounded-lg p-5 flex flex-col items-center justify-start gap-4 text-left text-sm text-zinc-300">
           {project.summary}
-          <button onClick={handleOpenClick} className='fixed bottom-5 w-40 h-7 buttonMain'>Learn More...</button>
+          <button onClick={handleOpenClick} className='fixed bottom-4 w-40 h-7 buttonMain border-gray-600'>Learn More...</button>
           {showModal && createPortal(
             <Modal project={project} onClose={() => setShowModal(false)} />, document.body
           )}

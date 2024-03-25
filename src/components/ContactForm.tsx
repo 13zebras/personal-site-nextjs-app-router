@@ -1,7 +1,5 @@
 'use client'
 
-import { Icon } from '@iconify/react';
-import Link from 'next/link';
 import { useState, useRef } from 'react'
 import { motion } from "framer-motion"
 
@@ -80,7 +78,7 @@ export default function ContactForm() {
   return (
     <motion.main
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       className="w-full max-w-2xl flex flex-col justify-start items-center px-8 xs:px-12 p-main-s md:p-main-l pb-8 overflow-x-hidden overflow-y-auto">
       <h1 className="pb-6 sm:pb-12 md:pb-14 uppercase text-zinc-400 font-mono text-2xl tracking-wide2 xs:tracking-wide4 sm:tracking-wide6 z-10">contact tom</h1 >

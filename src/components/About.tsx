@@ -46,7 +46,7 @@ export default function About() {
   return (
     <motion.main
       initial={{ opacity: 0, scale: 0.5 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1 }}
       className="max-w-3xl flex flex-col justify-start items-center px-0 p-main-s md:p-main-l">
       <h1 className="pb-6 sm:pb-12 md:pb-14 uppercase text-zinc-400 font-mono text-2xl tracking-wide1 xs:tracking-wide4 sm:tracking-wide6 z-10">who is tom stine?</h1>

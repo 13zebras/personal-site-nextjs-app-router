@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 export default function AboutPage() {
 
   return (
-    <div className="w-full max-w-7xl flex flex-col justify-center items-center" >
+    <div className="bg-zinc-950 w-full max-w-7xl flex flex-col justify-center items-center" >
       <Header />
       <About />
       <Footer />

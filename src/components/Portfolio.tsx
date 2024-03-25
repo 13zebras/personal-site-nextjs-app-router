@@ -21,23 +21,20 @@ const Portfolio: React.FC<ProjectProps> = ({ allProjects }) => {
           <FlipCard key={project.name} index={index} {...project} />
         ))}
       </div>
-      <motion.div
-        initial={{ x: -1000 }}
+      <motion.button
+        initial={{ x: 1000 }}
         animate={{ x: 0 }}
-        transition={{ duration: 1, delay: 5.5, type: "spring", stiffness: 100 }}
+        transition={{ delay: 4, type: "spring", stiffness: 100 }}
+        className="mt-10 sm:mt-12 mb-4 sm:mb-0 py-[5px] w-[220px] buttonMain"
       >
-        <Link href="https://github.com/13zebras?tab=repositories" className="mt-10 mb-6 sm:mb-0 sm:mt-16 py-[4px] w-[150px] buttonMain" >
-          <Icon icon="mdi:github" className="mr-0 text-xl inline" />
+        <Link href="https://github.com/13zebras?tab=repositories" >
+          <Icon icon="mdi:github" className="mr-2 text-xl inline mb-[2px]" />
           Github
+          <Icon icon="heroicons-outline:external-link" className="ml-1 text-sm inline mb-[2px]" />
         </Link>
-      </motion.div>
+      </motion.button>
     </main>
   )
 }
 
 export default Portfolio
-
-{/* <Link href = "https://github.com/13zebras?tab=repositories" className = "mt-10 mb-6 sm:mb-0 sm:mt-16 py-[5px] w-[150px] flex justify-center items-center gap-x-2 bg-zinc-900 hover:bg-zinc-800 active:bg-zinc-800 text-zinc-300 hover:text-zinc-200 active:text-zinc-100 text-sm rounded-2xl border border-zinc-600 hover:border-zinc-500 active:border-sky-500" >
-<Icon icon="mdi:github" className="mr-0 text-xl inline" />
-Github
-</Link> */}

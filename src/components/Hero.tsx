@@ -8,7 +8,7 @@ import { Cloudinary } from "@cloudinary/url-gen";
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
 import { Typewriter } from 'react-simple-typewriter'
-import { motion } from 'framer-motion'
+import { easeOut, motion } from 'framer-motion'
 
 export default function Hero() {
   const heroTextRef = useRef<HTMLDivElement>(null)
@@ -119,62 +119,60 @@ export default function Hero() {
   let heroImageTop = Math.round((viewportHeight - totalHeroHeight) / 2)
   heroImageTop = Math.max((ringGap / 2 + ringTops[0]), heroImageTop)
 
-  const moveY = viewportHeight / 2
-  // let mainPadding = 'pb-1'
-  // if (viewportHeight < vhBreakPoint) {
-  //   mainPadding = 'pb-8'
-  // }
-
   // console.log('>>> maxRing0', maxRing0)
   // console.log('>>> ringGap', ringGap)
   // console.log('>>> ringSizes', ringSizes)
-  console.log('>>> ringTops', ringTops)
+  // console.log('>>> ringTops', ringTops)
   // console.log('>>> ringOuterPadding', ringOuterPadding)
-
   // console.log('>>> viewportWidth', viewportWidth)
 
-  console.log('>>> imageSize', imageSize)
-  console.log('>>> heroMainTextHeight', heroMainTextHeight)
-  console.log('>>> heroLinksHeight', heroLinksHeight)
-  console.log('>>> totalHeroHeight', totalHeroHeight)
+  // console.log('>>> imageSize', imageSize)
+  // console.log('>>> heroMainTextHeight', heroMainTextHeight)
+  // console.log('>>> heroLinksHeight', heroLinksHeight)
+  // console.log('>>> totalHeroHeight', totalHeroHeight)
   // console.log('>>> smallestViewport', smallestViewport)
-  console.log('>>> ')
-  console.log('>>> viewportHeight', viewportHeight)
-  console.log('>>> heroImageTop', heroImageTop)
-  console.log('>>> ***** ***** ***** ***** *****\n\n\n')
+  // console.log('>>> ')
+  // console.log('>>> viewportHeight', viewportHeight)
+  // console.log('>>> heroImageTop', heroImageTop)
+  // console.log('>>> ***** ***** ***** ***** *****\n\n\n')
 
   return (
 
-    <motion.div
-      initial={{
-        scale: 1,
-        opacity: 0,
-        y: 400,
-        rotateX: 360,
-        rotateY: 360,
-        rotateZ: 360,
-      }}
-      animate={{
-        scale: 1,
-        opacity: 1,
-        y: 0,
-        rotateX: 0,
-        rotateY: 0,
-        rotateZ: 0,
-      }}
-      transition={{
-        duration: 5,
-      }} style={{ paddingTop: heroImageTop }}
-      className={`overflow-y-auto overflow-x-hidden w-screen flex flex-col items-center justify-start text-center h-screen max-w-7xl px-8 pb-6`}>
+    <main style={{ paddingTop: heroImageTop }}
+      className={`overflow-hidden w-screen flex flex-col items-center justify-start text-center h-screen max-w-7xl px-8 pb-6`}>
       {/*** HERO IMAGE SECTION **********************************/}
-      <section id="heroImage" className="relative w-full flex flex-col items-center justify-center">
+      <motion.section
+        initial={{
+          scale: 0.1,
+          opacity: 0,
+        }}
+        animate={{
+          scale: 1,
+          opacity: 1,
+        }}
+        transition={{
+          duration: 1.5,
+        }}
+        id="heroImage" className="relative w-full flex flex-col items-center justify-center">
         <BackgroundCircles ringTops={ringTops} ringSizes={ringSizes} />
         <div style={{ width: imageSize }} className="relative aspect-square border-2 border-neutral-600 rounded-full overflow-hidden">
           <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
         </div>
-      </section>
+      </motion.section>
       {/*** HERO TEXT SECTION **********************************/}
-      <section id="heroMainText" style={{ height: heroMainTextHeight, minHeight: heroMainTextHeight }} ref={heroTextRef} className="pb-0 xs:pb-4 xl:pt-6 xl:pb-12 z-20 flex flex-col items-center justify-center w-full">
+      <motion.section
+        initial={{
+          y: 900,
+        }}
+        animate={{
+          y: 0,
+        }}
+        transition={{
+          duration: 2,
+          delay: 0.5,
+          ease: easeOut,
+        }}
+        id="heroMainText" style={{ height: heroMainTextHeight, minHeight: heroMainTextHeight }} ref={heroTextRef} className="pb-0 xs:pb-4 xl:pt-6 xl:pb-12 z-20 flex flex-col items-center justify-center w-full">
         <h1 className="mb-[8px] text-[1.55rem] sm:text-[1.65rem] md:text-[2rem] lg:text-[2.25rem] font-mono font-bold uppercase text-zinc-300 tracking-wide4">Tom Stine</h1>
         <h2 className="mb-[16px] text-base sm:text-[1.15rem] md:text-[1.25rem] font-mono uppercase text-zinc-450 tracking-wide1 md:tracking-wide15">Full Stack Developer</h2>
         <h3 className="text-[1.15rem] sm:text-[1.25rem] md:text-[1.3rem] lg:text-[1.5rem] tracking-wide0 xs:tracking-wide1 font-mono sm:font-mono text-zinc-350">
@@ -189,9 +187,21 @@ export default function Hero() {
             delaySpeed={1500}
           />
         </h3>
-      </section>
+      </motion.section>
       {/*** HERO LINKS SECTION **********************************/}
-      <section id="heroLinks" style={{ height: heroLinksHeight, minHeight: heroLinksHeight }} ref={heroLinksRef} className={`flex flex-col justify-between items-center text-xl text-zinc-450 tracking-wide2`}>
+      <motion.section
+        initial={{
+          y: 900,
+        }}
+        animate={{
+          y: 0,
+        }}
+        transition={{
+          duration: 1.5,
+          delay: 1.5,
+          ease: easeOut,
+        }}
+        id="heroLinks" style={{ height: heroLinksHeight, minHeight: heroLinksHeight }} ref={heroLinksRef} className={`flex flex-col justify-between items-center text-xl text-zinc-450 tracking-wide2`}>
         <div id="textLinks" className={`flex flex-col xs:flex-row justify-center items-center gap-x-8 sm:gap-x-12 gap-y-3 sm:gap-y-2`}>
           <Link href="/portfolio" className="hover:text-zinc-300 hover:underline">portfolio</Link>
           <Link href="/about" className="hover:text-zinc-300 hover:underline">about</Link>
@@ -208,9 +218,8 @@ export default function Hero() {
             <Icon icon="mdi:envelope-outline" className="hover:text-zinc-300" />
           </Link>
         </div>
-      </section>
-
-    </motion.div>
+      </motion.section>
+    </main>
   )
 }
 

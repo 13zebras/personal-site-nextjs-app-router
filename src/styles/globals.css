@@ -28,7 +28,7 @@
   }
 
   .buttonMain {
-    @apply flex justify-center items-center gap-x-2 text-zinc-300 hover:text-zinc-200 active:text-zinc-100 text-sm rounded-2xl border-2 border-zinc-600 hover:border-zinc-400 active:border-sky-500
+    @apply flex justify-center items-center text-zinc-300 hover:text-zinc-100 active:text-sky-500 text-sm rounded-2xl border-2 border-zinc-600 hover:border-zinc-400 active:border-sky-500
   }
 
   .contactInput {
