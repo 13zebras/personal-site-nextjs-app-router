@@ -30,8 +30,8 @@ const config: Config = {
     },
     extend: {
       fontSize: {
-        'xxs': '0.65rem',
-        'md': '0.94rem',
+        xxs: '0.65rem',
+        md: '0.94rem',
       },
       colors: {
         slate: {
@@ -47,10 +47,10 @@ const config: Config = {
           920: '#080b18',
         },
         zinc: {
-          300: "#d4d4d8",
-          350: "#b7b7bb",
-          370: "#b1b1b8",
-          400: "#a1a1aa",
+          300: '#d4d4d8',
+          350: '#b7b7bb',
+          370: '#b1b1b8',
+          400: '#a1a1aa',
           450: '#8a8a93',
           850: '#202024',
           910: '#131316',
@@ -69,7 +69,7 @@ const config: Config = {
           lime: '#44bb00',
           red: '#bb0028',
           gray: '#111c26',
-        }
+        },
       },
       animation: {
         'ping-0': 'ping-0 5s cubic-bezier(0, 0, 0.2, 1) infinite',
@@ -107,13 +107,13 @@ const config: Config = {
           },
         },
         'fade-in': {
-          'from': {
+          from: {
             opacity: '0',
           },
-          'to': {
+          to: {
             opacity: '1',
           },
-        }
+        },
       },
     },
   },

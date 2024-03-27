@@ -1,23 +1,23 @@
-import { HeaderPaths } from "@/types/allTypes";
+import type { HeaderPaths } from '@/types/allTypes'
 
 export function getDesktopHeaderPaths(): HeaderPaths[] {
   // console.log('>>>> getDesktopHeaderPaths **********************************')
   return [
     {
-      name: "home",
-      path: "/"
+      name: 'home',
+      path: '/',
     },
     {
-      name: "portfolio",
-      path: "/portfolio"
+      name: 'portfolio',
+      path: '/portfolio',
     },
     {
-      name: "experience",
-      path: "/experience"
+      name: 'experience',
+      path: '/experience',
     },
     {
-      name: "about tom",
-      path: "/about"
+      name: 'about tom',
+      path: '/about',
     },
   ]
 }
@@ -26,25 +26,24 @@ export function getMobileHeaderPaths(): HeaderPaths[] {
   // console.log('>>>> getMobileHeaderPaths **********************************')
   return [
     {
-      name: "home",
-      path: "/"
+      name: 'home',
+      path: '/',
     },
     {
-      name: "portfolio",
-      path: "/portfolio"
+      name: 'portfolio',
+      path: '/portfolio',
     },
     {
-      name: "experience",
-      path: "/experience"
+      name: 'experience',
+      path: '/experience',
     },
     {
-      name: "about tom",
-      path: "/about"
+      name: 'about tom',
+      path: '/about',
     },
     {
-      name: "contact",
-      path: "/contact"
+      name: 'contact',
+      path: '/contact',
     },
   ]
 }
-

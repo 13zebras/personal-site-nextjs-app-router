@@ -1,13 +1,10 @@
-
-
-type Props = {
-  ringTops: Array<number>,
-  ringSizes: Array<number>,
+interface Props {
+  ringTops: Array<number>
+  ringSizes: Array<number>
 }
 
 // function BackgroundCircles({ imageSize, viewportWidth, viewportHeight }: Props) {
 export default function BackgroundCircles({ ringTops, ringSizes }: Props) {
-
   return (
     <>
       <div style={{ top: ringTops[0], width: ringSizes[0], height: ringSizes[0] }} className="absolute border rounded-full border-pulse-cyan animate-ping-0" />
@@ -15,5 +12,5 @@ export default function BackgroundCircles({ ringTops, ringSizes }: Props) {
       <div style={{ top: ringTops[2], width: ringSizes[2], height: ringSizes[2] }} className="absolute border rounded-full border-pulse-lime animate-pulse-1" />
 
     </>
-  );
+  )
 }

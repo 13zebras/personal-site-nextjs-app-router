@@ -1,11 +1,11 @@
 'use client'
 
-import WorkCard from "./WorkCard"
-import { motion } from "framer-motion"
-import { WorkData } from "@/types/allTypes";
+import { motion } from 'framer-motion'
+import WorkCard from './WorkCard'
+import type { WorkData } from '@/types/allTypes'
 
 interface WorkProps {
-  allWork: WorkData[];
+  allWork: WorkData[]
 }
 
 const WorkExperience: React.FC<WorkProps> = ({ allWork }) => {
@@ -29,12 +29,12 @@ const WorkExperience: React.FC<WorkProps> = ({ allWork }) => {
               {...work}
               index={index}
             />
-          );
+          )
         })}
       </div>
       {/* <EducationCard /> */}
     </motion.main>
-  );
+  )
 }
 
 export default WorkExperience

@@ -5,11 +5,11 @@
 
 @layer components {
   .w-workCard-500 {
-    width: min(90%, 500px)
+    width: min(90%, 500px);
   }
 
   .w-workCard-400 {
-    width: min(45%, 450px)
+    width: min(45%, 450px);
   }
 
   .p-main-s {

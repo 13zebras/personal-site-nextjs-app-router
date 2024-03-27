@@ -1,13 +1,13 @@
 'use client'
 
-import FlipCard from "@/components/FlipCard";
-import { motion } from "framer-motion"
-import Link from "next/link";
-import { Icon } from '@iconify/react';
-import { Project } from "@/types/allTypes";
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { Icon } from '@iconify/react'
+import FlipCard from '@/components/FlipCard'
+import type { Project } from '@/types/allTypes'
 
 interface ProjectProps {
-  allProjects: Project[];
+  allProjects: Project[]
 }
 
 const Portfolio: React.FC<ProjectProps> = ({ allProjects }) => {
@@ -24,10 +24,10 @@ const Portfolio: React.FC<ProjectProps> = ({ allProjects }) => {
       <motion.button
         initial={{ x: 1000 }}
         animate={{ x: 0 }}
-        transition={{ delay: 4, type: "spring", stiffness: 100 }}
+        transition={{ delay: 4, type: 'spring', stiffness: 100 }}
         className="mt-10 sm:mt-12 mb-4 sm:mb-0 py-[5px] w-[220px] buttonMain text-base"
       >
-        <Link href="https://github.com/13zebras?tab=repositories" >
+        <Link href="https://github.com/13zebras?tab=repositories">
           <Icon icon="mdi:github" className="mr-2 text-xl inline mb-[2px]" />
           Github
           <Icon icon="heroicons-outline:external-link" className="ml-1 text-sm inline mb-[2px] opacity-70" />

@@ -1,13 +1,10 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
+import Hero from '@/components/Hero'
 
 // todo - need mobile styling and breakpoints
 
 export default function Home() {
-
   return (
-    <div className="bg-zinc-950 w-full" >
+    <div className="bg-zinc-950 w-full">
       <Hero />
     </div>
   )

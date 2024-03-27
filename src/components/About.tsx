@@ -1,18 +1,17 @@
 'use client'
 
-import { AdvancedImage, placeholder, responsive } from '@cloudinary/react';
-import { useEffect, useState } from "react";
+import { AdvancedImage, placeholder } from '@cloudinary/react'
 
-import { Cloudinary } from "@cloudinary/url-gen";
+import { Cloudinary } from '@cloudinary/url-gen'
 // import Link from "next/link"
 import { motion } from 'framer-motion'
 
 export default function About() {
   // const [showMore, setShowMore] = useState(false)
-  const [viewportWidth, setViewportWidth] = useState(0)
+  // const [viewportWidth, setViewportWidth] = useState(0)
   // const [viewportHeight, setViewportHeight] = useState(0)
-  const publicIdTom = 'portfolio/tom-chill-center' //publicIdCld
-  const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
+  const publicIdTom = 'portfolio/tom-chill-center' // publicIdCld
+  const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } })
   const fullImage = cld.image(publicIdTom)
 
   // useEffect(() => {
@@ -42,12 +41,13 @@ export default function About() {
   return (
     <main className="max-w-[832px] flex flex-col justify-start items-center p-main-s md:p-main-l">
       <h1 className="animate-fade-in-10 pb-6 sm:pb-10 md:pb-14 uppercase text-zinc-400 font-mono text-2xl tracking-wide1 xs:tracking-wide3 sm:tracking-wide6 z-10">who is tom stine?</h1>
-      <div id="about" className="px-8 2xs:px-10 sm:px-12 md:px-14 flex flex-col md:block justify-start lg:justify-center items-center overflow-x-hidden overflow-y-auto" >
+      <div id="about" className="px-8 2xs:px-10 sm:px-12 md:px-14 flex flex-col md:block justify-start lg:justify-center items-center overflow-x-hidden overflow-y-auto">
         <motion.div
           initial={{ scale: 0, y: 50 }}
           animate={{ scale: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6, ease: "easeInOut" }}
-          className="w-[75vw] max-w-[320px] xs:w-[320px] md:w-[35vw] md:max-w-[300px] lg:w-[300px] aspect-square border-2 border-neutral-400 rounded-full md:rounded-lg overflow-hidden mb-6 md:float-right md:ml-8 md:mb-4 md:mr-2">
+          transition={{ duration: 1, delay: 0.6, ease: 'easeInOut' }}
+          className="w-[75vw] max-w-[320px] xs:w-[320px] md:w-[35vw] md:max-w-[300px] lg:w-[300px] aspect-square border-2 border-neutral-400 rounded-full md:rounded-lg overflow-hidden mb-6 md:float-right md:ml-8 md:mb-4 md:mr-2"
+        >
           <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
         </motion.div>
 
@@ -64,5 +64,5 @@ export default function About() {
         </div>
       </div>
     </main>
-  );
+  )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 export default function Footer() {
   const [viewportWidth, setViewportWidth] = useState(0)
@@ -16,22 +16,21 @@ export default function Footer() {
     return () => window.removeEventListener('resize', updateViewportWH)
   })
 
-  let breakPoint = ""
-  if (viewportWidth >= 1536) {
+  let breakPoint = ''
+  if (viewportWidth >= 1536)
     breakPoint = '2xl'
-  } else if (viewportWidth >= 1280) {
+  else if (viewportWidth >= 1280)
     breakPoint = 'xl'
-  } else if (viewportWidth >= 1024) {
+  else if (viewportWidth >= 1024)
     breakPoint = 'lg'
-  } else if (viewportWidth >= 768) {
+  else if (viewportWidth >= 768)
     breakPoint = 'md'
-  } else if (viewportWidth >= 640) {
+  else if (viewportWidth >= 640)
     breakPoint = 'sm'
-  } else if (viewportWidth >= 480) {
+  else if (viewportWidth >= 480)
     breakPoint = 'xs'
-  } else {
+  else
     breakPoint = 'xxs'
-  }
 
   return (
     <footer id="footer" className="fixed bottom-0 w-full h-10 sm:h-10 z-30 bg-zinc-950 border-t border-sky-700 opacity-100">
@@ -42,5 +41,5 @@ export default function Footer() {
         <span className="ml-2">{`${breakPoint}`}</span>
       </div>
     </footer>
-  );
+  )
 }
