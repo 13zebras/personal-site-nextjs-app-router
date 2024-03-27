@@ -25,6 +25,7 @@ const Portfolio: React.FC<ProjectProps> = ({ allProjects }) => {
         initial={{ x: 1000 }}
         animate={{ x: 0 }}
         transition={{ delay: 4, type: 'spring', stiffness: 100 }}
+        type="button"
         className="mt-10 sm:mt-12 mb-4 sm:mb-0 py-[5px] w-[220px] buttonMain text-base"
       >
         <Link href="https://github.com/13zebras?tab=repositories">

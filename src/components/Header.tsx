@@ -35,7 +35,7 @@ export default function Header() {
           transition={{ duration: 0.25 }}
           className="opacity-0 absolute top-0 left-0 w-full h-screen pb-[8vh] pt-[4vh] flex flex-col justify-evenly items-center text-lg bg-black/95 backdrop-blur-sm z-50 font-bold tracking-wide2"
         >
-          <div className="absolute top-0 right-0 p-7" onClick={() => setIsNavOpen(false)}>
+          <div className="absolute top-0 right-0 p-7" onClick={() => setIsNavOpen(false)} onKeyUp={() => setIsNavOpen(false)}>
             <Icon icon="mdi:close-thick" className="text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-500" />
           </div>
           {mobileHeaderPaths.map(({ name, path }) => {
@@ -44,11 +44,9 @@ export default function Header() {
                 <Link href={path} key={name} className="hover:text-zinc-200 active:text-sky-500">{name}</Link>
               )
             }
-            else {
-              return (
-                <span key={name} className="text-zinc-500 underline">{name}</span>
-              )
-            }
+            return (
+              <span key={name} className="text-zinc-500 underline">{name}</span>
+            )
           })}
           <Link href="/contact" className="hover:text-zinc-200 active:text-sky-500" target="_blank" rel="noopener noreferrer">
             <Icon icon="mdi:envelope-outline" className="mr-3 mb-1 text-3xl inline" />
@@ -73,11 +71,9 @@ export default function Header() {
               <Link href={path} key={name} className="hover:text-zinc-200 active:text-sky-500 uppercase text-sm tracking-wide0">{name}</Link>
             )
           }
-          else {
-            return (
-              <span key={name} className="uppercase tracking-wide0 text-sm text-zinc-450 hover:text-zinc-600 underline">{name}</span>
-            )
-          }
+          return (
+            <span key={name} className="uppercase tracking-wide0 text-sm text-zinc-450 hover:text-zinc-600 underline">{name}</span>
+          )
         })}
         <div className="flex flex-row justify-center items-center gap-x-6 text-2xl w-[120px]">
           <Link href="/contact">

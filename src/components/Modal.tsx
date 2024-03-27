@@ -44,11 +44,11 @@ export default function Modal(props: ModalType) {
     return () => window.removeEventListener('resize', updateHeight)
   }, [])
 
-  const projectName = { __html: project.name }
+  // const projectName = { __html: project.name }
 
   return (
 
-    <div onClick={handleCloseClick} className="w-[100vw] h-[100vh] fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex justify-center items-center overscroll-none">
+    <div onClick={handleCloseClick} onKeyDown={handleCloseClick} className="w-[100vw] h-[100vh] fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex justify-center items-center overscroll-none">
       <motion.div
         initial={{
           y: -200,
@@ -74,7 +74,7 @@ export default function Modal(props: ModalType) {
         </div>
         <div className="max-w-[95%] flex flex-col justify-start items-center">
 
-          <div className="flex justify-center items-center text-center pb-6 uppercase text-zinc-400 font-mono text-2xl tracking-wide4" dangerouslySetInnerHTML={projectName} />
+          <div className="flex justify-center items-center text-center pb-6 uppercase text-zinc-400 font-mono text-2xl tracking-wide4">{project.name}</div>
           <div className="w-full flex flex-col justify-start items-start gap-y-4 text-zinc-300 text-md">
 
             <div className="text-sm text-zinc-300 mb-[2vh]">
@@ -105,7 +105,7 @@ export default function Modal(props: ModalType) {
           </div>
         </div>
 
-        <button onClick={handleCloseClick} className="w-36 h-7 bg-gray-800 hover:bg-gray-600 active:bg-slate-500 text-zinc-300 active:text-zinc-100 text-sm rounded-xl absolute bottom-6 border border-gray-500">Close</button>
+        <button type="button" onClick={handleCloseClick} className="w-36 h-7 bg-gray-800 hover:bg-gray-600 active:bg-slate-500 text-zinc-300 active:text-zinc-100 text-sm rounded-xl absolute bottom-6 border border-gray-500">Close</button>
       </motion.div>
     </div>
   )
