@@ -8,6 +8,7 @@ const config: Config = {
   ],
   theme: {
     screens: {
+      '2xs': '400px',
       'xs': '480px',
       'sm': '640px',
       'md': '768px',
@@ -23,7 +24,7 @@ const config: Config = {
       wide1: '0.1em',
       wide15: '0.15em',
       wide2: '0.2em',
-      wide3: '0.35em',
+      wide3: '0.3em',
       wide4: '0.4em',
       wide6: '0.60em',
     },

@@ -74,7 +74,7 @@ export default function Header() {
             )
           }
         })}
-        <div className="flex flex-row justify-center items-center gap-x-6 text-2xl">
+        <div className="flex flex-row justify-center items-center gap-x-6 text-2xl w-[120px]">
           <Link href="/contact" >
             <Icon icon="mdi:envelope-outline" className="hover:text-zinc-200 active:text-sky-500" />
           </Link>

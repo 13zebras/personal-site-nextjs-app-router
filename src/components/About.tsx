@@ -15,47 +15,43 @@ export default function About() {
   const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } });
   const fullImage = cld.image(publicIdTom)
 
-  useEffect(() => {
-    const updateWindowDimensions = () => {
-      setViewportWidth(window.innerWidth)
-      // setViewportHeight(window.innerHeight)
-    }
-    updateWindowDimensions()
-    window.addEventListener('resize', updateWindowDimensions)
-    return () => window.removeEventListener('resize', updateWindowDimensions)
-  }, [])
+  // useEffect(() => {
+  //   const updateWindowDimensions = () => {
+  //     setViewportWidth(window.innerWidth)
+  //     // setViewportHeight(window.innerHeight)
+  //   }
+  //   updateWindowDimensions()
+  //   window.addEventListener('resize', updateWindowDimensions)
+  //   return () => window.removeEventListener('resize', updateWindowDimensions)
+  // }, [])
 
-  let imageSize = 320
-  if (viewportWidth >= 768) {
-    const viewportScaled = viewportWidth * 0.35
-    if (viewportScaled < imageSize) {
-      imageSize = viewportScaled
-    }
-  } else if (viewportWidth > 500) {
-    imageSize = 340
-    // } else if (viewportWidth > 450) {
-    //   imageSize = viewportWidth * 0.75
-    // } else if (viewportWidth > 400) {
-    //   imageSize = viewportWidth * 0.75
-  } else {
-    imageSize = viewportWidth * 0.75
-  }
+  // let imageSize = 320
+  // if (viewportWidth >= 768) {
+  //   const viewportScaled = viewportWidth * 0.35
+  //   if (viewportScaled < imageSize) {
+  //     imageSize = viewportScaled
+  //   }
+  // } else if (viewportWidth > 500) {
+  //   imageSize = 340
+  // } else {
+  //   imageSize = viewportWidth * 0.75
+  // }
 
   // md:pt-28 pb-20
 
   return (
-    <motion.main
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1 }}
-      className="max-w-3xl flex flex-col justify-start items-center px-0 p-main-s md:p-main-l">
-      <h1 className="pb-6 sm:pb-12 md:pb-14 uppercase text-zinc-400 font-mono text-2xl tracking-wide1 xs:tracking-wide4 sm:tracking-wide6 z-10">who is tom stine?</h1>
-      <div id="aboutMotion" className="flex flex-col md:block justify-start lg:justify-center items-center px-8 sm:px-8 md:px-4 overflow-x-hidden overflow-y-auto" >
-        <div style={{ width: imageSize }} className="aspect-square border-2 border-neutral-400 rounded-full md:rounded-lg overflow-hidden mb-6 md:float-right md:ml-8 md:mb-4 md:mr-2">
+    <main className="max-w-[832px] flex flex-col justify-start items-center p-main-s md:p-main-l">
+      <h1 className="animate-fade-in-10 pb-6 sm:pb-10 md:pb-14 uppercase text-zinc-400 font-mono text-2xl tracking-wide1 xs:tracking-wide3 sm:tracking-wide6 z-10">who is tom stine?</h1>
+      <div id="about" className="px-8 2xs:px-10 sm:px-12 md:px-14 flex flex-col md:block justify-start lg:justify-center items-center overflow-x-hidden overflow-y-auto" >
+        <motion.div
+          initial={{ scale: 0, y: 50 }}
+          animate={{ scale: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6, ease: "easeInOut" }}
+          className="w-[75vw] max-w-[320px] xs:w-[320px] md:w-[35vw] md:max-w-[300px] lg:w-[300px] aspect-square border-2 border-neutral-400 rounded-full md:rounded-lg overflow-hidden mb-6 md:float-right md:ml-8 md:mb-4 md:mr-2">
           <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
-        </div>
+        </motion.div>
 
-        <div className="text-left text-base sm:text-base text-zinc-200">
+        <div className="animate-fade-in-10 text-left text-base sm:text-base text-zinc-200">
           <p className="pb-4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           </p>
@@ -67,6 +63,6 @@ export default function About() {
           </p>
         </div>
       </div>
-    </motion.main>
+    </main>
   );
 }
