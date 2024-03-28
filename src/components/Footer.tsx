@@ -28,7 +28,7 @@ export default function Footer() {
 	return (
 		<footer
 			id='footer'
-			className='fixed bottom-0 w-full h-10 sm:h-10 z-30 bg-zinc-950 border-t border-sky-700 opacity-0'
+			className='fixed bottom-0 w-full h-10 sm:h-10 z-30 bg-zinc-950 border-t border-sky-700 opacity-100'
 		>
 			<div className='text-teal-400 text-sm font-mono flex justify-start items-end h-10 sm:h-10 p-1'>
 				<span className=''>{`${viewportWidth}vw  ${viewportHeight}vh`}</span>
