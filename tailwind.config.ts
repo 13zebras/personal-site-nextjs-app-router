@@ -1,20 +1,22 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-	content: [
-		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
-		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
-	],
+	content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
 	theme: {
 		screens: {
-			'2xs': '400px',
+			'2xs': '370px',
 			xs: '480px',
 			sm: '640px',
 			md: '768px',
 			lg: '1024px',
 			xl: '1280px',
 			'2xl': '1536px',
+			short: { raw: '(min-height: 600px)' },
+			// => @media (min-height: 620px) { ... }
+			mid: { raw: '(min-height: 700px)' },
+			// => @media (min-height: 620px) { ... }
+			tall: { raw: '(min-height: 800px)' },
+			// => @media (min-height: 800px) { ... }
 		},
 		letterSpacing: {
 			tighter: '-0.05em',
@@ -52,9 +54,12 @@ const config: Config = {
 					370: '#b1b1b8',
 					400: '#a1a1aa',
 					450: '#8a8a93',
+					500: '#71717a',
+					800: '#27272a',
 					850: '#202024',
 					910: '#131316',
 					920: '#0e0e13',
+					930: '#0b0b10',
 					950: '#070709',
 					959: '#070709/95',
 				},
@@ -64,37 +69,51 @@ const config: Config = {
 				red: {
 					550: '#ff0022',
 				},
+				sky: {
+					200: '#bae6fd',
+					300: '#7dd3fc',
+				},
 				pulse: {
-					cyan: '#00aacc',
+					cyan: '#00ddff',
 					lime: '#44bb00',
 					red: '#bb0028',
 					gray: '#111c26',
 				},
 			},
 			animation: {
-				'ping-0': 'ping-0 5s cubic-bezier(0, 0, 0.2, 1) infinite',
+				'ping-0': 'ping-0 5s cubic-bezier(0, 0, 0.5, 1) infinite',
 				'pulse-1': 'pulse-1 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 				'pulse-2': 'pulse-2 4.9s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-				'fade-in-125': 'fade-in 1.25s ease-in 0s 1',
-				'fade-in-100': 'fade-in 1s ease-in 0s 1',
-				'fade-in-075': 'fade-in 750ms ease-in 0s 1',
-				'fade-in-050': 'fade-in 500ms ease-in 0s',
-				'fade-in-025': 'fade-in 250ms ease-in 0s',
+				'fade-in-400': 'fade-in 4s cubic-bezier(0.6, 0, 0.7, 1) 500ms 1 both',
+				'fade-in-125': 'fade-in 1.25s ease-out 0s 1 both',
+				'fade-in-100': 'fade-in 1s ease-out 0s 1 both',
+				'fade-in-075': 'fade-in 750ms ease-out 0s 1 both',
+				'fade-in-050': 'fade-in 500ms ease-out 0s both',
+				'fade-in-025': 'fade-in 250ms ease-out 0s both',
+				'fade-in-delay': 'fade-in 4000ms ease-out 1000ms 1 both',
+				'fade-in-scale-150': 'fade-in-scale 1.5s ease-out 1000ms 1 both',
+				'fade-in-scale-250': 'fade-in-scale 2s ease-out 900ms 1 both',
+				'fade-in-scale-350': 'fade-in-scale 3.5s cubic-bezier(0.5, 0, 0.7, 1.2) 0ms 1 both',
 			},
 			keyframes: {
 				'ping-0': {
 					'0%': {
 						transform: 'scale(1)',
-						opacity: '0.4',
+						opacity: '0.9',
+						// opacity: '0.4',
 					},
-					'90%, 100%': {
-						transform: 'scale(4.2)',
+					'70%, 100%': {
+						transform: 'scale(1.8)',
+					},
+					'100%': {
+						// opacity: '0.5',
 						opacity: '0',
 					},
 				},
 				'pulse-1': {
 					'0%, 100%': {
-						opacity: '0.3',
+						// opacity: '0.3',
+						opacity: '0.6',
 					},
 					'50%': {
 						opacity: '0.05',
@@ -102,7 +121,8 @@ const config: Config = {
 				},
 				'pulse-2': {
 					'0%, 100%': {
-						opacity: '0.3',
+						// opacity: '0.3',
+						opacity: '0.61',
 					},
 					'50%': {
 						opacity: '0.1',
@@ -113,6 +133,16 @@ const config: Config = {
 						opacity: '0',
 					},
 					to: {
+						opacity: '1',
+					},
+				},
+				'fade-in-scale': {
+					'0%': {
+						transform: 'scale(0)',
+						opacity: '0',
+					},
+					'100%': {
+						transform: 'scale(1)',
 						opacity: '1',
 					},
 				},

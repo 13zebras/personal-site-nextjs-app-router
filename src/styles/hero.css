@@ -1,0 +1,169 @@
+/***********************************
+*** Hero Page Styles
+************************************/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#mainHero {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 32px 8px;
+  padding-top: clamp(40px, 10vh, 50px);
+  padding-bottom: 4vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
+@media (min-height: 600px) {
+  #mainHero {
+    /* justify-content: center; */
+    padding-top: max(40px, 8vh);
+    padding-bottom: 5vh;
+    overflow-y: hidden;
+  }
+}
+
+@media (min-height: 800px) {
+  #mainHero {
+    padding-top: 5vh;
+  }
+}
+
+#heroImage {
+  position: relative;
+  border: 2px solid;
+  border-radius: 999px;
+  overflow: hidden;
+  width: clamp(200px, calc(33vh + 3vw), 320px);
+  max-width: clamp(200px, calc(15vh + 25vw), 320px);
+  /* max-height: clamp(200px, 50vw, 320px); */
+}
+
+.bgCircles {
+  width: clamp(200px, calc(33vh + 3vw), 320px);
+  max-width: clamp(200px, calc(15vh + 25vw), 320px);
+}
+
+.bgCirclesPing {
+  width: clamp(200px, calc(33vh + 3vw), 320px);
+  max-width: clamp(200px, calc(15vh + 20vw), 320px);
+}
+
+@media (min-height: 800px) and (min-width: 640px) {
+  .bgCircles {
+    width: clamp(280px, calc(33vh + 3vw), 360px);
+    max-width: clamp(280px, calc(15vh + 25vw), 360px);
+  }
+}
+
+#heroMainText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vh;
+  margin-bottom: 5vh;
+  font-family: var(--font-mono);
+
+  h1 {
+    margin-bottom: calc(2vh - 6px);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+
+  }
+
+  h2 {
+    margin-bottom: 2.5vh;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 20px;
+    letter-spacing: 0.05em;
+  }
+}
+
+@media (min-height: 700px) {
+  #heroMainText {
+    margin-top: min(40px, 4vh);
+
+    h1 {
+      font-size: 32px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    h3 {
+      font-size: 21px;
+      letter-spacing: 0.1em;
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  #heroMainText {
+    /* margin-bottom: 16px; */
+  }
+}
+
+@media (min-height: 800px) and (min-width: 768px) {
+  #heroMainText {
+    margin-bottom: 32px;
+
+    h1 {
+      font-size: 36px;
+    }
+
+    h2 {
+      font-size: 22px;
+      letter-spacing: 0.15em;
+    }
+
+    h3 {
+      font-size: 24px;
+    }
+  }
+}
+
+#heroLinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  letter-spacing: 0.15em;
+
+  #textLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 4rem;
+    row-gap: 4px;
+  }
+}
+
+@layer components {
+  .textLink {
+    @apply text-zinc-450 hover:text-zinc-300 hover:underline active:text-sky-400;
+  }
+
+  .iconLink {
+    @apply text-[36px] text-zinc-450 hover:text-zinc-300 active:text-sky-400;
+  }
+}

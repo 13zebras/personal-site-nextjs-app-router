@@ -1,11 +1,12 @@
 'use client'
 
-import { Icon } from '@iconify/react'
+import '@/styles/header.css'
+import { LinkedinIcon, GithubIcon, EnvelopeIcon, HamburgerIcon, CloseThickIcon } from '@/utils/svgs'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { getDesktopHeaderPaths, getMobileHeaderPaths } from '@/utils/header-paths'
+import { getHeaderPaths } from '@/utils/header-paths'
 import type { HeaderPaths } from '@/types/allTypes'
 
 const variants = {
@@ -16,124 +17,79 @@ const variants = {
 export default function Header() {
 	const [isNavOpen, setIsNavOpen] = useState(false)
 	const routePath = usePathname()
-	console.log('>>>> routePath', routePath)
+	// console.log('>>>> routePath', routePath)
 
-	const desktopHeaderPaths: HeaderPaths[] = getDesktopHeaderPaths()
-	const mobileHeaderPaths: HeaderPaths[] = getMobileHeaderPaths()
+	const headerPaths: HeaderPaths[] = getHeaderPaths()
+	// const mobileHeaderPaths: HeaderPaths[] = getMobileHeaderPaths()
 	// const openStyles = { display: 'flex' }
 	// const closedStyles = { display: 'none' }
 
 	return (
 		<header className='fixed top-0 flex justify-center cursor-pointer z-30 w-full bg-zinc-950'>
 			{/** * MOBILE HEADER */}
-			<section className='MOBILE md:hidden flex flex-row justify-start items-center w-full text-zinc-400 relative px-5 h-14 uppercase'>
-				<Icon
-					icon='mdi:hamburger-menu'
-					className='hover:text-zinc-200 active:text-sky-500 text-2xl'
-					onClick={() => setIsNavOpen((prev) => !prev)}
-				/>
-				<motion.div
-					animate={isNavOpen ? 'open' : 'closed'}
-					variants={variants}
-					transition={{ duration: 0.25 }}
-					className='opacity-0 absolute top-0 left-0 w-full h-screen pb-[8vh] pt-[4vh] flex flex-col justify-evenly items-center text-lg bg-black/95 backdrop-blur-sm z-50 font-bold tracking-wide2'
-				>
-					<div
-						className='absolute top-0 right-0 p-7'
-						onClick={() => setIsNavOpen(false)}
-						onKeyUp={() => setIsNavOpen(false)}
-					>
-						<Icon
-							icon='mdi:close-thick'
-							className='text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-500'
-						/>
+			<section className='mobileSection'>
+				<span onClick={() => setIsNavOpen((prev) => !prev)} onKeyDown={() => setIsNavOpen((prev) => !prev)}>
+					<HamburgerIcon className='mobileIconLink' />
+				</span>
+
+				<motion.div animate={isNavOpen ? 'open' : 'closed'} variants={variants} transition={{ duration: 0.25 }} className='mobileModal'>
+					<div className='absolute top-0 left-0 p-5' onClick={() => setIsNavOpen(false)} onKeyUp={() => setIsNavOpen(false)}>
+						<CloseThickIcon className='mobileIconLink' />
 					</div>
-					{mobileHeaderPaths.map(({ name, path }) => {
+					{headerPaths.map(({ name, path }) => {
 						if (path !== routePath) {
 							return (
-								<Link href={path} key={name} className='hover:text-zinc-200 active:text-sky-500'>
+								<Link href={path} key={name} className='mobileTextLink'>
 									{name}
 								</Link>
 							)
 						}
 						return (
-							<span key={name} className='text-zinc-500 underline'>
+							<span key={name} className='text-zinc-500 text-lg font-bold uppercase'>
 								{name}
 							</span>
 						)
 					})}
-					<Link
-						href='/contact'
-						className='hover:text-zinc-200 active:text-sky-500'
-						target='_blank'
-						rel='noopener noreferrer'
-					>
-						<Icon icon='mdi:envelope-outline' className='mr-3 mb-1 text-3xl inline' />
+					<Link href='/contact' className='mobileTextLink' target='_blank' rel='noopener noreferrer'>
+						<EnvelopeIcon className='mr-3 mb-1 mobileIconLink' />
 						Contact
 					</Link>
-					<Link
-						href='https://github.com/13zebras'
-						className='hover:text-zinc-200 active:text-sky-500'
-						target='_blank'
-						rel='noopener noreferrer'
-					>
-						<Icon icon='mdi:github' className='mr-3 mb-1 text-3xl inline' />
+					<Link href='https://github.com/13zebras' className='mobileTextLink' target='_blank' rel='noopener noreferrer'>
+						<GithubIcon className='mr-3 mb-1 mobileIconLink' />
 						Github
 					</Link>
-					<Link
-						href='https://www.linkedin.com/in/tom-stine-13-zebras/'
-						className='hover:text-zinc-200 active:text-sky-500'
-						target='_blank'
-						rel='noopener noreferrer'
-					>
-						<Icon icon='mdi:linkedin' className='mr-3 mb-1 text-3xl inline' />
+					<Link href='https://www.linkedin.com/in/tom-stine-13-zebras/' className='mobileTextLink' target='_blank' rel='noopener noreferrer'>
+						<LinkedinIcon className='mr-3 mb-1 mobileIconLink' />
 						LinkedIn
 					</Link>
 				</motion.div>
 			</section>
 
 			{/** * DESKTOP HEADER */}
-			<section className='DESKTOP animate-fade-in-050 hidden md:flex flex-row justify-between items-center h-[80px] w-full max-w-3xl px-10 text-zinc-400'>
-				{desktopHeaderPaths.map(({ name, path }) => {
+			<section className='desktopSection'>
+				{headerPaths.map(({ name, path }) => {
 					if (path !== routePath) {
 						return (
-							<Link
-								href={path}
-								key={name}
-								className='hover:text-zinc-200 active:text-sky-500 uppercase text-sm tracking-wide0'
-							>
+							<Link href={path} key={name} className='desktopTextLink'>
 								{name}
 							</Link>
 						)
 					}
 					return (
-						<span
-							key={name}
-							className='uppercase tracking-wide0 text-sm text-zinc-400 hover:text-zinc-500 active:text-zinc-600 underline'
-						>
+						<span key={name} className='desktopTextLink active'>
 							{name}
 						</span>
 					)
 				})}
-				<div className='flex flex-row justify-center items-center gap-x-6 text-2xl w-[120px]'>
+				<div className='flex flex-row justify-center items-center gap-x-6 w-[120px]'>
 					<Link href='/contact'>
-						<Icon icon='mdi:envelope-outline' className='hover:text-zinc-200 active:text-sky-500' />
+						<EnvelopeIcon className='desktopIconLink' />
 					</Link>
-					<Link
-						href='https://github.com/13zebras'
-						className=''
-						target='_blank'
-						rel='noopener noreferrer'
-					>
-						<Icon icon='mdi:github' className='hover:text-zinc-200 active:text-sky-500' />
+					<Link href='https://github.com/13zebras' className='' target='_blank' rel='noopener noreferrer'>
+						<GithubIcon className='desktopIconLink' />
 					</Link>
-					<Link
-						href='https://www.linkedin.com/in/tom-stine-13-zebras/'
-						className='hidden xs:block'
-						target='_blank'
-						rel='noopener noreferrer'
-					>
-						<Icon icon='mdi:linkedin' className='hover:text-zinc-200 active:text-sky-500' />
+					<Link href='https://www.linkedin.com/in/tom-stine-13-zebras/' className='hidden xs:block' target='_blank' rel='noopener noreferrer'>
+						<LinkedinIcon className='desktopIconLink' />
 					</Link>
 				</div>
 			</section>

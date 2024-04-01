@@ -1,7 +1,6 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { motion } from 'framer-motion'
 
 interface FormData {
 	name: string
@@ -36,7 +35,7 @@ export default function ContactForm() {
 		})
 			.then((res) => res.json())
 			.then((response) => {
-				console.log('>>>> response', response, '>>>> **************\n\n')
+				// console.log('>>>> response', response, '>>>> **************\n\n')
 				// console.log('>>>> response.message', response.message)
 				// console.log('>>>> response.error', response.error)
 				if (response.message) setSuccess('success')
@@ -55,9 +54,6 @@ export default function ContactForm() {
 
 		if (textareaRef.current) textareaRef.current.value = ''
 
-		// if (buttonRef.current) {
-		//   buttonRef.current.style.opacity = '0.5';
-		// }
 		setIsFormDisabled(true)
 	}
 
@@ -69,12 +65,7 @@ export default function ContactForm() {
 	}
 
 	return (
-		<main
-			// initial={{ opacity: 0 }}
-			// animate={{ opacity: 1 }}
-			// transition={{ duration: 1.25 }}
-			className='animate-fade-in-100 w-full max-w-2xl flex flex-col justify-start items-center px-8 xs:px-12 p-main-s md:p-main-l pb-8 overflow-x-hidden overflow-y-auto'
-		>
+		<main className='animate-fade-in-100 w-full max-w-2xl flex flex-col justify-start items-center px-8 xs:px-12 p-main-s md:p-main-l pb-8 overflow-x-hidden overflow-y-auto'>
 			<h1 className='pb-6 sm:pb-12 md:pb-14 uppercase text-zinc-400 font-mono text-2xl tracking-wide2 xs:tracking-wide4 sm:tracking-wide6 z-10'>
 				contact tom
 			</h1>
@@ -156,11 +147,8 @@ export default function ContactForm() {
 							Oops! Something went wrong. Please try again later.
 						</p>
 					)}
-					{/* {(success) && <Link href="/" className="text-lg text-center text-zinc-300 hover:text-white rounded-2xl py-[2px] bg-gray-900 hover:bg-gray-800 border-2 border-gray-700 active:border-gray-500 w-60 opacity-100">Return Home <Icon icon="mdi:arrow-right-thin" height={40} className="inline mt-0 ml-1 text-zinc-300 hover:text-white" /></Link>} */}
 				</div>
 			</div>
 		</main>
 	)
 }
-
-// rounded-xl bg-violet-900 hover:bg-violet-800 active:bg-violet-900 border border-violet-700 ring-1 ring-violet-800 active:ring-offset-2 active:ring-offset-violet-700 py-1 text-lg font-bold text-zinc-200 tracking-wide1 outline-none

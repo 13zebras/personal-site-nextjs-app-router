@@ -1,0 +1,105 @@
+/***********************************
+*** Flip Card Styles
+************************************/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.flipCard {
+  position: relative;
+  --widthL: 270px;
+  --heightL: 240px;
+  --widthS: 200px;
+  --heightS: 220px;
+}
+
+.flipSkeleton {
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  width: var(--widthL);
+  height: var(--heightL);
+  /* animation-name: flipPulse;
+  animation-duration: 10s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0, 0, 0.4, 1);
+  animation-delay: 200ms; */
+}
+
+.flipContainer {
+  width: var(--widthL);
+  height: var(--heightL);
+  perspective: 1200px;
+  z-index: 20;
+}
+
+.flipContent {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+}
+
+.flipContainer:hover .flipContent {
+  transform: rotateY(180deg);
+  transition: transform 0.5s 0.2s;
+}
+
+.flipFront,
+.flipBack {
+  backface-visibility: hidden;
+}
+
+.flipBack {
+  transform: rotateY(180deg);
+}
+
+.flipImageContainer {
+  width: 100%;
+  /* height: 135px; */
+  position: relative;
+}
+
+/* .FlipImage {
+  width: 240px;
+} */
+
+@media (min-width: 480px) {
+
+  .flipSkeleton,
+  .flipContainer {
+    width: var(--widthS);
+    height: var(--heightS);
+  }
+
+  /* .FlipImageContainer {
+    width: 172px;
+  }
+
+  .FlipImage {
+    width: 170px;
+  } */
+}
+
+/*
+232 x 130
+
+170 x 95
+
+*/
+
+@layer components {
+
+  .flipFrontName {
+    @apply w-full h-20 px-8 xs:px-1 flex justify-center items-center text-center text-lg xs:text-base leading-snug font-semibold text-zinc-200
+  }
+
+  .flipFront2 {
+    @apply absolute w-full h-full bg-zinc-920 border-2 border-neutral-700 rounded-lg p-4 xs:p-3 flex flex-col items-center justify-start gap-y-3;
+  }
+
+  .flipBack2 {
+    @apply absolute w-full h-full bg-slate-920 border-2 border-slate-600 rounded-lg p-5 flex flex-col items-center justify-start gap-4 text-left text-sm text-zinc-300;
+  }
+}

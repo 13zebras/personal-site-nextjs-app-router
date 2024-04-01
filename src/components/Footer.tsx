@@ -26,13 +26,10 @@ export default function Footer() {
 	else breakPoint = 'xxs'
 
 	return (
-		<footer
-			id='footer'
-			className='fixed bottom-0 w-full h-10 sm:h-10 z-30 bg-zinc-950 border-t border-sky-700 opacity-100'
-		>
-			<div className='text-teal-400 text-sm font-mono flex justify-start items-end h-10 sm:h-10 p-1'>
-				<span className=''>{`${viewportWidth}vw  ${viewportHeight}vh`}</span>
-				<span className='ml-2'>{`${breakPoint}`}</span>
+		<footer id='footer' className='fixed bottom-0 w-full h-8 z-20 bg-zinc-950 border-t border-pink-900 opacity-100'>
+			<div className='text-pink-700 text-md font-mono font-bold flex justify-start items-end h-full p-1'>
+				<span className=''>{`${viewportWidth}w x ${viewportHeight}h`}</span>
+				<span className='ml-2 uppercase'>{`${breakPoint}`}</span>
 			</div>
 		</footer>
 	)

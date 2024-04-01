@@ -1,0 +1,43 @@
+/***********************************
+*** Hero Page Styles
+************************************/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  .mobileSection {
+    @apply md:hidden flex flex-row justify-start items-center w-full relative px-5 h-14 pt-1;
+  }
+
+  .mobileIconLink {
+    @apply inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400;
+
+  }
+
+  .mobileTextLink {
+    @apply text-lg font-bold uppercase underline text-zinc-400 hover:text-zinc-200 active:text-sky-400;
+  }
+
+  .mobileModal {
+    @apply opacity-0 absolute top-0 left-0 w-full h-screen pb-[10vh] pt-[6vh] flex flex-col justify-evenly items-center bg-black/95 backdrop-blur-sm z-50 tracking-wide2;
+  }
+
+  .desktopSection {
+    @apply animate-fade-in-050 hidden md:flex flex-row justify-between items-center h-[80px] w-full max-w-3xl px-10;
+  }
+
+  .desktopIconLink {
+    @apply inline text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400;
+  }
+
+  .desktopTextLink {
+    @apply text-zinc-400 hover:text-zinc-200 active:text-sky-400 uppercase text-sm font-semibold tracking-wide0;
+
+    &.active {
+      @apply text-zinc-350 hover:text-zinc-450 border-b border-sky-300/80;
+    }
+  }
+}

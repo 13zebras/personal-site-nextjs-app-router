@@ -2,8 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/*** Body, root, background color:
+ *** tailwind: zinc-950: '#070709' 
+***/
+:root {
+  background-color: #070709;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  background-color: #070709;
+}
 
 @layer components {
+
   .w-workCard-500 {
     width: min(90%, 500px);
   }
@@ -27,8 +41,24 @@
     padding-bottom: 5rem;
   }
 
+  .brdTest {
+    border: 1px solid #532;
+  }
+
+  .brdTestMg {
+    border: 1px solid #807;
+  }
+
+  .brdTestG {
+    border: 1px solid #070;
+  }
+
+  .brdTestB {
+    border: 1px solid #059;
+  }
+
   .buttonMain {
-    @apply flex justify-center items-center text-zinc-300 hover:text-zinc-100 active:text-sky-500 text-sm rounded-2xl border-2 border-zinc-600 hover:border-zinc-400 active:border-sky-500
+    @apply flex justify-center items-center text-zinc-300 hover:text-zinc-100 active:text-sky-400 text-sm rounded-3xl border-2 border-zinc-500 hover:border-zinc-400 active:border-sky-400
   }
 
   .contactInput {
@@ -36,31 +66,56 @@
   }
 }
 
-body {
-  -webkit-overflow-scrolling: touch;
+@keyframes fadeInDelay {
+
+  0%,
+  30% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-.FlipContainer {
-  perspective: 1200px;
+@keyframes bounceButton {
+
+  0% {
+    transform: translateX(1000px);
+  }
+
+  /* 80% {
+    transform: translateX(40px);
+  } */
+
+  60% {
+    transform: translateX(-50px);
+  }
+
+  80% {
+    transform: translateX(35px);
+  }
+
+  90% {
+    transform: translateX(-15px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
 }
 
-.FlipContent {
-  transition: transform 0.5s;
-  transform-style: preserve-3d;
-}
+@keyframes heroMovingDiv {
 
-.FlipContainer:hover .FlipContent {
-  transform: rotateY(180deg);
-  transition: transform 0.5s 0.2s;
-}
+  0% {
+    transform: translateY(900px);
+  }
 
-.FlipFront,
-.FlipBack {
-  backface-visibility: hidden;
-}
-
-.FlipBack {
-  transform: rotateY(180deg);
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 
