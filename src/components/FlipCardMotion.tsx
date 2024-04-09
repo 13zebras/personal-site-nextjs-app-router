@@ -1,7 +1,7 @@
 'use client'
 
 import '@/styles/flipCard.css'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { AdvancedImage, placeholder } from '@cloudinary/react'
 import { Cloudinary } from '@cloudinary/url-gen'
 import { createPortal } from 'react-dom'
@@ -33,7 +33,12 @@ function FlipCardMotion({ index, ...project }: Project) {
 	const rY = Math.trunc(random2 * deg2 + 180) * (random3 < 0.5 ? -1 : 1)
 	const rZ = Math.trunc(random3 * deg3 + 180) * (random1 < 0.5 ? -1 : 1)
 
-	const iTime = Math.trunc(Math.random() * 3 + 3)
+	// const delayTime = 5
+	const delayTime = Number.parseFloat(Math.random().toFixed(3))
+
+	console.log('>>>> i: delayTime', index, delayTime)
+	// const delayTime = Math.trunc(Math.random())
+	const iTime = Math.trunc(Math.random() * 2 + 3)
 
 	const handleOpenClick = () => {
 		setShowModal(true)
@@ -41,12 +46,19 @@ function FlipCardMotion({ index, ...project }: Project) {
 		document.body.ontouchstart = (e) => {
 			e.preventDefault()
 		}
+		console.log('>>>> %chandleOpenClick i:', 'color: #44ff00', index)
 	}
 
-	const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } })
+	// const handleCloseClickFlip = () => {
+	// 		setShowModal(false)
+
+	// 		console.log('>>>> handleCloseClickFlip i:', index, showModal)
+	// 	}
+
+	const cld = new Cloudinary({ cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY } })
 	const frontImage = cld.image(project.cldPublicId)
 	frontImage.resize(scale().width(232)).delivery(quality(80))
-	// console.log('>>>> index in card', index)
+	// console.log('>>>> i: showModal', index, showModal)
 
 	return (
 		<div id={`flipCard-${index}`} className='flipCard'>
@@ -60,8 +72,9 @@ function FlipCardMotion({ index, ...project }: Project) {
 					rotateZ: rZ,
 				}}
 				transition={{
-					delay: 0.1,
+					delay: delayTime,
 					duration: iTime,
+					ease: [0, 0, 0.3, 1.0],
 				}}
 				animate={{
 					x: 0,

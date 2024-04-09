@@ -1,0 +1,141 @@
+/***********************************
+*** Modal Styles
+************************************/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  #portfolioModal {
+    @apply w-screen h-screen flex justify-center items-center fixed z-40 bg-black/90 backdrop-blur-sm overscroll-none
+  }
+
+  #modalClickBg {
+    @apply hidden xs:block w-screen h-screen absolute inset-0
+  }
+
+  #modalOuter {
+    @apply w-full h-full xs:h-[90%] xs:w-[90%] max-w-3xl bg-gray-920 xs:rounded-lg flex flex-col justify-start items-center relative border-2 border-gray-700 z-50 pb-5
+  }
+
+  #modalTop {
+    @apply w-full px-6 pt-7 sm:px-8 md:px-9 md:pt-9 pb-2 flex flex-col justify-start items-center relative h-fit
+  }
+
+  .closeIcon {
+    @apply absolute top-[2px] sm:top-[6px] right-[4px] xs:right-[8px] sm:right-[10px] md:top-[8px] md:right-[12px] z-50
+  }
+
+  .closeIconLink {
+    @apply inline leading-none text-lg sm:text-xl lg:text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400
+  }
+
+  .modalLinks {
+    @apply text-sky-400 font-semibold hover:text-sky-200 hover:underline active:text-sky-400
+  }
+}
+
+#cloudinaryImage {
+  position: relative;
+  width: 100%;
+  /* max-height: 45%; */
+  /* aspect-ratio: 1788 / 1000; */
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+#modalBottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: max(13px, 1.7vh);
+  /* overflow-y: auto; */
+}
+
+#modalProjectName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 7%;
+  height: auto;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+}
+
+#modalProjectDetails {
+  /* width: 85%; */
+  width: 100%;
+  padding: 0 9%;
+  padding-top: max(13px, 1.8vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  /* row-gap: max(15px, 2vh); */
+  font-size: 0.92rem;
+  letter-spacing: 0em;
+}
+
+#divider {
+  margin: 2vh 0;
+  width: 92%;
+  align-self: center;
+}
+
+.detailsWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  /* font-weight: 600; */
+  padding-bottom: max(6px, 0.8vh);
+}
+
+@media (min-height: 900px) {
+  #modalBottom {
+    padding-top: 20px;
+  }
+
+  #modalProjectDetails {
+    padding-top: 20px;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  #divider {
+    margin: 2.5vh 0;
+  }
+
+  .detailsWrap {
+    padding-bottom: max(6px, 1.1vh);
+  }
+}
+
+@media (min-width: 480px) {
+  #modalProjectName {
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+  }
+}
+
+@media (min-width: 640px) and (min-height: 850px) {
+  #modalProjectName {
+    font-size: 1.6rem;
+    letter-spacing: 0.25em;
+  }
+}
+
+@media (min-height: 850px) {
+  #modalBottom {
+    padding-bottom: 0;
+  }
+}

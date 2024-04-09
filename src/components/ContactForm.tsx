@@ -58,22 +58,14 @@ export default function ContactForm() {
 	}
 
 	const handleInputChange = () => {
-		if (nameRef.current && emailRef.current && textareaRef.current)
-			setIsFormDisabled(
-				!nameRef.current.value || !emailRef.current.value || !textareaRef.current.value,
-			)
+		if (nameRef.current && emailRef.current && textareaRef.current) setIsFormDisabled(!nameRef.current.value || !emailRef.current.value || !textareaRef.current.value)
 	}
 
 	return (
 		<main className='animate-fade-in-100 w-full max-w-2xl flex flex-col justify-start items-center px-8 xs:px-12 p-main-s md:p-main-l pb-8 overflow-x-hidden overflow-y-auto'>
-			<h1 className='pb-6 sm:pb-12 md:pb-14 uppercase text-zinc-400 font-mono text-2xl tracking-wide2 xs:tracking-wide4 sm:tracking-wide6 z-10'>
-				contact tom
-			</h1>
+			<h1 className='pb-6 sm:pb-12 md:pb-14 uppercase text-zinc-400 font-mono text-[1.35rem] xs:text-2xl tracking-wide2 xs:tracking-wide4 sm:tracking-wide6 z-10'>contact tom</h1>
 			<div className='flex flex-col justify-start items-center w-full'>
-				<form
-					onSubmit={handleSubmit}
-					className='w-full flex flex-col justify-start items-center gap-y-6 sm:gap-y-8'
-				>
+				<form onSubmit={handleSubmit} className='w-full flex flex-col justify-start items-center gap-y-6 sm:gap-y-8'>
 					<div className='w-full'>
 						<label htmlFor='fullName' className='mb-2 block text-sm text-gray-300'>
 							Your Full Name:
@@ -137,16 +129,8 @@ export default function ContactForm() {
 					</div>
 				</form>
 				<div className='pt-10 px-4 flex flex-col justify-start items-center gap-y-12'>
-					{success === 'success' && (
-						<p className='py-0 px-2 text-base text-gray-300 italic'>
-							Thank you for your message! I will get back to you as soon as possible.
-						</p>
-					)}
-					{success === 'fail' && (
-						<p className='py-0 px-2 text-base text-center text-red-550 italic'>
-							Oops! Something went wrong. Please try again later.
-						</p>
-					)}
+					{success === 'success' && <p className='py-0 px-2 text-base text-gray-300 italic'>Thank you for your message! I will get back to you as soon as possible.</p>}
+					{success === 'fail' && <p className='py-0 px-2 text-base text-center text-red-550 italic'>Oops! Something went wrong. Please try again later.</p>}
 				</div>
 			</div>
 		</main>

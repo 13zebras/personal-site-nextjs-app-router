@@ -6,18 +6,18 @@ import { Cloudinary } from '@cloudinary/url-gen'
 
 export default function About() {
 	const publicIdTom = 'portfolio/tom-chill-center' // publicIdCld
-	const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } })
+	const cld = new Cloudinary({ cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY } })
 	const fullImage = cld.image(publicIdTom)
 
 	return (
 		<main className='max-w-[832px] flex flex-col justify-start items-center p-main-s md:p-main-l'>
-			<h1 className='animate-fade-in-075 pb-6 sm:pb-10 md:pb-14 uppercase text-zinc-400 font-mono text-2xl tracking-wide1 xs:tracking-wide3 sm:tracking-wide6 z-10'>who is tom stine?</h1>
+			<h1 className='animate-fade-in-075 pb-6 sm:pb-10 md:pb-14 uppercase text-zinc-400 font-mono text-[1.35rem] xs:text-2xl tracking-wide2 xs:tracking-wide4 sm:tracking-wide6 z-10'>about tom stine</h1>
 			<div id='about' className='px-8 2xs:px-10 sm:px-12 md:px-14 flex flex-col md:block justify-start lg:justify-center items-center overflow-x-hidden overflow-y-auto'>
 				<div
 					// initial={{ scale: 0.9, opacity: 0 }}
 					// animate={{ scale: 1, opacity: 1 }}
 					// transition={{ duration: 1.5, delay: 0.5, ease: 'easeInOut' }}
-					className='animate-fade-in-scale-250 w-[75vw] max-w-[320px] xs:w-[320px] md:w-[35vw] md:max-w-[300px] lg:w-[300px] aspect-square border-2 md:border  border-neutral-400 rounded-full md:rounded-lg overflow-hidden mb-6 md:float-right md:ml-8 md:mb-4 md:mr-2'
+					className='animate-fade-in-scale-250 w-[75vw] max-w-[320px] xs:w-[320px] md:w-[35vw] md:max-w-[300px] lg:w-[300px] aspect-square border-2 border-neutral-600 rounded-full md:rounded-lg overflow-hidden mb-6 md:float-right md:ml-8 md:mb-4 md:mr-2'
 				>
 					<AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} className='w-[100%] h-[100%]' />
 				</div>

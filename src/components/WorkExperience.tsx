@@ -12,7 +12,7 @@ const WorkExperience: React.FC<WorkProps> = ({ allWork }) => {
 
 	return (
 		<main className='animate-fade-in-100 flex flex-col justify-center items-center px-0 p-main-s md:p-main-m'>
-			<h1 className='pb-6 sm:pb-12 md:pb-14 uppercase text-zinc-400 font-mono text-2xl tracking-wide2 xs:tracking-wide4 sm:tracking-wide6 z-10'>experience</h1>
+			<h1 className='pb-6 sm:pb-12 md:pb-14 uppercase text-zinc-400 font-mono text-[1.35rem] xs:text-2xl tracking-wide2 xs:tracking-wide4 sm:tracking-wide6 z-10'>experience</h1>
 
 			<div className='w-full max-w-5xl flex flex-wrap justify-center gap-6 px-4 xs:px-6 md:px-8'>
 				{allWork.map((work: WorkData, index: number) => {

@@ -1,9 +1,12 @@
+import '@/styles/modal.css'
+
 import { useEffect, useRef, useState } from 'react'
 
 import { Cloudinary } from '@cloudinary/url-gen'
 import { scale } from '@cloudinary/url-gen/actions/resize'
 import { quality } from '@cloudinary/url-gen/actions/delivery'
 import { AdvancedImage, placeholder } from '@cloudinary/react'
+import { CloseIcon, CloseThickIcon } from '@/utils/svgs'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Project } from '@/types/allTypes'
@@ -14,25 +17,37 @@ interface ModalType {
 }
 
 export default function Modal(props: ModalType) {
-	const [cldHeight, setCldHeight] = useState(0)
-	const cldRef = useRef<HTMLDivElement>(null)
-
+	const [fadeModal, setFadeModal] = useState(false)
+	const [imageHeight, setImageHeight] = useState(0)
+	const imageRef = useRef<HTMLDivElement>(null)
+	const imgAspectRatio = 1.788 // 1788 / 1000
+	const fadeTime = 500
 	// console.log('>>> %cmodal props', "color:red", props)
 	const project = props.project
+
 	const handleCloseClick = () => {
-		props.onClose()
+		setFadeModal(true)
 		document.body.style.removeProperty('overflow')
+		// console.log('>>> %chandleCloseClick', 'color:red')
+		setTimeout(() => {
+			props.onClose()
+			// console.log('>>> %c SET TIMEOUT', 'color: #fb0')
+		}, fadeTime + 100)
 	}
 
 	useEffect(() => {
 		const updateHeight = () => {
-			// const cldDiv = document.getElementById('cldDiv')
-			if (cldRef.current) {
-				const cldWidth = cldRef.current.clientWidth
-				console.log('>>> %ccldDiv cldWidth', 'color:red', cldWidth)
-				const aspectRatio = 1000 / 1788
-				const newHeight = Math.floor(cldWidth * aspectRatio) - 1
-				setCldHeight(newHeight)
+			const viewportHeight = window.innerHeight
+
+			if (imageRef.current) {
+				const imageWidth = imageRef.current.clientWidth
+				console.log('%c>>> imageWidth', 'color:#f80', imageWidth)
+				// console.log('%c>>> imageWidth', 'color:#5f0', imageWidth)
+				let newHeight = Math.floor(imageWidth / imgAspectRatio)
+				const maxHeight = Math.floor(viewportHeight * 0.45)
+				if (newHeight > maxHeight) newHeight = maxHeight
+				setImageHeight(newHeight)
+				console.log('%c>>> newHeight', 'color:#5f0', newHeight)
 			}
 		}
 		updateHeight()
@@ -40,80 +55,94 @@ export default function Modal(props: ModalType) {
 		return () => window.removeEventListener('resize', updateHeight)
 	}, [])
 
-	const publicIdCld = project.cldPublicId
+	const publicId = project.cldPublicId
 
-	const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } })
-	const fullImage = cld.image(publicIdCld)
-	fullImage.resize(scale().height(cldHeight)).delivery(quality(80))
+	const cloudinary = new Cloudinary({ cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY } })
+	const fullImage = cloudinary.image(publicId)
+	fullImage.resize(scale().height(imageHeight)).delivery(quality(80))
+
+	console.log('%c>>> imageHeight', 'color:magenta', imageHeight)
+
+	const fadeModalStyle = {
+		animationName: 'fadeOut',
+		animationDuration: `${fadeTime - 200}ms`,
+		animationFillMode: 'both',
+		animationTimingFunction: 'ease-in',
+		animationDelay: '0ms',
+	}
 
 	return (
-		<AnimatePresence>
-			<div className='w-screen h-screen flex justify-center items-center fixed z-40 bg-black/90 backdrop-blur-sm overscroll-none'>
-				<div onClick={handleCloseClick} onKeyDown={handleCloseClick} className='w-screen h-screen absolute inset-0 border' />
-				<motion.div
-					initial={{
-						y: -200,
-						opacity: 0.2,
-						scale: 0.3,
-					}}
-					transition={{
-						delay: 0,
-						duration: 0.5,
-					}}
-					animate={{
-						// x: 0,
-						y: 0,
-						opacity: 1,
-						scale: 1,
-					}}
-					exit={{
-						opacity: 0,
-					}}
-					className='z-50 w-[90%] max-w-3xl h-[90%] p-6 sm:p-8 md:p-12 bg-gray-920 rounded-xl overscroll-none flex flex-col justify-start items-center gap-y-8 relative border-2 border-gray-800'
-				>
-					<div id='cldDiv' ref={cldRef} className='w-full aspect-[1788/1000] max-h-[50%] flex justify-center items-start relative'>
-						<div className='animate-pulse absolute top-0 w-[99%] bg-zinc-800' style={{ height: cldHeight }} />
-						<AdvancedImage cldImg={fullImage} className='max-h-[100%] z-50 border-2 border-gray-900 rounded-lg' plugins={[placeholder({ mode: 'blur' })]} />
-					</div>
-					<div className='max-w-[95%] flex flex-col justify-start items-center'>
-						<div className='flex justify-center items-center text-center pb-6 uppercase text-zinc-400 font-mono text-2xl tracking-wide4'>{project.name}</div>
-						<div className='w-full flex flex-col justify-start items-start gap-y-4 text-zinc-300 text-md'>
-							<div className='text-sm text-zinc-300 mb-[2vh]'>
+		<div id='portfolioModal' style={fadeModal ? fadeModalStyle : {}}>
+			<div onClick={handleCloseClick} onKeyDown={handleCloseClick} id='modalClickBg' />
+			<motion.div
+				initial={{
+					y: -200,
+					opacity: 0.1,
+					scale: 0.3,
+				}}
+				transition={{
+					delay: 0,
+					duration: 0.5,
+				}}
+				animate={{
+					y: 0,
+					opacity: 1,
+					scale: 1,
+				}}
+				id='modalOuter'
+			>
+				<div className='closeIcon' onClick={handleCloseClick} onKeyDown={handleCloseClick}>
+					<CloseThickIcon className='closeIconLink' />
+				</div>
+				<div className='overflow-y-auto overflow-x-hidden h-full'>
+					<section id='modalTop' className=''>
+						<div id='cloudinaryImage' ref={imageRef} className=''>
+							<div className='absolute py-[3px] px-[5px]' style={{ height: imageHeight, aspectRatio: imgAspectRatio }}>
+								<div className='animate-pulse bg-gray-700 w-full h-full rounded-md md:rounded-lg' />
+							</div>
+							<AdvancedImage cldImg={fullImage} style={{ height: imageHeight }} className='z-0 border-2 border-gray-800 rounded-md md:rounded-lg z-10' plugins={[placeholder({ mode: 'blur' })]} />
+						</div>
+						{/* <div id='modalProjectName' className='text-zinc-400'>
+						{project.name}
+					</div> */}
+					</section>
+					<section id='modalBottom'>
+						<div id='modalProjectName' className='text-zinc-400'>
+							{project.name}
+						</div>
+						<div id='modalProjectDetails' className='text-zinc-300'>
+							<div className=''>
 								<p className='pb-2'>{project.summary}</p>
 								<p>{project.description}</p>
 							</div>
+							<div id='divider' className='border-b-2 border-gray-700' />
+							{project.url && (
+								<div className='detailsWrap'>
+									<span className='mr-3'>Site Link:</span>
+									<Link href={project.url} className='modalLinks'>
+										{project.url.split('//').slice(-1)}
+									</Link>
+									<div className='mt-[2px] w-full italic font-normal text-xs text-zinc-450'>Note: 3rd party websites may no longer be active</div>
+								</div>
+							)}
 
-							<div className='font-normal'>
-								Tech Stack:
-								<span className='ml-4 font-mono text-zinc-300'>{project.stack}</span>
+							<div className='detailsWrap'>
+								<span className='mr-3'>Tech Stack:</span>
+								<span className='text-zinc-300 italic'>{project.stack}</span>
 							</div>
 
 							{project.githubUrl && (
-								<div className='font-normal'>
-									Github:
-									<Link href={project.githubUrl} className='ml-4 text-sky-300 font-mono hover:text-sky-400 hover:underline  active:text-sky-200'>
-										{project.githubUrl}
+								<div className='detailsWrap'>
+									<span className='mr-3'>Github:</span>
+									<Link href={project.githubUrl} className='modalLinks'>
+										{project.githubUrl.split('/').slice(-1)}
 									</Link>
-								</div>
-							)}
-
-							{project.url && (
-								<div className='font-normal'>
-									Site Link:
-									<Link href={project.url} className='ml-4 text-sky-300 font-mono hover:text-sky-400 hover:underline  active:text-sky-200'>
-										{project.url}
-									</Link>
-									<div className='mt-1 block italic text-xs text-zinc-450'>Note: 3rd party websites / older links may no longer be active</div>
 								</div>
 							)}
 						</div>
-					</div>
-
-					<button type='button' onClick={handleCloseClick} onKeyDown={handleCloseClick} className='w-64 h-9 absolute bottom-6 buttonMain text-base'>
-						Close
-					</button>
-				</motion.div>
-			</div>
-		</AnimatePresence>
+					</section>
+				</div>
+			</motion.div>
+		</div>
 	)
 }

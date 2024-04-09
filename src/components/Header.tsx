@@ -50,7 +50,7 @@ export default function Header() {
 							</span>
 						)
 					})}
-					<Link href='/contact' className='mobileTextLink' target='_blank' rel='noopener noreferrer'>
+					<Link href='/contact' className='mobileTextLink'>
 						<EnvelopeIcon className='mr-3 mb-1 mobileIconLink' />
 						Contact
 					</Link>

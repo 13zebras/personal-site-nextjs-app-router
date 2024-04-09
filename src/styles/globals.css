@@ -2,18 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/*** Body, root, background color:
- *** tailwind: zinc-950: '#070709' 
-***/
-:root {
-  background-color: #070709;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+/********************************
+** Body, root, background color:
+** tailwind: zinc-950: '#070709' 
+********************************/
 
+:root {
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --zinc-950: #070709;
+  background-color: var(--zinc-950);
 }
 
 body {
   -webkit-overflow-scrolling: touch;
-  background-color: #070709;
+  background-color: var(--zinc-950);
 }
 
 @layer components {
@@ -33,7 +35,7 @@ body {
 
   .p-main-m {
     padding-top: max(7rem, 10vh);
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
   }
 
   .p-main-l {
@@ -49,6 +51,10 @@ body {
     border: 1px solid #807;
   }
 
+  .brdTestR {
+    border: 1px solid #a00;
+  }
+
   .brdTestG {
     border: 1px solid #070;
   }
@@ -58,13 +64,17 @@ body {
   }
 
   .buttonMain {
-    @apply flex justify-center items-center text-zinc-300 hover:text-zinc-100 active:text-sky-400 text-sm rounded-3xl border-2 border-zinc-500 hover:border-zinc-400 active:border-sky-400
+    @apply flex justify-center items-center text-zinc-300 hover:text-zinc-100 active:text-sky-400 text-sm rounded-3xl border-2 border-zinc-500 hover:border-zinc-400 active:border-sky-400 bg-black/20 transition-all duration-300 hover:bg-black/40
   }
 
   .contactInput {
     @apply w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-teal-800 focus:shadow-md placeholder:text-zinc-500 placeholder:italic placeholder:text-base
   }
 }
+
+/********************************
+*** Keyframes
+********************************/
 
 @keyframes fadeInDelay {
 
@@ -85,10 +95,6 @@ body {
   0% {
     transform: translateX(1000px);
   }
-
-  /* 80% {
-    transform: translateX(40px);
-  } */
 
   60% {
     transform: translateX(-50px);
@@ -117,6 +123,28 @@ body {
     transform: translateY(0px);
   }
 }
+
+/* used on Modal close */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    scale: 1;
+  }
+
+  to {
+    opacity: 0;
+    scale: 0.5;
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 /***********************************

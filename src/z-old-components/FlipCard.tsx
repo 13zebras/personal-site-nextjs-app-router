@@ -23,7 +23,7 @@ function FlipCard({ index, ...project }: Project) {
 		}
 	}
 
-	const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } })
+	const cld = new Cloudinary({ cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY } })
 	const frontImage = cld.image(project.cldPublicId)
 	frontImage.resize(fillPad().width(252).height(142).gravity(autoGravity()).background(color('#0d0d0d')))
 

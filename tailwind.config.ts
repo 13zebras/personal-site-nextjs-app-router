@@ -99,15 +99,15 @@ const config: Config = {
 				'ping-0': {
 					'0%': {
 						transform: 'scale(1)',
-						opacity: '0.9',
+						opacity: '0.7',
 						// opacity: '0.4',
 					},
 					'70%, 100%': {
 						transform: 'scale(1.8)',
 					},
 					'100%': {
-						// opacity: '0.5',
-						opacity: '0',
+						opacity: '0.3',
+						// opacity: '0',
 					},
 				},
 				'pulse-1': {
@@ -116,7 +116,8 @@ const config: Config = {
 						opacity: '0.6',
 					},
 					'50%': {
-						opacity: '0.05',
+						// opacity: '0.05',
+						opacity: '0.3',
 					},
 				},
 				'pulse-2': {
@@ -125,7 +126,8 @@ const config: Config = {
 						opacity: '0.61',
 					},
 					'50%': {
-						opacity: '0.1',
+						// opacity: '0.1',
+						opacity: '0.3',
 					},
 				},
 				'fade-in': {

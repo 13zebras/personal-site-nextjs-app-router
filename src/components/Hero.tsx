@@ -15,7 +15,7 @@ export default function Hero() {
 	const typeWriterWords = ['<React, Next.js />', '{TypeScript, Node.js}', 'style: exceptional;']
 
 	const publicIdTom = 'portfolio/tom-chill-center'
-	const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } })
+	const cld = new Cloudinary({ cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY } })
 	const fullImage = cld.image(publicIdTom)
 
 	return (

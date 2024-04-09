@@ -20,7 +20,7 @@ export default function Hero() {
 	// const typeWriterWords = ['<React, Next.js />', '{TypeScript, Node.js}', 'style: exceptional;', '() => performant']
 
 	const publicIdTom = 'portfolio/tom-chill-center' // publicIdCld
-	const cld = new Cloudinary({ cloud: { cloudName: 'do82ekomg' } })
+	const cld = new Cloudinary({ cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY } })
 	const fullImage = cld.image(publicIdTom)
 
 	useEffect(() => {
