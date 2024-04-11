@@ -10,7 +10,7 @@ export default function PortfolioPage() {
 	const allProjects: Project[] = getAllProjects()
 
 	return (
-		<div id='portfolio' className='bg-zinc-950 w-full flex flex-col justify-center items-center'>
+		<div id='portfolio' className='bg-zinc-950 w-full h-full flex flex-col justify-center items-center'>
 			<Header />
 			<Portfolio allProjects={allProjects} />
 			<Footer />

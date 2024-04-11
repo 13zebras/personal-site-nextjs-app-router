@@ -6,9 +6,9 @@ import { Cloudinary } from '@cloudinary/url-gen'
 import { scale } from '@cloudinary/url-gen/actions/resize'
 import { quality } from '@cloudinary/url-gen/actions/delivery'
 import { AdvancedImage, placeholder } from '@cloudinary/react'
-import { CloseIcon, CloseThickIcon } from '@/utils/svgs'
+import { GithubIcon, ExternalLinkIcon, CloseThickIcon } from '@/utils/svgs'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import type { Project } from '@/types/allTypes'
 
 interface ModalType {
@@ -22,16 +22,13 @@ export default function Modal(props: ModalType) {
 	const imageRef = useRef<HTMLDivElement>(null)
 	const imgAspectRatio = 1.788 // 1788 / 1000
 	const fadeTime = 500
-	// console.log('>>> %cmodal props', "color:red", props)
 	const project = props.project
 
 	const handleCloseClick = () => {
 		setFadeModal(true)
 		document.body.style.removeProperty('overflow')
-		// console.log('>>> %chandleCloseClick', 'color:red')
 		setTimeout(() => {
 			props.onClose()
-			// console.log('>>> %c SET TIMEOUT', 'color: #fb0')
 		}, fadeTime + 100)
 	}
 
@@ -41,13 +38,11 @@ export default function Modal(props: ModalType) {
 
 			if (imageRef.current) {
 				const imageWidth = imageRef.current.clientWidth
-				console.log('%c>>> imageWidth', 'color:#f80', imageWidth)
-				// console.log('%c>>> imageWidth', 'color:#5f0', imageWidth)
+
 				let newHeight = Math.floor(imageWidth / imgAspectRatio)
 				const maxHeight = Math.floor(viewportHeight * 0.45)
 				if (newHeight > maxHeight) newHeight = maxHeight
 				setImageHeight(newHeight)
-				console.log('%c>>> newHeight', 'color:#5f0', newHeight)
 			}
 		}
 		updateHeight()
@@ -100,45 +95,43 @@ export default function Modal(props: ModalType) {
 							<div className='absolute py-[3px] px-[5px]' style={{ height: imageHeight, aspectRatio: imgAspectRatio }}>
 								<div className='animate-pulse bg-gray-700 w-full h-full rounded-md md:rounded-lg' />
 							</div>
-							<AdvancedImage cldImg={fullImage} style={{ height: imageHeight }} className='z-0 border-2 border-gray-800 rounded-md md:rounded-lg z-10' plugins={[placeholder({ mode: 'blur' })]} />
+							<AdvancedImage cldImg={fullImage} style={{ height: imageHeight }} className='border-2 border-gray-800 rounded-md md:rounded-lg z-10' plugins={[placeholder({ mode: 'blur' })]} />
 						</div>
-						{/* <div id='modalProjectName' className='text-zinc-400'>
-						{project.name}
-					</div> */}
 					</section>
 					<section id='modalBottom'>
 						<div id='modalProjectName' className='text-zinc-400'>
 							{project.name}
 						</div>
 						<div id='modalProjectDetails' className='text-zinc-300'>
-							<div className=''>
-								<p className='pb-2'>{project.summary}</p>
-								<p>{project.description}</p>
-							</div>
-							<div id='divider' className='border-b-2 border-gray-700' />
 							{project.url && (
-								<div className='detailsWrap'>
-									<span className='mr-3'>Site Link:</span>
-									<Link href={project.url} className='modalLinks'>
-										{project.url.split('//').slice(-1)}
+								<div className='pb-[1.8vh] self-center'>
+									<Link href={project.url} className='text-sky-400 font-semibold hover:text-sky-500 hover:underline active:text-sky-300 text-sm'>
+										{project.url}
 									</Link>
-									<div className='mt-[2px] w-full italic font-normal text-xs text-zinc-450'>Note: 3rd party websites may no longer be active</div>
 								</div>
 							)}
 
-							<div className='detailsWrap'>
-								<span className='mr-3'>Tech Stack:</span>
-								<span className='text-zinc-300 italic'>{project.stack}</span>
+							<div className='pb-[2vh]'>
+								<p>{project.description}</p>
+							</div>
+
+							<div className='pb-[1.6vh]'>
+								<span className='mr-3 text-zinc-400 italic'>Tech Stack:</span>
+								<span className='text-zinc-300'>{project.stack}</span>
 							</div>
 
 							{project.githubUrl && (
-								<div className='detailsWrap'>
-									<span className='mr-3'>Github:</span>
-									<Link href={project.githubUrl} className='modalLinks'>
-										{project.githubUrl.split('/').slice(-1)}
-									</Link>
-								</div>
+								<Link href={project.githubUrl} className='text-zinc-300 font-semibold hover:underline hover:text-sky-400 active:text-sky-400'>
+									Github Repo
+									<GithubIcon className='ml-2 text-2xl inline mb-[3px]' />
+									<ExternalLinkIcon className='ml-2 text-sm inline mb-[1px]' />
+								</Link>
 							)}
+						</div>
+						<div className='fixed bottom-0 flex justify-center items-center h-[6vh] w-[99%] mb-1 bg-gray-920 xs:hidden'>
+							<button type='button' onClick={handleCloseClick} onKeyDown={handleCloseClick} className='py-[1px] w-[120px] buttonMain text-xs tracking-wide1 '>
+								Close
+							</button>
 						</div>
 					</section>
 				</div>

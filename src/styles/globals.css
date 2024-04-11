@@ -34,33 +34,38 @@ body {
   }
 
   .p-main-m {
-    padding-top: max(7rem, 10vh);
+    padding-top: max(6rem, 10vh);
     padding-bottom: 3rem;
   }
 
   .p-main-l {
-    padding-top: max(7rem, 14vh);
+    padding-top: max(6rem, 10vh);
+    padding-bottom: 4rem;
+  }
+
+  .p-main-xl {
+    padding-top: max(6rem, 14vh);
     padding-bottom: 5rem;
   }
 
-  .brdTest {
-    border: 1px solid #532;
+  .brdT {
+    border: 1px solid #765;
   }
 
-  .brdTestMg {
+  .brdTMg {
     border: 1px solid #807;
   }
 
-  .brdTestR {
+  .brdTR {
     border: 1px solid #a00;
   }
 
-  .brdTestG {
-    border: 1px solid #070;
+  .brdTG {
+    border: 1px solid #080;
   }
 
-  .brdTestB {
-    border: 1px solid #059;
+  .brdTB {
+    border: 1px solid #08d;
   }
 
   .buttonMain {
@@ -71,6 +76,7 @@ body {
     @apply w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-teal-800 focus:shadow-md placeholder:text-zinc-500 placeholder:italic placeholder:text-base
   }
 }
+
 
 /********************************
 *** Keyframes
@@ -87,29 +93,6 @@ body {
   100% {
     transform: scale(1);
     opacity: 1;
-  }
-}
-
-@keyframes bounceButton {
-
-  0% {
-    transform: translateX(1000px);
-  }
-
-  60% {
-    transform: translateX(-50px);
-  }
-
-  80% {
-    transform: translateX(35px);
-  }
-
-  90% {
-    transform: translateX(-15px);
-  }
-
-  100% {
-    transform: translateX(0px);
   }
 }
 
@@ -137,64 +120,25 @@ body {
   }
 }
 
+@keyframes bounceButton {
 
+  0% {
+    transform: translateX(1000px);
+  }
 
+  60% {
+    transform: translateX(-50px);
+  }
 
+  80% {
+    transform: translateX(35px);
+  }
 
+  90% {
+    transform: translateX(-15px);
+  }
 
-
-
-
-
-
-/***********************************
- *** Scrollbar CSS ***
- 
-:root {
-  --track-scroll: hsla(240, 7%, 10%, 1);
-  --track-hover: hsla(240, 7%, 20%, 1);
-  --thumb-scroll: hsla(240, 7%, 20%, 1);
-  --thumb-hover: hsla(240, 7%, 35%, 1);
-  --body-bg: #070708;
+  100% {
+    transform: translateX(0px);
+  }
 }
-
-::-webkit-scrollbar {
-  width: 10px;
-  height: 6px;
-}
-
-::-webkit-scrollbar:hover {
-  width: 12px;
-  height: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--track-scroll);
-  border-radius: 100vw;
-  margin-block: 0.5em;
-}
-
-::-webkit-scrollbar-track:hover {
-  background-color: var(--track-hover);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--thumb-scroll);
-  border-radius: 100vw;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--thumb-hover);
-  border-radius: 100vw;
-}
-
-::-webkit-scrollbar-corner {
-  background-color: var(--body-bg);
-}
-
-body {
-  scrollbar-color: var(--thumb-scroll) var(--track-scroll);
-  scrollbar-width: auto;
-}
-
-**********************************/

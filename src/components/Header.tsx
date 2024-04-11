@@ -17,12 +17,8 @@ const variants = {
 export default function Header() {
 	const [isNavOpen, setIsNavOpen] = useState(false)
 	const routePath = usePathname()
-	// console.log('>>>> routePath', routePath)
 
 	const headerPaths: HeaderPaths[] = getHeaderPaths()
-	// const mobileHeaderPaths: HeaderPaths[] = getMobileHeaderPaths()
-	// const openStyles = { display: 'flex' }
-	// const closedStyles = { display: 'none' }
 
 	return (
 		<header className='fixed top-0 flex justify-center cursor-pointer z-30 w-full bg-zinc-950'>

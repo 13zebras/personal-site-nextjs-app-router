@@ -6,6 +6,8 @@ export default function Footer() {
 	const [viewportWidth, setViewportWidth] = useState(0)
 	const [viewportHeight, setViewportHeight] = useState(0)
 
+	const development = false
+
 	useEffect(() => {
 		const updateViewportWH = () => {
 			setViewportWidth(window.innerWidth)
@@ -26,11 +28,13 @@ export default function Footer() {
 	else breakPoint = 'xxs'
 
 	return (
-		<footer id='footer' className='fixed bottom-0 w-full h-8 z-20 bg-zinc-950 border-t border-pink-900 opacity-100'>
-			<div className='text-pink-700 text-md font-mono font-bold flex justify-start items-end h-full p-1'>
-				<span className=''>{`${viewportWidth}w x ${viewportHeight}h`}</span>
-				<span className='ml-2 uppercase'>{`${breakPoint}`}</span>
-			</div>
+		<footer id='footer' className='fixed bottom-0 w-full h-8 z-20 bg-zinc-950 '>
+			{development && (
+				<div className='text-pink-700 text-md font-mono font-bold flex justify-start items-center h-full px-3 border-t border-pink-900'>
+					<span className=''>{`${viewportWidth}w x ${viewportHeight}h`}</span>
+					<span className='ml-2 uppercase'>{`${breakPoint}`}</span>
+				</div>
+			)}
 		</footer>
 	)
 }

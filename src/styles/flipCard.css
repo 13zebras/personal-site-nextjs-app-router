@@ -11,7 +11,7 @@
   --widthL: 270px;
   --heightL: 240px;
   --widthS: 200px;
-  --heightS: 220px;
+  --heightS: 200px;
 }
 
 .flipSkeleton {
@@ -56,10 +56,6 @@
   position: relative;
 }
 
-/* .FlipImage {
-  width: 240px;
-} */
-
 @media (min-width: 480px) {
 
   .flipSkeleton,
@@ -68,21 +64,8 @@
     height: var(--heightS);
   }
 
-  /* .FlipImageContainer {
-    width: 172px;
-  }
-
-  .FlipImage {
-    width: 170px;
-  } */
 }
 
-/*
-232 x 130
-
-170 x 95
-
-*/
 
 @layer components {
 

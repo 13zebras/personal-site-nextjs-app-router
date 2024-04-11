@@ -35,9 +35,6 @@ export default function ContactForm() {
 		})
 			.then((res) => res.json())
 			.then((response) => {
-				// console.log('>>>> response', response, '>>>> **************\n\n')
-				// console.log('>>>> response.message', response.message)
-				// console.log('>>>> response.error', response.error)
 				if (response.message) setSuccess('success')
 				else if (response.error) setSuccess('fail')
 				else setSuccess(undefined)
@@ -62,10 +59,10 @@ export default function ContactForm() {
 	}
 
 	return (
-		<main className='animate-fade-in-100 w-full max-w-2xl flex flex-col justify-start items-center px-8 xs:px-12 p-main-s md:p-main-l pb-8 overflow-x-hidden overflow-y-auto'>
-			<h1 className='pb-6 sm:pb-12 md:pb-14 uppercase text-zinc-400 font-mono text-[1.35rem] xs:text-2xl tracking-wide2 xs:tracking-wide4 sm:tracking-wide6 z-10'>contact tom</h1>
+		<main className='animate-fade-in-100 w-full max-w-xl flex flex-col justify-start items-center px-[8vw] xs:px-10 p-main-s md:p-main-l pb-6 overflow-x-hidden overflow-y-auto'>
+			<h1 className='pb-6 sm:pb-10 uppercase text-zinc-400 font-mono text-[1.35rem] xs:text-2xl tracking-wide2 xs:tracking-wide4 sm:tracking-wide6 z-10'>contact tom</h1>
 			<div className='flex flex-col justify-start items-center w-full'>
-				<form onSubmit={handleSubmit} className='w-full flex flex-col justify-start items-center gap-y-6 sm:gap-y-8'>
+				<form onSubmit={handleSubmit} className='w-full flex flex-col justify-start items-center gap-y-8 sm:gap-y-10'>
 					<div className='w-full'>
 						<label htmlFor='fullName' className='mb-2 block text-sm text-gray-300'>
 							Your Full Name:

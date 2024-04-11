@@ -16,13 +16,7 @@ export default function WorkCard({ index, ...props }: WorkData) {
 	}
 
 	return (
-		<div
-			// initial={{ opacity: 0 }}
-			// animate={{ opacity: 1 }}
-			// transition={{ duration: durationTime, delay: delayTime }}
-			style={fadeDelayStyle}
-			className='w-workCard-500 md:w-workCard-400 px-6 xs:px-8 py-6 rounded-xl flex flex-col justify-start items-start flex-shrink-0 text-gray-300 bg-gray-850 cursor-pointer overflow-hidden'
-		>
+		<div style={fadeDelayStyle} className='w-workCard-500 md:w-workCard-400 px-6 xs:px-8 py-6 rounded-xl flex flex-col justify-start items-start flex-shrink-0 text-gray-300 bg-gray-850 cursor-pointer overflow-hidden'>
 			<h2 className='text-[1.05rem] font-bold'>{props.employer}</h2>
 			<div className='w-full flex flex-row flex-wrap gap-x-2 justify-between items-center text-md mt-1 mb-3'>
 				<div className='font-semibold'>{props.title}</div>
@@ -36,7 +30,6 @@ export default function WorkCard({ index, ...props }: WorkData) {
 					{props.details}
 				</li>
 			</ul>
-			{/* <p className="text-sm mt-3"><span className="mr-2">{props.detailsType}:</span>{props.details}</p> */}
 		</div>
 	)
 }

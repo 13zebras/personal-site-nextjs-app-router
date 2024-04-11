@@ -34,7 +34,7 @@ export default function Hero() {
 					<h1 className='text-zinc-300'>Tom Stine</h1>
 					<h2 className='text-zinc-450'>Full Stack Developer</h2>
 					<h3 className='text-zinc-350'>
-						<Typewriter words={typeWriterWords} loop={false} cursor cursorStyle='_' cursorBlinking={true} typeSpeed={120} deleteSpeed={35} delaySpeed={1500} />
+						<Typewriter words={typeWriterWords} loop={false} cursor cursorStyle='_' cursorBlinking={true} typeSpeed={140} deleteSpeed={55} delaySpeed={1500} />
 					</h3>
 				</MovingDiv>
 			</section>

@@ -17,7 +17,7 @@
   }
 
   #modalOuter {
-    @apply w-full h-full xs:h-[90%] xs:w-[90%] max-w-3xl bg-gray-920 xs:rounded-lg flex flex-col justify-start items-center relative border-2 border-gray-700 z-50 pb-5
+    @apply w-full h-full xs:h-[90%] xs:w-[90%] max-w-3xl bg-gray-920 xs:rounded-lg flex flex-col justify-start items-center relative border-2 border-gray-700 z-50 pb-7
   }
 
   #modalTop {
@@ -29,19 +29,17 @@
   }
 
   .closeIconLink {
-    @apply inline leading-none text-lg sm:text-xl lg:text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400
+    @apply inline leading-none text-lg sm:text-xl text-zinc-400 hover:text-zinc-200 active:text-sky-400
   }
 
   .modalLinks {
-    @apply text-sky-400 font-semibold hover:text-sky-200 hover:underline active:text-sky-400
+    @apply text-zinc-300 font-semibold underline hover:text-sky-400 hover:underline active:text-sky-500
   }
 }
 
 #cloudinaryImage {
   position: relative;
   width: 100%;
-  /* max-height: 45%; */
-  /* aspect-ratio: 1788 / 1000; */
   display: flex;
   justify-content: center;
   align-items: start;
@@ -54,7 +52,6 @@
   justify-content: start;
   align-items: center;
   padding-top: max(13px, 1.7vh);
-  /* overflow-y: auto; */
 }
 
 #modalProjectName {
@@ -71,33 +68,15 @@
 }
 
 #modalProjectDetails {
-  /* width: 85%; */
   width: 100%;
   padding: 0 9%;
-  padding-top: max(13px, 1.8vh);
+  padding-top: 3px;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  /* row-gap: max(15px, 2vh); */
   font-size: 0.92rem;
   letter-spacing: 0em;
-}
-
-#divider {
-  margin: 2vh 0;
-  width: 92%;
-  align-self: center;
-}
-
-.detailsWrap {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  flex-wrap: wrap;
-  /* font-weight: 600; */
-  padding-bottom: max(6px, 0.8vh);
 }
 
 @media (min-height: 900px) {
@@ -106,18 +85,11 @@
   }
 
   #modalProjectDetails {
-    padding-top: 20px;
+    padding-top: 5px;
     font-size: 1rem;
     letter-spacing: 0.05em;
   }
 
-  #divider {
-    margin: 2.5vh 0;
-  }
-
-  .detailsWrap {
-    padding-bottom: max(6px, 1.1vh);
-  }
 }
 
 @media (min-width: 480px) {

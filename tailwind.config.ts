@@ -75,15 +75,15 @@ const config: Config = {
 				},
 				pulse: {
 					cyan: '#00ddff',
-					lime: '#44bb00',
-					red: '#bb0028',
+					lime: '#55cc00',
+					red: '#cf0028',
 					gray: '#111c26',
 				},
 			},
 			animation: {
-				'ping-0': 'ping-0 5s cubic-bezier(0, 0, 0.5, 1) infinite',
-				'pulse-1': 'pulse-1 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-				'pulse-2': 'pulse-2 4.9s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'ping-0': 'ping-0 5.5s cubic-bezier(0, 0, 0.5, 1) infinite',
+				'pulse-1': 'pulse-1 4.3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+				'pulse-2': 'pulse-2 6.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 				'fade-in-400': 'fade-in 4s cubic-bezier(0.6, 0, 0.7, 1) 500ms 1 both',
 				'fade-in-125': 'fade-in 1.25s ease-out 0s 1 both',
 				'fade-in-100': 'fade-in 1s ease-out 0s 1 both',
@@ -99,35 +99,36 @@ const config: Config = {
 				'ping-0': {
 					'0%': {
 						transform: 'scale(1)',
-						opacity: '0.7',
-						// opacity: '0.4',
+						opacity: '0.5',
+						// opacity: '0.8',
 					},
-					'70%, 100%': {
-						transform: 'scale(1.8)',
+					'70%': {
+						transform: 'scale(1.7)',
+						opacity: '0.2',
 					},
 					'100%': {
-						opacity: '0.3',
-						// opacity: '0',
+						transform: 'scale(1.7)',
+						opacity: '0',
 					},
 				},
 				'pulse-1': {
 					'0%, 100%': {
-						// opacity: '0.3',
-						opacity: '0.6',
+						opacity: '0.3',
+						// opacity: '0.6',
 					},
 					'50%': {
-						// opacity: '0.05',
-						opacity: '0.3',
+						opacity: '0.05',
+						// opacity: '0.2',
 					},
 				},
 				'pulse-2': {
 					'0%, 100%': {
-						// opacity: '0.3',
-						opacity: '0.61',
+						opacity: '0.3',
+						// opacity: '0.6',
 					},
 					'50%': {
-						// opacity: '0.1',
-						opacity: '0.3',
+						opacity: '0.05',
+						// opacity: '0.2',
 					},
 				},
 				'fade-in': {

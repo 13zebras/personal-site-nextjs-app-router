@@ -1,7 +1,6 @@
 import type { HeaderPaths } from '@/types/allTypes'
 
 export function getHeaderPaths(): HeaderPaths[] {
-	// console.log('>>>> getHeaderPaths **********************************')
 	return [
 		{
 			name: 'home',

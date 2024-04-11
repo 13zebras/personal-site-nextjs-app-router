@@ -23,18 +23,12 @@
 
 @media (min-height: 600px) {
   #mainHero {
-    /* justify-content: center; */
     padding-top: max(40px, 8vh);
     padding-bottom: 5vh;
     overflow-y: hidden;
   }
 }
 
-@media (min-height: 800px) {
-  #mainHero {
-    padding-top: 5vh;
-  }
-}
 
 #heroImage {
   position: relative;
@@ -43,7 +37,6 @@
   overflow: hidden;
   width: clamp(200px, calc(33vh + 3vw), 320px);
   max-width: clamp(200px, calc(15vh + 25vw), 320px);
-  /* max-height: clamp(200px, 50vw, 320px); */
 }
 
 .bgCircles {
@@ -56,12 +49,12 @@
   max-width: clamp(200px, calc(15vh + 20vw), 320px);
 }
 
-@media (min-height: 800px) and (min-width: 640px) {
+/* @media (min-height: 800px) and (min-width: 640px) {
   .bgCircles {
-    width: clamp(280px, calc(33vh + 3vw), 360px);
-    max-width: clamp(280px, calc(15vh + 25vw), 360px);
+    width: clamp(280px, calc(33vh + 3vw), 330px);
+    max-width: clamp(280px, calc(15vh + 25vw), 330px);
   }
-}
+} */
 
 #heroMainText {
   width: 100%;
@@ -114,16 +107,8 @@
   }
 }
 
-@media (min-width: 480px) {
+@media (min-height: 850px) and (min-width: 768px) {
   #heroMainText {
-    /* margin-bottom: 16px; */
-  }
-}
-
-@media (min-height: 800px) and (min-width: 768px) {
-  #heroMainText {
-    margin-top: min(40px, 4vh);
-
     h1 {
       font-size: 36px;
     }

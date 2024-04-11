@@ -28,8 +28,6 @@ export async function POST(request: NextRequest) {
 		text: `from: ${name}\nemail: ${email}\nmessage: ${message}`,
 	}
 
-	// console.log('>>>> mailOptions', mailOptions)
-
 	const sendMailPromise = () =>
 		new Promise<string>((resolve, reject) => {
 			transporter.sendMail(mailOptions, (err) => {

@@ -1,13 +1,12 @@
 export function getAllProjects() {
-	// console.log('>>>> getAllProjects **********************************')
 	return [
 		{
 			name: '13z.dev',
 			url: 'https://13z.dev',
-			summary: 'My personal portfolio site',
+			summary: 'My personal portfolio website. It includes projects, info about me, and some of my work experience.',
 			cldPublicId: 'portfolio/portfolio-site',
-			description: 'I reworked most of the layout and the CSS to make previous fixed desktop design more mobile responsive, especially several modals that were not meant for mobile widths.',
-			stack: 'React, Next.js, TypeScript, TailwindCSS, Framer Motion, Cloudinary',
+			description: 'I built this website to showcase projects I have created, worked on, and contributed to, as well as share information about me and my work experience. The design and code have been inspired by others, but in the end, the responsibility for both rests squarely on my shoulders.',
+			stack: 'Next.js, React, TypeScript, TailwindCSS, Framer Motion, Cloudinary',
 			githubUrl: 'https://github.com/13zebras/personal-site-nextjs-app-router',
 		},
 		{
