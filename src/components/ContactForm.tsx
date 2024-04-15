@@ -59,7 +59,7 @@ export default function ContactForm() {
 	}
 
 	return (
-		<main className='animate-fade-in-100 w-full max-w-xl flex flex-col justify-start items-center px-[8vw] xs:px-10 p-main-s md:p-main-l pb-6 overflow-x-hidden overflow-y-auto'>
+		<main className='animate-fade-in-100 w-full max-w-xl flex flex-col justify-start items-center px-[8vw] xs:px-10 pt-14 md:pt-24 lg:pt-[max(6rem,10vh)] pb-12 overflow-x-hidden overflow-y-auto'>
 			<h1 className='pb-6 sm:pb-10 uppercase text-zinc-400 font-mono text-[1.35rem] xs:text-2xl tracking-wide2 xs:tracking-wide4 sm:tracking-wide6 z-10'>contact tom</h1>
 			<div className='flex flex-col justify-start items-center w-full'>
 				<form onSubmit={handleSubmit} className='w-full flex flex-col justify-start items-center gap-y-8 sm:gap-y-10'>

@@ -1,3 +1,5 @@
+/* Global CSS */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,65 +9,59 @@
 ** tailwind: zinc-950: '#070709' 
 ********************************/
 
-:root {
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --zinc-950: #070709;
-  background-color: var(--zinc-950);
-}
-
 body {
   -webkit-overflow-scrolling: touch;
-  background-color: var(--zinc-950);
 }
 
 @layer components {
 
-  .w-workCard-500 {
-    width: min(90%, 500px);
+  #about {
+    --translateY: 100px;
+    --scale: 0.8;
   }
 
-  .w-workCard-400 {
-    width: min(45%, 450px);
+  .heroMovingDiv {
+    --translateY: 100px;
+    --scale: 0.8;
   }
 
-  .p-main-s {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
+  [id^='flipCard'] {
+    --widthL: 300px;
+    --heightL: 240px;
+    --widthS: 220px;
+    --heightS: 220px;
+    --translateY: 250px;
+    --scale: 0.6;
   }
 
-  .p-main-m {
-    padding-top: max(6rem, 10vh);
-    padding-bottom: 3rem;
+  .w-ImageCircles {
+    width: clamp(204px, calc(33vh + 3vw), 320px);
+    max-width: clamp(204px, calc(15vh + 25vw), 320px);
   }
 
-  .p-main-l {
-    padding-top: max(6rem, 10vh);
-    padding-bottom: 4rem;
+  .w-PingCircle {
+    width: clamp(204px, calc(33vh + 3vw), 320px);
+    max-width: clamp(204px, calc(15vh + 25vw), 320px);
   }
 
-  .p-main-xl {
-    padding-top: max(6rem, 14vh);
-    padding-bottom: 5rem;
+  .mobileIconLink {
+    @apply inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400;
   }
 
-  .brdT {
-    border: 1px solid #765;
+  .mobileTextLink {
+    @apply text-lg font-bold uppercase underline text-zinc-400 hover:text-zinc-200 active:text-sky-400;
   }
 
-  .brdTMg {
-    border: 1px solid #807;
+  .desktopIconLink {
+    @apply inline text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400;
   }
 
-  .brdTR {
-    border: 1px solid #a00;
-  }
+  .desktopTextLink {
+    @apply text-zinc-400 hover:text-zinc-200 active:text-sky-400 uppercase text-sm font-semibold tracking-wide0;
 
-  .brdTG {
-    border: 1px solid #080;
-  }
-
-  .brdTB {
-    border: 1px solid #08d;
+    &.active {
+      @apply text-zinc-350 hover:text-zinc-450 border-b border-sky-300/80;
+    }
   }
 
   .buttonMain {
@@ -77,33 +73,37 @@ body {
   }
 }
 
-
 /********************************
 *** Keyframes
 ********************************/
 
 @keyframes fadeInDelay {
 
-  0%,
-  30% {
-    transform: scale(0.5);
+  0% {
+    transform: translateY(100px);
+    scale: 0.8;
     opacity: 0;
   }
 
   100% {
-    transform: scale(1);
+    transform: translateY(0px);
+    scale: 1;
     opacity: 1;
   }
 }
 
-@keyframes heroMovingDiv {
+@keyframes movingDiv {
 
   0% {
-    transform: translateY(900px);
+    transform: translateY(var(--translateY));
+    scale: var(--scale);
+    opacity: 0;
   }
 
   100% {
     transform: translateY(0px);
+    scale: 1;
+    opacity: 1;
   }
 }
 
@@ -140,5 +140,29 @@ body {
 
   100% {
     transform: translateX(0px);
+  }
+}
+
+@layer utilities {
+
+  /* Borders for Testing */
+  .brdT {
+    border: 1px solid #765;
+  }
+
+  .brdTMg {
+    border: 1px solid #807;
+  }
+
+  .brdTR {
+    border: 1px solid #a00;
+  }
+
+  .brdTG {
+    border: 1px solid #080;
+  }
+
+  .brdTB {
+    border: 1px solid #08d;
   }
 }

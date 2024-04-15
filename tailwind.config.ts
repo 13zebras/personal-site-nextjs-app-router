@@ -4,23 +4,19 @@ const config: Config = {
 	content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
 	theme: {
 		screens: {
-			'2xs': '370px',
+			xxs: '370px',
 			xs: '480px',
+			xsP: '520px',
 			sm: '640px',
 			md: '768px',
 			lg: '1024px',
 			xl: '1280px',
-			'2xl': '1536px',
-			short: { raw: '(min-height: 600px)' },
-			// => @media (min-height: 620px) { ... }
-			mid: { raw: '(min-height: 700px)' },
-			// => @media (min-height: 620px) { ... }
-			tall: { raw: '(min-height: 800px)' },
-			// => @media (min-height: 800px) { ... }
+			h600: { raw: '(min-height: 600px)' },
+			h700: { raw: '(min-height: 700px)' },
+			h800: { raw: '(min-height: 800px)' },
+			h900: { raw: '(min-height: 900px)' },
 		},
 		letterSpacing: {
-			tighter: '-0.05em',
-			tight: '-0.025em',
 			normal: '0',
 			wide0: '0.05em',
 			wide1: '0.1em',
@@ -28,7 +24,7 @@ const config: Config = {
 			wide2: '0.2em',
 			wide3: '0.3em',
 			wide4: '0.4em',
-			wide6: '0.60em',
+			wide6: '0.6em',
 		},
 		extend: {
 			fontSize: {
@@ -43,6 +39,8 @@ const config: Config = {
 					920: '#0a1224',
 				},
 				gray: {
+					700: '#374151',
+					750: '#303849',
 					800: '#1f2937',
 					850: '#19222e',
 					900: '#111827',
@@ -50,7 +48,7 @@ const config: Config = {
 				},
 				zinc: {
 					300: '#d4d4d8',
-					350: '#b7b7bb',
+					350: '#bfbfc4',
 					370: '#b1b1b8',
 					400: '#a1a1aa',
 					450: '#8a8a93',
@@ -81,19 +79,17 @@ const config: Config = {
 				},
 			},
 			animation: {
-				'ping-0': 'ping-0 5.5s cubic-bezier(0, 0, 0.5, 1) infinite',
+				// 'ping-0': 'ping-0 5.5s linear infinite',
+				'ping-0': 'ping-0 5.5s cubic-bezier(0, 0, 0.7, 1) infinite',
 				'pulse-1': 'pulse-1 4.3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
 				'pulse-2': 'pulse-2 6.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-				'fade-in-400': 'fade-in 4s cubic-bezier(0.6, 0, 0.7, 1) 500ms 1 both',
-				'fade-in-125': 'fade-in 1.25s ease-out 0s 1 both',
+				'pulse-skel': 'pulse-skel 2s ease 0s infinite',
+				'pulse-out': 'pulse-out 10s ease 0s 1 both',
+				'fade-in-1000': 'fade-in 10s ease-out 0s 1 both',
 				'fade-in-100': 'fade-in 1s ease-out 0s 1 both',
 				'fade-in-075': 'fade-in 750ms ease-out 0s 1 both',
 				'fade-in-050': 'fade-in 500ms ease-out 0s both',
-				'fade-in-025': 'fade-in 250ms ease-out 0s both',
-				'fade-in-delay': 'fade-in 4000ms ease-out 1000ms 1 both',
-				'fade-in-scale-150': 'fade-in-scale 1.5s ease-out 1000ms 1 both',
-				'fade-in-scale-250': 'fade-in-scale 2s ease-out 900ms 1 both',
-				'fade-in-scale-350': 'fade-in-scale 3.5s cubic-bezier(0.5, 0, 0.7, 1.2) 0ms 1 both',
+				'fade-scale-slide': 'fade-in-scale-slide 700ms cubic-bezier(0.5, 0, 0.7, 1) 0ms 1 both',
 			},
 			keyframes: {
 				'ping-0': {
@@ -104,7 +100,7 @@ const config: Config = {
 					},
 					'70%': {
 						transform: 'scale(1.7)',
-						opacity: '0.2',
+						// opacity: '0.2',
 					},
 					'100%': {
 						transform: 'scale(1.7)',
@@ -131,6 +127,27 @@ const config: Config = {
 						// opacity: '0.2',
 					},
 				},
+				'pulse-skel': {
+					'0%, 100%': {
+						opacity: '1',
+						// opacity: '0.6',
+					},
+					'50%': {
+						opacity: '0.6',
+						// opacity: '0.2',
+					},
+				},
+				'pulse-out': {
+					'0%, 20%, 40%, 60%, 80%': {
+						opacity: '1',
+					},
+					'10%, 30%, 50%, 70%, 90%': {
+						opacity: '0.4',
+					},
+					'100%': {
+						opacity: '0',
+					},
+				},
 				'fade-in': {
 					from: {
 						opacity: '0',
@@ -141,11 +158,23 @@ const config: Config = {
 				},
 				'fade-in-scale': {
 					'0%': {
-						transform: 'scale(0)',
+						transform: 'scale(0.7)',
 						opacity: '0',
 					},
 					'100%': {
 						transform: 'scale(1)',
+						opacity: '1',
+					},
+				},
+				'fade-in-scale-slide': {
+					'0%': {
+						transform: 'translateY(100px)',
+						scale: '0.5',
+						opacity: '0',
+					},
+					'100%': {
+						transform: 'translateY(0px)',
+						scale: '1',
 						opacity: '1',
 					},
 				},

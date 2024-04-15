@@ -1,18 +1,11 @@
 'use client'
 
-import '@/styles/header.css'
 import { LinkedinIcon, GithubIcon, EnvelopeIcon, HamburgerIcon, CloseThickIcon } from '@/utils/svgs'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { getHeaderPaths } from '@/utils/header-paths'
 import type { HeaderPaths } from '@/types/allTypes'
-
-const variants = {
-	open: { opacity: 1, x: 0 },
-	closed: { opacity: 0, x: '-100%' },
-}
 
 export default function Header() {
 	const [isNavOpen, setIsNavOpen] = useState(false)
@@ -20,15 +13,28 @@ export default function Header() {
 
 	const headerPaths: HeaderPaths[] = getHeaderPaths()
 
+	const openStyle = {
+		opacity: 1,
+		transform: 'translateX(0%)',
+		zIndex: 50,
+	}
+
+	const closeStyle = {
+		opacity: 0,
+		transform: 'translateX(-100%)',
+		zIndex: -1,
+	}
+
 	return (
 		<header className='fixed top-0 flex justify-center cursor-pointer z-30 w-full bg-zinc-950'>
-			{/** * MOBILE HEADER */}
-			<section className='mobileSection'>
+			{/*********************************
+			 *****  MOBILE HEADER  ************
+			 **********************************/}
+			<section className='md:hidden flex flex-row justify-start items-center w-full h-14 relative px-5 pt-1'>
 				<span onClick={() => setIsNavOpen((prev) => !prev)} onKeyDown={() => setIsNavOpen((prev) => !prev)}>
 					<HamburgerIcon className='mobileIconLink' />
 				</span>
-
-				<motion.div animate={isNavOpen ? 'open' : 'closed'} variants={variants} transition={{ duration: 0.25 }} className='mobileModal'>
+				<div style={isNavOpen ? openStyle : closeStyle} className='absolute top-0 left-0 w-full h-screen pb-[10vh] pt-[6vh] flex flex-col justify-evenly items-center bg-black/95 backdrop-blur-sm tracking-wide2 transition-all duration-[350ms]'>
 					<div className='absolute top-0 left-0 p-5' onClick={() => setIsNavOpen(false)} onKeyUp={() => setIsNavOpen(false)}>
 						<CloseThickIcon className='mobileIconLink' />
 					</div>
@@ -58,11 +64,13 @@ export default function Header() {
 						<LinkedinIcon className='mr-3 mb-1 mobileIconLink' />
 						LinkedIn
 					</Link>
-				</motion.div>
+				</div>
 			</section>
 
-			{/** * DESKTOP HEADER */}
-			<section className='desktopSection'>
+			{/*********************************
+			 *****  DESKTOP HEADER  ***********
+			 **********************************/}
+			<section className='animate-fade-in-050 hidden md:flex flex-row justify-between items-center h-[80px] w-full max-w-3xl px-10'>
 				{headerPaths.map(({ name, path }) => {
 					if (path !== routePath) {
 						return (

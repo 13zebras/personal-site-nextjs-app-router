@@ -1,5 +1,3 @@
-import '@/styles/modal.css'
-
 import { useEffect, useRef, useState } from 'react'
 
 import { Cloudinary } from '@cloudinary/url-gen'
@@ -8,7 +6,6 @@ import { quality } from '@cloudinary/url-gen/actions/delivery'
 import { AdvancedImage, placeholder } from '@cloudinary/react'
 import { GithubIcon, ExternalLinkIcon, CloseThickIcon } from '@/utils/svgs'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 import type { Project } from '@/types/allTypes'
 
 interface ModalType {
@@ -56,8 +53,6 @@ export default function Modal(props: ModalType) {
 	const fullImage = cloudinary.image(publicId)
 	fullImage.resize(scale().height(imageHeight)).delivery(quality(80))
 
-	console.log('%c>>> imageHeight', 'color:magenta', imageHeight)
-
 	const fadeModalStyle = {
 		animationName: 'fadeOut',
 		animationDuration: `${fadeTime - 200}ms`,
@@ -67,45 +62,29 @@ export default function Modal(props: ModalType) {
 	}
 
 	return (
-		<div id='portfolioModal' style={fadeModal ? fadeModalStyle : {}}>
-			<div onClick={handleCloseClick} onKeyDown={handleCloseClick} id='modalClickBg' />
-			<motion.div
-				initial={{
-					y: -200,
-					opacity: 0.1,
-					scale: 0.3,
-				}}
-				transition={{
-					delay: 0,
-					duration: 0.5,
-				}}
-				animate={{
-					y: 0,
-					opacity: 1,
-					scale: 1,
-				}}
-				id='modalOuter'
-			>
-				<div className='closeIcon' onClick={handleCloseClick} onKeyDown={handleCloseClick}>
-					<CloseThickIcon className='closeIconLink' />
+		<div id='modal' className='w-screen h-screen flex justify-center items-center fixed z-40 bg-black/90 backdrop-blur-sm overscroll-none' style={fadeModal ? fadeModalStyle : {}}>
+			<div onClick={handleCloseClick} onKeyDown={handleCloseClick} id='modalClickBg' className='hidden xs:block w-screen h-screen absolute inset-0' />
+			<div id='modalOuter' className='animate-fade-scale-slide w-full h-full xs:h-[90%] xs:w-[90%] max-w-3xl bg-gray-920 xs:rounded-lg flex flex-col justify-start items-center relative border-2 border-gray-700 z-50 pb-7'>
+				<div className='absolute top-[2px] sm:top-[6px] right-[4px] xs:right-[8px] sm:right-[10px] md:top-[8px] md:right-[12px] z-50' onClick={handleCloseClick} onKeyDown={handleCloseClick}>
+					<CloseThickIcon className='inline leading-none text-lg sm:text-xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
 				</div>
 				<div className='overflow-y-auto overflow-x-hidden h-full'>
-					<section id='modalTop' className=''>
-						<div id='cloudinaryImage' ref={imageRef} className=''>
+					<section id='modalTop' className='w-full px-6 pt-7 sm:px-8 md:px-9 md:pt-9 pb-2 flex flex-col justify-start items-center relative h-fit'>
+						<div ref={imageRef} className='relative w-full flex justify-center items-start'>
 							<div className='absolute py-[3px] px-[5px]' style={{ height: imageHeight, aspectRatio: imgAspectRatio }}>
 								<div className='animate-pulse bg-gray-700 w-full h-full rounded-md md:rounded-lg' />
 							</div>
 							<AdvancedImage cldImg={fullImage} style={{ height: imageHeight }} className='border-2 border-gray-800 rounded-md md:rounded-lg z-10' plugins={[placeholder({ mode: 'blur' })]} />
 						</div>
 					</section>
-					<section id='modalBottom'>
-						<div id='modalProjectName' className='text-zinc-400'>
+					<section id='modalBottom' className='w-full flex flex-col justify-start items-center pt-[14px] h900:pt-[22px]'>
+						<div id='modalName' className='flex justify-center items-center text-center px-[7%] h-auto uppercase font-mono text-2xl h900:text-[1.65rem] tracking-wide15 xs:tracking-wide2 sm:tracking-wide3 text-zinc-400'>
 							{project.name}
 						</div>
-						<div id='modalProjectDetails' className='text-zinc-300'>
+						<div id='modalDetails' className='w-full flex flex-col justify-start items-start text-[0.96rem] h900:text-base text-zinc-300 pb-0 px-[9%] pt-[1.8vh] h900:[2.5vh]'>
 							{project.url && (
-								<div className='pb-[1.8vh] self-center'>
-									<Link href={project.url} className='text-sky-400 font-semibold hover:text-sky-500 hover:underline active:text-sky-300 text-sm'>
+								<div className='pb-[1.8vh] h900:pb-[2.5vh] self-center'>
+									<Link href={project.url} className='text-sky-400 font-semibold hover:text-sky-500 hover:underline active:text-sky-300'>
 										{project.url}
 									</Link>
 								</div>
@@ -135,7 +114,7 @@ export default function Modal(props: ModalType) {
 						</div>
 					</section>
 				</div>
-			</motion.div>
+			</div>
 		</div>
 	)
 }
