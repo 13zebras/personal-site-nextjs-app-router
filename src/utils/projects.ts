@@ -34,7 +34,7 @@ export function getAllProjects() {
 		{
 			name: 'BOS Shop',
 			url: 'https://bos-store.vercel.app',
-			summary: 'The BOS Shop was a Solana NFT project that needed a front end. I used React and Next.js to create a fully responsive website based on the projects designs. Tech stack: React, Next.js, Chakra-UI, Solana.',
+			summary: 'The BOS Shop was a Solana NFT project that needed a front end. I used React and Next.js to create a fully responsive website based on the projects designs.',
 			cldPublicId: 'portfolio/bos-shop',
 			description: '',
 			stack: 'React, Next.js, Chakra-UI, Solana',
@@ -43,7 +43,7 @@ export function getAllProjects() {
 		{
 			name: 'Floating Apes Affiliation',
 			url: 'https://floating-apes-staking.vercel.app',
-			summary: 'The Floating Apes NFT project needed staking, raffle, and other services. Lucky Dog Studios provided all these services via a variety of websites. Tech stack: React, Next.js, Chakra-UI, Solana.',
+			summary: 'The Floating Apes NFT project needed staking, raffle, and other services. Lucky Dog Studios provided all these services via a variety of websites.',
 			cldPublicId: 'portfolio/floating-apes',
 			description: '',
 			stack: 'React, Next.js, Chakra-UI, Solana',
@@ -52,7 +52,7 @@ export function getAllProjects() {
 		{
 			name: 'Pet SolSociety',
 			url: 'https://pet-solciety-staking.vercel.app',
-			summary: 'The Pet Solciety NFT project on Solana needed a staking website. We used React and Next.js to create a staking website based on their unique designs. Tech stack: React, Next.js, Chakra-UI, Solana.',
+			summary: 'The Pet Solciety NFT project on Solana needed a staking website. We used React and Next.js to create a staking website based on their unique designs.',
 			cldPublicId: 'portfolio/pet-solciety',
 			description: '',
 			stack: 'React, Next.js, Chakra-UI, Solana',
@@ -61,7 +61,7 @@ export function getAllProjects() {
 		{
 			name: 'Smoke Heads NFTs',
 			url: 'https://smoke-heads-staking.vercel.app',
-			summary: "The Smoke Heads NFT project was built on Solana and needed a staking website and more. We created a fully responsive website based on the project's designs. Tech stack: React, Next.js, Chakra-UI, Solana.",
+			summary: "The Smoke Heads NFT project was built on Solana and needed a staking website and more. We created a fully responsive website based on the project's designs.",
 			cldPublicId: 'portfolio/smoke-heads',
 			description: '',
 			stack: 'React, Next.js, Chakra-UI, Solana',
@@ -70,7 +70,7 @@ export function getAllProjects() {
 		{
 			name: 'Alder Mages',
 			url: 'https://staking.aldermages.dev',
-			summary: 'The Alder Mages NFT project needed staking, raffle, upgrade, & other services. Lucky Dog Studios created all these sites using customers designs and our smart contracts. Tech stack: React, Next.js, Chakra-UI, Solana.',
+			summary: 'The Alder Mages NFT project needed staking, raffle, upgrade, & other services. Lucky Dog Studios created all these sites using customers designs and our smart contracts.',
 			cldPublicId: 'portfolio/alder-mages',
 			description: '',
 			stack: 'React, Next.js, Chakra-UI, Solana',
@@ -79,7 +79,7 @@ export function getAllProjects() {
 		{
 			name: 'Arcane Valley',
 			url: 'https://staking.arcanevalleyproject.com/',
-			summary: 'The Arcane Valley NFT project needed staking, raffle, and other services. We created these sites using customers designs with NFTs on the Solana blockchain. Tech stack: React, Next.js, Chakra-UI, Solana.',
+			summary: 'The Arcane Valley NFT project needed staking, raffle, and other services. We created these sites using customers designs with NFTs on the Solana blockchain.',
 			cldPublicId: 'portfolio/arcane-valley',
 			description: '',
 			stack: 'React, Next.js, Chakra-UI, Solana',
