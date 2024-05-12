@@ -17,7 +17,7 @@ const Portfolio: React.FC<ProjectProps> = ({ allProjects }) => {
       /> */}
       <h1 className='animate-fade-in-075 pb-4 uppercase text-zinc-400 font-mono text-[1.35rem] xs:text-2xl tracking-wide2 xs:tracking-wide4 sm:tracking-wide6 z-10'>tom's portfolio</h1>
       <div className='w-full h-fit overflow-x-hidden overflow-y-auto pt-2 sm:pt-6 pb-14 flex justify-center'>
-        <div className='w-full h-fit max-w-[1400px] flex justify-center items-start flex-wrap gap-4 z-20 px-4 xs:px-6 md:px-10'>
+        <div className='w-full h-fit max-w-[1400px] flex justify-center items-start flex-wrap gap-6 z-20 px-4 xs:px-6 md:px-10'>
           {allProjects.map((project: Project, index) => (
             <FlipCard key={project.name} index={index} {...project} />
           ))}

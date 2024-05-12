@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react"
 
-import { Cloudinary } from "@cloudinary/url-gen";
-import { scale } from "@cloudinary/url-gen/actions/resize";
-import { quality } from "@cloudinary/url-gen/actions/delivery";
-import { AdvancedImage, placeholder } from "@cloudinary/react";
-import { GithubIcon, ExternalLinkIcon, CloseThickIcon } from "@/utils/svgs";
-import Link from "next/link";
-import type { Project } from "@/types/allTypes";
-import Button from "./Button";
+import { Cloudinary } from "@cloudinary/url-gen"
+import { scale } from "@cloudinary/url-gen/actions/resize"
+import { quality } from "@cloudinary/url-gen/actions/delivery"
+import { AdvancedImage, placeholder } from "@cloudinary/react"
+import { GithubIcon, ExternalLinkIcon, CloseThickIcon } from "@/utils/svgs"
+import Link from "next/link"
+import type { Project } from "@/types/allTypes"
+import Button from "./Button"
 
 interface ModalType {
   project: Project;
@@ -15,46 +15,46 @@ interface ModalType {
 }
 
 export default function Modal(props: ModalType) {
-  const [fadeModal, setFadeModal] = useState(false);
-  const [imageHeight, setImageHeight] = useState(0);
-  const imageRef = useRef<HTMLDivElement>(null);
-  const imgAspectRatio = 1.788; // 1788 / 1000
-  const fadeTime = 500;
-  const project = props.project;
+  const [fadeModal, setFadeModal] = useState(false)
+  const [imageHeight, setImageHeight] = useState(0)
+  const imageRef = useRef<HTMLDivElement>(null)
+  const imgAspectRatio = 1.788 // 1788 / 1000
+  const fadeTime = 500
+  const project = props.project
 
   const handleCloseClick = () => {
-    setFadeModal(true);
-    document.body.style.removeProperty("overflow");
+    setFadeModal(true)
+    document.body.style.removeProperty("overflow")
     setTimeout(() => {
-      props.onClose();
-    }, fadeTime + 100);
-  };
+      props.onClose()
+    }, fadeTime + 100)
+  }
 
   useEffect(() => {
     const updateHeight = () => {
-      const viewportHeight = window.innerHeight;
+      const viewportHeight = window.innerHeight
 
       if (imageRef.current) {
-        const imageWidth = imageRef.current.clientWidth;
+        const imageWidth = imageRef.current.clientWidth
 
-        let newHeight = Math.floor(imageWidth / imgAspectRatio);
-        const maxHeight = Math.floor(viewportHeight * 0.45);
-        if (newHeight > maxHeight) newHeight = maxHeight;
-        setImageHeight(newHeight);
+        let newHeight = Math.floor(imageWidth / imgAspectRatio)
+        const maxHeight = Math.floor(viewportHeight * 0.45)
+        if (newHeight > maxHeight) newHeight = maxHeight
+        setImageHeight(newHeight)
       }
     };
-    updateHeight();
+    updateHeight()
     window.addEventListener("resize", updateHeight);
     return () => window.removeEventListener("resize", updateHeight);
-  }, []);
+  }, [])
 
-  const publicId = project.cldPublicId;
+  const publicId = project.cldPublicId
 
   const cloudinary = new Cloudinary({
     cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY },
-  });
-  const fullImage = cloudinary.image(publicId);
-  fullImage.resize(scale().height(imageHeight)).delivery(quality(80));
+  })
+  const fullImage = cloudinary.image(publicId)
+  fullImage.resize(scale().height(imageHeight)).delivery(quality(80))
 
   const fadeModalStyle = {
     animationName: "fadeOut",
