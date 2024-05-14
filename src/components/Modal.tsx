@@ -18,7 +18,7 @@ export default function Modal(props: ModalType) {
   const [fadeModal, setFadeModal] = useState(false)
   const [imageHeight, setImageHeight] = useState(0)
   const imageRef = useRef<HTMLDivElement>(null)
-  const imgAspectRatio = 1.788 // 1788 / 1000
+  const imgAspectRatio = 1.788 // aspect ration = 1788 / 1000
   const fadeTime = 500
   const project = props.project
 
@@ -74,23 +74,26 @@ export default function Modal(props: ModalType) {
         onClick={handleCloseClick}
         onKeyDown={handleCloseClick}
         id="modalClickBg"
-        className="hidden xs:block w-screen h-screen absolute inset-0"
+        className="hidden sm:block w-screen h-screen absolute inset-0"
       />
       <div
         id="modalOuter"
-        className="animate-fade-scale-slide w-full h-full xs:h-[90%] xs:w-[90%] max-w-3xl bg-gray-920 xs:rounded-lg flex flex-col justify-start items-center relative border-2 border-gray-700 z-50 pb-7"
+        className="animate-fade-scale-slide w-full h-full sm:h-[90%] sm:max-h-[800px] sm:w-[90%] max-w-[720px] bg-zinc-950 sm:rounded-lg flex flex-col justify-center sm:justify-start items-center relative sm:border-2 border-zinc-700 z-50 pb-7 sm:pb-8"
       >
         <div
-          className="absolute top-[2px] sm:top-[6px] right-[4px] xs:right-[8px] sm:right-[10px] md:top-[8px] md:right-[12px] z-50"
+          className="absolute top-[3px] sm:top-[6px] right-[5px] xs:right-[8px] z-50"
           onClick={handleCloseClick}
           onKeyDown={handleCloseClick}
         >
           <CloseThickIcon className="inline leading-none text-lg sm:text-xl text-zinc-400 hover:text-zinc-200 active:text-sky-400" />
         </div>
-        <div className="overflow-y-auto overflow-x-hidden h-full">
+        <div className="overflow-y-auto overflow-x-hidden h-fit sm:h-full">
+
+          {/************** MODAL TOP  ***************/}
+
           <section
             id="modalTop"
-            className="w-full px-6 pt-7 sm:px-8 md:px-9 md:pt-9 pb-2 flex flex-col justify-start items-center relative h-fit"
+            className="w-full p-4 pt-7 xs:p-6 sm:p-8 flex flex-col justify-start items-center relative h-fit"
           >
             <div
               ref={imageRef}
@@ -110,61 +113,90 @@ export default function Modal(props: ModalType) {
               />
             </div>
           </section>
+
+          {/************** MODAL BOTTOM  ***************/}
+
           <section
             id="modalBottom"
-            className="w-full flex flex-col justify-start items-center pt-[14px] h900:pt-[22px]"
+            className="w-full flex flex-col justify-start items-center px-6 xs:px-10 sm:px-12"
           >
             <div
               id="modalName"
-              className="flex justify-center items-center text-center px-[7%] h-auto uppercase font-mono text-2xl h900:text-[1.65rem] tracking-wide15 xs:tracking-wide2 sm:tracking-wide3 text-zinc-400"
+              className="flex justify-center items-center text-center pb-6 h-auto uppercase font-mono text-2xl tracking-wide1 md:tracking-wide15 text-zinc-400"
             >
-              {project.name}
+              {project.url && (
+                <div className='flex gap-[6px]'>
+                  <Link
+                    href={project.url}
+                    className="text-sky-400 font-semibold hover:text-sky-300 hover:underline active:text-sky-500" target='_blank' rel='noopener noreferrer'
+                  >
+                    {project.name}
+                  </Link>
+                  <ExternalLinkIcon className="text-zinc-400 text-sm inline mt-1" />
+                </div>
+              )}
+              {!project.url && (
+                project.name
+              )}
             </div>
             <div
               id="modalDetails"
-              className="w-full flex flex-col justify-start items-start text-[0.96rem] h900:text-base text-zinc-300 pb-0 px-[9%] pt-[1.8vh] h900:[2.5vh]"
+              className="w-full flex flex-col justify-start items-start text-[0.96rem] text-zinc-300 pb-0 leading-snug gap-y-[2vh]"
             >
-              {project.url && (
-                <div className="pb-[1.8vh] h900:pb-[2.5vh] self-center">
-                  <Link
-                    href={project.url}
-                    className="text-sky-400 font-semibold hover:text-sky-500 hover:underline active:text-sky-300"
-                  >
-                    {project.url}
-                  </Link>
-                </div>
-              )}
-
-              <div className="pb-[2vh]">
+              <div className="">
                 <p>{project.description}</p>
               </div>
 
-              <div className="pb-[1.6vh]">
-                <span className="mr-3 text-zinc-400 italic">Tech Stack:</span>
+              <div className="flex gap-3">
+                <span className="text-zinc-400 italic text-nowrap">Tech Stack:</span>
                 <span className="text-zinc-300">{project.stack}</span>
               </div>
 
               {project.githubUrl && (
-                <Link
-                  href={project.githubUrl}
-                  className="text-zinc-300 font-semibold hover:underline hover:text-sky-400 active:text-sky-400"
-                >
-                  Github Repo
-                  <GithubIcon className="ml-2 text-2xl inline mb-[3px]" />
-                  <ExternalLinkIcon className="ml-2 text-sm inline mb-[1px]" />
-                </Link>
+                <div className='flex gap-2'>
+                  <Link
+                    href={project.githubUrl}
+                    className="text-sky-400 font-semibold hover:text-sky-300 hover:underline active:text-sky-500" target='_blank' rel='noopener noreferrer'
+                  >
+                    Github Repo
+                  </Link>
+                  <GithubIcon className="text-zinc-400 text-2xl mt-[1px]" />
+                  <ExternalLinkIcon className="text-zinc-400 text-sm inline mt-1" />
+                </div>
+              )}
+
+              {project.company && project.companyUrl && (
+                <div className="flex gap-2">
+                  <span className="text-zinc-400 italic pr-1">Developed for:</span>
+                  <Link
+                    href={project.companyUrl}
+                    className="text-sky-400 font-semibold hover:text-sky-300 hover:underline active:text-sky-500" target='_blank' rel='noopener noreferrer'
+                  >
+                    {project.company}
+                  </Link>
+                  <ExternalLinkIcon className="text-zinc-400 text-sm inline mt-1" />
+                </div>
+              )}
+
+              {project.company && !project.companyUrl && (
+                <div className="flex gap-3">
+                  <span className="text-zinc-400 italic">Developed for:</span>
+                  <span className="text-zinc-300 font-semibold">
+                    {project.company}
+                  </span>
+                </div>
               )}
             </div>
-            <div className="fixed bottom-0 flex justify-center items-center h-[6vh] w-[99%] mb-1 bg-gray-920 xs:hidden">
+            {/* <div className="fixed bottom-0 flex justify-center items-center h-12 w-[99%] mb-1 bg-zinc-950 sm:hidden">
               <Button
                 type="button"
                 onClick={handleCloseClick}
                 onKeyDown={handleCloseClick}
-                className="py-[1px] w-[120px] text-xs tracking-wide1"
+                className="py-[2px] w-[150px] text-xs tracking-wide1"
               >
                 Close
               </Button>
-            </div>
+            </div> */}
           </section>
         </div>
       </div>

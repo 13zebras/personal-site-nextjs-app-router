@@ -1,12 +1,15 @@
 export interface Project {
   index?: number
+  sequence?: number
   name: string
   url: string
   summary: string
   cldPublicId: string
   description: string
   stack: string
-  githubUrl: string
+  githubUrl?: string
+  company?: string
+  companyUrl?: string
 }
 
 export interface HeaderPaths {

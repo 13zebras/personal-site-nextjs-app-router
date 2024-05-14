@@ -1,6 +1,6 @@
 'use client'
 
-import { LinkedinIcon, GithubIcon, EnvelopeIcon, HamburgerIcon, CloseThickIcon } from '@/utils/svgs'
+import { LinkedinIcon, GithubIcon, EnvelopeIcon, HamburgerIcon, CloseThickIcon, HomeIcon } from '@/utils/svgs'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
@@ -71,8 +71,12 @@ export default function Header() {
       {/*********************************
 			 *****  DESKTOP HEADER  ***********
 			 **********************************/}
-      <section className='animate-fade-in-050 hidden md:flex flex-row justify-between items-center h-[80px] w-full max-w-3xl px-10'>
+      <section className='animate-fade-in-050 hidden md:flex flex-row justify-between items-center h-[70px] w-full max-w-3xl lg:max-w-[52rem] px-10'>
+        <Link href='/'>
+          <HomeIcon className='inline text-[22px] text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
+        </Link>
         {headerPaths.map(({ name, path }) => {
+          if (path === '/') return
           if (path !== routePath) {
             return (
               <Link href={path} key={name} className='text-zinc-400 hover:text-zinc-200 active:text-sky-400 uppercase text-sm font-semibold tracking-wide0'>
@@ -86,7 +90,7 @@ export default function Header() {
             </span>
           )
         })}
-        <div className='flex flex-row justify-center items-center gap-x-6 w-[120px]'>
+        <div className='flex flex-row justify-center items-center gap-x-5 w-[120px]'>
           <Link href='/contact'>
             <EnvelopeIcon className='inline text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
           </Link>

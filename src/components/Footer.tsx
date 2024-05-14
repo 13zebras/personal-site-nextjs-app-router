@@ -7,7 +7,7 @@ export default function Footer() {
   const [viewportWidth, setViewportWidth] = useState(0)
   const [viewportHeight, setViewportHeight] = useState(0)
 
-  const development = false
+  const development = true
 
   const routePath = usePathname()
 

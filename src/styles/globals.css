@@ -15,22 +15,6 @@ body {
 
 @layer components {
 
-  #about {
-    --translateY: 100px;
-    --scale: 0.8;
-  }
-
-  .heroMovingDiv {
-    --translateY: 100px;
-    --scale: 0.8;
-  }
-
-  /* [id^='flipCard']  */
-  .flipCard {
-    --translateY: 150px;
-    --scale: 0.7;
-  }
-
   .w-imageCircles {
     width: clamp(204px, calc(33vh + 3vw), 320px);
   }
@@ -39,49 +23,11 @@ body {
     max-width: clamp(204px, calc(15vh + 25vw), 320px);
   }
 
-  .mobileTextLink {
-    @apply text-lg font-bold uppercase underline text-zinc-400 hover:text-zinc-200 active:text-sky-400;
-  }
 }
 
 /********************************
 *** Keyframes
 ********************************/
-
-/* @keyframes fadeInDelay {
-
-  0% {
-    transform: translateY(100px);
-    scale: 0.8;
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0px);
-    scale: 1;
-    opacity: 1;
-  }
-} */
-
-/* @keyframes movingDiv {
-
-  0% {
-    transform: translateY(var(--translateY));
-    scale: var(--scale);
-    opacity: 0;
-  }
-
-  90% {
-    scale: 1;
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(0);
-    scale: 1;
-    opacity: 1;
-  }
-} */
 
 /* used on Modal close */
 @keyframes fadeOut {
@@ -96,28 +42,6 @@ body {
   }
 }
 
-@keyframes bounceButton {
-
-  0% {
-    transform: translateX(1000px);
-  }
-
-  60% {
-    transform: translateX(-50px);
-  }
-
-  80% {
-    transform: translateX(35px);
-  }
-
-  90% {
-    transform: translateX(-15px);
-  }
-
-  100% {
-    transform: translateX(0px);
-  }
-}
 
 @layer utilities {
 
