@@ -98,11 +98,11 @@ const config: Config = {
 				'ping-md': {
 					'0%': {
 						transform: 'scale(1)',
-						opacity: '0.30',
+						opacity: '0.25',
 						// opacity: '0.8',
 					},
 					'40%': {
-						opacity: '0.45',
+						opacity: '0.35',
 						// opacity: '0.9',
 					},
 					'80%': {
@@ -119,11 +119,11 @@ const config: Config = {
 				'ping-lg': {
 					'0%': {
 						transform: 'scale(1)',
-						opacity: '0.30',
+						opacity: '0.25',
 						// opacity: '0.8',
 					},
 					'40%': {
-						opacity: '0.45',
+						opacity: '0.35',
 						// opacity: '0.9',
 					},
 					'80%': {
