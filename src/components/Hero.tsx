@@ -57,14 +57,14 @@ export default function Hero() {
 						</Link>
 					</div>
 					<div id='iconLinks' className='flex justify-center gap-x-14 text-[36px] text-zinc-400'>
+						<Link href='/contact' className='hover:text-zinc-300 active:text-sky-400'>
+							<EnvelopeIcon />
+						</Link>
 						<Link href='https://www.linkedin.com/in/tom-stine-13-zebras/' target='_blank' rel='noopener noreferrer' className='text-[36px] text-zinc-400 hover:text-zinc-300 active:text-sky-400'>
 							<LinkedinIcon />
 						</Link>
 						<Link href='https://github.com/13zebras' target='_blank' rel='noopener noreferrer' className='hover:text-zinc-300 active:text-sky-400'>
 							<GithubIcon />
-						</Link>
-						<Link href='/contact' className='hover:text-zinc-300 active:text-sky-400'>
-							<EnvelopeIcon />
 						</Link>
 					</div>
 				</MovingDiv>
