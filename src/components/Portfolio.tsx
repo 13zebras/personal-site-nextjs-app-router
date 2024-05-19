@@ -12,8 +12,8 @@ function createRandomArray(arrayLength: number): number[] {
 
 	for (let i = arrayLength - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1))
-		const temp: number = integerArray[i]!
-		integerArray[i] = integerArray[j]!
+		const temp: number = integerArray[i] ?? 0
+		integerArray[i] = integerArray[j] ?? 0
 		integerArray[j] = temp
 	}
 
