@@ -9,7 +9,10 @@
 			"recommended": true,
 			"suspicious": {
 				"noAssignInExpressions": "off"
-			}
+			},
+      "style": {
+        "noNonNullAssertion": "off"
+      }
 		}
 	},
 	"javascript": {
