@@ -64,6 +64,9 @@ const config: Config = {
 				neutral: {
 					920: '#101010',
 				},
+				rose: {
+					550: '#ff0055',
+				},
 				red: {
 					550: '#ff0022',
 				},
