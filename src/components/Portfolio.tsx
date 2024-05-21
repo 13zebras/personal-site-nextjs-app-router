@@ -2,6 +2,7 @@
 
 import FlipCard from './FlipCard'
 import type { Project } from '@/types/allTypes'
+import { useState, useEffect } from 'react'
 
 interface ProjectProps {
 	allProjects: Project[]
@@ -21,8 +22,19 @@ function createRandomArray(arrayLength: number): number[] {
 }
 
 const Portfolio: React.FC<ProjectProps> = ({ allProjects }) => {
+	const [viewportWidth, setViewportWidth] = useState(0)
+
 	const allProjectsLength = allProjects.length
 	const projectSequence = createRandomArray(allProjectsLength)
+
+	useEffect(() => {
+		const updateViewportWH = () => {
+			setViewportWidth(window.innerWidth)
+		}
+		updateViewportWH()
+		// window.addEventListener('resize', updateViewportWH)
+		// return () => window.removeEventListener('resize', updateViewportWH)
+	}, [])
 
 	return (
 		<main className='flex h-screen w-full flex-col items-center justify-start overflow-hidden px-0 pt-14 md:pt-24 lg:pt-[max(6rem,9vh)]'>
@@ -30,7 +42,7 @@ const Portfolio: React.FC<ProjectProps> = ({ allProjects }) => {
 			<div className='w-full h-fit overflow-x-hidden overflow-y-auto pt-2 xs:pt-4 sm:pt-6 pb-14 flex justify-center'>
 				<div className='w-full h-fit max-w-[1480px] flex justify-center items-start flex-wrap gap-5 z-20 px-4 xs:px-6 md:px-8 lg:px-12'>
 					{allProjects.map((project: Project, index) => (
-						<FlipCard key={project.name} index={index} sequence={projectSequence[index]} {...project} />
+						<FlipCard key={project.name} index={index} viewportWidth={viewportWidth} sequence={projectSequence[index]} {...project} />
 					))}
 				</div>
 			</div>

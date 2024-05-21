@@ -14,7 +14,7 @@ import dynamic from 'next/dynamic'
 
 const Modal = dynamic(() => import('./Modal'), { ssr: false })
 
-export default function FlipCard({ index, sequence, ...project }: Project) {
+export default function FlipCard({ index, sequence, viewportWidth, ...project }: Project) {
 	const [showModal, setShowModal] = useState(false)
 
 	if (index === undefined) return
@@ -36,7 +36,7 @@ export default function FlipCard({ index, sequence, ...project }: Project) {
 	const delayBySequence = sequence ? sequence * 300 : Math.trunc(Math.random() * 3000 + 300)
 	const delayByIndex = index * 300
 
-	const viewportWidth = typeof window !== 'undefined' ? window.innerWidth : ''
+	// const viewportWidth = typeof window !== 'undefined' ? window.innerWidth : ''
 	const delayTime = viewportWidth && viewportWidth >= 884 ? delayBySequence : delayByIndex
 
 	const randomStyle = {

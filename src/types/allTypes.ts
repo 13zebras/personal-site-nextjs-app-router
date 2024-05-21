@@ -1,6 +1,7 @@
 export interface Project {
 	index?: number
 	sequence?: number
+	viewportWidth?: number
 	name: string
 	url: string
 	summary: string
