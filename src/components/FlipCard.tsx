@@ -27,8 +27,6 @@ export default function FlipCard({ index, sequence, ...project }: Project) {
 		}
 	}
 
-	const viewportWidth = window.innerWidth
-
 	const cld = new Cloudinary({ cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY } })
 	const frontImage = cld.image(project.cldPublicId)
 	frontImage.resize(scale().width(260)).delivery(quality(80))
@@ -37,7 +35,9 @@ export default function FlipCard({ index, sequence, ...project }: Project) {
 
 	const delayBySequence = sequence ? sequence * 300 : Math.trunc(Math.random() * 3000 + 300)
 	const delayByIndex = index * 300
-	const delayTime = viewportWidth >= 884 ? delayBySequence : delayByIndex
+
+	const viewportWidth = typeof window !== 'undefined' ? window.innerWidth : ''
+	const delayTime = viewportWidth && viewportWidth >= 884 ? delayBySequence : delayByIndex
 
 	const randomStyle = {
 		animationName: 'movingDiv',
