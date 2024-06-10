@@ -12,7 +12,7 @@ export function getAllWork() {
     {
       title: 'Frontend Developer',
       employer: 'Lucky Dog Studios',
-      dates: 'Jan 2022 - Nov 2022',
+      dates: 'Nov 2021 - Nov 2022',
       detailsType: 'Skills',
       details: 'React, Next.js, ChakraUI, Prisma, Solana, Supabase',
       summary1: 'Developed React frontends for NFT staking, minting, auction, and similar sites.',
@@ -48,7 +48,7 @@ export function getAllWork() {
     {
       title: 'Self-Employed',
       employer: 'Trader and Investor',
-      dates: 'Feb 1997 - Jun 2017',
+      dates: 'Aug 2008 - Jun 2017',
       detailsType: 'Investments',
       details: 'Stocks, Bonds, Mutual Funds, ETFs, Forex',
       summary1: 'Traded forex, futures, options, stocks, and bonds for personal portfolio.',
