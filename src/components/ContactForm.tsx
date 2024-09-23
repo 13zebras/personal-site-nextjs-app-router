@@ -57,9 +57,9 @@ export default function ContactForm() {
 		if (nameRef.current && emailRef.current && textareaRef.current) setIsFormDisabled(!nameRef.current.value || !emailRef.current.value || !textareaRef.current.value)
 	}
 
-	const mdDuration = 1000
-	const mdDelay = 700
-	const delayOffset = -400
+	const mdDuration = 800
+	const mdDelay = 500
+	const delayOffset = -300
 
 	return (
 		<main className='w-full h-screen max-w-xl flex flex-col justify-start items-center px-[8vw] xs:px-10 pt-14 md:pt-24 lg:pt-[max(6rem,9vh)] pb-12 overflow-x-hidden overflow-y-auto'>
