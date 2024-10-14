@@ -28,15 +28,13 @@ export default function About() {
 				</div>
 				<div className='lg:basis-full lg:order-1 max-w-[550px] w-full text-left text-base text-zinc-300'>
 					<MovingDiv classname='pb-4' duration={mdDuration} delay={1 * mdDelay}>
-						As a frontend web developer specializing in React, Next.js, TypeScript, and Node.js, I bring a diverse range of experiences to the table. While I had dabbled in web development since the late 1990s, it wasn't until 2021, after leaving my teaching career, that I decided to pursue coding full-time. I kicked off 2022 by joining a small web3 development studio, where I built frontends for various NFT projects. When the NFT market took a downturn later that year, I transitioned to Bass Pro Shops as a frontend developer, where I am currently working on a React/Next.js-based frontend for the existing eCommerce
-						website.
+						As a frontend web developer specializing in React, Next.js, TypeScript, and Node.js, I bring a diverse range of experiences to the table. While I had dabbled in web development since the late 1990s, it wasn't until 2021, after leaving my teaching career, that I decided to pursue coding full-time. I kicked off 2022 by joining a small web3 development studio, where I built frontends for various NFT projects. When the NFT market took a downturn later that year, I transitioned to Bass Pro Shops as a frontend developer, where I am currently working on a React/Next.js based frontend for the existing eCommerce website.
 					</MovingDiv>
 					<MovingDiv classname='pb-4' duration={mdDuration} delay={2 * mdDelay}>
 						Beyond web development, I have extensive experience teaching a wide variety of subjects to learners of all ages. Teaching has always been a passion of mine, and I firmly believe in the possibility of helping everyone to learn. Effective teaching, contrary to popular belief, is less about the teacher thoroughly knowing their subject matter. Instead, it is far more about understanding each student's needs and helping him or her take the next step towards acquiring the knowledge or understanding they require.
 					</MovingDiv>
 					<MovingDiv classname='pb-4' duration={mdDuration} delay={3 * mdDelay}>
-						In addition to teaching and coding, I spent two decades trading various financial assets, including precious metals, bonds, futures, and forex, for my personal accounts. This experience provided me with a deep understanding of central banking and financial markets, fueling my interest in cryptocurrencies
-						and decentralized finance (DeFi).
+						In addition to teaching and coding, I spent two decades trading various financial assets, including precious metals, bonds, futures, and forex, for my personal accounts.
 					</MovingDiv>
 					<MovingDiv classname='pb-4' duration={mdDuration} delay={4 * mdDelay}>
 						I have an insatiable thirst for learning, with a particular fascination for technology, history, politics, international affairs, psychology, and geography. Maps have always held a special appeal for me, leading my daughter to joke that I seem to have "a map in my head" due to the countless hours spent
@@ -57,13 +55,6 @@ export default function About() {
 								Mastering the Ternary Operator: Lessons from a Job Interview
 							</a>
 
-							<a className='block hover:underline hover:text-sky-300 active:text-sky-200' href='https://13zebras.medium.com/web3-foundations-must-create-true-educational-programs-courses-in-order-to-train-the-next-80-000-33c36331ddd5' target='_blank' rel='noreferrer'>
-								Web3 Ecosystems Need Real Educational Courses and Programs in Order to Thrive and Flourish
-							</a>
-
-							<a className='block hover:underline hover:text-sky-300 active:text-sky-200' href='https://13zebras.medium.com/the-money-ization-of-cryptocurrencies-7293f2914455' target='_blank' rel='noreferrer'>
-								The "Money-ization" of Cryptocurrencies
-							</a>
 						</div>
 					</MovingDiv>
 				</div>
