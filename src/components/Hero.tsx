@@ -3,7 +3,7 @@
 import MovingDiv from './MovingDiv'
 import { AdvancedImage, placeholder } from '@cloudinary/react'
 
-import { LinkedinIcon, GithubIcon, EnvelopeIcon } from '@/utils/svgs'
+import { BlueskyIcon, LinkedinIcon, GithubIcon, EnvelopeIcon } from '@/utils/svgs'
 import { Cloudinary } from '@cloudinary/url-gen'
 
 import Link from 'next/link'
@@ -56,15 +56,18 @@ export default function Hero() {
 							experience
 						</Link>
 					</div>
-					<div id='iconLinks' className='flex justify-center gap-x-14 text-[36px] text-zinc-400'>
-						<Link href='/contact' className='hover:text-zinc-300 active:text-sky-400'>
-							<EnvelopeIcon />
+					<div id='iconLinks' className='flex justify-center gap-x-10 xs:gap-x-14 text-[34px] text-zinc-400'>
+						<Link href='https://bsky.app/profile/tomstine.dev/' target='_blank' rel='noopener noreferrer' className='hover:text-zinc-300 active:text-sky-400'>
+							<BlueskyIcon />
 						</Link>
 						<Link href='https://www.linkedin.com/in/tom-stine-13-zebras/' target='_blank' rel='noopener noreferrer' className='text-[36px] text-zinc-400 hover:text-zinc-300 active:text-sky-400'>
 							<LinkedinIcon />
 						</Link>
 						<Link href='https://github.com/13zebras' target='_blank' rel='noopener noreferrer' className='hover:text-zinc-300 active:text-sky-400'>
 							<GithubIcon />
+						</Link>
+						<Link href='/contact' className='hover:text-zinc-300 active:text-sky-400'>
+							<EnvelopeIcon />
 						</Link>
 					</div>
 				</MovingDiv>

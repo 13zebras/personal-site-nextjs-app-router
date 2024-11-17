@@ -1,6 +1,6 @@
 'use client'
 
-import { LinkedinIcon, GithubIcon, EnvelopeIcon, HamburgerIcon, CloseThickIcon, HomeIcon } from '@/utils/svgs'
+import { LinkedinIcon, GithubIcon, EnvelopeIcon, HamburgerIcon, CloseThickIcon, HomeIcon, BlueskyIcon } from '@/utils/svgs'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
@@ -51,9 +51,10 @@ export default function Header() {
 							</span>
 						)
 					})}
-					<MobileTextLink href={'/contact'}>
-						<EnvelopeIcon className='mr-3 mb-1 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
-						Contact
+
+					<MobileTextLink href='https://bsky.app/profile/tomstine.dev' target='_blank' rel='noopener noreferrer'>
+						<BlueskyIcon className='mr-3 mb-1 inline text-[1.7rem] text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
+						Bluesky
 					</MobileTextLink>
 					<MobileTextLink href='https://github.com/13zebras' target='_blank' rel='noopener noreferrer'>
 						<GithubIcon className='mr-3 mb-1 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
@@ -62,6 +63,10 @@ export default function Header() {
 					<MobileTextLink href='https://www.linkedin.com/in/tom-stine-13-zebras/' target='_blank' rel='noopener noreferrer'>
 						<LinkedinIcon className='mr-3 mb-1 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
 						LinkedIn
+					</MobileTextLink>
+					<MobileTextLink href={'/contact'}>
+						<EnvelopeIcon className='mr-3 mb-1 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
+						Contact
 					</MobileTextLink>
 				</div>
 			</section>
@@ -90,14 +95,17 @@ export default function Header() {
 					)
 				})}
 				<div className='flex flex-row justify-center items-center gap-x-5 w-[120px]'>
-					<Link href='/contact'>
-						<EnvelopeIcon className='inline text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
+					<Link href='https://bsky.app/profile/tomstine.dev/' className='' target='_blank' rel='noopener noreferrer'>
+						<BlueskyIcon className='inline text-[1.4rem] text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
 					</Link>
 					<Link href='https://github.com/13zebras' className='' target='_blank' rel='noopener noreferrer'>
 						<GithubIcon className='inline text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
 					</Link>
 					<Link href='https://www.linkedin.com/in/tom-stine-13-zebras/' className='hidden xs:block' target='_blank' rel='noopener noreferrer'>
 						<LinkedinIcon className='inline text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
+					</Link>
+					<Link href='/contact'>
+						<EnvelopeIcon className='inline text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
 					</Link>
 				</div>
 			</section>
