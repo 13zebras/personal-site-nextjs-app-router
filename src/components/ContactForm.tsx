@@ -14,14 +14,12 @@ export default function ContactForm() {
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
 	const [message, setMessage] = useState('')
-	// const [missingFields, setMissingFields] = useState<FormData | null>(null)
+
 	const [missingFields, setMissingFields] = useState<boolean[]>([false, false, false])
 	const [success, setSuccess] = useState<'success' | 'fail' | undefined>(undefined)
 	const nameRef = useRef<HTMLInputElement>(null)
 	const emailRef = useRef<HTMLInputElement>(null)
 	const textareaRef = useRef<HTMLTextAreaElement>(null)
-	const [isFormDisabled, setIsFormDisabled] = useState(false)
-	// const [isFormDisabled, setIsFormDisabled] = useState(true)
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
@@ -44,30 +42,17 @@ export default function ContactForm() {
 				else if (response.error) setSuccess('fail')
 				else setSuccess(undefined)
 			})
-		// .finally(() => {
-		// 	setName('')
-		// 	setEmail('')
-		// 	setMessage('')
-		// })
 
 		if (nameRef.current) nameRef.current.value = ''
 
 		if (emailRef.current) emailRef.current.value = ''
 
 		if (textareaRef.current) textareaRef.current.value = ''
-
-		// setIsFormDisabled(true)
 	}
-
-	// const handleInputChange = () => {
-	// if (nameRef.current && emailRef.current && textareaRef.current) setIsFormDisabled(!nameRef.current.value || !emailRef.current.value || !textareaRef.current.value)
-	// }
 
 	const mdDuration = 800
 	const mdDelay = 500
 	const delayOffset = -300
-
-	console.log('%c>>> missingFields', 'color: red', missingFields)
 
 	return (
 		<main className='w-full h-screen max-w-xl flex flex-col justify-start items-center px-[8vw] xs:px-10 pt-14 md:pt-24 lg:pt-[max(6rem,9vh)] pb-12 overflow-x-hidden overflow-y-auto'>
@@ -86,7 +71,6 @@ export default function ContactForm() {
 							placeholder='Fred Flintstone'
 							onChange={(e) => {
 								setName(e.target.value)
-								// handleInputChange()
 							}}
 							className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-teal-700 focus:shadow-md placeholder:text-gray-400 placeholder:italic placeholder:text-base'
 						/>
@@ -103,7 +87,6 @@ export default function ContactForm() {
 							placeholder='fred@flintstone.xyz'
 							onChange={(e) => {
 								setEmail(e.target.value)
-								// handleInputChange()
 							}}
 							className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-teal-700 focus:shadow-md placeholder:text-gray-400 placeholder:italic placeholder:text-base'
 						/>
@@ -120,13 +103,12 @@ export default function ContactForm() {
 							placeholder='my message to Tom'
 							onChange={(e) => {
 								setMessage(e.target.value)
-								// handleInputChange()
 							}}
 							className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-teal-700 focus:shadow-md placeholder:text-gray-400 placeholder:italic placeholder:text-base'
 						/>
 					</MovingDiv>
 					<MovingDiv classname='w-full flex justify-center' duration={mdDuration} delay={4 * mdDelay + delayOffset}>
-						<Button type='submit' onClick={handleSubmit} disabled={isFormDisabled} className='w-full h-10 text-lg font-bold tracking-wide1 disabled:text-zinc-800 disabled:border-zinc-600'>
+						<Button type='submit' onClick={handleSubmit} className='w-full h-10 text-lg font-bold tracking-wide1 disabled:text-zinc-800 disabled:border-zinc-600'>
 							Submit
 						</Button>
 					</MovingDiv>
