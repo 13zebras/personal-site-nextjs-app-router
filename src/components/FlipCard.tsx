@@ -53,7 +53,7 @@ export default function FlipCard({ index, sequence, viewportWidth, ...project }:
 				<div id='flipContent' className='w-full h-full transition-transform duration-500 ease-out delay-100 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]'>
 					<div id='flipFront' className='absolute w-full h-full [backface-visibility:hidden] border-2 border-neutral-600 rounded-lg bg-zinc-920'>
 						<div className='relative w-full h-full p-[10px] md:px-3 flex flex-col items-center justify-start gap-y-[8px]'>
-							<AdvancedImage id='flipImage' cldImg={frontImage} plugins={[placeholder({ mode: 'blur' })]} className='border border-zinc-800 rounded-md' />
+							<AdvancedImage id='flipImage' cldImg={frontImage} plugins={[placeholder({ mode: 'blur' })]} className='border border-zinc-800 rounded-md' alt={project.name} />
 							<div className='w-full h-[50px] min-h-[50px] px-6 flex justify-center items-center text-center text-base leading-snug font-semibold text-zinc-200'>{project.name}</div>
 						</div>
 					</div>

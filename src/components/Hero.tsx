@@ -26,7 +26,7 @@ export default function Hero() {
 						<BackgroundCircles />
 					</div>
 					<div id='heroImage' className='relative border-2 border-neutral-600 rounded-full overflow-hidden aspect-square w-imageCircles max-w-imageCircles'>
-						<AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} />
+						<AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} alt='Tom Stine' />
 					</div>
 				</section>
 			</MovingDiv>

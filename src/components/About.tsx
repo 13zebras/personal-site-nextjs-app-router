@@ -23,15 +23,18 @@ export default function About() {
 			<div id='about' className='flex h-full w-full flex-col items-center justify-start gap-6 md:flex-wrap lg:max-w-[920px] overflow-x-hidden overflow-y-hidden px-8 xxs:px-10 xs:px-12 lg:px-0'>
 				<div className='lg:order-2'>
 					<MovingDiv duration={mdDuration} delay={1 * mdDelay}>
-						<AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} className='relative z-20 overflow-clip rounded-full border-2 border-neutral-600 max-w-[260px] xs:max-w-[280px] sm:max-w-[300px] lg:rounded-xl' />
+						<AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} className='relative z-20 overflow-clip rounded-full border-2 border-neutral-600 max-w-[260px] xs:max-w-[280px] sm:max-w-[300px] lg:rounded-xl' alt='Tom Stine' />
 					</MovingDiv>
 				</div>
 				<div className='lg:basis-full lg:order-1 max-w-[550px] w-full text-left text-base text-zinc-300'>
 					<MovingDiv classname='pb-4' duration={mdDuration} delay={1 * mdDelay}>
-						As a frontend web developer specializing in React, Next.js, TypeScript, and Node.js, I bring a diverse range of experiences to the table. While I had dabbled in web development since the late 1990s, it wasn't until 2021, after leaving my teaching career, that I decided to pursue coding full-time. I kicked off 2022 by joining a small web3 development studio, where I built frontends for various NFT projects. When the NFT market took a downturn later that year, I transitioned to Bass Pro Shops as a frontend developer, where I am currently working on a React/Next.js based frontend for the existing eCommerce website.
+						As a frontend web developer specializing in React, Next.js, TypeScript, and Node.js, I bring a diverse range of experiences to the table. While I had dabbled in web development since the late 1990s, it wasn't until 2021, after leaving my teaching career, that I decided to pursue coding full-time. I kicked
+						off 2022 by joining a small web3 development studio, where I built frontends for various NFT projects. When the NFT market took a downturn later that year, I transitioned to Bass Pro Shops as a frontend developer, where I am currently working on a React/Next.js based frontend for the existing eCommerce
+						website.
 					</MovingDiv>
 					<MovingDiv classname='pb-4' duration={mdDuration} delay={2 * mdDelay}>
-						Beyond web development, I have extensive experience teaching a wide variety of subjects to learners of all ages. Teaching has always been a passion of mine, and I firmly believe in the possibility of helping everyone to learn. Effective teaching, contrary to popular belief, is less about the teacher thoroughly knowing their subject matter. Instead, it is far more about understanding each student's needs and helping him or her take the next step towards acquiring the knowledge or understanding they require.
+						Beyond web development, I have extensive experience teaching a wide variety of subjects to learners of all ages. Teaching has always been a passion of mine, and I firmly believe in the possibility of helping everyone to learn. Effective teaching, contrary to popular belief, is less about the teacher
+						thoroughly knowing their subject matter. Instead, it is far more about understanding each student's needs and helping him or her take the next step towards acquiring the knowledge or understanding they require.
 					</MovingDiv>
 					<MovingDiv classname='pb-4' duration={mdDuration} delay={3 * mdDelay}>
 						In addition to teaching and coding, I spent two decades trading various financial assets, including precious metals, bonds, futures, and forex, for my personal accounts.
@@ -44,7 +47,8 @@ export default function About() {
 						Needless to say, I have been a true lifelong learner, eager to tackle any subject that comes my way.
 					</MovingDiv>
 					<MovingDiv classname='pb-0' duration={mdDuration} delay={6 * mdDelay}>
-						Finally, it's worth mentioning that I grew up on a dairy farm in rural Missouri, coming from a long line of farmers. While I can fix almost anything with a hammer, duct tape, WD-40, and wire or twine, milking cows never appealed to me. Instead, I pursued more intellectually stimulating and challenging endeavors. My varied background has imbued me with a cosmopolitan and global perspective, one that values and appreciates the inherent worth of all people, regardless of their country, background, orientation, age, or any other factor that contributes to the rich diversity of humanity.
+						Finally, it's worth mentioning that I grew up on a dairy farm in rural Missouri, coming from a long line of farmers. While I can fix almost anything with a hammer, duct tape, WD-40, and wire or twine, milking cows never appealed to me. Instead, I pursued more intellectually stimulating and challenging
+						endeavors. My varied background has imbued me with a cosmopolitan and global perspective, one that values and appreciates the inherent worth of all people, regardless of their country, background, orientation, age, or any other factor that contributes to the rich diversity of humanity.
 					</MovingDiv>
 				</div>
 				<div className='lg:order-3 w-full max-w-[550px] lg:max-w-[290px] mt-1'>
@@ -54,7 +58,6 @@ export default function About() {
 							<a className='block hover:underline hover:text-sky-300 active:text-sky-200' href='https://blog.13z.dev/mastering-the-ternary-operator-lessons-from-a-job-interview' target='_blank' rel='noreferrer'>
 								Mastering the Ternary Operator: Lessons from a Job Interview
 							</a>
-
 						</div>
 					</MovingDiv>
 				</div>

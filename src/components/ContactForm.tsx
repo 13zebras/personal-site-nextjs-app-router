@@ -14,11 +14,14 @@ export default function ContactForm() {
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
 	const [message, setMessage] = useState('')
+	// const [missingFields, setMissingFields] = useState<FormData | null>(null)
+	const [missingFields, setMissingFields] = useState<boolean[]>([false, false, false])
 	const [success, setSuccess] = useState<'success' | 'fail' | undefined>(undefined)
 	const nameRef = useRef<HTMLInputElement>(null)
 	const emailRef = useRef<HTMLInputElement>(null)
 	const textareaRef = useRef<HTMLTextAreaElement>(null)
-	const [isFormDisabled, setIsFormDisabled] = useState(true)
+	const [isFormDisabled, setIsFormDisabled] = useState(false)
+	// const [isFormDisabled, setIsFormDisabled] = useState(true)
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
@@ -27,6 +30,9 @@ export default function ContactForm() {
 			email,
 			message,
 		}
+		const missingFields = [!data.name, !data.email, !data.message]
+		setMissingFields(missingFields)
+		if (missingFields.some((field) => field)) return
 
 		fetch('/api/contact', {
 			method: 'POST',
@@ -38,11 +44,11 @@ export default function ContactForm() {
 				else if (response.error) setSuccess('fail')
 				else setSuccess(undefined)
 			})
-			.finally(() => {
-				setName('')
-				setEmail('')
-				setMessage('')
-			})
+		// .finally(() => {
+		// 	setName('')
+		// 	setEmail('')
+		// 	setMessage('')
+		// })
 
 		if (nameRef.current) nameRef.current.value = ''
 
@@ -50,16 +56,18 @@ export default function ContactForm() {
 
 		if (textareaRef.current) textareaRef.current.value = ''
 
-		setIsFormDisabled(true)
+		// setIsFormDisabled(true)
 	}
 
-	const handleInputChange = () => {
-		if (nameRef.current && emailRef.current && textareaRef.current) setIsFormDisabled(!nameRef.current.value || !emailRef.current.value || !textareaRef.current.value)
-	}
+	// const handleInputChange = () => {
+	// if (nameRef.current && emailRef.current && textareaRef.current) setIsFormDisabled(!nameRef.current.value || !emailRef.current.value || !textareaRef.current.value)
+	// }
 
 	const mdDuration = 800
 	const mdDelay = 500
 	const delayOffset = -300
+
+	console.log('%c>>> missingFields', 'color: red', missingFields)
 
 	return (
 		<main className='w-full h-screen max-w-xl flex flex-col justify-start items-center px-[8vw] xs:px-10 pt-14 md:pt-24 lg:pt-[max(6rem,9vh)] pb-12 overflow-x-hidden overflow-y-auto'>
@@ -67,25 +75,27 @@ export default function ContactForm() {
 			<div className='flex flex-col justify-start items-center w-full'>
 				<form onSubmit={handleSubmit} className='w-full flex flex-col justify-start items-center gap-y-8 sm:gap-y-10'>
 					<MovingDiv duration={mdDuration} delay={1 * mdDelay + delayOffset} classname='w-full'>
-						<label htmlFor='fullName' className='mb-2 block text-sm text-gray-400'>
+						<label htmlFor='fullName' className='mb-2 inline text-sm text-gray-300'>
 							Your Full Name:
 						</label>
+						{missingFields[0] && <span className='ml-2 text-sm text-red-600 italic'>*name is required</span>}
 						<input
 							ref={nameRef}
 							type='text'
 							name='fullName'
-							placeholder='full name'
+							placeholder='Fred Flintstone'
 							onChange={(e) => {
 								setName(e.target.value)
-								handleInputChange()
+								// handleInputChange()
 							}}
-							className='w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-teal-700 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
+							className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-teal-700 focus:shadow-md placeholder:text-gray-400 placeholder:italic placeholder:text-base'
 						/>
 					</MovingDiv>
 					<MovingDiv duration={mdDuration} delay={2 * mdDelay + delayOffset} classname='w-full'>
-						<label htmlFor='email' className='mb-2 block text-sm text-gray-400'>
+						<label htmlFor='email' className='inline text-sm text-gray-300'>
 							Your Email Address:
 						</label>
+						{missingFields[1] && <span className='ml-2 text-sm text-red-600 italic'>*email address is required</span>}
 						<input
 							ref={emailRef}
 							type='email'
@@ -93,25 +103,26 @@ export default function ContactForm() {
 							placeholder='fred@flintstone.xyz'
 							onChange={(e) => {
 								setEmail(e.target.value)
-								handleInputChange()
+								// handleInputChange()
 							}}
-							className='w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-teal-700 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
+							className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-teal-700 focus:shadow-md placeholder:text-gray-400 placeholder:italic placeholder:text-base'
 						/>
 					</MovingDiv>
 					<MovingDiv duration={mdDuration} delay={3 * mdDelay + delayOffset} classname='w-full'>
-						<label htmlFor='message' className='mb-2 block text-sm text-gray-400'>
+						<label htmlFor='message' className='mb-2 inline text-sm text-gray-300'>
 							Your Message:
 						</label>
+						{missingFields[2] && <span className='ml-2 text-sm text-red-600 italic'>*message is required</span>}
 						<textarea
 							ref={textareaRef}
 							rows={6}
 							name='message'
-							placeholder='type your message here'
+							placeholder='my message to Tom'
 							onChange={(e) => {
 								setMessage(e.target.value)
-								handleInputChange()
+								// handleInputChange()
 							}}
-							className='w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-teal-700 focus:shadow-md placeholder:text-gray-500 placeholder:italic placeholder:text-base'
+							className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 py-2 px-3 text-base text-gray-200 outline-none focus:border-teal-700 focus:shadow-md placeholder:text-gray-400 placeholder:italic placeholder:text-base'
 						/>
 					</MovingDiv>
 					<MovingDiv classname='w-full flex justify-center' duration={mdDuration} delay={4 * mdDelay + delayOffset}>
