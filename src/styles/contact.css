@@ -1,7 +1,7 @@
 @keyframes movingDiv {
   0% {
     opacity: 0;
-    transform: translateY(300px);
+    transform: translateY(25px);
     scale: 0.9;
   }
 

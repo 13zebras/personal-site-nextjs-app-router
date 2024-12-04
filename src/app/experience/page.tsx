@@ -1,15 +1,15 @@
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import WorkExperience from '@/components/WorkExperience'
-import type { WorkData } from '@/types/allTypes'
-import { getAllWork } from '@/utils/work'
+import Footer from "@/components/Footer"
+import Header from "@/components/Header"
+import WorkExperience from "@/components/WorkExperience"
+import type { WorkData } from "@/types/allTypes"
+import { getAllWork } from "@/utils/work"
 
 const keyframeCss = `
     @keyframes movingDiv {
         0% {
             opacity: 0;
-            transform: translateY(100px);
-            scale: 0.8;
+            transform: translateY(25px);
+            scale: 0.9;
         }
         90% {
             opacity: 1;

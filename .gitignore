@@ -41,3 +41,8 @@ next-env.d.ts
 TODO.md
 z-old-components
 biome.json
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

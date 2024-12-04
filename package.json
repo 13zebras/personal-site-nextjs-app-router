@@ -1,31 +1,32 @@
 {
-	"name": "a-new-portfolio-site",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
-	},
-	"dependencies": {
-		"@cloudinary/react": "^1.13.0",
-		"@cloudinary/url-gen": "^1.19.0",
-		"next": "14.1.1",
-		"nodemailer": "^6.9.13",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-simple-typewriter": "^5.0.1"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.7.3",
-		"@types/node": "^20.11.30",
-		"@types/nodemailer": "^6.4.14",
-		"@types/react": "^18.2.73",
-		"@types/react-dom": "^18.2.22",
-		"autoprefixer": "^10.4.19",
-		"postcss": "^8.4.38",
-		"tailwindcss": "^3.4.2",
-		"typescript": "^5.4.3"
-	}
+  "name": "a-new-portfolio-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@cloudinary/react": "^1.13.0",
+    "@cloudinary/url-gen": "^1.19.0",
+    "next": "14.1.1",
+    "nodemailer": "^6.9.13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-simple-typewriter": "^5.0.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.7.3",
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^20.11.30",
+    "@types/nodemailer": "^6.4.14",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.22",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.2",
+    "typescript": "^5.4.3"
+  }
 }
