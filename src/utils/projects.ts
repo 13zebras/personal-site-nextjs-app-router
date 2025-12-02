@@ -28,10 +28,10 @@ export function getAllProjects() {
       name: "Bass Pro Shops Outdoor Fund",
       url: "https://basspro.com/cart",
       summary:
-        "The Outdoor Fund section of the Bass Pro Shops cart needed a complete overhaul to make it fully mobile responive.",
+        "The Outdoor Fund section of the Bass Pro Shops cart needed a complete overhaul to make it fully mobile responsive.",
       cldPublicId: "portfolio/basspro-odf",
       description:
-        "The previous outdoor fund section of the cart was originally designed for desktop and was not mobile responsive. I reworked the layout, implemented flexbox for the entire component, and made it fully mobile responsive. I also worked with our UX team to make a new image/logo that would also be mobile responive by placing the text as an overlay on the image.",
+        "The previous outdoor fund section of the cart was originally designed for desktop and was not mobile responsive. I reworked the layout, implemented flexbox for the entire component, and made it fully mobile responsive. I also worked with our UX team to make a new image/logo that would also be mobile responsive by placing the text as an overlay on the image.",
       stack: "React, Next.js, TypeScript, Recoil, Sass, Jest",
       company: "Bass Pro Shops",
       companyUrl: "https://basspro.com",

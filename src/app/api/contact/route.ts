@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
 	})
 
 	const mailOptions: Mail.Options = {
-		from: process.env.FASTMAIL_EMAIL,
+		from: email,
 		to: 'contact13z.dev@13z.foo',
 		subject: 'RECEIVED: 13z.dev ContactForm',
 		text: `from: ${name}\nemail: ${email}\nmessage: ${message}`,
