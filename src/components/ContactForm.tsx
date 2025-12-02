@@ -172,15 +172,14 @@ export default function ContactForm() {
             </Button>
           </MovingDiv>
         </form>
-        <div className="pt-10 px-4 flex flex-col justify-start items-center gap-y-12">
+        <div className="pt-6 px-4 flex flex-col justify-start items-center gap-y-12">
           {success === "success" && (
-            <p className="py-0 px-2 text-base text-gray-300 italic">
-              Thank you for your message! I will get back to you as soon as
-              possible.
+            <p className="p-0 text-base text-gray-300 italic">
+              Thank you for your message!
             </p>
           )}
           {success === "fail" && (
-            <p className="py-0 px-2 text-base text-center text-red-550 italic">
+            <p className="p-0 text-base text-center text-red-550 italic">
               Oops! Something went wrong. Please try again later.
             </p>
           )}
