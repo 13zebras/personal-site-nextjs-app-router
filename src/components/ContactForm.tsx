@@ -73,7 +73,7 @@ export default function ContactForm() {
       <div className="flex flex-col justify-start items-center w-full">
         <form
           onSubmit={handleSubmit}
-          className="w-full flex flex-col justify-start items-center gap-y-8 sm:gap-y-10"
+          className="w-full flex flex-col justify-start items-center gap-y-6"
         >
           <MovingDiv
             duration={mdDuration}
