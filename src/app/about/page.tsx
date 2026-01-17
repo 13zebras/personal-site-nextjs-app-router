@@ -1,11 +1,12 @@
 import '@/styles/about.css'
+
 import About from '@/components/About'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 
 export default function AboutPage() {
   return (
-    <div className='bg-zinc-950 w-full flex flex-col justify-center items-center overflow-hidden'>
+    <div className='flex w-full flex-col items-center justify-center overflow-hidden bg-zinc-950'>
       <Header />
       <About />
       <Footer />

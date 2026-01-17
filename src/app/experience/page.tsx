@@ -1,8 +1,8 @@
-import Footer from "@/components/Footer"
-import Header from "@/components/Header"
-import WorkExperience from "@/components/WorkExperience"
-import type { WorkData } from "@/types/allTypes"
-import { getAllWork } from "@/utils/work"
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import WorkExperience from '@/components/WorkExperience'
+import type { WorkData } from '@/types/allTypes'
+import { getAllWork } from '@/utils/work'
 
 const keyframeCss = `
     @keyframes movingDiv {
@@ -26,7 +26,7 @@ const keyframeCss = `
 export default function ExperiencePage() {
   const allWork: WorkData[] = getAllWork()
   return (
-    <div className="bg-zinc-950 w-full h-full flex flex-col justify-center items-center">
+    <div className='flex h-full w-full flex-col items-center justify-center bg-zinc-950'>
       <style>{keyframeCss}</style>
       <Header />
       <WorkExperience allWork={allWork} />

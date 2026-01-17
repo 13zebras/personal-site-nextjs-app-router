@@ -38,8 +38,6 @@ yarn-error.log*
 next-env.d.ts
 
 # misc
-TODO.md
-z-old-components
 biome.json
 node_modules/
 /test-results/

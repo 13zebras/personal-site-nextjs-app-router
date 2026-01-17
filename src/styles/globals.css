@@ -14,7 +14,6 @@ body {
 }
 
 @layer components {
-
   .w-imageCircles {
     width: clamp(204px, calc(33vh + 3vw), 320px);
   }
@@ -22,7 +21,6 @@ body {
   .max-w-imageCircles {
     max-width: clamp(204px, calc(15vh + 25vw), 320px);
   }
-
 }
 
 /********************************
@@ -42,9 +40,7 @@ body {
   }
 }
 
-
 @layer utilities {
-
   /* Borders for Testing */
   .brdT {
     border: 1px solid #765;

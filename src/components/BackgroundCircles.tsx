@@ -1,11 +1,11 @@
 const BackgroundCircles = () => {
-	return (
-		<>
-			<div className='absolute border rounded-full border-pulse-red animate-ping-md h900:md:animate-ping-lg aspect-square w-imageCircles max-w-imageCircles' />
-			<div className='absolute border rounded-full border-pulse-cyan animate-pulse-cyan overflow-visible aspect-square scale-[1.2] h900:md:scale-[1.25] w-imageCircles max-w-imageCircles' />
-			<div className='absolute border rounded-full border-pulse-lime animate-pulse-lime overflow-visible aspect-square scale-[1.4] h900:md:scale-[1.5] w-imageCircles max-w-imageCircles' />
-		</>
-	)
+  return (
+    <>
+      <div className='w-imageCircles max-w-imageCircles absolute aspect-square animate-ping-md rounded-full border border-pulse-red h900:md:animate-ping-lg' />
+      <div className='w-imageCircles max-w-imageCircles absolute aspect-square scale-[1.2] animate-pulse-cyan overflow-visible rounded-full border border-pulse-cyan h900:md:scale-[1.25]' />
+      <div className='w-imageCircles max-w-imageCircles absolute aspect-square scale-[1.4] animate-pulse-lime overflow-visible rounded-full border border-pulse-lime h900:md:scale-[1.5]' />
+    </>
+  )
 }
 
 export default BackgroundCircles
