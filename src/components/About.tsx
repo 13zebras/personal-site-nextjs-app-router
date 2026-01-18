@@ -7,7 +7,6 @@ import { fill, scale } from '@cloudinary/url-gen/actions/resize'
 import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity'
 
 // import { useEffect, useState } from 'react'
-import MovingDiv from './MovingDiv'
 
 export default function About() {
   const publicIdTom = 'portfolio/tom-chill-center' // publicIdCld
@@ -16,9 +15,6 @@ export default function About() {
   })
   const fullImage = cld.image(publicIdTom)
   fullImage.resize(scale().width(300)).delivery(quality(80))
-
-  const mdDuration = 800
-  const mdDelay = 500
 
   return (
     <main
@@ -33,68 +29,65 @@ export default function About() {
         className='flex h-full w-full flex-col items-center justify-start gap-6 overflow-x-hidden overflow-y-hidden px-8 xxs:px-10 xs:px-12 md:flex-wrap lg:max-w-[920px] lg:px-0'
       >
         <div className='lg:order-2'>
-          <MovingDiv duration={mdDuration} delay={1 * mdDelay}>
-            <AdvancedImage
-              cldImg={fullImage}
-              plugins={[placeholder({ mode: 'blur' })]}
-              className='relative z-20 max-w-[260px] overflow-clip rounded-full border-2 border-neutral-600 xs:max-w-[280px] sm:max-w-[300px] lg:rounded-xl'
-              alt='Tom Stine'
-            />
-          </MovingDiv>
+          <AdvancedImage
+            cldImg={fullImage}
+            plugins={[placeholder({ mode: 'blur' })]}
+            className='relative z-20 max-w-[260px] overflow-clip rounded-full border-2 border-neutral-600 xs:max-w-[280px] sm:max-w-[300px] lg:rounded-xl'
+            alt='Tom Stine'
+          />
         </div>
         <div className='w-full max-w-[550px] text-left text-base text-zinc-300 lg:order-1 lg:basis-full'>
-          <MovingDiv classname='pb-4' duration={mdDuration} delay={1 * mdDelay}>
+          <p className='pb-4'>
             As a frontend engineer specializing in React, Next.js, TypeScript, React Query, and React Testing Library, I
-            bring a diverse range of experiences to the table. While I had dabbled in web development since the late
-            1990s, it wasn't until 2021, after leaving my teaching career, that I decided to pursue coding full-time. I
-            kicked off 2022 by joining a small web3 development studio, where I built frontends for various NFT
-            projects. When the NFT market took a downturn later that year, I transitioned to Bass Pro Shops as a
-            frontend developer, where I worked on a React/Next.js based frontend for the existing eCommerce website. I
-            am currently a frontend engineer with Remote.
-          </MovingDiv>
-          <MovingDiv classname='pb-4' duration={mdDuration} delay={2 * mdDelay}>
-            Beyond web development, I have extensive experience teaching a wide variety of subjects to learners of all
-            ages. Teaching has always been a passion of mine, and I firmly believe in the possibility of helping
-            everyone to learn. Effective teaching, contrary to popular belief, is less about the teacher thoroughly
-            knowing their subject matter. Instead, it is far more about understanding each student's needs and helping
-            him or her take the next step towards acquiring the knowledge or understanding they require.
-          </MovingDiv>
-          <MovingDiv classname='pb-4' duration={mdDuration} delay={3 * mdDelay}>
-            In addition to teaching and coding, I spent two decades trading various financial assets, including precious
-            metals, bonds, futures, and forex, for my personal accounts.
-          </MovingDiv>
-          <MovingDiv classname='pb-4' duration={mdDuration} delay={4 * mdDelay}>
-            I have an insatiable thirst for learning, with a particular fascination for technology, history, politics,
-            international affairs, psychology, and geography. Maps have always held a special appeal for me, leading my
-            daughter to joke that I seem to have "a map in my head" due to the countless hours spent studying them as a
-            child.
-          </MovingDiv>
-          <MovingDiv classname='pb-4' duration={mdDuration} delay={5 * mdDelay}>
-            Needless to say, I have been a true lifelong learner, eager to tackle any subject that comes my way.
-          </MovingDiv>
-          <MovingDiv classname='pb-0' duration={mdDuration} delay={6 * mdDelay}>
-            Finally, it's worth mentioning that I grew up on a dairy farm in rural Missouri, coming from a long line of
-            farmers. While I can fix almost anything with a hammer, duct tape, WD-40, and wire or twine, milking cows
-            never appealed to me. Instead, I pursued more intellectually stimulating and challenging endeavors. My
-            varied background has imbued me with a cosmopolitan and global perspective, one that values and appreciates
-            the inherent worth of all people, regardless of their country, background, orientation, age, or any other
-            factor that contributes to the rich diversity of humanity.
-          </MovingDiv>
+            bring a diverse range of experiences to my work. Though I first dabbled in web development during the late
+            1990s, I didn't commit to coding entirely until 2021, when I left my teaching career.
+          </p>
+          <p className='pb-4'>
+            I began 2022 by joining a small web3 development studio, building frontends for various NFT projects. When
+            the NFT market declined later that year, I moved to Bass Pro Shops as a frontend developer, working on a
+            React and Next.js frontend for their eCommerce site. I'm now a frontend engineer at Remote.
+          </p>
+          <p className='pb-4'>
+            Beyond web development, I have extensive experience teaching a wide range of subjects to learners of all
+            ages. Teaching has always been my passion, and I believe deeply in helping everyone learn.
+          </p>
+          <p className='pb-4'>
+            Effective teaching, contrary to popular belief, isn't primarily about the teacher's mastery of subject
+            matter. Rather, it's about understanding each student's individual needs and helping them take the next step
+            toward acquiring the knowledge and understanding they seek.
+          </p>
+          <p className='pb-4'>
+            In addition to teaching and coding, I spent two decades trading financial assets, including precious metals,
+            bonds, futures, and forex, for my personal accounts.
+          </p>
+          <p className='pb-4'>
+            I have an insatiable thirst for learning, drawn particularly to technology, history, politics, international
+            affairs, psychology, and geography. Maps have always captivated me; my daughter jokes that I seem to have "a
+            map in my head," reflecting the countless hours I spent studying them as a child.
+          </p>
+          <p className='pb-4'>
+            Naturally, I'm a true lifelong learner, eager to engage with any subject that comes my way.
+          </p>
+          <p className='pb-0'>
+            I grew up on a dairy farm in rural Missouri, part of a long line of farmers. While I can repair nearly
+            anything with a hammer, duct tape, WD-40, wire, or twine, milking cows never appealed to me. Instead, I
+            pursued more intellectually stimulating challenges. This varied background has given me a cosmopolitan
+            global perspective, one that values and appreciates the inherent worth of all people, regardless of country,
+            background, orientation, age, or any other factor that contributes to humanity's rich diversity.
+          </p>
         </div>
         <div className='mt-1 w-full max-w-[550px] lg:order-3 lg:max-w-[290px]'>
-          <MovingDiv duration={mdDuration} delay={2 * mdDelay}>
-            <h3 className='pb-4 text-lg font-bold tracking-wide1 text-zinc-400'>Blog Posts & Essays:</h3>
-            <div className='flex flex-col items-start justify-start gap-y-3 px-8 text-base leading-snug text-sky-350 lg:px-0 lg:text-[0.96rem] lg:leading-tight'>
-              <a
-                className='block hover:text-sky-300 hover:underline active:text-sky-200'
-                href='https://blog.13z.dev/mastering-the-ternary-operator-lessons-from-a-job-interview'
-                target='_blank'
-                rel='noreferrer'
-              >
-                Mastering the Ternary Operator: Lessons from a Job Interview
-              </a>
-            </div>
-          </MovingDiv>
+          <h3 className='pb-4 text-lg font-bold tracking-wide1 text-zinc-400'>Blog Posts & Essays:</h3>
+          <div className='flex flex-col items-start justify-start gap-y-3 px-8 text-base leading-snug text-sky-350 lg:px-0 lg:text-[0.96rem] lg:leading-tight'>
+            <a
+              className='block hover:text-sky-300 hover:underline active:text-sky-200'
+              href='https://blog.13z.dev/mastering-the-ternary-operator-lessons-from-a-job-interview'
+              target='_blank'
+              rel='noreferrer'
+            >
+              Mastering the Ternary Operator: Lessons from a Job Interview
+            </a>
+          </div>
         </div>
       </div>
     </main>
