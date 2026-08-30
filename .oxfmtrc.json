@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 120,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": false,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "sortImports": true,
+  "sortTailwindcss": {
+    "config": "tailwind.config.ts"
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    ".pnpm-store/",
+    ".next/",
+    "out/",
+    "dist/",
+    "build/",
+    "pnpm-lock.yaml",
+    "package-lock.json",
+    "yarn.lock",
+    "*.min.js",
+    "*.min.css",
+    "*.log",
+    ".env",
+    ".env.local",
+    ".env.*.local",
+    ".DS_Store"
+  ]
+}

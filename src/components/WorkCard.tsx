@@ -5,11 +5,11 @@ import type { WorkData } from '@/types/allTypes'
 export default function WorkCard({ index, ...props }: WorkData) {
   if (index === undefined) index = 1
 
-  const delayTime = `${index * 400 + 200}ms`
+  const delayTime = `${index * 300 + 200}ms`
 
   const workMovingStyle = {
     animationName: 'movingDiv',
-    animationDuration: '800ms',
+    animationDuration: '500ms',
     animationFillMode: 'both',
     animationTimingFunction: 'ease-out',
     animationDelay: delayTime,

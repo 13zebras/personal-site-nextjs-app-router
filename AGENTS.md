@@ -10,10 +10,10 @@ pnpm dev          # Start development server (Next.js)
 pnpm build        # Build for production
 pnpm start        # Start production server
 
-# Linting and Formatting
-pnpm lint         # Run ESLint
-pnpm lint:fix     # Run ESLint with auto-fix
-pnpm format       # Format code with Prettier
+# Linting and Formatting (OXC)
+pnpm lint         # Run oxlint
+pnpm lint:fix     # Run oxlint with auto-fix
+pnpm format       # Format code with oxfmt
 pnpm format:check # Check code formatting
 pnpm check        # Run lint + format check
 pnpm fix          # Run lint:fix + format
@@ -21,7 +21,7 @@ pnpm fix          # Run lint:fix + format
 
 ## Architecture
 
-This is a Next.js 14 portfolio website using the App Router. Built with React, TypeScript, and TailwindCSS.
+This is a Next.js 16 portfolio website using the App Router. Built with React 19, TypeScript 7 (tsgo), and TailwindCSS.
 
 ### Project Structure
 
@@ -48,19 +48,18 @@ Required for the contact form API:
 
 ## Code Style
 
-Uses Prettier for formatting and ESLint for linting:
+Uses oxfmt for formatting and oxlint for linting (OXC toolchain):
 
-- **Formatting (Prettier)**:
+- **Formatting (oxfmt)** — config in `.oxfmtrc.json`:
   - Single quotes (including JSX)
   - No semicolons
   - Trailing commas
   - 120 character line width
   - 2-space indentation
   - LF line endings
+  - Import sorting (`sortImports`) and Tailwind class sorting (`sortTailwindcss`) built in
 
-- **Linting (ESLint 9 flat config)**:
-  - TypeScript support via typescript-eslint
-  - React and React Hooks rules
-  - Next.js plugin for Next.js-specific rules
-  - Automatic import sorting
-  - Tailwind CSS classname ordering
+- **Linting (oxlint)** — config in `.oxlintrc.json`:
+  - Plugins: eslint core, typescript, react, unicorn, oxc, import, nextjs
+  - Categories: correctness (error), suspicious + perf (warn)
+  - `typescript/no-unused-vars` warn (`^_` ignore patterns), `typescript/no-explicit-any` warn

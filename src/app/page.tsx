@@ -1,5 +1,4 @@
 import '@/styles/home.css'
-
 import Footer from '@/components/Footer'
 import Hero from '@/components/Hero'
 

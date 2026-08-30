@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "react", "unicorn", "oxc", "import", "nextjs"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "rules": {
+    "typescript/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "typescript/no-explicit-any": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "off",
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "warn",
+    "eslint/no-unused-vars": "off",
+    "import/no-unassigned-import": "off",
+    "react/purity": "off"
+  },
+  "ignorePatterns": [
+    ".next/",
+    "node_modules/",
+    ".pnpm-store/",
+    "out/",
+    "dist/",
+    "build/",
+    "*.config.js",
+    "*.config.mjs"
+  ]
+}

@@ -1,6 +1,5 @@
 // PORTFOLIO PAGE
 import '@/styles/portfolio.css'
-
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Portfolio from '@/components/Portfolio'

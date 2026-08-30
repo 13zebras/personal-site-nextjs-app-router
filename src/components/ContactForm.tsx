@@ -34,9 +34,9 @@ export default function ContactForm() {
       message,
       token,
     }
-    const missingFields = [!data.name, !data.email, !data.message]
-    setMissingFields(missingFields)
-    if (missingFields.some((field) => field)) return
+    const newMissingFields = [!data.name, !data.email, !data.message]
+    setMissingFields(newMissingFields)
+    if (newMissingFields.some((field) => field)) return
 
     fetch('/api/contact', {
       method: 'POST',
@@ -50,14 +50,16 @@ export default function ContactForm() {
       })
 
     if (nameRef.current) nameRef.current.value = ''
-
     if (emailRef.current) emailRef.current.value = ''
-
     if (textareaRef.current) textareaRef.current.value = ''
+
+    setName('')
+    setEmail('')
+    setMessage('')
   }
 
-  const mdDuration = 500
-  const mdDelay = 200
+  const mdDuration = 300
+  const mdDelay = 100
   const delayOffset = -300
 
   return (
@@ -115,11 +117,7 @@ export default function ContactForm() {
               className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 px-3 py-2 text-base text-gray-200 outline-none placeholder:text-base placeholder:italic placeholder:text-gray-400 focus:border-teal-700 focus:shadow-md'
             />
           </MovingDiv>
-          <Turnstile
-            // biome-ignore lint/style/noNonNullAssertion: guaranteed non-null because value IS in the .env.local file
-            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-            onSuccess={setToken}
-          />
+          <Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!} onSuccess={setToken} />
           <MovingDiv classname='w-full flex justify-center' duration={mdDuration} delay={4 * mdDelay + delayOffset}>
             <Button
               type='submit'

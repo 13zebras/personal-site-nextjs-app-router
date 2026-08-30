@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import type { ReactNode } from 'react'
 
 type Props = {
-  children: (string | JSX.Element)[] | string | JSX.Element
+  children: ReactNode
   href: string
   className?: string
   target?: string

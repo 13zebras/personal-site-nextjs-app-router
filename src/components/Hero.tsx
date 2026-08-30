@@ -5,7 +5,7 @@ import { Cloudinary } from '@cloudinary/url-gen'
 import Link from 'next/link'
 import { Typewriter } from 'react-simple-typewriter'
 
-import { BlueskyIcon, EnvelopeIcon,GithubIcon, LinkedinIcon } from '@/utils/svgs'
+import { BlueskyIcon, EnvelopeIcon, GithubIcon, LinkedinIcon } from '@/utils/svgs'
 
 import BackgroundCircles from './BackgroundCircles'
 import MovingDiv from './MovingDiv'
