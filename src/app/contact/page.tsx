@@ -1,6 +1,5 @@
 // contact page
 import '@/styles/contact.css'
-
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'

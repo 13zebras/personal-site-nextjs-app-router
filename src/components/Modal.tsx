@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
 import type { Project } from '@/types/allTypes'
-import { CloseThickIcon,ExternalLinkIcon, GithubIcon } from '@/utils/svgs'
+import { CloseThickIcon, ExternalLinkIcon, GithubIcon } from '@/utils/svgs'
 
 import Button from './Button'
 

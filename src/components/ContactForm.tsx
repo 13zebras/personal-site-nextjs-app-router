@@ -115,11 +115,7 @@ export default function ContactForm() {
               className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 px-3 py-2 text-base text-gray-200 outline-none placeholder:text-base placeholder:italic placeholder:text-gray-400 focus:border-teal-700 focus:shadow-md'
             />
           </MovingDiv>
-          <Turnstile
-            // biome-ignore lint/style/noNonNullAssertion: guaranteed non-null because value IS in the .env.local file
-            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-            onSuccess={setToken}
-          />
+          <Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!} onSuccess={setToken} />
           <MovingDiv classname='w-full flex justify-center' duration={mdDuration} delay={4 * mdDelay + delayOffset}>
             <Button
               type='submit'

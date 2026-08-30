@@ -21,7 +21,6 @@ const transporter = nodemailer.createTransport({
 
 async function verifyTurnstile(token: string): Promise<boolean> {
   const params = new URLSearchParams({
-    // biome-ignore lint/style/noNonNullAssertion: guaranteed non-null because value IS in the .env.local file
     secret: process.env.TURNSTILE_SECRET_KEY!,
     response: token,
     remoteip: '',
