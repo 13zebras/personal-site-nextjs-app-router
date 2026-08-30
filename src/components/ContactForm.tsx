@@ -58,9 +58,9 @@ export default function ContactForm() {
     setMessage('')
   }
 
-  const mdDuration = 300
-  const mdDelay = 200
-  const delayOffset = -300
+  const mdDuration = 200
+  const mdDelay = 100
+  const delayOffset = -200
 
   return (
     <main className='flex h-screen w-full max-w-xl flex-col items-center justify-start overflow-y-auto overflow-x-hidden px-[8vw] pb-12 pt-14 xs:px-10 md:pt-24 lg:pt-[max(6rem,9vh)]'>
