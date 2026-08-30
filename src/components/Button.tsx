@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
+import type { ReactNode } from 'react'
 
 type Props = {
-  children: string | JSX.Element | JSX.Element[]
+  children: ReactNode
   type?: 'button' | 'submit' | 'reset'
   id?: string
   className?: string
