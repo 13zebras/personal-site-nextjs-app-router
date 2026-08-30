@@ -19,9 +19,9 @@ export default function About() {
   return (
     <main
       id='about'
-      className='flex h-full w-screen flex-col items-center justify-start overflow-y-auto pb-12 pt-14 md:pt-24 lg:pt-[max(6rem,9vh)]'
+      className='flex h-full w-screen animate-fade-in-075 flex-col items-center justify-start overflow-y-auto pb-12 pt-14 md:pt-24 lg:pt-[max(6rem,9vh)]'
     >
-      <h1 className='z-10 animate-fade-in-075 pb-6 font-mono text-[1.35rem] uppercase tracking-wide2 text-zinc-400 xs:text-2xl xs:tracking-wide4 sm:pb-10 sm:tracking-wide6 md:pb-12'>
+      <h1 className='z-10 pb-6 font-mono text-[1.35rem] uppercase tracking-wide2 text-zinc-400 xs:text-2xl xs:tracking-wide4 sm:pb-10 sm:tracking-wide6 md:pb-12'>
         about tom stine
       </h1>
       <div

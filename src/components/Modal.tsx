@@ -25,11 +25,20 @@ export default function Modal(props: ModalType) {
 
   const handleCloseClick = () => {
     setFadeModal(true)
-    document.body.style.removeProperty('overflow')
     setTimeout(() => {
       props.onClose()
     }, fadeTime + 100)
   }
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    const preventTouchScroll = (e: TouchEvent) => e.preventDefault()
+    document.body.addEventListener('touchstart', preventTouchScroll)
+    return () => {
+      document.body.style.removeProperty('overflow')
+      document.body.removeEventListener('touchstart', preventTouchScroll)
+    }
+  }, [])
 
   useEffect(() => {
     const updateHeight = () => {

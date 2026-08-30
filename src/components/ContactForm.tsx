@@ -34,9 +34,9 @@ export default function ContactForm() {
       message,
       token,
     }
-    const missingFields = [!data.name, !data.email, !data.message]
-    setMissingFields(missingFields)
-    if (missingFields.some((field) => field)) return
+    const newMissingFields = [!data.name, !data.email, !data.message]
+    setMissingFields(newMissingFields)
+    if (newMissingFields.some((field) => field)) return
 
     fetch('/api/contact', {
       method: 'POST',
@@ -50,13 +50,15 @@ export default function ContactForm() {
       })
 
     if (nameRef.current) nameRef.current.value = ''
-
     if (emailRef.current) emailRef.current.value = ''
-
     if (textareaRef.current) textareaRef.current.value = ''
+
+    setName('')
+    setEmail('')
+    setMessage('')
   }
 
-  const mdDuration = 500
+  const mdDuration = 300
   const mdDelay = 200
   const delayOffset = -300
 

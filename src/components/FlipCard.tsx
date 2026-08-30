@@ -21,10 +21,6 @@ export default function FlipCard({ index, sequence, viewportWidth, ...project }:
 
   const handleOpenClick = () => {
     setShowModal(true)
-    document.body.style.overflow = 'hidden'
-    document.body.ontouchstart = (e) => {
-      e.preventDefault()
-    }
   }
 
   const cld = new Cloudinary({

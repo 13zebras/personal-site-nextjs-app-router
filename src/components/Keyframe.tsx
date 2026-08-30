@@ -15,7 +15,7 @@ const toCss = (cssObject: React.CSSProperties | string) =>
     ? cssObject
     : Object.keys(cssObject).reduce((accumulator, key) => {
         const cssKey = key.replace(/[A-Z]/g, (v) => `-${v.toLowerCase()}`)
-        const cssValue = (cssObject as any)[key].toString().replace("'", '')
+        const cssValue = String((cssObject as Record<string, string | number>)[key]).replace("'", '')
         return `${accumulator}${cssKey}: ${cssValue};\n`
       }, '')
 

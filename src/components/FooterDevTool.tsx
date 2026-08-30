@@ -2,6 +2,16 @@
 
 import { useEffect, useState } from 'react'
 
+function getBreakPoint(width: number) {
+  if (width >= 1536) return '2xl'
+  if (width >= 1280) return 'xl'
+  if (width >= 1024) return 'lg'
+  if (width >= 768) return 'md'
+  if (width >= 640) return 'sm'
+  if (width >= 480) return 'xs'
+  return 'xxs'
+}
+
 export default function FooterDevTool() {
   const [viewportWidth, setViewportWidth] = useState(0)
   const [viewportHeight, setViewportHeight] = useState(0)
@@ -15,16 +25,6 @@ export default function FooterDevTool() {
     window.addEventListener('resize', updateViewportWH)
     return () => window.removeEventListener('resize', updateViewportWH)
   })
-
-  function getBreakPoint(viewportWidth: number) {
-    if (viewportWidth >= 1536) return '2xl'
-    if (viewportWidth >= 1280) return 'xl'
-    if (viewportWidth >= 1024) return 'lg'
-    if (viewportWidth >= 768) return 'md'
-    if (viewportWidth >= 640) return 'sm'
-    if (viewportWidth >= 480) return 'xs'
-    return 'xxs'
-  }
 
   const breakPoint = getBreakPoint(viewportWidth)
 
