@@ -15,12 +15,12 @@ type Props = {
   disabled?: boolean
 }
 
-const Button = ({ children, type, id, className, onClick, onKeyDown, disabled, style, link }: Props) => {
+export default function Button({ children, type, id, className, onClick, onKeyDown, disabled, style, link }: Props) {
   const btn = (
     <button
       type={type}
       id={id}
-      className={`flex items-center justify-center rounded-3xl border-2 border-zinc-400 bg-black/20 text-sm text-zinc-300 transition-all duration-300 hover:border-sky-300 hover:bg-black/40 hover:text-sky-200 active:border-sky-500 active:text-sky-400 ${className || ''}`}
+      className={`flex items-center justify-center rounded-2xl border border-zinc-500 bg-black/20 text-sm text-zinc-300 transition-all duration-300 hover:border-sky-300 hover:bg-black/40 hover:text-sky-200 active:border-sky-500 active:text-sky-400 ${className || ''}`}
       onClick={onClick}
       onKeyDown={onKeyDown}
       disabled={disabled}
@@ -34,5 +34,3 @@ const Button = ({ children, type, id, className, onClick, onKeyDown, disabled, s
 
   return btn
 }
-
-export default Button

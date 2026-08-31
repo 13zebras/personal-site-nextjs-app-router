@@ -34,7 +34,6 @@ export default function FlipCard({ index, sequence, viewportWidth, ...project }:
   const delayBySequence = sequence ? sequence * 250 : Math.trunc(Math.random() * 2500 + 250)
   const delayByIndex = index * 250
 
-  // const viewportWidth = typeof window !== 'undefined' ? window.innerWidth : ''
   const delayTime = viewportWidth && viewportWidth >= 884 ? delayBySequence : delayByIndex
 
   const randomStyle = {

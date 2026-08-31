@@ -39,7 +39,7 @@ async function verifyTurnstile(token: string): Promise<boolean> {
 export async function POST(request: NextRequest) {
   const { email, name, message, token } = await request.json()
 
-  if (!token) return NextResponse.json({ ok: false }, { status: 403 })
+  if (!token) return NextResponse.json({ error: 'Missing Turnstile token' }, { status: 403 })
 
   const mailOptions: Mail.Options = {
     from: email,
@@ -50,12 +50,12 @@ export async function POST(request: NextRequest) {
 
   try {
     const ok = await verifyTurnstile(token)
-    if (!ok) return NextResponse.json({ ok: false }, { status: 403 })
+    if (!ok) return NextResponse.json({ error: 'Turnstile verification failed' }, { status: 403 })
 
     await transporter.sendMail(mailOptions)
 
     return NextResponse.json({ message: 'Email sent' })
   } catch (err) {
-    return NextResponse.json({ error: err }, { status: 500 })
+    return NextResponse.json({ error: err instanceof Error ? err.message : 'Failed to send email' }, { status: 500 })
   }
 }

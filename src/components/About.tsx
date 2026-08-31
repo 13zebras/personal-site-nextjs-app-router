@@ -3,10 +3,7 @@
 import { AdvancedImage, placeholder } from '@cloudinary/react'
 import { Cloudinary } from '@cloudinary/url-gen'
 import { quality } from '@cloudinary/url-gen/actions/delivery'
-import { fill, scale } from '@cloudinary/url-gen/actions/resize'
-import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity'
-
-// import { useEffect, useState } from 'react'
+import { scale } from '@cloudinary/url-gen/actions/resize'
 
 export default function About() {
   const publicIdTom = 'portfolio/tom-chill-center' // publicIdCld
@@ -19,7 +16,7 @@ export default function About() {
   return (
     <main
       id='about'
-      className='flex h-full w-screen animate-fade-in-075 flex-col items-center justify-start overflow-y-auto pb-12 pt-14 md:pt-24 lg:pt-[max(6rem,9vh)]'
+      className='flex h-full w-screen animate-fade-in-100 flex-col items-center justify-start overflow-y-auto pb-12 pt-14 md:pt-24 lg:pt-[max(6rem,9vh)]'
     >
       <h1 className='z-10 pb-6 font-mono text-[1.35rem] uppercase tracking-wide2 text-zinc-400 xs:text-2xl xs:tracking-wide4 sm:pb-10 sm:tracking-wide6 md:pb-12'>
         about tom stine
@@ -43,7 +40,7 @@ export default function About() {
             1990s, I didn't commit to coding entirely until 2021, when I left my teaching career.
           </p>
           <p className='pb-4'>
-            I began 2022 by joining a small web3 development studio, building frontends for various NFT projects. When
+            I began 2021 by joining a small web3 development studio, building frontends for various NFT projects. When
             the NFT market declined later that year, I moved to Bass Pro Shops as a frontend developer, working on a
             React and Next.js frontend for their eCommerce site. I'm now a frontend engineer at Remote.
           </p>

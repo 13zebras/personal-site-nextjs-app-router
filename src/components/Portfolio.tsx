@@ -34,8 +34,6 @@ const Portfolio: React.FC<ProjectProps> = ({ allProjects }) => {
       setViewportWidth(window.innerWidth)
     }
     updateViewportWH()
-    // window.addEventListener('resize', updateViewportWH)
-    // return () => window.removeEventListener('resize', updateViewportWH)
   }, [])
 
   return (
