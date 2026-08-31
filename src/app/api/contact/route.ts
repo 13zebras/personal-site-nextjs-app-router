@@ -48,27 +48,14 @@ export async function POST(request: NextRequest) {
     text: `from: ${name}\nemail: ${email}\nmessage: ${message}`,
   }
 
-  // const sendMailPromise = () =>
-  //   new Promise<string>((resolve, reject) => {
-  //     transporter.sendMail(mailOptions, (err) => {
-  //       // console.log('>>>> transporter in promise')
-  //       if (!err) resolve("Email sent")
-  //       else reject(err.message)
-  //     })
-  //   })
-
   try {
     const ok = await verifyTurnstile(token)
     if (!ok) return NextResponse.json({ ok: false }, { status: 403 })
 
     await transporter.sendMail(mailOptions)
-    // await sendMailPromise()
-    // console.log('>>>> sendMailPromise returned\n****************\n\n')
 
     return NextResponse.json({ message: 'Email sent' })
   } catch (err) {
-    // console.log('>>>> sendMailPromise error', err, '\n****************\n\n')
-
     return NextResponse.json({ error: err }, { status: 500 })
   }
 }
