@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["eslint", "typescript", "react", "unicorn", "oxc", "import", "nextjs"],
+  "plugins": ["eslint", "typescript", "react", "unicorn", "oxc", "import"],
   "categories": {
     "correctness": "error",
     "suspicious": "warn",
@@ -30,6 +30,8 @@
     "out/",
     "dist/",
     "build/",
+    ".wrangler/",
+    "src/routeTree.gen.ts",
     "*.config.js",
     "*.config.mjs"
   ]
