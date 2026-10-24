@@ -17,11 +17,11 @@ export function getAllProjects() {
       name: '13z.dev',
       url: 'https://13z.dev',
       summary:
-        'My personal portfolio website. It includes projects, info about me, and some of my work experience. I built it using Next.js, React, TypeScript, and TailwindCSS.',
+        'My personal portfolio website. It includes projects, info about me, and some of my work experience. I built it using TanStack Start, React, TypeScript, and TailwindCSS, and it runs on Cloudflare Workers.',
       imageKey: 'portfolio-site',
       description:
         'I designed, created, and built my personal website, 13z.dev, to showcase sites I have built, worked on, and contributed to, as well as to share information about my work experience and my life. The design and code of 13z.dev have been inspired by others, but in the end, the responsibility for both rests squarely on my shoulders.',
-      stack: 'Next.js, React, TypeScript, TailwindCSS, CSS3, Cloudinary',
+      stack: 'TanStack Start, React, TypeScript, TailwindCSS, Cloudflare Workers, Resend',
       githubUrl: 'https://github.com/13zebras/personal-site-nextjs-app-router',
     },
     {
