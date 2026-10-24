@@ -1,5 +1,3 @@
-// 'use client'
-
 import type { WorkData } from '@/types/allTypes'
 
 import WorkCard from './WorkCard'

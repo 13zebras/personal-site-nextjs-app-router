@@ -11,7 +11,10 @@ export const Route = createRootRoute({
       { title: 'Tom Stine Developer' },
       { name: 'description', content: 'The personal website and portfolio of Tom Stine, full stack developer' },
     ],
-    links: [{ rel: 'stylesheet', href: appCss }],
+    links: [
+      { rel: 'stylesheet', href: appCss },
+      { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' },
+    ],
   }),
   component: RootComponent,
 })

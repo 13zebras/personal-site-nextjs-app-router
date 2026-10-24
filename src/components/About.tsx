@@ -1,5 +1,3 @@
-'use client'
-
 import { AdvancedImage, placeholder } from '@cloudinary/react'
 import { Cloudinary } from '@cloudinary/url-gen'
 import { quality } from '@cloudinary/url-gen/actions/delivery'
@@ -8,7 +6,7 @@ import { scale } from '@cloudinary/url-gen/actions/resize'
 export default function About() {
   const publicIdTom = 'portfolio/tom-chill-center' // publicIdCld
   const cld = new Cloudinary({
-    cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY },
+    cloud: { cloudName: import.meta.env.VITE_CLOUDINARY },
   })
   const fullImage = cld.image(publicIdTom)
   fullImage.resize(scale().width(300)).delivery(quality(80))

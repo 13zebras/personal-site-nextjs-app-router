@@ -1,6 +1,3 @@
-'use client'
-
-import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 type Props = {
@@ -11,12 +8,11 @@ type Props = {
   onClick?(e: React.FormEvent | unknown): void
   onKeyDown?(): void
   style?: React.CSSProperties
-  link?: string
   disabled?: boolean
 }
 
-export default function Button({ children, type, id, className, onClick, onKeyDown, disabled, style, link }: Props) {
-  const btn = (
+export default function Button({ children, type, id, className, onClick, onKeyDown, disabled, style }: Props) {
+  return (
     <button
       type={type}
       id={id}
@@ -29,8 +25,4 @@ export default function Button({ children, type, id, className, onClick, onKeyDo
       {children}
     </button>
   )
-
-  if (link && link.length > 0) return <Link href={link}>{btn}</Link>
-
-  return btn
 }

@@ -1,18 +1,14 @@
-'use client'
-
 import { AdvancedImage, placeholder } from '@cloudinary/react'
 import { Cloudinary } from '@cloudinary/url-gen'
 import { quality } from '@cloudinary/url-gen/actions/delivery'
 import { scale } from '@cloudinary/url-gen/actions/resize'
-import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
 
 import type { Project } from '@/types/allTypes'
 
 import Button from './Button'
-
-const Modal = dynamic(() => import('./Modal'), { ssr: false })
+import Modal from './Modal'
 
 export default function FlipCard({ index, sequence, viewportWidth, ...project }: Project) {
   const [showModal, setShowModal] = useState(false)
@@ -24,7 +20,7 @@ export default function FlipCard({ index, sequence, viewportWidth, ...project }:
   }
 
   const cld = new Cloudinary({
-    cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY },
+    cloud: { cloudName: import.meta.env.VITE_CLOUDINARY },
   })
   const frontImage = cld.image(project.cldPublicId)
   frontImage.resize(scale().width(260)).delivery(quality(80))

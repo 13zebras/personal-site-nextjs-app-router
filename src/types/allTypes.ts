@@ -1,3 +1,7 @@
+import type { FileRoutesByTo } from '@/routeTree.gen'
+
+export type RoutePath = keyof FileRoutesByTo
+
 export interface Project {
   index?: number
   sequence?: number
@@ -15,7 +19,7 @@ export interface Project {
 
 export interface HeaderPaths {
   name: string
-  path: string
+  path: RoutePath
 }
 
 export interface WorkData {

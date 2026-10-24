@@ -1,5 +1,3 @@
-// 'use client'
-
 import type { WorkData } from '@/types/allTypes'
 
 export default function WorkCard({ index, ...props }: WorkData) {

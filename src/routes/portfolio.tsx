@@ -1,12 +1,19 @@
-// PORTFOLIO PAGE
-import '@/styles/portfolio.css'
+import { createFileRoute } from '@tanstack/react-router'
+
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Portfolio from '@/components/Portfolio'
 import type { Project } from '@/types/allTypes'
 import { getAllProjects } from '@/utils/projects'
 
-export default function PortfolioPage() {
+import portfolioCss from '@/styles/portfolio.css?url'
+
+export const Route = createFileRoute('/portfolio')({
+  head: () => ({ links: [{ rel: 'stylesheet', href: portfolioCss }] }),
+  component: PortfolioPage,
+})
+
+function PortfolioPage() {
   const allProjects: Project[] = getAllProjects()
 
   return (
