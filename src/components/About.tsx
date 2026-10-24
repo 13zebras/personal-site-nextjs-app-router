@@ -1,16 +1,6 @@
-import { AdvancedImage, placeholder } from '@cloudinary/react'
-import { Cloudinary } from '@cloudinary/url-gen'
-import { quality } from '@cloudinary/url-gen/actions/delivery'
-import { scale } from '@cloudinary/url-gen/actions/resize'
+import { blurPlaceholder, imageSrc } from '@/utils/images'
 
 export default function About() {
-  const publicIdTom = 'portfolio/tom-chill-center' // publicIdCld
-  const cld = new Cloudinary({
-    cloud: { cloudName: import.meta.env.VITE_CLOUDINARY },
-  })
-  const fullImage = cld.image(publicIdTom)
-  fullImage.resize(scale().width(300)).delivery(quality(80))
-
   return (
     <main
       id='about'
@@ -24,9 +14,11 @@ export default function About() {
         className='flex h-full w-full flex-col items-center justify-start gap-6 overflow-x-hidden overflow-y-hidden px-8 xxs:px-10 xs:px-12 md:flex-wrap lg:max-w-[920px] lg:px-0'
       >
         <div className='lg:order-2'>
-          <AdvancedImage
-            cldImg={fullImage}
-            plugins={[placeholder({ mode: 'blur' })]}
+          <img
+            src={imageSrc('tom-chill-center')}
+            width={400}
+            height={400}
+            style={blurPlaceholder('tom-chill-center')}
             className='relative z-20 max-w-[260px] overflow-clip rounded-full border-2 border-neutral-600 xs:max-w-[280px] sm:max-w-[300px] lg:rounded-xl'
             alt='Tom Stine'
           />

@@ -40,15 +40,24 @@ This is a portfolio website built with React 19, TypeScript 7 (tsgo), and Tailwi
 
 ### Key Integrations
 
-- **Images**: Cloudinary via `@cloudinary/react` and `@cloudinary/url-gen`
+- **Images**: static WebP files in `public/images/portfolio/`, referenced through `src/utils/images.ts`
 - **Contact Form**: Resend (sent from `contact@mail.13z.dev`, visitor in `replyTo`) + Cloudflare Turnstile captcha
 - **Animations**: react-simple-typewriter for typing effects
+
+### Images
+
+Each image in `public/images/portfolio/` has a full-size `<key>.webp` and a 24px `<key>-blur.webp` placeholder. Project images also have a 520px `<key>-card.webp`. To add a project image (ImageMagick), set `imageKey` in `projects.ts` and run:
+
+```bash
+magick source.jpg -strip -quality 80 public/images/portfolio/<key>.webp
+magick source.jpg -strip -resize 520x -quality 80 public/images/portfolio/<key>-card.webp
+magick source.jpg -strip -resize 24x -quality 50 public/images/portfolio/<key>-blur.webp
+```
 
 ### Environment Variables (`.env.local`)
 
 Client-side values must start with `VITE_` and are read with `import.meta.env` (typed in `src/env.d.ts`):
 
-- `VITE_CLOUDINARY`
 - `VITE_TURNSTILE_SITE_KEY`
 
 Server-side secrets for the contact form API (Cloudflare secrets in production):
