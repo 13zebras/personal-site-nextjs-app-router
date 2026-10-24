@@ -7,7 +7,7 @@ This file provides guidance to agents when working with code in this repository.
 ```bash
 # Development
 pnpm dev          # Start the Vite dev server (runs the app in workerd)
-pnpm build        # Build the Worker and client assets into dist/
+pnpm build        # Build the Worker and client assets into dist/, then prerender every page to dist/client/*.html
 pnpm preview      # Preview the production build locally
 pnpm deploy       # Build and deploy with wrangler
 pnpm typecheck    # Type-check with tsgo (TypeScript 7)
@@ -25,7 +25,7 @@ pnpm fix          # Run lint:fix + format
 
 This is a portfolio website built with React 19, TypeScript 7 (tsgo), and TailwindCSS.
 
-**Migration in progress:** moving from Next.js 16 (Railway) to TanStack Start on Cloudflare Workers. Work happens on step branches merged into `migrate/cloudflare`; `main` still deploys the Next.js site to Railway. `vite.config.ts` and `wrangler.jsonc` are at the root. The contact form API is not ported yet (migration step 6), so submitting the form fails on this branch.
+**Migration in progress:** moving from Next.js 16 (Railway) to TanStack Start on Cloudflare Workers. Work happens on step branches merged into `migrate/cloudflare`; `main` still deploys the Next.js site to Railway. `vite.config.ts` and `wrangler.jsonc` are at the root. Every page is prerendered at build time; the build starts a local workerd preview server to do it, so it needs to bind a local port. The contact form API is not ported yet (migration step 6), so submitting the form fails on this branch.
 
 ### Project Structure
 
