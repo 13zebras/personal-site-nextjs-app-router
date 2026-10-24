@@ -4,4 +4,10 @@
   "compatibility_date": "2026-10-19",
   "main": "@tanstack/react-start/server-entry",
   "observability": { "enabled": true },
+  // Contact form addresses (not secret). Secrets RESEND_API_KEY and TURNSTILE_SECRET_KEY are set in Cloudflare,
+  // and locally in .env.local.
+  "vars": {
+    "CONTACT_EMAIL_FROM": "contact@13z.dev",
+    "CONTACT_EMAIL_TO": "contact13z.dev@13z.foo",
+  },
 }
