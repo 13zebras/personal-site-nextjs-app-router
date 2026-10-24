@@ -56,7 +56,7 @@ export const Route = createFileRoute('/api/contact')({
             to: requireEnv('CONTACT_EMAIL_TO'),
             replyTo: email,
             subject: 'RECEIVED: 13z.dev ContactForm',
-            text: `from: ${name}\nemail: ${email}\nmessage: ${message}`,
+            text: `from: ${name}\nemail: ${email}\nmessage:\n\n${message}`,
           })
 
           if (error) {
