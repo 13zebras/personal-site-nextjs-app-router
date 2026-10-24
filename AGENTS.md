@@ -6,22 +6,26 @@ This file provides guidance to agents when working with code in this repository.
 
 ```bash
 # Development
-pnpm dev          # Start development server (Next.js)
-pnpm build        # Build for production
-pnpm start        # Start production server
+pnpm dev          # Start the Vite dev server (runs the app in workerd)
+pnpm build        # Build the Worker and client assets into dist/
+pnpm preview      # Preview the production build locally
+pnpm deploy       # Build and deploy with wrangler
+pnpm typecheck    # Type-check with tsgo (TypeScript 7)
 
 # Linting and Formatting (OXC)
 pnpm lint         # Run oxlint
 pnpm lint:fix     # Run oxlint with auto-fix
 pnpm format       # Format code with oxfmt
 pnpm format:check # Check code formatting
-pnpm check        # Run lint + format check
+pnpm check        # Run lint + format check + typecheck
 pnpm fix          # Run lint:fix + format
 ```
 
 ## Architecture
 
-This is a Next.js 16 portfolio website using the App Router. Built with React 19, TypeScript 7 (tsgo), and TailwindCSS.
+This is a portfolio website built with React 19, TypeScript 7 (tsgo), and TailwindCSS.
+
+**Migration in progress:** moving from Next.js 16 (Railway) to TanStack Start on Cloudflare Workers. Work happens on step branches merged into `migrate/cloudflare`; `main` still deploys the Next.js site to Railway. The TanStack Start app lives in `src/routes/` (file-based routes, `src/routeTree.gen.ts` is generated), with `vite.config.ts` and `wrangler.jsonc` at the root. `src/app/` is the old Next.js app and is removed once its pages are ported.
 
 ### Project Structure
 
@@ -60,6 +64,6 @@ Uses oxfmt for formatting and oxlint for linting (OXC toolchain):
   - Import sorting (`sortImports`) and Tailwind class sorting (`sortTailwindcss`) built in
 
 - **Linting (oxlint)** — config in `.oxlintrc.json`:
-  - Plugins: eslint core, typescript, react, unicorn, oxc, import, nextjs
+  - Plugins: eslint core, typescript, react, unicorn, oxc, import
   - Categories: correctness (error), suspicious + perf (warn)
   - `typescript/no-unused-vars` warn (`^_` ignore patterns), `typescript/no-explicit-any` warn
