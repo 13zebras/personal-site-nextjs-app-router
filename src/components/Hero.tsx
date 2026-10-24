@@ -1,8 +1,7 @@
-import { AdvancedImage, placeholder } from '@cloudinary/react'
-import { Cloudinary } from '@cloudinary/url-gen'
 import { Link } from '@tanstack/react-router'
 import { Typewriter } from 'react-simple-typewriter'
 
+import { blurPlaceholder, imageSrc } from '@/utils/images'
 import { BlueskyIcon, EnvelopeIcon, GithubIcon, LinkedinIcon } from '@/utils/svgs'
 
 import BackgroundCircles from './BackgroundCircles'
@@ -10,12 +9,6 @@ import MovingDiv from './MovingDiv'
 
 export default function Hero() {
   const typeWriterWords = ['<React, Next.js />', '{TypeScript, Node.js}', 'style: exceptional;']
-
-  const publicIdTom = 'portfolio/tom-chill-center'
-  const cld = new Cloudinary({
-    cloud: { cloudName: import.meta.env.VITE_CLOUDINARY },
-  })
-  const fullImage = cld.image(publicIdTom)
 
   return (
     <main
@@ -32,7 +25,13 @@ export default function Hero() {
             id='heroImage'
             className='w-imageCircles max-w-imageCircles relative aspect-square overflow-hidden rounded-full border-2 border-neutral-600'
           >
-            <AdvancedImage cldImg={fullImage} plugins={[placeholder({ mode: 'blur' })]} alt='Tom Stine' />
+            <img
+              src={imageSrc('tom-chill-center')}
+              width={400}
+              height={400}
+              style={blurPlaceholder('tom-chill-center')}
+              alt='Tom Stine'
+            />
           </div>
         </section>
       </MovingDiv>

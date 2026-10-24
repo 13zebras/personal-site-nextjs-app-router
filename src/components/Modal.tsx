@@ -1,10 +1,7 @@
-import { AdvancedImage, placeholder } from '@cloudinary/react'
-import { Cloudinary } from '@cloudinary/url-gen'
-import { quality } from '@cloudinary/url-gen/actions/delivery'
-import { scale } from '@cloudinary/url-gen/actions/resize'
 import { useEffect, useRef, useState } from 'react'
 
 import type { Project } from '@/types/allTypes'
+import { blurPlaceholder, imageSrc } from '@/utils/images'
 import { CloseThickIcon, ExternalLinkIcon, GithubIcon } from '@/utils/svgs'
 
 import Button from './Button'
@@ -57,14 +54,6 @@ export default function Modal(props: ModalType) {
     return () => window.removeEventListener('resize', updateHeight)
   }, [])
 
-  const publicId = project.cldPublicId
-
-  const cloudinary = new Cloudinary({
-    cloud: { cloudName: import.meta.env.VITE_CLOUDINARY },
-  })
-  const fullImage = cloudinary.image(publicId)
-  fullImage.resize(scale().height(imageHeight)).delivery(quality(80))
-
   const fadeModalStyle = {
     animationName: 'fadeOut',
     animationDuration: `${fadeTime - 200}ms`,
@@ -115,11 +104,11 @@ export default function Modal(props: ModalType) {
                 >
                   <div className='h-full w-full animate-pulse rounded-md bg-gray-700 md:rounded-lg' />
                 </div>
-                <AdvancedImage
-                  cldImg={fullImage}
-                  style={{ height: imageHeight }}
+                <img
+                  src={imageSrc(project.imageKey)}
+                  style={{ ...blurPlaceholder(project.imageKey), height: imageHeight, aspectRatio: imgAspectRatio }}
                   className='z-10 rounded-md border-2 border-gray-800 md:rounded-lg'
-                  plugins={[placeholder({ mode: 'blur' })]}
+                  alt={project.name}
                 />
               </div>
             </section>

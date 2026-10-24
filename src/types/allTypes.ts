@@ -9,7 +9,7 @@ export interface Project {
   name: string
   url: string
   summary: string
-  cldPublicId: string
+  imageKey: string
   description: string
   stack: string
   githubUrl?: string

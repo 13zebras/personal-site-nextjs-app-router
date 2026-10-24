@@ -1,11 +1,8 @@
-import { AdvancedImage, placeholder } from '@cloudinary/react'
-import { Cloudinary } from '@cloudinary/url-gen'
-import { quality } from '@cloudinary/url-gen/actions/delivery'
-import { scale } from '@cloudinary/url-gen/actions/resize'
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
 
 import type { Project } from '@/types/allTypes'
+import { blurPlaceholder, imageSrc } from '@/utils/images'
 
 import Button from './Button'
 import Modal from './Modal'
@@ -18,12 +15,6 @@ export default function FlipCard({ index, sequence, viewportWidth, ...project }:
   const handleOpenClick = () => {
     setShowModal(true)
   }
-
-  const cld = new Cloudinary({
-    cloud: { cloudName: import.meta.env.VITE_CLOUDINARY },
-  })
-  const frontImage = cld.image(project.cldPublicId)
-  frontImage.resize(scale().width(260)).delivery(quality(80))
 
   const duration = 1200
 
@@ -52,10 +43,12 @@ export default function FlipCard({ index, sequence, viewportWidth, ...project }:
             className='absolute h-full w-full rounded-lg border-2 border-neutral-600 bg-zinc-920 [backface-visibility:hidden]'
           >
             <div className='relative flex h-full w-full flex-col items-center justify-start gap-y-[8px] p-[10px] md:px-3'>
-              <AdvancedImage
+              <img
                 id='flipImage'
-                cldImg={frontImage}
-                plugins={[placeholder({ mode: 'blur' })]}
+                src={imageSrc(project.imageKey, 'card')}
+                width={520}
+                height={291}
+                style={blurPlaceholder(project.imageKey)}
                 className='rounded-md border border-zinc-800'
                 alt={project.name}
               />
