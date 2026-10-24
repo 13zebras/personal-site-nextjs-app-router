@@ -41,7 +41,7 @@ This is a portfolio website built with React 19, TypeScript 7 (tsgo), and Tailwi
 ### Key Integrations
 
 - **Images**: Cloudinary via `@cloudinary/react` and `@cloudinary/url-gen`
-- **Contact Form**: Resend (sent from `contact@13z.dev`, visitor in `replyTo`) + Cloudflare Turnstile captcha
+- **Contact Form**: Resend (sent from `contact@mail.13z.dev`, visitor in `replyTo`) + Cloudflare Turnstile captcha
 - **Animations**: react-simple-typewriter for typing effects
 
 ### Environment Variables (`.env.local`)
