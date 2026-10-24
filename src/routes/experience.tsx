@@ -1,8 +1,14 @@
+import { createFileRoute } from '@tanstack/react-router'
+
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import WorkExperience from '@/components/WorkExperience'
 import type { WorkData } from '@/types/allTypes'
 import { getAllWork } from '@/utils/work'
+
+export const Route = createFileRoute('/experience')({
+  component: ExperiencePage,
+})
 
 const keyframeCss = `
     @keyframes movingDiv {
@@ -23,7 +29,7 @@ const keyframeCss = `
     }
   `
 
-export default function ExperiencePage() {
+function ExperiencePage() {
   const allWork: WorkData[] = getAllWork()
   return (
     <div className='flex h-full w-full flex-col items-center justify-center bg-zinc-950'>

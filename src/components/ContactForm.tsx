@@ -1,5 +1,3 @@
-'use client'
-
 import { Turnstile } from '@marsidev/react-turnstile'
 import { useRef, useState } from 'react'
 
@@ -129,7 +127,7 @@ export default function ContactForm() {
               Submit
             </Button>
           </div>
-          <Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!} onSuccess={setToken} />
+          <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} onSuccess={setToken} />
         </form>
         <div className='flex h-24 w-full flex-col justify-center'>
           {success && (

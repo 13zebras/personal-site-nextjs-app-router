@@ -2,7 +2,6 @@ import { AdvancedImage, placeholder } from '@cloudinary/react'
 import { Cloudinary } from '@cloudinary/url-gen'
 import { quality } from '@cloudinary/url-gen/actions/delivery'
 import { scale } from '@cloudinary/url-gen/actions/resize'
-import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 
 import type { Project } from '@/types/allTypes'
@@ -61,7 +60,7 @@ export default function Modal(props: ModalType) {
   const publicId = project.cldPublicId
 
   const cloudinary = new Cloudinary({
-    cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY },
+    cloud: { cloudName: import.meta.env.VITE_CLOUDINARY },
   })
   const fullImage = cloudinary.image(publicId)
   fullImage.resize(scale().height(imageHeight)).delivery(quality(80))
@@ -137,14 +136,14 @@ export default function Modal(props: ModalType) {
               >
                 {project.url && (
                   <div className='flex gap-[6px]'>
-                    <Link
+                    <a
                       href={project.url}
                       className='font-semibold text-sky-400 hover:text-sky-300 hover:underline active:text-sky-500'
                       target='_blank'
                       rel='noopener noreferrer'
                     >
                       {project.name}
-                    </Link>
+                    </a>
                     <ExternalLinkIcon className='mt-1 inline text-sm text-zinc-400' />
                   </div>
                 )}
@@ -168,14 +167,14 @@ export default function Modal(props: ModalType) {
 
                 {project.githubUrl && (
                   <div className='flex gap-2'>
-                    <Link
+                    <a
                       href={project.githubUrl}
                       className='font-semibold text-sky-400 hover:text-sky-300 hover:underline active:text-sky-500'
                       target='_blank'
                       rel='noopener noreferrer'
                     >
                       Github Repo
-                    </Link>
+                    </a>
                     <GithubIcon className='mt-[1px] text-2xl text-zinc-400' />
                     <ExternalLinkIcon className='mt-1 inline text-sm text-zinc-400' />
                   </div>
@@ -184,14 +183,14 @@ export default function Modal(props: ModalType) {
                 {project.company && project.companyUrl && (
                   <div className='flex gap-2'>
                     <span className='pr-1 italic text-zinc-400'>Developed for:</span>
-                    <Link
+                    <a
                       href={project.companyUrl}
                       className='font-semibold text-sky-400 hover:text-sky-300 hover:underline active:text-sky-500'
                       target='_blank'
                       rel='noopener noreferrer'
                     >
                       {project.company}
-                    </Link>
+                    </a>
                     <ExternalLinkIcon className='mt-1 inline text-sm text-zinc-400' />
                   </div>
                 )}

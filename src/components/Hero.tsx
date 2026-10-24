@@ -1,8 +1,6 @@
-'use client'
-
 import { AdvancedImage, placeholder } from '@cloudinary/react'
 import { Cloudinary } from '@cloudinary/url-gen'
-import Link from 'next/link'
+import { Link } from '@tanstack/react-router'
 import { Typewriter } from 'react-simple-typewriter'
 
 import { BlueskyIcon, EnvelopeIcon, GithubIcon, LinkedinIcon } from '@/utils/svgs'
@@ -15,7 +13,7 @@ export default function Hero() {
 
   const publicIdTom = 'portfolio/tom-chill-center'
   const cld = new Cloudinary({
-    cloud: { cloudName: process.env.NEXT_PUBLIC_CLOUDINARY },
+    cloud: { cloudName: import.meta.env.VITE_CLOUDINARY },
   })
   const fullImage = cld.image(publicIdTom)
 
@@ -73,42 +71,42 @@ export default function Hero() {
             id='textLinks'
             className='mb-6 flex flex-row flex-wrap items-center justify-center gap-x-14 gap-y-[12px] px-3 text-[1.18rem] tracking-wide15 xs:flex-nowrap sm:text-[1.25rem] h800:mb-6'
           >
-            <Link href='/portfolio' className='text-zinc-400 hover:text-zinc-300 hover:underline active:text-sky-400'>
+            <Link to='/portfolio' className='text-zinc-400 hover:text-zinc-300 hover:underline active:text-sky-400'>
               portfolio
             </Link>
-            <Link href='/about' className='text-zinc-400 hover:text-zinc-300 hover:underline active:text-sky-400'>
+            <Link to='/about' className='text-zinc-400 hover:text-zinc-300 hover:underline active:text-sky-400'>
               about
             </Link>
-            <Link href='/experience' className='text-zinc-400 hover:text-zinc-300 hover:underline active:text-sky-400'>
+            <Link to='/experience' className='text-zinc-400 hover:text-zinc-300 hover:underline active:text-sky-400'>
               experience
             </Link>
           </div>
           <div id='iconLinks' className='flex justify-center gap-x-10 text-[2.12rem] text-zinc-400 xs:gap-x-14'>
-            <Link
+            <a
               href='https://bsky.app/profile/tomstine.dev/'
               target='_blank'
               rel='noopener noreferrer'
               className='hover:text-zinc-300 active:text-sky-400'
             >
               <BlueskyIcon />
-            </Link>
-            <Link
-              href='https://www.linkedin.com/in/tom-stine-13-zebras/'
+            </a>
+            <a
+              href='https://www.linkedin.com/in/tom13z/'
               target='_blank'
               rel='noopener noreferrer'
               className='text-[2.25rem] text-zinc-400 hover:text-zinc-300 active:text-sky-400'
             >
               <LinkedinIcon />
-            </Link>
-            <Link
+            </a>
+            <a
               href='https://github.com/13zebras'
               target='_blank'
               rel='noopener noreferrer'
               className='hover:text-zinc-300 active:text-sky-400'
             >
               <GithubIcon />
-            </Link>
-            <Link href='/contact' className='hover:text-zinc-300 active:text-sky-400'>
+            </a>
+            <Link to='/contact' className='hover:text-zinc-300 active:text-sky-400'>
               <EnvelopeIcon />
             </Link>
           </div>

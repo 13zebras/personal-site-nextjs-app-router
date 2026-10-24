@@ -1,7 +1,4 @@
-'use client'
-
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { Link, useLocation } from '@tanstack/react-router'
 import { useState } from 'react'
 
 import type { HeaderPaths } from '@/types/allTypes'
@@ -20,7 +17,7 @@ import MobileTextLink from './MobileTextLink'
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false)
-  const routePath = usePathname()
+  const routePath = useLocation({ select: (location) => location.pathname })
   const headerPaths: HeaderPaths[] = getHeaderPaths()
   const openStyle = {
     opacity: 1,
@@ -57,7 +54,7 @@ export default function Header() {
           {headerPaths.map(({ name, path }) => {
             if (path !== routePath) {
               return (
-                <MobileTextLink href={path} key={name}>
+                <MobileTextLink to={path} key={name}>
                   {name}
                 </MobileTextLink>
               )
@@ -69,23 +66,19 @@ export default function Header() {
             )
           })}
 
-          <MobileTextLink href='https://bsky.app/profile/tomstine.dev' target='_blank' rel='noopener noreferrer'>
+          <MobileTextLink href='https://bsky.app/profile/tomstine.dev'>
             <BlueskyIcon className='mb-1 mr-3 inline text-[1.7rem] text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
             Bluesky
           </MobileTextLink>
-          <MobileTextLink href='https://github.com/13zebras' target='_blank' rel='noopener noreferrer'>
+          <MobileTextLink href='https://github.com/13zebras'>
             <GithubIcon className='mb-1 mr-3 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
             Github
           </MobileTextLink>
-          <MobileTextLink
-            href='https://www.linkedin.com/in/tom-stine-13-zebras/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
+          <MobileTextLink href='https://www.linkedin.com/in/tom13z/'>
             <LinkedinIcon className='mb-1 mr-3 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
             LinkedIn
           </MobileTextLink>
-          <MobileTextLink href={'/contact'}>
+          <MobileTextLink to='/contact'>
             <EnvelopeIcon className='mb-1 mr-3 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
             Contact
           </MobileTextLink>
@@ -97,7 +90,7 @@ export default function Header() {
        *************************************************/}
 
       <section className='hidden h-[70px] w-full max-w-3xl animate-fade-in-050 flex-row items-center justify-between px-10 md:flex lg:max-w-[52rem]'>
-        <Link href='/'>
+        <Link to='/'>
           <HomeIcon className='inline text-[1.37rem] text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
         </Link>
         {headerPaths.map(({ name, path }) => {
@@ -105,7 +98,7 @@ export default function Header() {
           if (path !== routePath) {
             return (
               <Link
-                href={path}
+                to={path}
                 key={name}
                 className='text-sm font-semibold uppercase tracking-wide0 text-zinc-400 hover:text-zinc-200 active:text-sky-400'
               >
@@ -123,21 +116,21 @@ export default function Header() {
           )
         })}
         <div className='flex w-[120px] flex-row items-center justify-center gap-x-5'>
-          <Link href='https://bsky.app/profile/tomstine.dev/' className='' target='_blank' rel='noopener noreferrer'>
+          <a href='https://bsky.app/profile/tomstine.dev/' target='_blank' rel='noopener noreferrer'>
             <BlueskyIcon className='inline text-[1.4rem] text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
-          </Link>
-          <Link href='https://github.com/13zebras' className='' target='_blank' rel='noopener noreferrer'>
+          </a>
+          <a href='https://github.com/13zebras' target='_blank' rel='noopener noreferrer'>
             <GithubIcon className='inline text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
-          </Link>
-          <Link
-            href='https://www.linkedin.com/in/tom-stine-13-zebras/'
+          </a>
+          <a
+            href='https://www.linkedin.com/in/tom13z/'
             className='hidden xs:block'
             target='_blank'
             rel='noopener noreferrer'
           >
             <LinkedinIcon className='inline text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
-          </Link>
-          <Link href='/contact'>
+          </a>
+          <Link to='/contact'>
             <EnvelopeIcon className='inline text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
           </Link>
         </div>

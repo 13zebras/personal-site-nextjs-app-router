@@ -1,13 +1,11 @@
-'use client'
-
-import { usePathname } from 'next/navigation'
+import { useLocation } from '@tanstack/react-router'
 
 import FooterDevTool from './FooterDevTool'
 
 export default function Footer() {
   const development = false
 
-  const routePath = usePathname()
+  const routePath = useLocation({ select: (location) => location.pathname })
 
   let bgClear = {}
   if (routePath === '/') {
