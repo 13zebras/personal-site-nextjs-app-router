@@ -91,7 +91,7 @@ export default function Hero() {
               <BlueskyIcon />
             </a>
             <a
-              href='https://www.linkedin.com/in/tom-stine-13-zebras/'
+              href='https://www.linkedin.com/in/tom13z/'
               target='_blank'
               rel='noopener noreferrer'
               className='text-[2.25rem] text-zinc-400 hover:text-zinc-300 active:text-sky-400'
