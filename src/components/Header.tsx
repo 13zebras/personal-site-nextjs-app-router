@@ -78,7 +78,7 @@ export default function Header() {
             Github
           </MobileTextLink>
           <MobileTextLink
-            href='https://www.linkedin.com/in/tom-stine-13-zebras/'
+            href='https://www.linkedin.com/in/tom13z/'
             target='_blank'
             rel='noopener noreferrer'
           >
@@ -130,7 +130,7 @@ export default function Header() {
             <GithubIcon className='inline text-2xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
           </Link>
           <Link
-            href='https://www.linkedin.com/in/tom-stine-13-zebras/'
+            href='https://www.linkedin.com/in/tom13z/'
             className='hidden xs:block'
             target='_blank'
             rel='noopener noreferrer'
