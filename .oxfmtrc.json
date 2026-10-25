@@ -13,7 +13,7 @@
   "endOfLine": "lf",
   "sortImports": true,
   "sortTailwindcss": {
-    "config": "tailwind.config.ts"
+    "stylesheet": "src/styles/globals.css"
   },
   "ignorePatterns": [
     "node_modules/",

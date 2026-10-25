@@ -63,8 +63,8 @@ export default function ContactForm() {
   }
 
   return (
-    <main className='flex h-screen w-full max-w-xl animate-fade-in-100 flex-col items-center justify-start overflow-y-auto overflow-x-hidden px-[8vw] pb-12 pt-14 xs:px-10 md:pt-24 lg:pt-[max(6rem,9vh)]'>
-      <h1 className='z-10 animate-fade-in-075 pb-6 font-mono text-[1.35rem] uppercase tracking-wide2 text-zinc-400 xs:text-2xl xs:tracking-wide4 sm:pb-10 sm:tracking-wide6'>
+    <main className='flex h-screen w-full max-w-xl animate-fade-in-100 flex-col items-center justify-start overflow-x-hidden overflow-y-auto px-[8vw] pt-14 pb-12 xs:px-10 md:pt-24 lg:pt-[max(6rem,9vh)]'>
+      <h1 className='z-10 animate-fade-in-075 pb-6 font-mono text-[1.35rem] tracking-wide2 text-zinc-400 uppercase xs:text-2xl xs:tracking-wide4 sm:pb-10 sm:tracking-wide6'>
         contact tom
       </h1>
       <div className='flex w-full flex-col items-center justify-start'>
@@ -73,7 +73,7 @@ export default function ContactForm() {
             <label htmlFor='fullName' className='mb-2 inline text-sm text-gray-300'>
               Your Full Name:
             </label>
-            {missingFields[0] && <span className='ml-2 text-sm italic text-red-600'>*name is required</span>}
+            {missingFields[0] && <span className='ml-2 text-sm text-red-600 italic'>*name is required</span>}
             <input
               ref={nameRef}
               type='text'
@@ -82,14 +82,14 @@ export default function ContactForm() {
               onChange={(e) => {
                 setName(e.target.value)
               }}
-              className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 px-3 py-2 text-base text-gray-200 outline-none placeholder:text-base placeholder:italic placeholder:text-gray-400 focus:border-teal-700 focus:shadow-md'
+              className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 px-3 py-2 text-base text-gray-200 outline-hidden placeholder:text-base placeholder:text-gray-400 placeholder:italic focus:border-teal-700 focus:shadow-md'
             />
           </div>
           <div className='w-full'>
             <label htmlFor='email' className='inline text-sm text-gray-300'>
               Your Email Address:
             </label>
-            {missingFields[1] && <span className='ml-2 text-sm italic text-red-600'>*email address is required</span>}
+            {missingFields[1] && <span className='ml-2 text-sm text-red-600 italic'>*email address is required</span>}
             <input
               ref={emailRef}
               type='email'
@@ -98,14 +98,14 @@ export default function ContactForm() {
               onChange={(e) => {
                 setEmail(e.target.value)
               }}
-              className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 px-3 py-2 text-base text-gray-200 outline-none placeholder:text-base placeholder:italic placeholder:text-gray-400 focus:border-teal-700 focus:shadow-md'
+              className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 px-3 py-2 text-base text-gray-200 outline-hidden placeholder:text-base placeholder:text-gray-400 placeholder:italic focus:border-teal-700 focus:shadow-md'
             />
           </div>
           <div className='w-full'>
             <label htmlFor='message' className='mb-2 inline text-sm text-gray-300'>
               Your Message:
             </label>
-            {missingFields[2] && <span className='ml-2 text-sm italic text-red-600'>*message is required</span>}
+            {missingFields[2] && <span className='ml-2 text-sm text-red-600 italic'>*message is required</span>}
             <textarea
               ref={textareaRef}
               rows={6}
@@ -114,7 +114,7 @@ export default function ContactForm() {
               onChange={(e) => {
                 setMessage(e.target.value)
               }}
-              className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 px-3 py-2 text-base text-gray-200 outline-none placeholder:text-base placeholder:italic placeholder:text-gray-400 focus:border-teal-700 focus:shadow-md'
+              className='mt-2 w-full rounded-md border border-gray-600 bg-gray-900 px-3 py-2 text-base text-gray-200 outline-hidden placeholder:text-base placeholder:text-gray-400 placeholder:italic focus:border-teal-700 focus:shadow-md'
             />
           </div>
 
