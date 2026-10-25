@@ -23,7 +23,7 @@ pnpm fix          # Run lint:fix + format
 
 ## Architecture
 
-This is a portfolio website built with React 19, TypeScript 7 (tsgo), and TailwindCSS.
+This is a portfolio website built with React 19, TypeScript 7 (tsgo), and Tailwind CSS 4. The Tailwind theme lives in `src/styles/globals.css` (`@theme`), loaded by `@tailwindcss/vite`; there is no `tailwind.config`.
 
 **Migration in progress:** moving from Next.js 16 (Railway) to TanStack Start on Cloudflare Workers. Work happens on step branches merged into `migrate/cloudflare`; `main` still deploys the Next.js site to Railway. `vite.config.ts` and `wrangler.jsonc` are at the root. Every page is prerendered at build time; the build starts a local workerd preview server to do it, so it needs to bind a local port.
 

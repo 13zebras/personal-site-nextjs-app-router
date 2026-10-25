@@ -65,7 +65,7 @@ export default function Modal(props: ModalType) {
   return (
     <div
       id='modal'
-      className='fixed z-40 flex h-screen w-screen items-center justify-center overscroll-none bg-black/90 backdrop-blur-sm'
+      className='fixed z-40 flex h-screen w-screen items-center justify-center overscroll-none bg-black/90 backdrop-blur-xs'
       style={fadeModal ? fadeModalStyle : {}}
     >
       <div
@@ -83,13 +83,13 @@ export default function Modal(props: ModalType) {
           className='relative z-50 flex h-full w-full flex-col items-center justify-center border-gray-700 bg-gray-920 pb-7 md:max-h-[800px] md:max-w-[620px] md:justify-start md:rounded-lg md:border-2 h800:md:aspect-[4/5] md:h800:max-w-[720px]'
         >
           <div
-            className='absolute right-[5px] top-[3px] z-50 xs:right-[8px] sm:right-[10px] sm:top-[8px] md:top-[6px]'
+            className='absolute top-[3px] right-[5px] z-50 xs:right-[8px] sm:top-[8px] sm:right-[10px] md:top-[6px]'
             onClick={handleCloseClick}
             onKeyDown={handleCloseClick}
           >
             <CloseThickIcon className='inline text-lg leading-none text-zinc-400 hover:text-zinc-200 active:text-sky-400 sm:text-xl' />
           </div>
-          <div className='h-fit overflow-y-auto overflow-x-hidden md:h-full'>
+          <div className='h-fit overflow-x-hidden overflow-y-auto md:h-full'>
             {/*
              ************* MODAL TOP  **************
              */}
@@ -121,7 +121,7 @@ export default function Modal(props: ModalType) {
             >
               <div
                 id='modalName'
-                className='flex h-auto items-center justify-center pb-7 text-center font-mono text-2xl uppercase tracking-wide1 text-zinc-400 md:tracking-wide15'
+                className='flex h-auto items-center justify-center pb-7 text-center font-mono text-2xl tracking-wide1 text-zinc-400 uppercase md:tracking-wide15'
               >
                 {project.url && (
                   <div className='flex gap-[6px]'>
@@ -171,7 +171,7 @@ export default function Modal(props: ModalType) {
 
                 {project.company && project.companyUrl && (
                   <div className='flex gap-2'>
-                    <span className='pr-1 italic text-zinc-400'>Developed for:</span>
+                    <span className='pr-1 text-zinc-400 italic'>Developed for:</span>
                     <a
                       href={project.companyUrl}
                       className='font-semibold text-sky-400 hover:text-sky-300 hover:underline active:text-sky-500'
@@ -186,7 +186,7 @@ export default function Modal(props: ModalType) {
 
                 {project.company && !project.companyUrl && (
                   <div className='flex gap-3'>
-                    <span className='italic text-zinc-400'>Developed for:</span>
+                    <span className='text-zinc-400 italic'>Developed for:</span>
                     <span className='font-semibold text-zinc-300'>{project.company}</span>
                   </div>
                 )}

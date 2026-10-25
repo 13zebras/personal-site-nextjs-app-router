@@ -42,10 +42,10 @@ export default function Header() {
         </span>
         <div
           style={isNavOpen ? openStyle : closeStyle}
-          className='absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-evenly bg-black/95 pb-[10vh] pt-[6vh] tracking-wide2 backdrop-blur-sm transition-all duration-[350ms]'
+          className='absolute top-0 left-0 flex h-screen w-full flex-col items-center justify-evenly bg-black/95 pt-[6vh] pb-[10vh] tracking-wide2 backdrop-blur-xs transition-all duration-[350ms]'
         >
           <div
-            className='absolute left-0 top-0 p-5'
+            className='absolute top-0 left-0 p-5'
             onClick={() => setIsNavOpen(false)}
             onKeyUp={() => setIsNavOpen(false)}
           >
@@ -60,26 +60,26 @@ export default function Header() {
               )
             }
             return (
-              <span key={name} className='text-lg font-bold uppercase text-zinc-500'>
+              <span key={name} className='text-lg font-bold text-zinc-500 uppercase'>
                 {name}
               </span>
             )
           })}
 
           <MobileTextLink href='https://bsky.app/profile/tomstine.dev'>
-            <BlueskyIcon className='mb-1 mr-3 inline text-[1.7rem] text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
+            <BlueskyIcon className='mr-3 mb-1 inline text-[1.7rem] text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
             Bluesky
           </MobileTextLink>
           <MobileTextLink href='https://github.com/13zebras'>
-            <GithubIcon className='mb-1 mr-3 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
+            <GithubIcon className='mr-3 mb-1 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
             Github
           </MobileTextLink>
           <MobileTextLink href='https://www.linkedin.com/in/tom13z/'>
-            <LinkedinIcon className='mb-1 mr-3 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
+            <LinkedinIcon className='mr-3 mb-1 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
             LinkedIn
           </MobileTextLink>
           <MobileTextLink to='/contact'>
-            <EnvelopeIcon className='mb-1 mr-3 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
+            <EnvelopeIcon className='mr-3 mb-1 inline text-3xl text-zinc-400 hover:text-zinc-200 active:text-sky-400' />
             Contact
           </MobileTextLink>
         </div>
@@ -100,7 +100,7 @@ export default function Header() {
               <Link
                 to={path}
                 key={name}
-                className='text-sm font-semibold uppercase tracking-wide0 text-zinc-400 hover:text-zinc-200 active:text-sky-400'
+                className='text-sm font-semibold tracking-wide0 text-zinc-400 uppercase hover:text-zinc-200 active:text-sky-400'
               >
                 {name}
               </Link>
@@ -109,7 +109,7 @@ export default function Header() {
           return (
             <span
               key={name}
-              className='border-b border-sky-300/80 text-sm font-semibold uppercase tracking-wide0 text-zinc-350 hover:text-zinc-450'
+              className='border-b border-sky-300/80 text-sm font-semibold tracking-wide0 text-zinc-350 uppercase hover:text-zinc-450'
             >
               {name}
             </span>

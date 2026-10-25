@@ -49,14 +49,14 @@ export default function FlipCard({ index, animationDelay, ...project }: Project)
                 className='rounded-md border border-zinc-800'
                 alt={project.name}
               />
-              <div className='flex h-[50px] min-h-[50px] w-full items-center justify-center px-6 text-center text-base font-semibold leading-snug text-zinc-200'>
+              <div className='flex h-[50px] min-h-[50px] w-full items-center justify-center px-6 text-center text-base leading-snug font-semibold text-zinc-200'>
                 {project.name}
               </div>
             </div>
           </div>
           <div
             id='flipBack'
-            className='absolute flex h-full w-full flex-col items-center justify-start rounded-lg border-2 border-slate-600 bg-slate-920 px-6 py-4 text-left text-sm leading-snug tracking-wide0 text-zinc-300 [backface-visibility:hidden] [transform:rotateY(180deg)] md:px-5 md:py-4'
+            className='absolute flex h-full w-full [transform:rotateY(180deg)] flex-col items-center justify-start rounded-lg border-2 border-slate-600 bg-slate-920 px-6 py-4 text-left text-sm leading-snug tracking-wide0 text-zinc-300 [backface-visibility:hidden] md:px-5 md:py-4'
           >
             <p className='m-0 py-0'>{project.summary}</p>
 
