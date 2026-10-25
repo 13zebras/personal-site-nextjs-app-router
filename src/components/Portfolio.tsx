@@ -22,17 +22,21 @@ function createRandomArray(arrayLength: number): number[] {
 }
 
 const Portfolio: React.FC<ProjectProps> = ({ allProjects }) => {
-  const [viewportWidth, setViewportWidth] = useState(0)
-
-  const allProjectsLength = allProjects.length
-  const projectSequence = createRandomArray(allProjectsLength)
+  // Each card's animation delay in ms, or null until the page runs in the browser. The cards stay paused (hidden)
+  // until then, because a random order computed while prerendering would not match the one the browser computes.
+  const [delays, setDelays] = useState<number[] | null>(null)
+  const projectCount = allProjects.length
 
   useEffect(() => {
-    const updateViewportWH = () => {
-      setViewportWidth(window.innerWidth)
-    }
-    updateViewportWH()
-  }, [])
+    // Start the reveal on the next frame, once the page has hydrated.
+    // Wide screens reveal the cards in a random order; narrow (single-column) screens go top to bottom.
+    const frame = requestAnimationFrame(() => {
+      const order =
+        window.innerWidth >= 884 ? createRandomArray(projectCount) : Array.from({ length: projectCount }, (_, i) => i)
+      setDelays(order.map((position) => position * 250))
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [projectCount])
 
   return (
     <main className='flex h-screen w-full flex-col items-center justify-start overflow-hidden px-0 pt-14 md:pt-24 lg:pt-[max(6rem,9vh)]'>
@@ -42,13 +46,7 @@ const Portfolio: React.FC<ProjectProps> = ({ allProjects }) => {
       <div className='flex h-fit w-full justify-center overflow-y-auto overflow-x-hidden pb-14 pt-2 xs:pt-4 sm:pt-10'>
         <div className='z-20 flex h-fit w-full max-w-7xl flex-wrap items-start justify-center gap-5 px-4 xs:px-6 md:px-8 lg:px-12'>
           {allProjects.map((project: Project, index) => (
-            <FlipCard
-              key={project.name}
-              index={index}
-              viewportWidth={viewportWidth}
-              sequence={projectSequence[index]}
-              {...project}
-            />
+            <FlipCard key={project.name} index={index} animationDelay={delays?.[index]} {...project} />
           ))}
         </div>
       </div>

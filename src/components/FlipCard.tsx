@@ -7,7 +7,7 @@ import { blurPlaceholder, imageSrc } from '@/utils/images'
 import Button from './Button'
 import Modal from './Modal'
 
-export default function FlipCard({ index, sequence, viewportWidth, ...project }: Project) {
+export default function FlipCard({ index, animationDelay, ...project }: Project) {
   const [showModal, setShowModal] = useState(false)
 
   if (index === undefined) return
@@ -18,17 +18,14 @@ export default function FlipCard({ index, sequence, viewportWidth, ...project }:
 
   const duration = 1200
 
-  const delayBySequence = sequence ? sequence * 250 : Math.trunc(Math.random() * 2500 + 250)
-  const delayByIndex = index * 250
-
-  const delayTime = viewportWidth && viewportWidth >= 884 ? delayBySequence : delayByIndex
-
   const randomStyle = {
     animationName: 'movingDiv',
     animationDuration: `${duration}ms`,
     animationFillMode: 'both',
     animationTimingFunction: 'cubic-bezier(0, 0, 0.6, 1)',
-    animationDelay: `${delayTime}ms`,
+    animationDelay: `${animationDelay ?? 0}ms`,
+    // Paused on the hidden first frame until Portfolio picks the delays in the browser.
+    animationPlayState: animationDelay === undefined ? 'paused' : 'running',
   }
 
   return (

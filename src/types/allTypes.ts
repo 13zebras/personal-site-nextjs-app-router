@@ -4,8 +4,7 @@ export type RoutePath = keyof FileRoutesByTo
 
 export interface Project {
   index?: number
-  sequence?: number
-  viewportWidth?: number
+  animationDelay?: number
   name: string
   url: string
   summary: string
