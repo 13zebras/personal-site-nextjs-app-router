@@ -25,7 +25,7 @@ pnpm fix          # Run lint:fix + format
 
 This is a portfolio website built with React 19, TypeScript 7 (tsgo), and Tailwind CSS 4. The Tailwind theme lives in `src/styles/globals.css` (`@theme`), loaded by `@tailwindcss/vite`; there is no `tailwind.config`.
 
-**Migration in progress:** moving from Next.js 16 (Railway) to TanStack Start on Cloudflare Workers. Work happens on step branches merged into `migrate/cloudflare`; `main` still deploys the Next.js site to Railway. `vite.config.ts` and `wrangler.jsonc` are at the root. Every page is prerendered at build time; the build starts a local workerd preview server to do it, so it needs to bind a local port.
+Built with TanStack Start and deployed to Cloudflare Workers (Worker `portfolio`, domain `13z.dev`). Workers Builds deploys every push to `main`: build command `pnpm build`, deploy command `npx wrangler deploy`. `packageManager` in `package.json` pins the pnpm version the build uses. `vite.config.ts` and `wrangler.jsonc` are at the root. Every page is prerendered at build time; the build starts a local workerd preview server to do it, so it needs to bind a local port.
 
 ### Project Structure
 
@@ -59,6 +59,8 @@ magick source.jpg -strip -resize 24x -quality 50 public/images/portfolio/<key>-b
 Client-side values must start with `VITE_` and are read with `import.meta.env` (typed in `src/env.d.ts`):
 
 - `VITE_TURNSTILE_SITE_KEY`
+
+`VITE_` values are baked in at build time, so in production they are Workers Builds **build variables**, not runtime variables.
 
 Server-side secrets for the contact form API (Cloudflare secrets in production):
 
