@@ -4,6 +4,12 @@
   "compatibility_date": "2026-10-19",
   "main": "@tanstack/react-start/server-entry",
   "observability": { "enabled": true },
+  // Spending guardrails. Pages use under 150 ms CPU; the contact form makes 2 subrequests.
+  "limits": { "cpu_ms": 1000, "subrequests": 20 },
+  // Serve only on 13z.dev, which the zone WAF and rate limiting protect.
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "13z.dev", "custom_domain": true }],
   // Contact form addresses (not secret). Secrets RESEND_API_KEY and TURNSTILE_SECRET_KEY are set in Cloudflare,
   // and locally in .env.local.
   "vars": {
